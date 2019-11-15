@@ -1,0 +1,32 @@
+div {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  align-items: center;
+}
+
+div div {
+  position: relative;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+}
+
+div div:before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  top: -6px;
+  background-color: white;
+}
+
+div div:after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  top: 6px;
+  background-color: white;
+}
