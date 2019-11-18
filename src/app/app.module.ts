@@ -6,9 +6,11 @@ import { AppComponent } from "./app.component";
 import { NavigationbarComponent } from "./components/navigationbar/navigationbar.component";
 import { HamburgerIconComponent } from "./components/hamburger-icon/hamburger-icon.component";
 
+import {StoreModule} from '@ngrx/store';
+
 @NgModule({
   declarations: [AppComponent, NavigationbarComponent, HamburgerIconComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, StoreModule],
   providers: [],
   bootstrap: [AppComponent]
 })
