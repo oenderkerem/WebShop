@@ -1,13 +1,13 @@
 <div id="wrapper">
   <app-hamburger-icon (click)="onHamburgerIconClick()"></app-hamburger-icon>
   <div id="Logo">E99-EsAns</div>
-  <ul>
+  <ul [ngClass]="{ visible: hamburgerClicked$ | async }">
     <li>Damendüfte</li>
     <li>Herrendüfte</li>
     <li>Unisex</li>
     <li>About</li>
   </ul>
   <div id="IconShoppingCart">
-    <img src="img/svg/shoppingCart.svg" />
+    <!--<img src="img/svg/shoppingCart.svg" />-->
   </div>
 </div>

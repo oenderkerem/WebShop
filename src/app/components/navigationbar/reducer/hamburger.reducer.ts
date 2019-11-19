@@ -1,13 +1,11 @@
-import { createReducer, on } from "@ngrx/store";
-import { toggleClicked } from "../actions/hamburger.actions";
+import { Action } from "@ngrx/store";
 
-export const initialState = false;
+export function hamburgerReducer(state: boolean = false, action: Action) {
+  switch (action.type) {
+    case "TOGGLE":
+      return (state = !state);
 
-const _toggleReducer = createReducer(
-  initialState,
-  on(toggleClicked, state => !state)
-);
-
-export function hamburgerReducer(state, action) {
-  return _toggleReducer(state, action);
+    default:
+      return state;
+  }
 }

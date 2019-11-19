@@ -1,7 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { Store, select } from "@ngrx/store";
+import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { toggleClicked } from "./actions/hamburger.actions";
+
+interface AppState {
+  hamburgerClicked: boolean;
+}
 
 @Component({
   selector: "app-navigationbar",
@@ -9,17 +12,15 @@ import { toggleClicked } from "./actions/hamburger.actions";
   styleUrls: ["./navigationbar.component.css"]
 })
 export class NavigationbarComponent implements OnInit {
-  isHamburgerClicked$: Observable<boolean>;
+  hamburgerClicked$: Observable<boolean>;
 
-  constructor(private store: Store<{ isHamburgerClicked: boolean }>) {
-    this.isHamburgerClicked$ = store.pipe(select("isHamburgerClicked"));
+  constructor(private store: Store<AppState>) {
+    this.hamburgerClicked$ = this.store.select("hamburgerClicked");
   }
 
   ngOnInit() {}
 
   onHamburgerIconClick() {
-    console.log("hamburgerMode", this.isHamburgerClicked$);
-    this.store.dispatch(toggleClicked());
-    console.log(this.store);
+    this.store.dispatch({ type: "TOGGLE" });
   }
 }
