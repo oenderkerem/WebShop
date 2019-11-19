@@ -6,6 +6,8 @@ export function hamburgerReducer(state: boolean = false, action: Action) {
       return (state = !state);
     case "CLOSE":
       return (state = false);
+    case "OPEN":
+      return (state = true);
     default:
       return state;
   }
