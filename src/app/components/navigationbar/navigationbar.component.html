@@ -1,11 +1,11 @@
 <div id="wrapper">
   <app-hamburger-icon (click)="onHamburgerIconClick()"></app-hamburger-icon>
-  <div id="Logo">E99-EsAns</div>
+  <div id="Logo"><a (click)="onLinkClick()" routerLink="/">E99-EsAns</a></div>
   <ul [ngClass]="{ visible: hamburgerClicked$ | async }">
-    <li>Damendüfte</li>
-    <li>Herrendüfte</li>
-    <li>Unisex</li>
-    <li>About</li>
+    <li (click)="onLinkClick()"><a routerLink="/women">Damendüfte</a></li>
+    <li (click)="onLinkClick()"><a routerLink="/men">Herrendüfte</a></li>
+    <li (click)="onLinkClick()"><a routerLink="/unisex">Unisex</a></li>
+    <li (click)="onLinkClick()"><a routerLink="/about">About</a></li>
   </ul>
   <div id="IconShoppingCart">
     <!--<img src="img/svg/shoppingCart.svg" />-->

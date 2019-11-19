@@ -8,9 +8,14 @@ import { HamburgerIconComponent } from "./components/hamburger-icon/hamburger-ic
 
 import { StoreModule } from "@ngrx/store";
 import { hamburgerReducer } from "./components/navigationbar/reducer/hamburger.reducer";
+import { HomeComponent } from './components/home/home.component';
+import { MenComponent } from './components/men/men.component';
+import { WomenComponent } from './components/women/women.component';
+import { UnisexComponent } from './components/unisex/unisex.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
-  declarations: [AppComponent, NavigationbarComponent, HamburgerIconComponent],
+  declarations: [AppComponent, NavigationbarComponent, HamburgerIconComponent, HomeComponent, MenComponent, WomenComponent, UnisexComponent, AboutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

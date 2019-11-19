@@ -6,3 +6,8 @@ app-navigationbar {
   height: 50px;
   border-bottom: solid 1px black;
 }
+
+router-outlet {
+  display: block;
+  margin-top: 50px;
+}

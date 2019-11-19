@@ -23,4 +23,8 @@ export class NavigationbarComponent implements OnInit {
   onHamburgerIconClick() {
     this.store.dispatch({ type: "TOGGLE" });
   }
+
+  onLinkClick() {
+    this.store.dispatch({ type: "CLOSE" });
+  }
 }
