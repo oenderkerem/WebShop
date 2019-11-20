@@ -13,9 +13,10 @@ import { MenComponent } from './components/men/men.component';
 import { WomenComponent } from './components/women/women.component';
 import { UnisexComponent } from './components/unisex/unisex.component';
 import { AboutComponent } from './components/about/about.component';
+import { FragrancesComponent } from './components/fragrances/fragrances.component';
 
 @NgModule({
-  declarations: [AppComponent, NavigationbarComponent, HamburgerIconComponent, HomeComponent, MenComponent, WomenComponent, UnisexComponent, AboutComponent],
+  declarations: [AppComponent, NavigationbarComponent, HamburgerIconComponent, HomeComponent, MenComponent, WomenComponent, UnisexComponent, AboutComponent, FragrancesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

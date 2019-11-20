@@ -3,11 +3,12 @@ app-navigationbar {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 50px;
-  border-bottom: solid 1px black;
+  height: 70px;
+  background-color: rgba(41, 39, 39, 0.295);
+  color: rgb(173, 173, 173);
+  z-index: 1;
 }
 
 router-outlet {
   display: block;
-  margin-top: 50px;
 }
