@@ -21,7 +21,11 @@ ul li {
 a {
   text-decoration: none;
   color: inherit;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+}
+
+a:hover {
+  color: white;
 }
 
 @media only screen and (max-width: 600px) {
@@ -32,12 +36,14 @@ a {
   ul {
     display: block;
     position: fixed;
-    top: 70px;
+    top: 60px;
     padding: 15px;
     height: 100vh;
     width: 100vw;
     left: -100%;
     transition: all 0.3s ease-in-out;
+    background-color: rgba(43, 41, 41, 0.781);
+    color: rgba(201, 196, 196);
   }
 
   ul.visible {

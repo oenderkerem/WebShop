@@ -1,3 +1,7 @@
+* {
+  color: rgb(41, 40, 40);
+}
+
 #poster {
   position: relative;
   height: 100vh;
@@ -15,12 +19,12 @@
 
 #orderSign {
   position: absolute;
-  bottom: 18vh;
-  left: 12vw;
+  top: 25vh;
+  left: 10vw;
   display: inline-block;
   color: rgb(165, 165, 165);
   background-color: rgba(31, 30, 30, 0.596);
-  font-size: 2rem;
+  font-size: 1.5rem;
   border-radius: 20px;
   border: solid 1px;
   max-width: 300px;
@@ -29,4 +33,80 @@
 
 #orderSign:hover {
   background-color: rgba(0, 0, 0, 0.4);
+  color: rgb(204, 194, 194);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.contentWrapper {
+  min-height: 100vh;
+  background-color: rgba(231, 228, 223, 0.842);
+  text-align: center;
+}
+
+.content {
+  margin: 100px 0;
+  max-width: 70vw;
+  display: inline-block;
+  padding: 50px;
+  font-size: 1rem;
+  border-radius: 20px;
+  box-shadow: 0px 0px 16px 11px rgba(0, 0, 0, 0.57);
+  background-color: rgba(168, 163, 154, 0.822);
+  text-align: center;
+}
+
+.pWrapper {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.76);
+}
+
+p {
+  font-size: 1.1rem;
+  padding: 10px;
+  text-align: center;
+}
+
+.signature {
+  font-size: 2rem;
+}
+
+#socialMediaContainer {
+  background-image: url(../../../assets/img/socialMediaBackground.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  display: grid;
+  align-content: center;
+}
+
+#socialMediaContainer div {
+  padding: 50px;
+}
+
+#socialMediaContainer h1 {
+  color: rgb(204, 201, 201);
+}
+
+#socialMediaIcons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#socialMediaIcons img {
+  display: inline-block;
+  background-color: rgb(204, 201, 201);
+  padding: 15px;
+  border-radius: 20px;
+  margin: 15px;
+}
+
+#socialMediaIcons img:hover {
+  background-color: white;
 }
