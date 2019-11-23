@@ -11,3 +11,9 @@
   font-family: "Parisienne", cursive;
   font-size: 1.5rem;
 }
+
+:root {
+  --navigationBackGroundColor: rgb(71, 68, 68);
+  --navigationColor: #00b;
+  --navigationHeight: 60px;
+}

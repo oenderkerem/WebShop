@@ -8,18 +8,32 @@ import { HamburgerIconComponent } from "./components/hamburger-icon/hamburger-ic
 
 import { StoreModule } from "@ngrx/store";
 import { hamburgerReducer } from "./components/navigationbar/reducer/hamburger.reducer";
-import { HomeComponent } from './components/home/home.component';
-import { MenComponent } from './components/men/men.component';
-import { WomenComponent } from './components/women/women.component';
-import { UnisexComponent } from './components/unisex/unisex.component';
-import { AboutComponent } from './components/about/about.component';
-import { FragrancesComponent } from './components/fragrances/fragrances.component';
+import { HomeComponent } from "./components/home/home.component";
+import { MenComponent } from "./components/men/men.component";
+import { WomenComponent } from "./components/women/women.component";
+import { UnisexComponent } from "./components/unisex/unisex.component";
+import { AboutComponent } from "./components/about/about.component";
+import { FragrancesComponent } from "./components/fragrances/fragrances.component";
+import { FooterComponent } from "./components/footer/footer.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
-  declarations: [AppComponent, NavigationbarComponent, HamburgerIconComponent, HomeComponent, MenComponent, WomenComponent, UnisexComponent, AboutComponent, FragrancesComponent],
+  declarations: [
+    AppComponent,
+    NavigationbarComponent,
+    HamburgerIconComponent,
+    HomeComponent,
+    MenComponent,
+    WomenComponent,
+    UnisexComponent,
+    AboutComponent,
+    FragrancesComponent,
+    FooterComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot({ hamburgerClicked: hamburgerReducer })
   ],
   providers: [],

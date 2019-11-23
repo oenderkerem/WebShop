@@ -6,7 +6,7 @@
   position: relative;
   height: 100vh;
   width: 100vw;
-  background-image: url(../../../assets/img/fragrance.jpg);
+  background-image: url(../../../assets/img/fragranceBottle.jpg);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -19,11 +19,11 @@
 
 #orderSign {
   position: absolute;
-  top: 25vh;
+  top: 50vh;
   left: 10vw;
   display: inline-block;
   color: rgb(165, 165, 165);
-  background-color: rgba(31, 30, 30, 0.596);
+  background-color: rgba(148, 142, 142);
   font-size: 1.5rem;
   border-radius: 20px;
   border: solid 1px;
@@ -45,6 +45,10 @@ h1 {
   min-height: 100vh;
   background-color: rgba(231, 228, 223, 0.842);
   text-align: center;
+}
+
+.contentWrapper:first-child {
+  padding-top: 100px;
 }
 
 .content {
@@ -86,7 +90,7 @@ p {
 }
 
 #socialMediaContainer div {
-  padding: 50px;
+  padding: 60px;
 }
 
 #socialMediaContainer h1 {
@@ -101,12 +105,13 @@ p {
 
 #socialMediaIcons img {
   display: inline-block;
-  background-color: rgb(204, 201, 201);
   padding: 15px;
-  border-radius: 20px;
   margin: 15px;
+  max-width: 100px;
+  background-color: rgba(255, 255, 255, 0.637);
+  border-radius: 20px;
 }
 
 #socialMediaIcons img:hover {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.704);
 }
