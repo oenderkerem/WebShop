@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Recommendation } from "../../models/Recommendation";
 
 @Component({
   selector: "app-home",
@@ -7,10 +8,12 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
+  recommendations: Recommendation[];
+
   constructor(private http: HttpClient) {
     this.http
-      .get("http://127.0.0.1:5500/userComments.json")
-      .subscribe(data => console.log(data));
+      .get("assets/userComments.json")
+      .subscribe(data => console.log("new data", data));
   }
 
   ngOnInit() {}
