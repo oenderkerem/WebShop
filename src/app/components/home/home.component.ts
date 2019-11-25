@@ -13,8 +13,13 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient) {
     this.http
       .get("assets/userComments.json")
-      .subscribe(data => console.log("new data", data));
+      .subscribe(data => this.mapRecommendations(data));
   }
 
   ngOnInit() {}
+
+  mapRecommendations = function(objects: Object) {
+    this.recommendations = objects as Recommendation[];
+    console.log("recommendations", this.recommendations);
+  };
 }
