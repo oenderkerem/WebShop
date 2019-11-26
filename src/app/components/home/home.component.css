@@ -12,11 +12,6 @@
   background-attachment: fixed;
 }
 
-#poster a {
-  display: inline-block;
-  text-decoration: none;
-}
-
 #orderSign {
   position: absolute;
   top: 50vh;
@@ -26,7 +21,6 @@
   background-color: var(--navigationBackGroundColor);
   font-size: 1.5rem;
   border-radius: 20px;
-
   max-width: 300px;
   padding: 25px;
 }
@@ -38,6 +32,7 @@
 h1 {
   text-align: center;
   font-size: 2.5rem;
+  padding: 20px;
 }
 
 .contentWrapper {
@@ -103,8 +98,6 @@ p {
 }
 
 #socialMediaIcons a {
-  text-decoration: none;
-  display: inline-block;
   margin: 15px;
 }
 
@@ -123,4 +116,42 @@ p {
 app-footer {
   display: block;
   background-color: var(--navigationBackGroundColor);
+}
+
+.customerCommentContainer {
+  position: relative;
+  perspective: 100px;
+  perspective-origin: 50% 0%;
+}
+
+app-customer-comment {
+  padding: 20px;
+  display: block;
+  position: absolute;
+  min-height: 100px;
+  max-height: 180px;
+  max-width: 25vw;
+  left: 50%;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.57);
+  background-color: white;
+}
+
+app-customer-comment:not(:first-child) {
+  opacity: 1;
+}
+
+app-customer-comment.first {
+  transform: translate3d(-50%, 50%, 50px);
+  z-index: 4;
+}
+
+app-customer-comment.second {
+  transform: translate3d(40%, 75%, 35px);
+  z-index: 3;
+}
+
+app-customer-comment.third {
+  transform: translate3d(-140%, 75%, 35px);
+  z-index: 1;
 }

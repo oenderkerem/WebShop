@@ -19,3 +19,8 @@
   --socialMediaStickerBackGroundColor: rgba(255, 255, 255, 0.637);
   --socialMediaStickerBackGroundColorOnHover: rgba(255, 255, 255, 0.747);
 }
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}

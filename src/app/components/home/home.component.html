@@ -29,34 +29,56 @@
     </div>
   </div>
 </div>
-<div class="contentWrapper">
+<div class="contentWrapper recommendationsWrapper">
   <h1>Recommendations</h1>
-  <div *ngFor="let recommendation of recommendations">
-    {{ recommendation.site }}
-    {{ recommendation.comment }}
-  </div>
-  <div class="contentWrapper" id="socialMediaContainer">
-    <div>
-      <h1>Finde uns auf ...</h1>
-      <div id="socialMediaIcons">
-        <a target="_blank" href="www.google.com"
-          ><img
-            src="../../../assets/img/icons/iconfinder_Colored_Facebook3_svg_5365678.svg"
-        /></a>
-        <a
-          ><img
-            src="../../../assets/img/icons/iconfinder_1_Instagram_colored_svg_1_5296765.svg"
-        /></a>
-        <a target="_blank" href="//api.whatsapp.com/send?phone=4917657842972"
-          ><img
-            src="../../../assets/img/icons/iconfinder_1_Whatsapp2_colored_svg_5296520.svg"
-        /></a>
-        <a
-          ><img
-            src="../../../assets/img/icons/iconfinder_1_Youtube_colored_svg_5296521.svg"
-        /></a>
-      </div>
+  <div class="customerCommentContainer">
+    <div *ngIf="recommendations && recommendations[0] !== undefined">
+      <app-customer-comment
+        class="first"
+        comment=""
+        linkToSite=""
+        shortcutSite=""
+      ></app-customer-comment>
+    </div>
+    <div *ngIf="recommendations && recommendations[0] !== undefined">
+      <app-customer-comment
+        class="second"
+        comment=""
+        linkToSite=""
+        shortcutSite=""
+      ></app-customer-comment>
+    </div>
+    <div *ngIf="recommendations && recommendations[0] !== undefined">
+      <app-customer-comment
+        class="third"
+        comment=""
+        linkToSite=""
+        shortcutSite=""
+      ></app-customer-comment>
     </div>
   </div>
-  <app-footer></app-footer>
 </div>
+<div class="contentWrapper" id="socialMediaContainer">
+  <div>
+    <h1>Finde uns auf ...</h1>
+    <div id="socialMediaIcons">
+      <a target="_blank" href="https://www.google.com"
+        ><img
+          src="../../../assets/img/icons/iconfinder_Colored_Facebook3_svg_5365678.svg"
+      /></a>
+      <a
+        ><img
+          src="../../../assets/img/icons/iconfinder_1_Instagram_colored_svg_1_5296765.svg"
+      /></a>
+      <a target="_blank" href="//api.whatsapp.com/send?phone=4917657842972"
+        ><img
+          src="../../../assets/img/icons/iconfinder_1_Whatsapp2_colored_svg_5296520.svg"
+      /></a>
+      <a
+        ><img
+          src="../../../assets/img/icons/iconfinder_1_Youtube_colored_svg_5296521.svg"
+      /></a>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
