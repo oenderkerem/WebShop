@@ -1,6 +1,13 @@
-div {
-  background-color: inherit;
+a {
+  display: grid;
+  height: 70px;
   width: 70px;
-  padding: 15px;
   border-radius: 20px;
+  padding: 15px;
+  align-content: center;
+}
+
+img {
+  display: inline-block;
+  width: 100%;
 }

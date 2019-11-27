@@ -101,6 +101,7 @@ app-social-media-icon-link {
   margin: 15px;
   display: inline-block;
   background-color: var(--socialMediaStickerBackGroundColor);
+  border-radius: 20px;
 }
 
 app-social-media-icon-link:hover {
@@ -110,6 +111,8 @@ app-social-media-icon-link:hover {
 .socialMediaIconImage {
   display: inline-block;
   background-color: var(--socialMediaStickerBackGroundColor);
+  height: 50px;
+  width: 50px;
 }
 
 .socialMediaIconImage:hover {

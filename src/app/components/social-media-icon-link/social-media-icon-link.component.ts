@@ -9,13 +9,10 @@ export class SocialMediaIconLinkComponent implements OnInit {
   constructor() {}
 
   @Input() link: string;
-  @Input() assetSource: string;
-
-  imageSource: String = "../../src/assets/";
+  @Input() imageSource: string;
 
   ngOnInit() {
     //console.log(this.assetSource);
-    this.imageSource += this.assetSource;
     console.log("link to file", this.imageSource);
   }
 }
