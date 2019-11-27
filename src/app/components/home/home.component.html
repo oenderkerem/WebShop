@@ -29,31 +29,31 @@
     </div>
   </div>
 </div>
-<div class="contentWrapper recommendationsWrapper ">
+<div class="recommendationsWrapper">
   <h1>Recommendations</h1>
   <div class="customerCommentContainer">
-    <div *ngIf="recommendations && recommendations[0] !== undefined">
+    <div *ngIf="firstRecommendation && firstRecommendation !== undefined">
       <app-customer-comment
-        class="first"
-        comment=""
-        linkToSite=""
-        shortcutSite=""
+        class="first gradient-bright"
+        comment="{{ firstRecommendation.comment }}"
+        linkToSite="{{ firstRecommendation.url }}"
+        shortcutSite="{{ firstRecommendation.site }}"
       ></app-customer-comment>
     </div>
-    <div *ngIf="recommendations && recommendations[0] !== undefined">
+    <div *ngIf="secondRecommendation && secondRecommendation !== undefined">
       <app-customer-comment
-        class="second"
-        comment=""
-        linkToSite=""
-        shortcutSite=""
+        class="second gradient-bright"
+        comment="{{ secondRecommendation.comment }}"
+        linkToSite="{{ secondRecommendation.url }}"
+        shortcutSite="{{ secondRecommendation.site }}"
       ></app-customer-comment>
     </div>
-    <div *ngIf="recommendations && recommendations[0] !== undefined">
+    <div *ngIf="thirdRecommendation && thirdRecommendation !== undefined">
       <app-customer-comment
-        class="third"
-        comment=""
-        linkToSite=""
-        shortcutSite=""
+        class="third gradient-bright"
+        comment="{{ thirdRecommendation.comment }}"
+        linkToSite="{{ thirdRecommendation.url }}"
+        shortcutSite="{{ thirdRecommendation.site }}"
       ></app-customer-comment>
     </div>
   </div>

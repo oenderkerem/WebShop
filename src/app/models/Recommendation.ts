@@ -1,4 +1,5 @@
 export type Recommendation = {
   site: string;
-  commentary: string;
+  url: string;
+  comment: string;
 };
