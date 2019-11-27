@@ -16,6 +16,8 @@ import { AboutComponent } from "./components/about/about.component";
 import { FragrancesComponent } from "./components/fragrances/fragrances.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { HttpClientModule } from "@angular/common/http";
+import { CustomerCommentComponent } from './components/customer-comment/customer-comment.component';
+import { SocialMediaIconLinkComponent } from './components/social-media-icon-link/social-media-icon-link.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { HttpClientModule } from "@angular/common/http";
     UnisexComponent,
     AboutComponent,
     FragrancesComponent,
-    FooterComponent
+    FooterComponent,
+    CustomerCommentComponent,
+    SocialMediaIconLinkComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,7 @@
 # WebShop
 
+A current preview of this project is loaded from time to time to following page: 'https://determined-borg-254727.netlify.com/' and can be seen there.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.2.
 
 ## Development server

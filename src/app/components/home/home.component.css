@@ -12,11 +12,6 @@
   background-attachment: fixed;
 }
 
-#poster a {
-  display: inline-block;
-  text-decoration: none;
-}
-
 #orderSign {
   position: absolute;
   top: 50vh;
@@ -26,7 +21,6 @@
   background-color: var(--navigationBackGroundColor);
   font-size: 1.5rem;
   border-radius: 20px;
-
   max-width: 300px;
   padding: 25px;
 }
@@ -38,6 +32,7 @@
 h1 {
   text-align: center;
   font-size: 2.5rem;
+  padding: 20px;
 }
 
 .contentWrapper {
@@ -88,12 +83,8 @@ p {
   align-content: center;
 }
 
-#socialMediaContainer div {
+#socialMediaInnerContainer {
   padding: 60px;
-}
-
-#socialMediaContainer h1 {
-  color: rgb(204, 201, 201);
 }
 
 #socialMediaIcons {
@@ -102,25 +93,70 @@ p {
   justify-content: space-evenly;
 }
 
-#socialMediaIcons a {
-  text-decoration: none;
-  display: inline-block;
+.socialMediaLink {
   margin: 15px;
 }
 
-#socialMediaIcons a img {
+app-social-media-icon-link {
+  margin: 15px;
   display: inline-block;
   background-color: var(--socialMediaStickerBackGroundColor);
-  width: 70px;
-  padding: 15px;
-  border-radius: 20px;
 }
 
-#socialMediaIcons a img:hover {
+app-social-media-icon-link:hover {
+  background-color: var(--socialMediaStickerBackGroundColorOnHover);
+}
+
+.socialMediaIconImage {
+  display: inline-block;
+  background-color: var(--socialMediaStickerBackGroundColor);
+}
+
+.socialMediaIconImage:hover {
   background-color: var(--socialMediaStickerBackGroundColorOnHover);
 }
 
 app-footer {
   display: block;
   background-color: var(--navigationBackGroundColor);
+}
+
+.customerCommentContainer {
+  position: relative;
+}
+
+app-customer-comment {
+  padding: 20px;
+  display: block;
+  position: absolute;
+  min-height: 100px;
+  max-height: 180px;
+  max-width: 25vw;
+  left: 50%;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.57);
+  background-color: white;
+}
+
+app-customer-comment:not(:first-child) {
+  opacity: 1;
+}
+
+app-customer-comment.first {
+  transform: translate3d(-50%, 50%, 50px);
+  z-index: 0;
+}
+
+app-customer-comment.second {
+  transform: translate3d(40%, 75%, 35px);
+  z-index: 0;
+}
+
+app-customer-comment.third {
+  transform: translate3d(-140%, 75%, 35px);
+  z-index: 0;
+}
+
+#socialMediaContainer h1 {
+  color: rgb(204, 201, 201);
 }
