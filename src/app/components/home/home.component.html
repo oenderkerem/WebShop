@@ -29,64 +29,54 @@
     </div>
   </div>
 </div>
-<div class="contentWrapper recommendationsWrapper ">
+<div class="recommendationsWrapper">
   <h1>Recommendations</h1>
   <div class="customerCommentContainer">
-    <div *ngIf="recommendations && recommendations[0] !== undefined">
+    <div *ngIf="firstRecommendation && firstRecommendation !== undefined">
       <app-customer-comment
-        class="first"
-        comment=""
-        linkToSite=""
-        shortcutSite=""
+        class="first gradient-bright"
+        comment="{{ firstRecommendation.comment }}"
+        linkToSite="{{ firstRecommendation.url }}"
+        shortcutSite="{{ firstRecommendation.site }}"
       ></app-customer-comment>
     </div>
-    <div *ngIf="recommendations && recommendations[0] !== undefined">
+    <div *ngIf="secondRecommendation && secondRecommendation !== undefined">
       <app-customer-comment
-        class="second"
-        comment=""
-        linkToSite=""
-        shortcutSite=""
+        class="second gradient-bright"
+        comment="{{ secondRecommendation.comment }}"
+        linkToSite="{{ secondRecommendation.url }}"
+        shortcutSite="{{ secondRecommendation.site }}"
       ></app-customer-comment>
     </div>
-    <div *ngIf="recommendations && recommendations[0] !== undefined">
+    <div *ngIf="thirdRecommendation && thirdRecommendation !== undefined">
       <app-customer-comment
-        class="third"
-        comment=""
-        linkToSite=""
-        shortcutSite=""
+        class="third gradient-bright"
+        comment="{{ thirdRecommendation.comment }}"
+        linkToSite="{{ thirdRecommendation.url }}"
+        shortcutSite="{{ thirdRecommendation.site }}"
       ></app-customer-comment>
     </div>
   </div>
 </div>
-<div class="contentWrapper" id="socialMediaContainer">
-  <div id="socialMediaInnerContainer">
-    <h1>Finde uns auf ...</h1>
-    <div id="socialMediaIcons">
-      <app-social-media-icon-link
-        link="https://www.google.com"
-        assetSource="iconfinder_Colored_Facebook3_svg_5365678.svg"
-      ></app-social-media-icon-link>
-      <a class="socialMediaLink" target="_blank" href="https://www.google.com"
-        ><img
-          class="socialMediaIconImage"
-          src="../../../assets/img/icons/iconfinder_Colored_Facebook3_svg_5365678.svg"
-      /></a>
-      <a
-        ><img
-          class="socialMediaIconImage"
-          src="../../../assets/img/icons/iconfinder_1_Instagram_colored_svg_1_5296765.svg"
-      /></a>
-      <a target="_blank" href="//api.whatsapp.com/send?phone=4917657842972"
-        ><img
-          class="socialMediaIconImage"
-          src="../../../assets/img/icons/iconfinder_1_Whatsapp2_colored_svg_5296520.svg"
-      /></a>
-      <a
-        ><img
-          class="socialMediaIconImage"
-          src="../../../assets/img/icons/iconfinder_1_Youtube_colored_svg_5296521.svg"
-      /></a>
-    </div>
+<div class="contentWrapper" id="socialMediaContent">
+  <h1>Finde uns auf ...</h1>
+  <div id="socialMediaIconContainer">
+    <app-social-media-icon-link
+      link="https://www.google.com"
+      imageSource="../../../assets/img/icons/iconfinder_Colored_Facebook3_svg_5365678.svg"
+    ></app-social-media-icon-link>
+    <app-social-media-icon-link
+      link="https://www.google.com"
+      imageSource="../../../assets/img/icons/iconfinder_1_Instagram_colored_svg_1_5296765.svg"
+    ></app-social-media-icon-link>
+    <app-social-media-icon-link
+      link="//api.whatsapp.com/send?phone=4917657842972"
+      imageSource="../../../assets/img/icons/iconfinder_1_Whatsapp2_colored_svg_5296520.svg"
+    ></app-social-media-icon-link>
+    <app-social-media-icon-link
+      link="https://www.google.com"
+      imageSource="../../../assets/img/icons/iconfinder_1_Youtube_colored_svg_5296521.svg"
+    ></app-social-media-icon-link>
   </div>
 </div>
 <app-footer></app-footer>

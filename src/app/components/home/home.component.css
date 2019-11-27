@@ -32,7 +32,8 @@
 h1 {
   text-align: center;
   font-size: 2.5rem;
-  padding: 20px;
+  padding: 30px;
+  color: var(--navigationBackGroundColor);
 }
 
 .contentWrapper {
@@ -74,7 +75,7 @@ p {
   font-size: 2rem;
 }
 
-#socialMediaContainer {
+#socialMediaContent {
   background-image: url(../../../assets/img/socialMediaBackground.jpg);
   background-size: cover;
   background-attachment: fixed;
@@ -83,36 +84,21 @@ p {
   align-content: center;
 }
 
-#socialMediaInnerContainer {
-  padding: 60px;
-}
-
-#socialMediaIcons {
+#socialMediaIconContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-}
-
-.socialMediaLink {
-  margin: 15px;
+  padding: 50px;
 }
 
 app-social-media-icon-link {
   margin: 15px;
   display: inline-block;
   background-color: var(--socialMediaStickerBackGroundColor);
+  border-radius: 20px;
 }
 
 app-social-media-icon-link:hover {
-  background-color: var(--socialMediaStickerBackGroundColorOnHover);
-}
-
-.socialMediaIconImage {
-  display: inline-block;
-  background-color: var(--socialMediaStickerBackGroundColor);
-}
-
-.socialMediaIconImage:hover {
   background-color: var(--socialMediaStickerBackGroundColorOnHover);
 }
 
@@ -123,40 +109,42 @@ app-footer {
 
 .customerCommentContainer {
   position: relative;
+  height: 350px;
 }
 
 app-customer-comment {
-  padding: 20px;
-  display: block;
+  height: 250px;
+  width: 600px;
+  max-width: 70%;
+  display: inline-block;
+  border-radius: 25px;
   position: absolute;
-  min-height: 100px;
-  max-height: 180px;
-  max-width: 25vw;
-  left: 50%;
-  border-radius: 20px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.57);
-  background-color: white;
-}
-
-app-customer-comment:not(:first-child) {
-  opacity: 1;
+  background-color: var(--navigationBackGroundColor);
+  top: 40%;
+  transform: translate(-50%, -50%);
 }
 
 app-customer-comment.first {
-  transform: translate3d(-50%, 50%, 50px);
-  z-index: 0;
+  left: 50%;
+  z-index: 1;
 }
 
 app-customer-comment.second {
-  transform: translate3d(40%, 75%, 35px);
+  height: 200px;
+  width: 300px;
+  left: 20%;
+  opacity: 0.8;
   z-index: 0;
 }
 
 app-customer-comment.third {
-  transform: translate3d(-140%, 75%, 35px);
+  height: 200px;
+  width: 300px;
+  left: 80%;
   z-index: 0;
+  opacity: 0.9;
 }
 
-#socialMediaContainer h1 {
+#socialMediaContent h1 {
   color: rgb(204, 201, 201);
 }
