@@ -17,6 +17,7 @@ import { FragrancesComponent } from "./components/fragrances/fragrances.componen
 import { FooterComponent } from "./components/footer/footer.component";
 import { HttpClientModule } from "@angular/common/http";
 import { CustomerCommentComponent } from './components/customer-comment/customer-comment.component';
+import { SocialMediaIconLinkComponent } from './components/social-media-icon-link/social-media-icon-link.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CustomerCommentComponent } from './components/customer-comment/customer
     AboutComponent,
     FragrancesComponent,
     FooterComponent,
-    CustomerCommentComponent
+    CustomerCommentComponent,
+    SocialMediaIconLinkComponent
   ],
   imports: [
     BrowserModule,
