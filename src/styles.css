@@ -37,6 +37,10 @@ a {
   );
 }
 
+.mobileInfo {
+  display: none;
+}
+
 @media only screen and (max-width: 600px) {
   :root {
     --navigationBackGroundColor: rgb(59, 10, 10);
@@ -44,5 +48,15 @@ a {
     --navigationHeight: 60px;
     --socialMediaStickerBackGroundColor: rgba(255, 255, 255, 0.637);
     --socialMediaStickerBackGroundColorOnHover: rgba(255, 255, 255, 0.747);
+  }
+
+  .mobileInfo {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    color: red;
+    font-size: 2rem;
+    background: white;
   }
 }
