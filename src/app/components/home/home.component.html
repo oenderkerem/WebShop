@@ -34,7 +34,7 @@
   <div class="customerCommentContainer">
     <div *ngIf="firstRecommendation && firstRecommendation !== undefined">
       <app-customer-comment
-        class="first gradient-bright"
+        ngClass="{{ firstRecommendation.className }} gradient-bright"
         comment="{{ firstRecommendation.comment }}"
         linkToSite="{{ firstRecommendation.url }}"
         shortcutSite="{{ firstRecommendation.site }}"
@@ -42,7 +42,7 @@
     </div>
     <div *ngIf="secondRecommendation && secondRecommendation !== undefined">
       <app-customer-comment
-        class="second gradient-bright"
+        ngClass="{{ secondRecommendation.className }} gradient-bright"
         comment="{{ secondRecommendation.comment }}"
         linkToSite="{{ secondRecommendation.url }}"
         shortcutSite="{{ secondRecommendation.site }}"
@@ -50,12 +50,20 @@
     </div>
     <div *ngIf="thirdRecommendation && thirdRecommendation !== undefined">
       <app-customer-comment
-        class="third gradient-bright"
+        ngClass="{{ thirdRecommendation.className }} gradient-bright"
         comment="{{ thirdRecommendation.comment }}"
         linkToSite="{{ thirdRecommendation.url }}"
         shortcutSite="{{ thirdRecommendation.site }}"
       ></app-customer-comment>
     </div>
+    <!--<div *ngIf="fourthRecommendation">
+      <app-customer-comment
+        ngClass="{{ fourthRecommendation.className }} gradient-bright"
+        comment="{{ fourthRecommendation.comment }}"
+        linkToSite="{{ fourthRecommendation.url }}"
+        shortcutSite="{{ fourthRecommendation.site }}"
+      ></app-customer-comment>
+    </div>-->
   </div>
 </div>
 <div class="contentWrapper" id="socialMediaContent">

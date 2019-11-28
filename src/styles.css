@@ -55,6 +55,7 @@ a {
     position: fixed;
     bottom: 0;
     left: 0;
+    right: 0;
     color: red;
     font-size: 2rem;
     background: white;
