@@ -27,16 +27,12 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 
   onRecommendationsLoaded = function(data: Object) {
-    this.mapRecommendations(data);
+    this.recommendations = data as Recommendation[];
     this.initializeRecommendationsToShow();
     this.startCarousel();
   };
 
-  mapRecommendations = function(objects: Object) {
-    this.recommendations = objects as Recommendation[];
-  };
-
-  switchRecommendation = function(
+  swapRecommendation = function(
     recommendation: Recommendation
   ): Recommendation {
     switch (recommendation.className) {
@@ -63,19 +59,15 @@ export class HomeComponent implements OnInit {
   startCarousel = function() {
     setInterval(() => {
       this.setLeftRecommendation();
-      this.firstRecommendation = this.switchRecommendation(
+      this.firstRecommendation = this.swapRecommendation(
         this.firstRecommendation
       );
-      this.secondRecommendation = this.switchRecommendation(
+      this.secondRecommendation = this.swapRecommendation(
         this.secondRecommendation
       );
-      this.thirdRecommendation = this.switchRecommendation(
+      this.thirdRecommendation = this.swapRecommendation(
         this.thirdRecommendation
       );
-      console.log("############");
-      console.log("first", this.firstRecommendation.className);
-      console.log("second", this.secondRecommendation.className);
-      console.log("third", this.thirdRecommendation.className);
     }, 4000);
   };
 
@@ -87,8 +79,10 @@ export class HomeComponent implements OnInit {
     } else {
       this.recommendationIndex = tmpIndex;
     }
-    this.leftRecommendation = this.recommendations[this.recommendationIndex];
-    this.leftRecommendation.className = "left";
+    this.leftRecommendation = {
+      ...this.recommendations[this.recommendationIndex],
+      className: "left"
+    };
   };
 
   initializeRecommendationsToShow = function() {
