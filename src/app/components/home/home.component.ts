@@ -32,70 +32,23 @@ export class HomeComponent implements OnInit {
     this.startCarousel();
   };
 
-  swapRecommendation = function(
-    recommendation: Recommendation
-  ): Recommendation {
-    switch (recommendation.className) {
-      case "left":
-        return {
-          ...this.leftRecommendation,
-          className: "right"
-        };
-      case "middle":
-        return {
-          ...recommendation,
-          className: "left"
-        };
-      case "right":
-        return {
-          ...recommendation,
-          className: "middle"
-        };
-      default:
-        return undefined;
-    }
-  };
-
-  startCarousel = function() {
-    setInterval(() => {
-      this.setLeftRecommendation();
-      this.firstRecommendation = this.swapRecommendation(
-        this.firstRecommendation
-      );
-      this.secondRecommendation = this.swapRecommendation(
-        this.secondRecommendation
-      );
-      this.thirdRecommendation = this.swapRecommendation(
-        this.thirdRecommendation
-      );
-    }, 4000);
-  };
-
-  setLeftRecommendation = function() {
-    let tmpIndex = this.recommendationIndex + 1;
-
-    if (tmpIndex > this.recommendations.length - 1) {
-      this.recommendationIndex = 0;
-    } else {
-      this.recommendationIndex = tmpIndex;
-    }
-    this.leftRecommendation = {
-      ...this.recommendations[this.recommendationIndex],
-      className: "left"
-    };
-  };
-
   initializeRecommendationsToShow = function() {
     if (this.recommendations) {
       let length = this.recommendations.length;
 
       if (length >= 3) {
-        this.firstRecommendation = this.recommendations[0];
-        this.firstRecommendation.className = "left";
-        this.secondRecommendation = this.recommendations[1];
-        this.secondRecommendation.className = "middle";
-        this.thirdRecommendation = this.recommendations[2];
-        this.thirdRecommendation.className = "right";
+        this.firstRecommendation = {
+          ...this.recommendations[0],
+          className: "left"
+        };
+        this.secondRecommendation = {
+          ...this.recommendations[1],
+          className: "middle"
+        };
+        this.thirdRecommendation = {
+          ...this.recommendations[2],
+          className: "right"
+        };
         this.recommendationIndex = 2;
       } else if (length > 0) {
         this.firstRecommendation = this.recommendations[0];
@@ -107,6 +60,112 @@ export class HomeComponent implements OnInit {
         }
         this.recommendationIndex = length - 1;
       }
+    }
+  };
+
+  startCarousel = function() {
+    setInterval(() => {
+      this.onCarouselIntervalTriggered();
+    }, 4000);
+  };
+
+  onCarouselIntervalTriggered = function() {
+    this.setLeftRecommendation();
+    this.swapRecommendations(true);
+  };
+
+  setLeftRecommendation = function() {
+    let tmpIndex = this.recommendationIndex + 1;
+    if (this.recommendations) {
+      if (tmpIndex > this.recommendations.length - 1) {
+        this.recommendationIndex = 0;
+      } else {
+        this.recommendationIndex = tmpIndex;
+      }
+      this.leftRecommendation = {
+        ...this.recommendations[this.recommendationIndex],
+        className: "left"
+      };
+    }
+  };
+
+  swapRecommendations = function(swipeToLeft: boolean) {
+    this.firstRecommendation = this.swapRecommendation(
+      this.firstRecommendation,
+      swipeToLeft
+    );
+    this.secondRecommendation = this.swapRecommendation(
+      this.secondRecommendation,
+      swipeToLeft
+    );
+    this.thirdRecommendation = this.swapRecommendation(
+      this.thirdRecommendation,
+      swipeToLeft
+    );
+  };
+
+  swapRecommendation = function(
+    recommendation: Recommendation,
+    swapToLeft: boolean
+  ): Recommendation {
+    if (recommendation) {
+      if (swapToLeft) {
+        return this.swapRecommendationToLeft(recommendation);
+      } else {
+        return this.swapRecommendationToRight(recommendation);
+      }
+    }
+  };
+
+  swapRecommendationToLeft = function(
+    recommendation: Recommendation
+  ): Recommendation {
+    if (recommendation) {
+      switch (recommendation.className) {
+        case "left":
+          return {
+            ...this.leftRecommendation,
+            className: "right"
+          };
+        case "middle":
+          return {
+            ...recommendation,
+            className: "left"
+          };
+        case "right":
+          return {
+            ...recommendation,
+            className: "middle"
+          };
+      }
+    } else {
+      return recommendation;
+    }
+  };
+
+  swapRecommendationToRight = function(
+    recommendation: Recommendation
+  ): Recommendation {
+    if (recommendation) {
+      switch (recommendation.className) {
+        case "left":
+          return {
+            ...this.leftRecommendation,
+            className: "middle"
+          };
+        case "middle":
+          return {
+            ...recommendation,
+            className: "right"
+          };
+        case "right":
+          return {
+            ...recommendation,
+            className: "left"
+          };
+      }
+    } else {
+      return recommendation;
     }
   };
 }

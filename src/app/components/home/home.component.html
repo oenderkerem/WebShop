@@ -29,7 +29,10 @@
     </div>
   </div>
 </div>
-<div class="recommendationsWrapper">
+<div
+  *ngIf="recommendations && recommendations.length > 0"
+  class="recommendationsWrapper"
+>
   <h1>Recommendations</h1>
   <div class="customerCommentContainer">
     <div *ngIf="firstRecommendation && firstRecommendation !== undefined">
