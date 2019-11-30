@@ -41,6 +41,7 @@
         comment="{{ firstRecommendation.comment }}"
         linkToSite="{{ firstRecommendation.url }}"
         shortcutSite="{{ firstRecommendation.site }}"
+        (click)="onRecommendationClick(firstRecommendation)"
       ></app-customer-comment>
     </div>
     <div *ngIf="secondRecommendation && secondRecommendation !== undefined">
@@ -49,6 +50,7 @@
         comment="{{ secondRecommendation.comment }}"
         linkToSite="{{ secondRecommendation.url }}"
         shortcutSite="{{ secondRecommendation.site }}"
+        (click)="onRecommendationClick(secondRecommendation)"
       ></app-customer-comment>
     </div>
     <div *ngIf="thirdRecommendation && thirdRecommendation !== undefined">
@@ -57,6 +59,7 @@
         comment="{{ thirdRecommendation.comment }}"
         linkToSite="{{ thirdRecommendation.url }}"
         shortcutSite="{{ thirdRecommendation.site }}"
+        (click)="onRecommendationClick(thirdRecommendation)"
       ></app-customer-comment>
     </div>
     <!--<div *ngIf="fourthRecommendation">

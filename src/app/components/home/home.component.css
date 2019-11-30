@@ -118,11 +118,17 @@ app-customer-comment {
   max-width: 70%;
   display: inline-block;
   border-radius: 25px;
+  border: 1px solid var(--navigationBackGroundColor);
+  background-color: white;
   position: absolute;
-  background-color: var(--navigationBackGroundColor);
   top: 40%;
   transform: translate(-50%, -50%);
   transition: all 0.7s ease;
+}
+
+app-customer-comment:hover {
+  background-color: black;
+  color: white;
 }
 
 app-customer-comment.middle {

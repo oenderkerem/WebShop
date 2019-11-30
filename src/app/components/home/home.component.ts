@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   leftRecommendation: Recommendation;
 
   recommendationIndex = 0;
+  recommendationsIntervalId = 0;
 
   constructor(private http: HttpClient) {
     this.http
@@ -63,15 +64,15 @@ export class HomeComponent implements OnInit {
     }
   };
 
-  startCarousel = function() {
-    setInterval(() => {
-      this.onCarouselIntervalTriggered();
+  startCarousel = function(direction: boolean) {
+    this.recommendationsIntervalId = setInterval(() => {
+      this.onCarouselIntervalTriggered(direction);
     }, 4000);
   };
 
-  onCarouselIntervalTriggered = function() {
+  onCarouselIntervalTriggered = function(carouselDirection: boolean) {
     this.setLeftRecommendation();
-    this.swapRecommendations(true);
+    this.swapRecommendations(carouselDirection);
   };
 
   setLeftRecommendation = function() {
@@ -166,6 +167,24 @@ export class HomeComponent implements OnInit {
       }
     } else {
       return recommendation;
+    }
+  };
+
+  onRecommendationClick = function(recommendation: Recommendation) {
+    if (recommendation && recommendation.className !== "middle") {
+      if (this.recommendationsIntervalId) {
+        clearInterval(this.recommendationsIntervalId);
+      }
+      switch (recommendation.className) {
+        case "left":
+          this.swapRecommendations(false);
+          this.startCarousel(false);
+          break;
+        case "right":
+          this.swapRecommendations(true);
+          this.startCarousel(true);
+          break;
+      }
     }
   };
 }

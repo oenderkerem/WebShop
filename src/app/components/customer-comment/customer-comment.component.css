@@ -14,4 +14,9 @@ h2 {
   padding: 20px;
   text-align: center;
   overflow: scroll;
+  color: black;
+}
+
+a {
+  color: black;
 }
