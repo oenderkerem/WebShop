@@ -2,6 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Recommendation } from "../../models/Recommendation";
 
+const loopDirectionLeft = true;
+const loopDirectionRIght = false;
+
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
@@ -9,9 +12,8 @@ import { Recommendation } from "../../models/Recommendation";
 })
 export class HomeComponent implements OnInit {
   recommendations: Recommendation[];
-  firstRecommendation: Recommendation;
-  secondRecommendation: Recommendation;
-  thirdRecommendation: Recommendation;
+
+  shownRecommendationIndex: number = 0;
 
   constructor(private http: HttpClient) {
     this.http
@@ -22,21 +24,61 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 
   onRecommendationsLoaded = function(data: Object) {
-    this.mapRecommendations(data);
-    this.initializeRecommendationsToShow();
+    this.recommendations = data as Recommendation[];
+    this.initializeRecommendations();
+    this.startRecommendationLoop(loopDirectionLeft);
   };
 
-  mapRecommendations = function(objects: Object) {
-    this.recommendations = objects as Recommendation[];
-  };
-
-  initializeRecommendationsToShow = function() {
-    if (this.recommendations) {
-      if (this.recommendations.length > 3) {
-        this.firstRecommendation = this.recommendations[0];
-        this.secondRecommendation = this.recommendations[1];
-        this.thirdRecommendation = this.recommendations[2];
+  initializeRecommendations = function() {
+    if (this.recommendations && this.recommendations.length > 0) {
+      this.recommendations[0].className = "visible";
+      for (let i = 1; i < this.recommendations.length; i++) {
+        this.recommendations[i].className = "";
       }
     }
   };
+
+  startRecommendationLoop = function(direction: boolean) {
+    if (this.recommendations.length > 1) {
+      this.recommendationsIntervalId = setInterval(() => {
+        this.onRecommendationLoopTick(direction);
+      }, 4000);
+    }
+  };
+
+  onRecommendationLoopTick = function(direction: boolean) {
+    let summand = direction ? 1 : -1;
+    let tmpIndex = this.shownRecommendationIndex + summand;
+    if (tmpIndex >= this.recommendations.length) {
+      tmpIndex = 0;
+    } else if (tmpIndex < 0) {
+      tmpIndex = this.recommendations.length - 1;
+    }
+    this.recommendations[this.shownRecommendationIndex].className = "";
+    this.recommendations[tmpIndex].className = "visible";
+    this.shownRecommendationIndex = tmpIndex;
+  };
+
+  showCommentAt = function(index: number) {
+    this.stopInterval();
+    let currentIndex = this.shownRecommendationIndex;
+    if (this.recommendations) {
+      if (this.recommendations.length > currentIndex) {
+        if (this.recommendations.length >= index) {
+          this.recommendations[currentIndex].className = "";
+          this.recommendations[index].className = "visible";
+          this.shownRecommendationIndex = index;
+          this.startRecommendationLoop(true);
+        }
+      }
+    }
+  };
+
+  stopInterval = function() {
+    if (this.recommendationsIntervalId) {
+      clearInterval(this.recommendationsIntervalId);
+    }
+  };
+
+  onRecommendationClick = function(recommendation: Recommendation) {};
 }

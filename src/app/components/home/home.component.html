@@ -29,32 +29,28 @@
     </div>
   </div>
 </div>
-<div class="recommendationsWrapper">
+<div
+  *ngIf="recommendations && recommendations.length > 0"
+  class="recommendationsWrapper"
+>
   <h1>Recommendations</h1>
   <div class="customerCommentContainer">
-    <div *ngIf="firstRecommendation && firstRecommendation !== undefined">
+    <div class="customerComments">
       <app-customer-comment
-        class="first gradient-bright"
-        comment="{{ firstRecommendation.comment }}"
-        linkToSite="{{ firstRecommendation.url }}"
-        shortcutSite="{{ firstRecommendation.site }}"
+        *ngFor="let comment of recommendations"
+        ngClass="{{ comment.className }}"
+        comment="{{ comment.comment }}"
+        linkToSite="{{ comment.url }}"
+        shortcutSite="{{ comment.site }}"
+        (click)="onRecommendationClick(comment)"
       ></app-customer-comment>
     </div>
-    <div *ngIf="secondRecommendation && secondRecommendation !== undefined">
-      <app-customer-comment
-        class="second gradient-bright"
-        comment="{{ secondRecommendation.comment }}"
-        linkToSite="{{ secondRecommendation.url }}"
-        shortcutSite="{{ secondRecommendation.site }}"
-      ></app-customer-comment>
-    </div>
-    <div *ngIf="thirdRecommendation && thirdRecommendation !== undefined">
-      <app-customer-comment
-        class="third gradient-bright"
-        comment="{{ thirdRecommendation.comment }}"
-        linkToSite="{{ thirdRecommendation.url }}"
-        shortcutSite="{{ thirdRecommendation.site }}"
-      ></app-customer-comment>
+    <div id="customerCommentPoints">
+      <div
+        *ngFor="let point of recommendations; let i = index"
+        (click)="showCommentAt(i)"
+        ngClass="customerCommentPoint {{ point.className }}"
+      ></div>
     </div>
   </div>
 </div>

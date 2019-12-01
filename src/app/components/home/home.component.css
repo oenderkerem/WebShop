@@ -107,42 +107,50 @@ app-footer {
   background-color: var(--navigationBackGroundColor);
 }
 
-.customerCommentContainer {
+.customerComments {
   position: relative;
-  height: 350px;
+  height: 200px;
 }
 
 app-customer-comment {
-  height: 250px;
-  width: 600px;
-  max-width: 70%;
-  display: inline-block;
-  border-radius: 25px;
   position: absolute;
-  background-color: var(--navigationBackGroundColor);
-  top: 40%;
-  transform: translate(-50%, -50%);
-}
-
-app-customer-comment.first {
+  top: 50%;
   left: 50%;
-  z-index: 1;
+  background-color: white;
+  border-bottom: 1px solid var(--navigationBackGroundColor);
+  border-top: 1px solid var(--navigationBackGroundColor);
+  height: 90%;
+  width: 70vw;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 1s ease-in;
+  overflow: scroll;
 }
 
-app-customer-comment.second {
-  height: 200px;
-  width: 300px;
-  left: 20%;
-  opacity: 0.8;
-  z-index: 0;
+app-customer-comment.visible {
+  opacity: 1;
+  display: inline-block;
 }
 
-app-customer-comment.third {
-  height: 200px;
-  width: 300px;
-  left: 80%;
-  z-index: 0;
-  opacity: 0.9;
+#customerCommentPoints {
+  display: flex;
+  justify-content: center;
+  align-content: space-around;
+  padding: 20px;
+}
+
+.customerCommentPoint {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 1px solid var(--navigationBackGroundColor);
+  border-radius: 50%;
+  margin: 5px;
+  transition: all 1s ease-in-out;
+}
+
+.customerCommentPoint.visible {
+  background-color: gray;
 }
 
 #socialMediaContent h1 {
