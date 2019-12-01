@@ -35,41 +35,23 @@
 >
   <h1>Recommendations</h1>
   <div class="customerCommentContainer">
-    <div *ngIf="firstRecommendation && firstRecommendation !== undefined">
+    <div class="customerComments">
       <app-customer-comment
-        ngClass="{{ firstRecommendation.className }} gradient-bright"
-        comment="{{ firstRecommendation.comment }}"
-        linkToSite="{{ firstRecommendation.url }}"
-        shortcutSite="{{ firstRecommendation.site }}"
-        (click)="onRecommendationClick(firstRecommendation)"
+        *ngFor="let comment of recommendations"
+        ngClass="{{ comment.className }}"
+        comment="{{ comment.comment }}"
+        linkToSite="{{ comment.url }}"
+        shortcutSite="{{ comment.site }}"
+        (click)="onRecommendationClick(comment)"
       ></app-customer-comment>
     </div>
-    <div *ngIf="secondRecommendation && secondRecommendation !== undefined">
-      <app-customer-comment
-        ngClass="{{ secondRecommendation.className }} gradient-bright"
-        comment="{{ secondRecommendation.comment }}"
-        linkToSite="{{ secondRecommendation.url }}"
-        shortcutSite="{{ secondRecommendation.site }}"
-        (click)="onRecommendationClick(secondRecommendation)"
-      ></app-customer-comment>
+    <div id="customerCommentPoints">
+      <div
+        *ngFor="let point of recommendations; let i = index"
+        (click)="showCommentAt(i)"
+        ngClass="customerCommentPoint {{ point.className }}"
+      ></div>
     </div>
-    <div *ngIf="thirdRecommendation && thirdRecommendation !== undefined">
-      <app-customer-comment
-        ngClass="{{ thirdRecommendation.className }} gradient-bright"
-        comment="{{ thirdRecommendation.comment }}"
-        linkToSite="{{ thirdRecommendation.url }}"
-        shortcutSite="{{ thirdRecommendation.site }}"
-        (click)="onRecommendationClick(thirdRecommendation)"
-      ></app-customer-comment>
-    </div>
-    <!--<div *ngIf="fourthRecommendation">
-      <app-customer-comment
-        ngClass="{{ fourthRecommendation.className }} gradient-bright"
-        comment="{{ fourthRecommendation.comment }}"
-        linkToSite="{{ fourthRecommendation.url }}"
-        shortcutSite="{{ fourthRecommendation.site }}"
-      ></app-customer-comment>
-    </div>-->
   </div>
 </div>
 <div class="contentWrapper" id="socialMediaContent">
