@@ -47,7 +47,6 @@ export class HomeComponent implements OnInit {
   };
 
   onRecommendationLoopTick = function(direction: boolean) {
-    console.log("tick");
     let summand = direction ? 1 : -1;
     let tmpIndex = this.shownRecommendationIndex + summand;
     if (tmpIndex >= this.recommendations.length) {
@@ -61,12 +60,25 @@ export class HomeComponent implements OnInit {
   };
 
   showCommentAt = function(index: number) {
-    alert(index);
+    this.stopInterval();
+    let currentIndex = this.shownRecommendationIndex;
+    if (this.recommendations) {
+      if (this.recommendations.length > currentIndex) {
+        if (this.recommendations.length >= index) {
+          this.recommendations[currentIndex].className = "";
+          this.recommendations[index].className = "visible";
+          this.shownRecommendationIndex = index;
+          this.startRecommendationLoop(true);
+        }
+      }
+    }
   };
 
-  onRecommendationClick = function(recommendation: Recommendation) {
+  stopInterval = function() {
     if (this.recommendationsIntervalId) {
       clearInterval(this.recommendationsIntervalId);
     }
   };
+
+  onRecommendationClick = function(recommendation: Recommendation) {};
 }
