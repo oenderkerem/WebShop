@@ -1,39 +1,36 @@
-<div id="poster">
+<header>
   <a routerLink="/fragrances"
     ><div id="orderSign">Finde deinen einzigartigen Duft jetzt gleich</div>
   </a>
-</div>
+</header>
 <div class="contentWrapper ">
-  <div class="content">
-    <div class="pWrapper">
-      <h1>Herstellung</h1>
-      <p>
-        Jeder Duft von E99 EsAns ist ein Kunstwerk für sich. Es sind keine
-        Fließbandprodukte aus der Fabrik. Unsere Düfte enthalten Zutaten aus
-        ausgewählten Plantagen. Mancher Rohstoff muss vor seiner Verarbeitung
-        zunächst über einen längeren Zeitraum reifen.
-      </p>
-      <p>
-        E99 EsAns Düfte sind aus diesem Grund begrenzt Verfügbar.
-      </p>
-      <p>Kunst braucht seine Zeit.</p>
-      <p>
-        Hier gibt es keine billig produzierte und überteuert verkaufte
-        Chemiemischung. Unsere Kunden erhalten ausgefallene, hochwertige
-        Qualität, die es nicht überall zu kaufen gibt. Dafür stehe ich mit
-        meinem Namen.
-      </p>
-      <p class="signature">
-        Musab Karalı
-      </p>
-    </div>
+  <div class="description">
+    <h1>Herstellung</h1>
+    <p>
+      Jeder Duft von E99 EsAns ist ein Kunstwerk für sich. Es sind keine
+      Fließbandprodukte aus der Fabrik. Unsere Düfte enthalten Zutaten aus
+      ausgewählten Plantagen. Mancher Rohstoff muss vor seiner Verarbeitung
+      zunächst über einen längeren Zeitraum reifen.
+    </p>
+    <p>
+      E99 EsAns Düfte sind aus diesem Grund begrenzt Verfügbar.
+    </p>
+    <p>Kunst braucht seine Zeit.</p>
+    <p>
+      Hier gibt es keine billig produzierte und überteuert verkaufte
+      Chemiemischung. Unsere Kunden erhalten ausgefallene, hochwertige Qualität,
+      die es nicht überall zu kaufen gibt. Dafür stehe ich mit meinem Namen.
+    </p>
+    <p class="signature">
+      Musab Karalı
+    </p>
   </div>
 </div>
 <div
   *ngIf="recommendations && recommendations.length > 0"
   class="recommendationsWrapper"
 >
-  <h1>Recommendations</h1>
+  <h2>Recommendations</h2>
   <div class="customerCommentContainer">
     <div class="customerComments">
       <app-customer-comment
@@ -54,6 +51,7 @@
     </div>
   </div>
 </div>
+
 <div class="contentWrapper" id="socialMediaContent">
   <h1>Finde uns auf ...</h1>
   <div id="socialMediaIconContainer">
