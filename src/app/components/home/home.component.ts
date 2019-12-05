@@ -1,19 +1,50 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Recommendation } from "../../models/Recommendation";
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from "@angular/animations";
 
-const loopDirectionLeft = true;
-const loopDirectionRIght = false;
+const defaultLoopDirection = true;
+const loopDirectionToLeft = true;
+const loopDirectionToRight = false;
 
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.css"]
+  styleUrls: ["./home.component.css"],
+  animations: [
+    trigger("fadeIn", [
+      state(
+        "show",
+        style({
+          opacity: 1
+        })
+      ),
+      state(
+        "hide",
+        style({
+          opacity: 0
+        })
+      ),
+      transition("show => hide", [animate("1000ms")]),
+      transition("hide => show", [animate("1000ms")])
+    ])
+  ]
 })
 export class HomeComponent implements OnInit {
   recommendations: Recommendation[];
-
   shownRecommendationIndex: number = 0;
+  shownRecommendation: Recommendation = {
+    className: "hidden",
+    comment: "",
+    site: "",
+    url: ""
+  };
 
   constructor(private http: HttpClient) {
     this.http
@@ -25,51 +56,53 @@ export class HomeComponent implements OnInit {
 
   onRecommendationsLoaded = function(data: Object) {
     this.recommendations = data as Recommendation[];
-    this.initializeRecommendations();
-    this.startRecommendationLoop(loopDirectionLeft);
+    this.initializeRecommendation();
+    this.startRecommendationLoop(loopDirectionToLeft);
   };
 
-  initializeRecommendations = function() {
-    if (this.recommendations && this.recommendations.length > 0) {
-      this.recommendations[0].className = "visible";
-      for (let i = 1; i < this.recommendations.length; i++) {
-        this.recommendations[i].className = "";
-      }
-    }
+  initializeRecommendation = () => {
+    this.showCommentAt(0);
   };
 
-  startRecommendationLoop = function(direction: boolean) {
+  startRecommendationLoop = function(loopDirection: boolean) {
     if (this.recommendations.length > 1) {
       this.recommendationsIntervalId = setInterval(() => {
-        this.onRecommendationLoopTick(direction);
+        this.onRecommendationLoopTick(loopDirection);
       }, 4000);
     }
   };
 
-  onRecommendationLoopTick = function(direction: boolean) {
-    let summand = direction ? 1 : -1;
-    let tmpIndex = this.shownRecommendationIndex + summand;
-    if (tmpIndex >= this.recommendations.length) {
-      tmpIndex = 0;
-    } else if (tmpIndex < 0) {
-      tmpIndex = this.recommendations.length - 1;
+  onRecommendationLoopTick = function(loopDirection: boolean) {
+    if (this.recommendations) {
+      let border = this.recommendations.length;
+      let currentIndex = this.shownRecommendationIndex;
+      let summand = loopDirection ? 1 : -1;
+      let index = currentIndex + summand;
+      if (index < 0 || index >= border) {
+        index = index < 0 ? border - 1 : 0;
+      }
+      this.shownRecommendationIndex = index;
+      this.shownRecommendation.className = "hidden";
+      this.recommendations[currentIndex].className = "hidden";
+      this.recommendations[index].className = "shown";
+      this.shownRecommendation = this.recommendations[index];
     }
-    this.recommendations[this.shownRecommendationIndex].className = "";
-    this.recommendations[tmpIndex].className = "visible";
-    this.shownRecommendationIndex = tmpIndex;
+  };
+
+  onRecommendationPointClick = function(index: number) {
+    this.stopInterval();
+    this.showCommentAt(index);
+    this.startRecommendationLoop(defaultLoopDirection);
   };
 
   showCommentAt = function(index: number) {
-    this.stopInterval();
-    let currentIndex = this.shownRecommendationIndex;
     if (this.recommendations) {
-      if (this.recommendations.length > currentIndex) {
-        if (this.recommendations.length >= index) {
-          this.recommendations[currentIndex].className = "";
-          this.recommendations[index].className = "visible";
-          this.shownRecommendationIndex = index;
-          this.startRecommendationLoop(true);
-        }
+      if (index >= 0 && index < this.recommendations.length) {
+        this.recommendations[this.shownRecommendationIndex].className =
+          "hidden";
+        this.shownRecommendation = this.recommendations[index];
+        this.recommendations[index].className = "shown";
+        this.shownRecommendationIndex = index;
       }
     }
   };
