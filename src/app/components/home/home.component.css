@@ -106,26 +106,21 @@ app-footer {
 }
 
 .customerComments {
-  position: relative;
-  height: 150px;
-  border-bottom: 1px solid var(--navigationBackGroundColor);
-  border-top: 1px solid var(--navigationBackGroundColor);
+  padding: 0 50px;
 }
 
 app-customer-comment {
   background-color: white;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  overflow: scroll;
-  transition: all 1s ease-in-out;
+  opacity: 1;
+  animation: all 500ms ease-in-out;
 }
 
-app-customer-comment.visible {
+app-customer-comment.shown {
   opacity: 1;
+}
+
+app-customer-comment.hidden {
+  opacity: 0;
 }
 
 #customerCommentPoints {
@@ -145,7 +140,7 @@ app-customer-comment.visible {
   transition: all 1s ease-in-out;
 }
 
-.customerCommentPoint.visible {
+.customerCommentPoint.shown {
   background-color: var(--navigationBackGroundColor);
 }
 

@@ -34,24 +34,24 @@
   <div class="customerCommentContainer">
     <div class="customerComments">
       <app-customer-comment
-        *ngFor="let comment of recommendations"
-        ngClass="{{ comment.className }}"
-        comment="{{ comment.comment }}"
-        linkToSite="{{ comment.url }}"
-        shortcutSite="{{ comment.site }}"
-        (click)="onRecommendationClick(comment)"
+        [@fadeIn]="animationstate"
+        *ngIf="shownRecommendation"
+        ngClass="{{ shownRecommendation.className }}"
+        comment="{{ shownRecommendation.comment }}"
+        linkToSite="{{ shownRecommendation.url }}"
+        shortcutSite="{{ shownRecommendation.site }}"
+        (click)="onRecommendationClick(shownRecommendation)"
       ></app-customer-comment>
     </div>
     <div id="customerCommentPoints">
       <div
         *ngFor="let point of recommendations; let i = index"
-        (click)="showCommentAt(i)"
+        (click)="onRecommendationPointClick(i)"
         ngClass="customerCommentPoint {{ point.className }}"
       ></div>
     </div>
   </div>
 </div>
-
 <div class="contentWrapper" id="socialMediaContent">
   <h1>Finde uns auf ...</h1>
   <div id="socialMediaIconContainer">

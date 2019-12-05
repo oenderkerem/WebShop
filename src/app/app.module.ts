@@ -1,4 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -16,8 +17,8 @@ import { AboutComponent } from "./components/about/about.component";
 import { FragrancesComponent } from "./components/fragrances/fragrances.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { HttpClientModule } from "@angular/common/http";
-import { CustomerCommentComponent } from './components/customer-comment/customer-comment.component';
-import { SocialMediaIconLinkComponent } from './components/social-media-icon-link/social-media-icon-link.component';
+import { CustomerCommentComponent } from "./components/customer-comment/customer-comment.component";
+import { SocialMediaIconLinkComponent } from "./components/social-media-icon-link/social-media-icon-link.component";
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SocialMediaIconLinkComponent } from './components/social-media-icon-lin
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({ hamburgerClicked: hamburgerReducer })
