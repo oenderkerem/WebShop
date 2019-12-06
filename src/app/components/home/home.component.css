@@ -37,9 +37,9 @@ h1 {
 }
 
 h2 {
-  text-align: center;
-  font-size: 2rem;
   padding: 20px;
+  text-align: center;
+  font-size: 1.5rem;
   color: var(--navigationBackGroundColor);
 }
 
@@ -103,24 +103,29 @@ app-social-media-icon-link:hover {
 app-footer {
   display: block;
   background-color: var(--navigationBackGroundColor);
+  min-height: 100px;
 }
 
 .customerComments {
   padding: 0 50px;
 }
 
+.recommendation {
+  opacity: 0;
+  transition: all 1000ms ease-in-out;
+}
+
+.recommendation.visible {
+  opacity: 1;
+}
+
 app-customer-comment {
   background-color: white;
-  opacity: 1;
-  animation: all 500ms ease-in-out;
+  color: var(--navigationBackGroundColor);
 }
 
-app-customer-comment.shown {
+app-customer-comment.visible {
   opacity: 1;
-}
-
-app-customer-comment.hidden {
-  opacity: 0;
 }
 
 #customerCommentPoints {
@@ -140,10 +145,40 @@ app-customer-comment.hidden {
   transition: all 1s ease-in-out;
 }
 
-.customerCommentPoint.shown {
+.customerCommentPoint.active {
   background-color: var(--navigationBackGroundColor);
+}
+
+.arrow {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 #socialMediaContent h1 {
   color: rgb(204, 201, 201);
+}
+
+#productExamples {
+  justify-content: center;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.productExample {
+  display: inline-block;
+  width: 50vw;
+  min-width: 500px;
+  max-width: 100vw;
+  min-height: 500px;
+  border: 1px solid black;
+  display: grid;
+  justify-content: center;
+  align-content: center;
 }

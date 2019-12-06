@@ -3,6 +3,7 @@
     ><div id="orderSign">Finde deinen einzigartigen Duft jetzt gleich</div>
   </a>
 </header>
+
 <div class="contentWrapper ">
   <div class="description">
     <h1>Herstellung</h1>
@@ -26,29 +27,43 @@
     </p>
   </div>
 </div>
+<section id="productExamples">
+  <div class="productExample">Some Content</div>
+  <div class="productExample">Some other content</div>
+</section>
 <div
   *ngIf="recommendations && recommendations.length > 0"
   class="recommendationsWrapper"
 >
-  <h2>Recommendations</h2>
+  <h2>Hier findest du ein paar Kundenbewertungen</h2>
   <div class="customerCommentContainer">
     <div class="customerComments">
-      <app-customer-comment
-        [@fadeIn]="animationstate"
-        *ngIf="shownRecommendation"
-        ngClass="{{ shownRecommendation.className }}"
-        comment="{{ shownRecommendation.comment }}"
-        linkToSite="{{ shownRecommendation.url }}"
-        shortcutSite="{{ shownRecommendation.site }}"
-        (click)="onRecommendationClick(shownRecommendation)"
-      ></app-customer-comment>
+      <div
+        *ngIf="recommendationToShow"
+        ngClass="recommendation {{ recommendationClass }}"
+      >
+        <app-customer-comment
+          shortcutSite="{{ recommendationToShow.site }}"
+          linkToSite="{{ recommendationToShow.url} }"
+          comment="{{ recommendationToShow.comment }}"
+        >
+        </app-customer-comment>
+      </div>
     </div>
     <div id="customerCommentPoints">
+      <div (click)="onRecommendationArrowClick(false)" class="arrow">
+        &lt;
+      </div>
       <div
         *ngFor="let point of recommendations; let i = index"
         (click)="onRecommendationPointClick(i)"
-        ngClass="customerCommentPoint {{ point.className }}"
+        ngClass="customerCommentPoint {{
+          recommendations[i].active ? 'active' : ''
+        }}"
       ></div>
+      <div (click)="onRecommendationArrowClick(true)" class="arrow">
+        &gt;
+      </div>
     </div>
   </div>
 </div>

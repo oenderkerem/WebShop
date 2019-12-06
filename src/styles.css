@@ -15,7 +15,7 @@
 :root {
   --navigationBackGroundColor: rgb(71, 68, 68);
   --navigationColor: rgb(196, 192, 192);
-  --navigationHeight: 60px;
+  --navigationHeight: 80px;
   --socialMediaStickerBackGroundColor: rgba(255, 255, 255, 0.637);
   --socialMediaStickerBackGroundColorOnHover: rgba(255, 255, 255, 0.747);
 }
