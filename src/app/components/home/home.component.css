@@ -106,6 +106,10 @@ app-footer {
   min-height: 100px;
 }
 
+.recommendationsWrapper {
+  padding: 50px;
+}
+
 .customerComments {
   padding: 0 50px;
 }
