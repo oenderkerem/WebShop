@@ -30,11 +30,11 @@
   <div>Some Content</div>
   <div>Some other content</div>
 </section>
-<section *ngIf="recommendations">
+<div id="recommendations" *ngIf="recommendations">
   <app-customer-comments
     [recommendations]="recommendations"
   ></app-customer-comments>
-</section>
+</div>
 <div class="contentWrapper" id="socialMediaContent">
   <h1>Finde uns auf ...</h1>
   <div id="socialMediaIconContainer">
