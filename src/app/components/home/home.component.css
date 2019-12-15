@@ -24,8 +24,34 @@ header {
   bottom: 0;
   left: 50%;
   padding: 50px;
-  transform: translateX(-50%);
   color: var(--textColorBright);
+  animation: scrollInfoJump 1200ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+@keyframes scrollInfoJump {
+  0% {
+    transform: translate(-50%, 6px);
+  }
+  20% {
+    transform: translate(-50%, 3px);
+  }
+  50% {
+    transform: translate(-50%, 0px);
+  }
+
+  70% {
+    transform: translate(-50%, 2px);
+  }
+
+  90% {
+    transform: translate(-50%, 4px);
+  }
+
+  100% {
+    transform: translate(-50%, 6px);
+  }
 }
 
 header img {
