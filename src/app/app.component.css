@@ -5,11 +5,10 @@ app-navigationbar {
   width: 100vw;
   height: var(--navigationHeight);
   background-color: var(--navigationBackGroundColor);
-  color: rgb(196, 192, 192);
+  color: var(--textColorDark);
   z-index: 10;
 }
 
 router-outlet {
-  margin-top: 60px;
   display: block;
 }

@@ -25,7 +25,7 @@ a {
 }
 
 a:hover {
-  color: rgb(255, 255, 255);
+  color: gray;
 }
 
 @media only screen and (max-width: 600px) {
@@ -36,14 +36,14 @@ a:hover {
   ul {
     display: block;
     position: fixed;
-    top: 60px;
+    top: var(--navigationHeight);
     padding: 15px;
     height: 100vh;
     width: 100vw;
     left: -100%;
     transition: all 0.3s ease-in-out;
-    background-color: rgba(43, 41, 41, 0.781);
-    color: rgba(201, 196, 196);
+    background-color: var(--menuBackGroundColor);
+    color: var(--textColorDark);
   }
 
   ul.visible {

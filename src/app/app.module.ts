@@ -19,6 +19,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { HttpClientModule } from "@angular/common/http";
 import { CustomerCommentComponent } from "./components/customer-comment/customer-comment.component";
 import { SocialMediaIconLinkComponent } from "./components/social-media-icon-link/social-media-icon-link.component";
+import { CustomerCommentsComponent } from './components/customer-comments/customer-comments.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SocialMediaIconLinkComponent } from "./components/social-media-icon-lin
     FragrancesComponent,
     FooterComponent,
     CustomerCommentComponent,
-    SocialMediaIconLinkComponent
+    SocialMediaIconLinkComponent,
+    CustomerCommentsComponent
   ],
   imports: [
     BrowserModule,
