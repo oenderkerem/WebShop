@@ -27,4 +27,8 @@ export class NavigationbarComponent implements OnInit {
   onLinkClick() {
     this.store.dispatch({ type: "CLOSE" });
   }
+
+  onShoppingCartIconClicked() {
+    console.log("shopping Cart Logo Clicked");
+  }
 }

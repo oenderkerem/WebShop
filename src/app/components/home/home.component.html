@@ -1,37 +1,36 @@
 <header>
-  <a routerLink="/fragrances">
-    <div id="headerText">
-      <h1>Hol deinen außergewöhnlichen Duft hier und jetzt</h1>
-      <h2>Hier gehts zum Shop</h2>
-    </div>
-  </a>
+  <div id="headerText">
+    <a routerLink="/fragrances">
+      <h1>
+        Hol deinen außergewöhnlichen Duft hier im Shop
+      </h1>
+    </a>
+  </div>
   <div id="scrollInfo">
     Weitere Informationen<br />
     <div class="arrowDown"></div>
   </div>
 </header>
-<section class="contentWrapper">
-  <div class="description">
-    <h1>Herstellung</h1>
-    <p>
-      Jeder Duft von E99 EsAns ist ein Kunstwerk für sich. Es sind keine
-      Fließbandprodukte aus der Fabrik. Unsere Düfte enthalten Zutaten aus
-      ausgewählten Plantagen. Mancher Rohstoff muss vor seiner Verarbeitung
-      zunächst über einen längeren Zeitraum reifen.
-    </p>
-    <p>
-      E99 EsAns Düfte sind aus diesem Grund begrenzt Verfügbar.
-    </p>
-    <p>Kunst braucht seine Zeit.</p>
-    <p>
-      Hier gibt es keine billig produzierte und überteuert verkaufte
-      Chemiemischung. Unsere Kunden erhalten ausgefallene, hochwertige Qualität,
-      die es nicht überall zu kaufen gibt. Dafür stehe ich mit meinem Namen.
-    </p>
-    <p class="signature">
-      Musab Karalı
-    </p>
-  </div>
+<section>
+  <h1>Herstellung</h1>
+  <p>
+    Jeder Duft von E99 EsAns ist ein Kunstwerk für sich. Es sind keine
+    Fließbandprodukte aus der Fabrik. Unsere Düfte enthalten Zutaten aus
+    ausgewählten Plantagen. Mancher Rohstoff muss vor seiner Verarbeitung
+    zunächst über einen längeren Zeitraum reifen.
+  </p>
+  <p>
+    E99 EsAns Düfte sind aus diesem Grund begrenzt Verfügbar.
+  </p>
+  <p>Kunst braucht seine Zeit.</p>
+  <p>
+    Hier gibt es keine billig produzierte und überteuert verkaufte
+    Chemiemischung. Unsere Kunden erhalten ausgefallene, hochwertige Qualität,
+    die es nicht überall zu kaufen gibt. Dafür stehe ich mit meinem Namen.
+  </p>
+  <p class="signature">
+    Musab Karalı
+  </p>
 </section>
 <section>
   <div>Some Content</div>
@@ -42,8 +41,8 @@
     [recommendations]="recommendations"
   ></app-customer-comments>
 </div>
-<div class="contentWrapper" id="socialMediaContent">
-  <h1>Finde uns auf ...</h1>
+<div id="socialMediaContent">
+  <h1 class="brightText">Finde uns auf ...</h1>
   <div id="socialMediaIconContainer">
     <app-social-media-icon-link
       link="https://www.google.com"
