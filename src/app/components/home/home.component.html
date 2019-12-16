@@ -1,46 +1,50 @@
 <header>
   <div id="headerText">
     <a routerLink="/fragrances">
-      <h1>
+      <h1 class="brightText">
         Hol deinen außergewöhnlichen Duft hier im Shop
       </h1>
     </a>
   </div>
-  <div id="scrollInfo">
-    Weitere Informationen<br />
-    <div class="arrowDown"></div>
-  </div>
+  <a href="#basicInfo">
+    <div id="scrollInfo">
+      Weitere Informationen<br />
+      <div class="arrowDown"></div>
+    </div>
+  </a>
 </header>
-<section>
-  <h1>Herstellung</h1>
-  <p>
-    Jeder Duft von E99 EsAns ist ein Kunstwerk für sich. Es sind keine
-    Fließbandprodukte aus der Fabrik. Unsere Düfte enthalten Zutaten aus
-    ausgewählten Plantagen. Mancher Rohstoff muss vor seiner Verarbeitung
-    zunächst über einen längeren Zeitraum reifen.
-  </p>
-  <p>
-    E99 EsAns Düfte sind aus diesem Grund begrenzt Verfügbar.
-  </p>
-  <p>Kunst braucht seine Zeit.</p>
-  <p>
-    Hier gibt es keine billig produzierte und überteuert verkaufte
-    Chemiemischung. Unsere Kunden erhalten ausgefallene, hochwertige Qualität,
-    die es nicht überall zu kaufen gibt. Dafür stehe ich mit meinem Namen.
-  </p>
-  <p class="signature">
-    Musab Karalı
-  </p>
+<section id="basicInfo">
+  <div class="contentBox">
+    <h2>Herstellung</h2>
+    <p>
+      Jeder Duft von E99 EsAns ist ein Kunstwerk für sich. Es sind keine
+      Fließbandprodukte aus der Fabrik. Unsere Düfte enthalten Zutaten aus
+      ausgewählten Plantagen. Mancher Rohstoff muss vor seiner Verarbeitung
+      zunächst über einen längeren Zeitraum reifen.
+    </p>
+    <p>
+      E99 EsAns Düfte sind aus diesem Grund begrenzt Verfügbar.
+    </p>
+    <p>Kunst braucht seine Zeit.</p>
+    <p>
+      Hier gibt es keine billig produzierte und überteuert verkaufte
+      Chemiemischung. Unsere Kunden erhalten ausgefallene, hochwertige Qualität,
+      die es nicht überall zu kaufen gibt. Dafür stehe ich mit meinem Namen.
+    </p>
+    <p class="signature">
+      Musab Karalı
+    </p>
+  </div>
+  <div class="contentBox">
+    <img src="../../../assets/img/esansBottles Kopie.png" />
+  </div>
+  <div id="customerComments" *ngIf="recommendations">
+    <app-customer-comments
+      [recommendations]="recommendations"
+    ></app-customer-comments>
+  </div>
 </section>
-<section>
-  <div>Some Content</div>
-  <div>Some other content</div>
-</section>
-<div id="recommendations" *ngIf="recommendations">
-  <app-customer-comments
-    [recommendations]="recommendations"
-  ></app-customer-comments>
-</div>
+
 <div id="socialMediaContent">
   <h1 class="brightText">Finde uns auf ...</h1>
   <div id="socialMediaIconContainer">

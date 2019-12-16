@@ -13,13 +13,13 @@
 }
 
 :root {
-  --navigationBackGroundColor: rgba(236, 236, 236, 0.897);
-  --menuBackGroundColor: rgba(236, 236, 236, 0.897);
+  --navigationBackGroundColor: rgba(214, 211, 211, 0.979);
   --navigationHeight: 80px;
   --socialMediaStickerBackGroundColor: rgba(255, 255, 255, 0.637);
   --socialMediaStickerBackGroundColorOnHover: rgba(255, 255, 255, 0.747);
   --textColorBright: rgb(223, 213, 213);
   --textColorDark: rgb(21, 45, 90);
+  --textBackGroundBright: rgba(248, 248, 248, 0.774);
 }
 
 html {
@@ -50,17 +50,25 @@ html {
 h1 {
   font-size: 2.5rem;
   padding: 20px;
+  color: var(--textColorDark);
 }
 
 h2 {
   padding: 20px;
   font-size: 1.5rem;
+  color: var(--textColorDark);
 }
 
 a {
   display: inline-block;
   color: var(--textColorBright);
   text-decoration: none;
+}
+
+p {
+  font-size: 1rem;
+  padding: 5px;
+  color: var(--textColorDark);
 }
 
 .brightText {
@@ -81,6 +89,30 @@ a {
     rgba(255, 255, 255, 0),
     rgba(255, 255, 255, 0.5)
   );
+}
+
+@keyframes scrollInfoJump {
+  0% {
+    transform: translate(-50%, 6px);
+  }
+  20% {
+    transform: translate(-50%, 3px);
+  }
+  50% {
+    transform: translate(-50%, 0px);
+  }
+
+  70% {
+    transform: translate(-50%, 2px);
+  }
+
+  90% {
+    transform: translate(-50%, 4px);
+  }
+
+  100% {
+    transform: translate(-50%, 6px);
+  }
 }
 
 @media only screen and (max-width: 600px) {

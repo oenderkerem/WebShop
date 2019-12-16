@@ -1,9 +1,10 @@
 * {
   text-align: center;
-  color: var(--navigationBackGroundColor);
+  color: inherit;
 }
 
 h2 {
+  font-size: 1.25rem;
   padding: 20px;
 }
 
@@ -25,25 +26,25 @@ h2 {
 
 .customerCommentPoint {
   display: inline-block;
-  width: 15px;
-  height: 15px;
-  border: 1px solid var(--navigationBackGroundColor);
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--textColorBright);
   border-radius: 50%;
   margin: 5px;
   transition: all 1s ease-in-out;
 }
 
 .customerCommentPoint.active {
-  background-color: var(--navigationBackGroundColor);
+  background-color: var(--textColorBright);
 }
 
 .arrow {
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   margin: 5px;
   display: grid;
   justify-content: center;
   align-content: center;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   cursor: pointer;
 }

@@ -12,19 +12,31 @@ header {
   background-attachment: fixed;
 }
 
+#basicInfo {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-image: url("../../../assets/img/headerBackground.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  justify-items: center;
+  align-items: center;
+}
+
+.contentBox {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 20px 40px;
+  background-color: var(--textBackGroundBright);
+  border-radius: 20px;
+  width: 90%;
+}
+
 #headerText {
   position: relative;
   top: 30vh;
   color: var(--textColorBright);
-}
-
-#headerText h2 {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-  display: inline-block;
-  border-radius: 20px;
-  background-color: rgba(66, 129, 165, 0.952);
 }
 
 #scrollInfo {
@@ -39,36 +51,8 @@ header {
   animation-timing-function: ease;
 }
 
-@keyframes scrollInfoJump {
-  0% {
-    transform: translate(-50%, 6px);
-  }
-  20% {
-    transform: translate(-50%, 3px);
-  }
-  50% {
-    transform: translate(-50%, 0px);
-  }
-
-  70% {
-    transform: translate(-50%, 2px);
-  }
-
-  90% {
-    transform: translate(-50%, 4px);
-  }
-
-  100% {
-    transform: translate(-50%, 6px);
-  }
-}
-
-header img {
-  height: 50px;
-  max-width: 50px;
-}
-
 .signature {
+  padding: 20px;
   font-size: 2rem;
 }
 
@@ -89,6 +73,16 @@ header img {
   padding: 50px;
 }
 
+app-customer-comments {
+  color: var(--textColorBright);
+}
+
+#customerComments {
+  padding: 20px;
+  background: radial-gradient(rgb(110, 97, 60), transparent);
+  border-radius: 20px;
+}
+
 app-social-media-icon-link {
   margin: 15px;
   display: inline-block;
@@ -107,9 +101,11 @@ app-footer {
 }
 
 section {
-  min-height: 100vh;
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  padding: 50px;
+  padding: var(--navigationHeight);
+}
+
+@media only screen and (max-width: 850px) {
+  #basicInfo {
+    grid-template-columns: 100%;
+  }
 }
