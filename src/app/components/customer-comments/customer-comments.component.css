@@ -26,16 +26,16 @@ h2 {
 
 .customerCommentPoint {
   display: inline-block;
-  width: 12px;
-  height: 12px;
-  border: 1px solid var(--textColorBright);
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--textColorDark);
   border-radius: 50%;
   margin: 5px;
   transition: all 1s ease-in-out;
 }
 
 .customerCommentPoint.active {
-  background-color: var(--textColorBright);
+  background-color: var(--textColorDark);
 }
 
 .arrow {

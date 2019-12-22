@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "cardo", serif;
+  font-family: "Quicksand", serif;
 }
 
 .signature {
@@ -20,6 +20,7 @@
   --textColorBright: rgb(223, 213, 213);
   --textColorDark: rgb(21, 45, 90);
   --textBackGroundBright: rgba(248, 248, 248, 0.774);
+  --mobileThreshold: 650px;
 }
 
 html {
@@ -48,15 +49,13 @@ html {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   padding: 20px;
-  color: var(--textColorDark);
 }
 
 h2 {
   padding: 20px;
   font-size: 1.5rem;
-  color: var(--textColorDark);
 }
 
 a {
@@ -68,7 +67,6 @@ a {
 p {
   font-size: 1rem;
   padding: 5px;
-  color: var(--textColorDark);
 }
 
 .brightText {
@@ -115,5 +113,8 @@ p {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
+  :root {
+    --navigationHeight: 60px;
+  }
 }

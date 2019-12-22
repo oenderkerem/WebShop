@@ -2,8 +2,12 @@
   text-align: center;
 }
 
+section {
+  padding: var(--navigationHeight);
+}
+
 header {
-  height: 100vh;
+  height: 120vh;
   width: 100vw;
   background-image: url(../../../assets/img/hue12-photography-8rTwokBwz1w-unsplash.jpg);
   background-position: top;
@@ -13,8 +17,7 @@ header {
 }
 
 #basicInfo {
-  display: grid;
-  grid-template-columns: 50% 50%;
+  position: relative;
   background-image: url("../../../assets/img/headerBackground.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -22,15 +25,54 @@ header {
   background-attachment: fixed;
   justify-items: center;
   align-items: center;
+  clip-path: polygon(0 0vh, 100vw 8vh, 100% calc(100% - 10vh), 0% 100%);
+  margin-top: -20vh;
+  margin-bottom: -20vh;
 }
 
-.contentBox {
-  margin-top: 20px;
-  display: inline-block;
-  padding: 20px 40px;
-  background-color: var(--textBackGroundBright);
+#clipPathRegion {
+  height: 10vh;
+}
+
+h1 {
+  margin: 20px;
+}
+
+.container {
+  margin: 20px;
+  padding: 20px;
   border-radius: 20px;
-  width: 90%;
+  background: linear-gradient(
+    70deg,
+    rgba(133, 135, 136, 0.658),
+    rgba(201, 197, 197, 0.815)
+  );
+  color: var(--textColorDark);
+}
+
+#signature {
+  font-size: 1.5rem;
+  margin-top: 50px;
+}
+
+.boxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.box {
+  color: var(--textColorDark);
+  max-width: 300px;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.container img {
+  max-width: 70%;
 }
 
 #headerText {
@@ -57,13 +99,15 @@ header {
 }
 
 #socialMediaContent {
-  min-height: 100vh;
+  min-height: 120vh;
   background-image: url(../../../assets/img/socialMediaBackground.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   display: grid;
   align-content: center;
+  margin-bottom: -10vh;
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 calc(100% - 10vh));
 }
 
 #socialMediaIconContainer {
@@ -73,14 +117,13 @@ header {
   padding: 50px;
 }
 
-app-customer-comments {
-  color: var(--textColorBright);
+p {
+  padding: 20px;
+  font-size: 1.25rem;
 }
 
-#customerComments {
-  padding: 20px;
-  background: radial-gradient(rgb(110, 97, 60), transparent);
-  border-radius: 20px;
+app-customer-comments {
+  color: var(--textColorDark);
 }
 
 app-social-media-icon-link {
@@ -95,17 +138,25 @@ app-social-media-icon-link:hover {
 }
 
 app-footer {
-  display: block;
-  background-color: var(--navigationBackGroundColor);
-  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    70deg,
+    rgba(151, 150, 150, 0.856),
+    var(--navigationBackGroundColor)
+  );
+  min-height: 30vh;
+  color: var(--textColorDark);
+  padding: 20px;
 }
 
-section {
-  padding: var(--navigationHeight);
-}
-
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 700px) {
   #basicInfo {
     grid-template-columns: 100%;
+  }
+
+  #headerText {
+    top: 12vh;
   }
 }

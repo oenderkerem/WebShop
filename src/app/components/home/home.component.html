@@ -2,7 +2,7 @@
   <div id="headerText">
     <a routerLink="/fragrances">
       <h1 class="brightText">
-        Hol deinen außergewöhnlichen Duft hier im Shop
+        Finde deinen Duft jetzt hier im Shop
       </h1>
     </a>
   </div>
@@ -14,38 +14,74 @@
   </a>
 </header>
 <section id="basicInfo">
-  <div class="contentBox">
-    <h2>Herstellung</h2>
+  <div id="clipPathRegion"></div>
+  <div class="container">
+    <h1>E99-EsAns Produkte</h1>
+    <div class="boxContainer">
+      <div class="box">
+        Jeder E99-EsAns Duft ist Handarbeit und etwas besonderes
+      </div>
+      <div class="box">
+        Wir verwenden natürliche Inhaltsstoffe aus ausgewählten Plantagen
+      </div>
+      <div class="box">
+        Kunst braucht Zeit. Dein E99-EsAns Duft hat eine lange Reifezeit hinter
+        sich.
+      </div>
+    </div>
+    <div id="signature">
+      Dafür stehe ich mit meinem Namen
+      <div class="signature">Musab Karali</div>
+    </div>
+  </div>
+  <div class="container">
+    <h2>Kundenkommentare</h2>
+    <div *ngIf="recommendations">
+      <app-customer-comments
+        [recommendations]="recommendations"
+      ></app-customer-comments>
+    </div>
+  </div>
+  <div class="container">
+    <h1>
+      Allgemeine Informationen zu Düften
+    </h1>
+    <h2>Duftintensität und Wirkung</h2>
     <p>
-      Jeder Duft von E99 EsAns ist ein Kunstwerk für sich. Es sind keine
-      Fließbandprodukte aus der Fabrik. Unsere Düfte enthalten Zutaten aus
-      ausgewählten Plantagen. Mancher Rohstoff muss vor seiner Verarbeitung
-      zunächst über einen längeren Zeitraum reifen.
+      Je nach Zusammensetzung des Duftes haben Parfüms unterschiedliche
+      Duftintensitäten und Duftwirkungen. Riechstoffauswahl und
+      Riechstoffkonzentration beeinflussen sowohl die Duftintensität als auch
+      die Duftwirkung. Dabei werden folgende Schwellenwerte beobachtet:
+      Duftwirkungs-Schwelle: ab dieser noch nicht wahrnehmbaren Intensität
+      reagiert der Körper auf den Duft. Wahrnehmungs-Schwelle: Aura, man riecht
+      etwas, kann es jedoch noch nicht zuordnen. Erkennbarkeits-Schwelle: Duft
+      ist erkennbar und benennbar; mit steigender Duft-Intensität wandelt sich
+      der Duft von ‚angenehmer Duft‘ über ‚aufdringlicher Duft‘ bis hin zur
+      Flucht-Schwelle, die unbewusst eine Fluchtreaktion auslöst.
     </p>
+    <h2>Duftnoten</h2>
     <p>
-      E99 EsAns Düfte sind aus diesem Grund begrenzt Verfügbar.
-    </p>
-    <p>Kunst braucht seine Zeit.</p>
-    <p>
-      Hier gibt es keine billig produzierte und überteuert verkaufte
-      Chemiemischung. Unsere Kunden erhalten ausgefallene, hochwertige Qualität,
-      die es nicht überall zu kaufen gibt. Dafür stehe ich mit meinem Namen.
-    </p>
-    <p class="signature">
-      Musab Karalı
+      Ein Parfüm kann durch unterschiedliche Anteile der Grundbestandteile sehr
+      viele verschiedene Duftnoten annehmen. Es kann beispielsweise blumige,
+      moschusähnliche, orientalische, fruchtige, frische oder klassisch-elegante
+      Duftnuancen aufweisen. Die meisten Parfüms setzen sich aus Kopf-, Herz-
+      und Basisnote zusammen. Die Kopfnote ist unmittelbar in den ersten Minuten
+      nach dem Auftragen des Parfüms auf der Haut wahrnehmbar. Da sie für den
+      ersten Eindruck und die Kaufentscheidung wichtig ist, ist die Kopfnote
+      meist intensiver als die anderen und wird von leichtflüchtigen Duftstoffen
+      geprägt. Für gewöhnlich setzt sie sich aus leichten Duftnoten zusammen,
+      aber es können schon Teile von Herz- und Basisnote anklingen. Die Herznote
+      ist in den Stunden, nachdem sich die Kopfnote verflüchtigt hat, zu riechen
+      und bildet den eigentlichen Duftcharakter (das Herzstück). In der Herznote
+      finden sich meistens Blütennuancen, die mit anderen Aromen kombiniert
+      werden. Sie wird häufig auch als Mittelnote bezeichnet. Die Basisnote ist
+      der letzte Teil des Duftablaufes und enthält langhaftende und schwere
+      Bestandteile.
     </p>
   </div>
-  <div class="contentBox">
-    <img src="../../../assets/img/esansBottles Kopie.png" />
-  </div>
-  <div id="customerComments" *ngIf="recommendations">
-    <app-customer-comments
-      [recommendations]="recommendations"
-    ></app-customer-comments>
-  </div>
+  <div id="clipPathRegion"></div>
 </section>
-
-<div id="socialMediaContent">
+<section id="socialMediaContent">
   <h1 class="brightText">Finde uns auf ...</h1>
   <div id="socialMediaIconContainer">
     <app-social-media-icon-link
@@ -65,5 +101,5 @@
       imageSource="../../../assets/img/icons/iconfinder_1_Youtube_colored_svg_5296521.svg"
     ></app-social-media-icon-link>
   </div>
-</div>
+</section>
 <app-footer></app-footer>
