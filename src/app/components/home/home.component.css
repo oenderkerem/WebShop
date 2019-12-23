@@ -25,7 +25,7 @@ header {
   background-attachment: fixed;
   justify-items: center;
   align-items: center;
-  clip-path: polygon(0 0vh, 100vw 8vh, 100% calc(100% - 10vh), 0% 100%);
+  clip-path: polygon(0 0vh, 100vw 5vh, 100% 100%, 0% 100%);
   margin-top: -20vh;
   margin-bottom: -20vh;
 }
@@ -107,7 +107,7 @@ h1 {
   display: grid;
   align-content: center;
   margin-bottom: -10vh;
-  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 calc(100% - 10vh));
+  clip-path: polygon(0 0, 100% 5vh, 100% 100%, 0 calc(100% - 5vh));
 }
 
 #socialMediaIconContainer {
@@ -158,5 +158,15 @@ app-footer {
 
   #headerText {
     top: 12vh;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  section {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 5px;
   }
 }
