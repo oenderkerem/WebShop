@@ -25,13 +25,8 @@ header {
   background-attachment: fixed;
   justify-items: center;
   align-items: center;
-  clip-path: polygon(0 0vh, 100vw 5vh, 100% 100%, 0% 100%);
-  margin-top: -20vh;
-  margin-bottom: -20vh;
-}
-
-#clipPathRegion {
-  height: 10vh;
+  clip-path: polygon(0 0, 100% 5vw, 100% 100%, 0% 100%);
+  margin-top: -8vw;
 }
 
 h1 {
@@ -106,8 +101,14 @@ h1 {
   background-position: center;
   display: grid;
   align-content: center;
-  margin-bottom: -10vh;
-  clip-path: polygon(0 0, 100% 5vh, 100% 100%, 0 calc(100% - 5vh));
+  margin-top: -8vw;
+  margin-bottom: -10vw;
+  clip-path: polygon(
+    0 8vw,
+    100% 3vw,
+    100% calc(100% - 6vw),
+    0 calc(100% - 3vw)
+  );
 }
 
 #socialMediaIconContainer {
@@ -135,20 +136,6 @@ app-social-media-icon-link {
 
 app-social-media-icon-link:hover {
   background-color: var(--socialMediaStickerBackGroundColorOnHover);
-}
-
-app-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(
-    70deg,
-    rgba(151, 150, 150, 0.856),
-    var(--navigationBackGroundColor)
-  );
-  min-height: 30vh;
-  color: var(--textColorDark);
-  padding: 20px;
 }
 
 @media only screen and (max-width: 700px) {

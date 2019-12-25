@@ -89,6 +89,23 @@ p {
   );
 }
 
+app-footer {
+  display: block;
+  background: linear-gradient(
+    70deg,
+    rgba(151, 150, 150, 0.856),
+    var(--navigationBackGroundColor)
+  );
+  color: var(--textColorDark);
+  min-height: 30vh;
+  padding: 50px;
+  place-content: center;
+}
+
+.clipPathRegion {
+  height: 8vw;
+}
+
 @keyframes scrollInfoJump {
   0% {
     transform: translate(-50%, 6px);
