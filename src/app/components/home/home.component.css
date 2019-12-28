@@ -3,12 +3,12 @@
 }
 
 section {
+  min-height: 100vh;
   padding: var(--navigationHeight);
 }
 
 header {
-  height: 120vh;
-  width: 100vw;
+  margin-top: var(--navigationHeight);
   background-image: url(../../../assets/img/hue12-photography-8rTwokBwz1w-unsplash.jpg);
   background-position: top;
   background-size: cover;
@@ -25,8 +25,8 @@ header {
   background-attachment: fixed;
   justify-items: center;
   align-items: center;
-  clip-path: polygon(0 0, 100% 5vw, 100% 100%, 0% 100%);
-  margin-top: -8vw;
+  clip-path: polygon(0 0, 100% 10vw, 100% 100%, 0% 100%);
+  margin-top: -10vw;
 }
 
 h1 {
@@ -45,11 +45,6 @@ h1 {
   color: var(--textColorDark);
 }
 
-#signature {
-  font-size: 1.5rem;
-  margin-top: 50px;
-}
-
 .boxContainer {
   display: flex;
   flex-wrap: wrap;
@@ -63,17 +58,11 @@ h1 {
   padding: 20px;
   margin-top: 20px;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .container img {
   max-width: 70%;
-}
-
-#headerText {
-  position: relative;
-  top: 30vh;
-  color: var(--textColorBright);
 }
 
 #scrollInfo {
@@ -88,23 +77,27 @@ h1 {
   animation-timing-function: ease;
 }
 
+#personalMessage {
+  padding: 30px;
+  font-size: 1.2rem;
+}
+
 .signature {
-  padding: 20px;
+  padding: 25px;
   font-size: 2rem;
 }
 
 #socialMediaContent {
-  min-height: 120vh;
   background-image: url(../../../assets/img/socialMediaBackground.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   display: grid;
   align-content: center;
-  margin-top: -8vw;
+  margin-top: -10vw;
   margin-bottom: -10vw;
   clip-path: polygon(
-    0 8vw,
+    0 10vw,
     100% 3vw,
     100% calc(100% - 6vw),
     0 calc(100% - 3vw)
@@ -141,10 +134,6 @@ app-social-media-icon-link:hover {
 @media only screen and (max-width: 700px) {
   #basicInfo {
     grid-template-columns: 100%;
-  }
-
-  #headerText {
-    top: 12vh;
   }
 }
 

@@ -20,7 +20,6 @@
   --textColorBright: rgb(223, 213, 213);
   --textColorDark: rgb(21, 45, 90);
   --textBackGroundBright: rgba(248, 248, 248, 0.774);
-  --mobileThreshold: 650px;
 }
 
 html {
@@ -39,6 +38,7 @@ html {
   background-color: var(--textColorBright);
   transform: rotate(-45deg);
 }
+
 .arrowDown:before {
   content: "";
   display: inline-block;
@@ -103,7 +103,7 @@ app-footer {
 }
 
 .clipPathRegion {
-  height: 8vw;
+  height: 11vw;
 }
 
 @keyframes scrollInfoJump {
