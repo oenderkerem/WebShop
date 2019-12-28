@@ -7,8 +7,8 @@ import { AppComponent } from "./app.component";
 import { NavigationbarComponent } from "./components/navigationbar/navigationbar.component";
 import { HamburgerIconComponent } from "./components/hamburger-icon/hamburger-icon.component";
 
-import { StoreModule } from "@ngrx/store";
-import { hamburgerReducer } from "./components/navigationbar/reducer/hamburger.reducer";
+import { StoreModule, ReducerManager } from "@ngrx/store";
+import { HamburgerReducer } from "./components/navigationbar/reducer/hamburger.reducer";
 import { HomeComponent } from "./components/home/home.component";
 import { MenComponent } from "./components/men/men.component";
 import { WomenComponent } from "./components/women/women.component";
@@ -19,7 +19,9 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { HttpClientModule } from "@angular/common/http";
 import { CustomerCommentComponent } from "./components/customer-comment/customer-comment.component";
 import { SocialMediaIconLinkComponent } from "./components/social-media-icon-link/social-media-icon-link.component";
-import { CustomerCommentsComponent } from './components/customer-comments/customer-comments.component';
+import { CustomerCommentsComponent } from "./components/customer-comments/customer-comments.component";
+import { CartComponent } from "./components/cart/cart.component";
+import { ShoppingCartReducer } from "./reducer";
 
 @NgModule({
   declarations: [
@@ -35,14 +37,18 @@ import { CustomerCommentsComponent } from './components/customer-comments/custom
     FooterComponent,
     CustomerCommentComponent,
     SocialMediaIconLinkComponent,
-    CustomerCommentsComponent
+    CustomerCommentsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({ hamburgerClicked: hamburgerReducer })
+    StoreModule.forRoot({
+      hamburgerClicked: HamburgerReducer,
+      shoppingCartReducer: ShoppingCartReducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -29,6 +29,6 @@ export class NavigationbarComponent implements OnInit {
   }
 
   onShoppingCartIconClicked() {
-    console.log("shopping Cart Logo Clicked");
+    this.store.dispatch({ type: "TOGGLE_CART" });
   }
 }

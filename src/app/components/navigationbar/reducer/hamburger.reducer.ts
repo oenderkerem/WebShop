@@ -1,6 +1,6 @@
 import { Action } from "@ngrx/store";
 
-export function hamburgerReducer(state: boolean = false, action: Action) {
+export function HamburgerReducer(state: boolean = false, action: Action) {
   switch (action.type) {
     case "TOGGLE":
       return (state = !state);

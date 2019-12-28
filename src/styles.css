@@ -102,6 +102,21 @@ app-footer {
   place-content: center;
 }
 
+app-cart {
+  position: fixed;
+  top: var(--navigationHeight);
+  right: -50%;
+  width: 50vw;
+  min-height: 100vh;
+  background-color: var(--navigationBackGroundColor);
+  z-index: 2;
+  transition: all 200ms ease-in-out;
+}
+
+app-cart.visible {
+  right: 0;
+}
+
 .clipPathRegion {
   height: 11vw;
 }
