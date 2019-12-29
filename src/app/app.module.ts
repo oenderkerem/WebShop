@@ -7,8 +7,7 @@ import { AppComponent } from "./app.component";
 import { NavigationbarComponent } from "./components/navigationbar/navigationbar.component";
 import { HamburgerIconComponent } from "./components/hamburger-icon/hamburger-icon.component";
 
-import { StoreModule, ReducerManager } from "@ngrx/store";
-import { HamburgerReducer } from "./components/navigationbar/reducer/hamburger.reducer";
+import { StoreModule } from "@ngrx/store";
 import { HomeComponent } from "./components/home/home.component";
 import { MenComponent } from "./components/men/men.component";
 import { WomenComponent } from "./components/women/women.component";
@@ -21,7 +20,7 @@ import { CustomerCommentComponent } from "./components/customer-comment/customer
 import { SocialMediaIconLinkComponent } from "./components/social-media-icon-link/social-media-icon-link.component";
 import { CustomerCommentsComponent } from "./components/customer-comments/customer-comments.component";
 import { CartComponent } from "./components/cart/cart.component";
-import { ShoppingCartReducer } from "./reducer";
+import { hamburgerReducer, shoppingCartReducer } from "./reducer";
 
 @NgModule({
   declarations: [
@@ -46,8 +45,8 @@ import { ShoppingCartReducer } from "./reducer";
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({
-      hamburgerClicked: HamburgerReducer,
-      shoppingCartReducer: ShoppingCartReducer
+      hamburgerReducer: hamburgerReducer,
+      shoppingCartReducer: shoppingCartReducer
     })
   ],
   providers: [],

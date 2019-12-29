@@ -1,6 +1,4 @@
 <app-navigationbar></app-navigationbar>
-<app-cart
-  [ngClass]="{ visible: shoppingCartState$.CartIsOpen | async }"
-></app-cart>
+<app-cart [ngClass]="{ visible: shoppingCartIsOpen | async }"></app-cart>
 <router-outlet></router-outlet>
 <app-footer> </app-footer>
