@@ -105,12 +105,11 @@ app-footer {
 app-cart {
   position: fixed;
   top: var(--navigationHeight);
-  right: -50%;
-  width: 50vw;
+  right: -100%;
+  width: 100vw;
   min-height: 100vh;
-  background-color: var(--navigationBackGroundColor);
   z-index: 2;
-  transition: all 200ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }
 
 app-cart.visible {

@@ -1,0 +1,13 @@
+#container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  background-color: transparent;
+}
+
+#content {
+  padding: 50px;
+  background-color: var(--navigationBackGroundColor);
+  box-shadow: -5px 0px 10px 2px rgb(129, 127, 127);
+}

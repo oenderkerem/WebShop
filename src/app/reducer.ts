@@ -45,6 +45,11 @@ export function shoppingCartReducer(
         ...state,
         CartIsOpen: !state.CartIsOpen
       };
+    case "CART_CLOSE":
+      return {
+        ...state,
+        CartIsOpen: false
+      };
     default:
       return state;
   }
