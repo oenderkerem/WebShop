@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
+import { State } from "src/app/app.component";
+import { state } from "@angular/animations";
 
 interface AppState {
   hamburgerClicked: boolean;
@@ -12,10 +14,12 @@ interface AppState {
   styleUrls: ["./hamburger-icon.component.css"]
 })
 export class HamburgerIconComponent implements OnInit {
-  hamburgerClicked$: Observable<boolean>;
+  hamburgerClicked: Observable<boolean>;
 
-  constructor(private store: Store<AppState>) {
-    this.hamburgerClicked$ = this.store.select("hamburgerClicked");
+  constructor(private store: Store<State>) {
+    this.hamburgerClicked = this.store.select(
+      store => store.hamburgerReducer.MenuIsOpen
+    );
   }
 
   ngOnInit() {}

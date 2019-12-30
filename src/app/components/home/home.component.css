@@ -25,8 +25,8 @@ header {
   background-attachment: fixed;
   justify-items: center;
   align-items: center;
-  clip-path: polygon(0 0, 100% 10vw, 100% 100%, 0% 100%);
-  margin-top: -10vw;
+  clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0% 100%);
+  margin-top: -3vw;
 }
 
 h1 {
@@ -39,8 +39,8 @@ h1 {
   border-radius: 20px;
   background: linear-gradient(
     70deg,
-    rgba(133, 135, 136, 0.658),
-    rgba(201, 197, 197, 0.815)
+    rgba(143, 144, 145, 0.74),
+    rgba(212, 211, 211, 0.911)
   );
   color: var(--textColorDark);
 }
@@ -58,7 +58,7 @@ h1 {
   padding: 20px;
   margin-top: 20px;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .container img {
@@ -94,14 +94,9 @@ h1 {
   background-position: center;
   display: grid;
   align-content: center;
-  margin-top: -10vw;
-  margin-bottom: -10vw;
-  clip-path: polygon(
-    0 10vw,
-    100% 3vw,
-    100% calc(100% - 6vw),
-    0 calc(100% - 3vw)
-  );
+  margin-top: -3vw;
+  margin-bottom: -3vw;
+  clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 100%);
 }
 
 #socialMediaIconContainer {
@@ -113,7 +108,30 @@ h1 {
 
 p {
   padding: 20px;
+  font-size: 1.1rem;
+}
+
+.productCategoryLinkList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.productCategoryLink {
+  padding: 20px;
+  margin: 10px;
   font-size: 1.25rem;
+  border: solid 1px var(--textColorDark);
+  display: inline-block;
+  border-radius: 15px;
+  background-color: rgba(177, 174, 174, 0.938);
+  transition: all 200ms ease-in-out;
+  min-width: 150px;
+}
+
+.productCategoryLink:hover {
+  background-color: rgb(153, 152, 152);
 }
 
 app-customer-comments {

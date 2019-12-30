@@ -20,7 +20,12 @@ import { CustomerCommentComponent } from "./components/customer-comment/customer
 import { SocialMediaIconLinkComponent } from "./components/social-media-icon-link/social-media-icon-link.component";
 import { CustomerCommentsComponent } from "./components/customer-comments/customer-comments.component";
 import { CartComponent } from "./components/cart/cart.component";
-import { hamburgerReducer, shoppingCartReducer } from "./reducer";
+import {
+  hamburgerReducer,
+  shoppingCartReducer,
+  productsReducer
+} from "./reducer";
+import { ShelfComponent } from "./components/shelf/shelf.component";
 
 @NgModule({
   declarations: [
@@ -37,7 +42,8 @@ import { hamburgerReducer, shoppingCartReducer } from "./reducer";
     CustomerCommentComponent,
     SocialMediaIconLinkComponent,
     CustomerCommentsComponent,
-    CartComponent
+    CartComponent,
+    ShelfComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,8 @@ import { hamburgerReducer, shoppingCartReducer } from "./reducer";
     HttpClientModule,
     StoreModule.forRoot({
       hamburgerReducer: hamburgerReducer,
-      shoppingCartReducer: shoppingCartReducer
+      shoppingCartReducer: shoppingCartReducer,
+      productsReducer: productsReducer
     })
   ],
   providers: [],

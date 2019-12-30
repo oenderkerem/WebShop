@@ -12,7 +12,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {}
 
-  onContainerClicked(): void {
+  onContainerClicked() {
     this.store.dispatch({ type: "CART_CLOSE" });
   }
 }

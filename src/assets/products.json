@@ -1,0 +1,44 @@
+[
+  {
+    "title": "One",
+    "price": 12,
+    "image": "",
+    "sex": "male"
+  },
+  {
+    "title": "Two",
+    "price": 9.99,
+    "image": "",
+    "sex": "unisex"
+  },
+  {
+    "title": "Hugo",
+    "price": 10,
+    "image": "",
+    "sex": "female"
+  },
+  {
+    "title": "Boss",
+    "price": 15,
+    "image": "",
+    "sex": "male"
+  },
+  {
+    "title": "Bruno",
+    "price": 1,
+    "image": "",
+    "sex": "unisex"
+  },
+  {
+    "title": "Banani",
+    "price": 4,
+    "image": "",
+    "sex": "female"
+  },
+  {
+    "title": "Misk",
+    "price": 24,
+    "image": "",
+    "sex": "male"
+  }
+]

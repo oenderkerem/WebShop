@@ -1,4 +1,12 @@
 import { Action } from "@ngrx/store";
+import { ProductAction } from "./actions/ProductActions";
+
+export type Product = {
+  price: number;
+  title: string;
+  image: any;
+  sex: "male" | "female";
+};
 
 export type ShoppinCartState = {
   CartIsOpen: boolean;
@@ -8,13 +16,19 @@ export type HamburgerState = {
   MenuIsOpen: boolean;
 };
 
+export type ProductsState = {
+  Men: Product[];
+  Women: Product[];
+  Unisex: Product[];
+  All: Product[];
+};
+
 export function hamburgerReducer(
   state: HamburgerState = { MenuIsOpen: false },
   action: Action
 ) {
   switch (action.type) {
     case "HAMBURGER_TOGGLE":
-      console.log("HAMBURGER_Toggle called " + state.MenuIsOpen);
       return {
         ...state,
         MenuIsOpen: !state.MenuIsOpen
@@ -40,7 +54,6 @@ export function shoppingCartReducer(
 ) {
   switch (action.type) {
     case "CART_TOGGLE":
-      console.log("Tooggle cart called " + state.CartIsOpen);
       return {
         ...state,
         CartIsOpen: !state.CartIsOpen
@@ -52,5 +65,20 @@ export function shoppingCartReducer(
       };
     default:
       return state;
+  }
+}
+
+export function productsReducer(
+  state: ProductsState = { Men: [], Women: [], Unisex: [], All: [] },
+  action: ProductAction
+) {
+  switch (action.type) {
+    case "PRODUCTS_SET_ALL":
+      return {
+        ...state,
+        All: action.payload
+      };
+    default:
+      return { ...state };
   }
 }

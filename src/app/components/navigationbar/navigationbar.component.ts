@@ -20,7 +20,7 @@ export class NavigationbarComponent implements OnInit {
   ngOnInit() {}
 
   onHamburgerIconClick() {
-    console.log(this.hamburgerClicked);
+    this.store.dispatch({ type: "CART_CLOSE" });
     this.store.dispatch({ type: "HAMBURGER_TOGGLE" });
   }
 
@@ -29,6 +29,7 @@ export class NavigationbarComponent implements OnInit {
   }
 
   onShoppingCartIconClicked() {
+    this.store.dispatch({ type: "HAMBURGER_CLOSE" });
     this.store.dispatch({ type: "CART_TOGGLE" });
   }
 }
