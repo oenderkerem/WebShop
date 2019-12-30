@@ -1,1 +1,6 @@
-<div class="container">Shelf</div>
+<div class="container">
+  <div *ngFor="let p of products | async">
+    <span>{{ p.title }}</span>
+    <span>{{ p.price }}</span>
+  </div>
+</div>

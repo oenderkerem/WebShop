@@ -1,6 +1,2 @@
 <p>fragrances works!</p>
-
-<div *ngFor="let p of products | async">
-  <span>{{ p.title }}</span>
-  <span>{{ p.price }}</span>
-</div>
+<app-shelf [products]="products"></app-shelf>

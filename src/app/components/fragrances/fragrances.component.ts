@@ -14,6 +14,7 @@ export class FragrancesComponent implements OnInit {
 
   constructor(private store: Store<State>) {
     this.products = this.store.select(state => state.productsReducer.All);
+    this.products.subscribe(data => console.log(data));
   }
 
   ngOnInit() {}
