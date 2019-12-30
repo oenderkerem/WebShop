@@ -9,12 +9,13 @@ import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import {
-  ProductAction,
   SetAllProducts,
   SetProductsMen,
   SetProductsWomen,
-  SetProductsUnisex
-} from "./actions/ProductActions";
+  SetProductsUnisex,
+  AddProductsToMen,
+  AddProductsToWomen
+} from "./actions/productActions";
 
 export interface State {
   shoppingCartReducer: ShoppinCartState;
@@ -49,11 +50,10 @@ export class AppComponent {
         this.filterProductsBySex(data as Product[], "female")
       )
     );
-    this.store.dispatch(
-      new SetProductsUnisex(
-        this.filterProductsBySex(data as Product[], "unisex")
-      )
-    );
+    let products = this.filterProductsBySex(data as Product[], "unisex");
+    this.store.dispatch(new SetProductsUnisex(products));
+    this.store.dispatch(new AddProductsToMen(products));
+    this.store.dispatch(new AddProductsToWomen(products));
   }
 
   filterProductsBySex(products: Product[], filter: string): Product[] {

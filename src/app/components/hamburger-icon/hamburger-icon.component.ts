@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { State } from "src/app/app.component";
-import { state } from "@angular/animations";
 
 interface AppState {
   hamburgerClicked: boolean;

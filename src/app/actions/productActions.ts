@@ -21,8 +21,20 @@ export class SetProductsUnisex implements Action {
   constructor(public payload: Product[]) {}
 }
 
+export class AddProductsToMen implements Action {
+  readonly type = "PRODUCTS_ADD_TO_MEN";
+  constructor(public payload: Product[]) {}
+}
+
+export class AddProductsToWomen implements Action {
+  readonly type = "PRODUCTS_ADD_TO_WOMEN";
+  constructor(public payload: Product[]) {}
+}
+
 export type ProductAction =
   | SetAllProducts
   | SetProductsMen
   | SetProductsWomen
-  | SetProductsUnisex;
+  | SetProductsUnisex
+  | AddProductsToMen
+  | AddProductsToWomen;

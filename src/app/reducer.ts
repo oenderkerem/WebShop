@@ -1,5 +1,5 @@
 import { Action } from "@ngrx/store";
-import { ProductAction } from "./actions/ProductActions";
+import { ProductAction } from "./actions/productActions";
 
 export type Product = {
   price: number;
@@ -77,6 +77,31 @@ export function productsReducer(
       return {
         ...state,
         All: action.payload
+      };
+    case "PRODUCTS_SET_MEN":
+      return {
+        ...state,
+        Men: action.payload
+      };
+    case "PRODUCTS_SET_WOMEN":
+      return {
+        ...state,
+        Women: action.payload
+      };
+    case "PRODUCTS_SET_UNISEX":
+      return {
+        ...state,
+        Unisex: action.payload
+      };
+    case "PRODUCTS_ADD_TO_MEN":
+      return {
+        ...state,
+        Men: [...state.Men.concat(action.payload)]
+      };
+    case "PRODUCTS_ADD_TO_WOMEN":
+      return {
+        ...state,
+        Women: [...state.Women.concat(action.payload)]
       };
     default:
       return { ...state };

@@ -11,8 +11,5 @@ export class SocialMediaIconLinkComponent implements OnInit {
   @Input() link: string;
   @Input() imageSource: string;
 
-  ngOnInit() {
-    //console.log(this.assetSource);
-    console.log("link to file", this.imageSource);
-  }
+  ngOnInit() {}
 }

@@ -101,7 +101,6 @@ export class CustomerCommentsComponent implements OnInit {
   };
 
   ngOnInit() {
-    console.log("list ", this.recommendations);
     this.initializeRecommendation();
     this.startRecommendationLoop(loopDirectionToLeft);
   }
