@@ -3,9 +3,26 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 50vh;
   width: 100vw;
-  overflow: auto;
   background-color: black;
   color: white;
+}
+
+.productBox img {
+  border-radius: 50%;
+  max-width: 300px;
+  max-height: 100%;
+}
+
+.productBox {
+  padding: 20px;
+  margin: 50px;
+  background-color: var(--textColorBright);
+  text-align: center;
+  color: black;
+}
+
+.productBox div {
+  padding: 20px;
 }
