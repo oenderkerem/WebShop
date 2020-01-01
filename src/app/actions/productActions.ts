@@ -1,5 +1,5 @@
 import { Action } from "@ngrx/store";
-import { Product } from "../reducer";
+import { Product, ShoppingCartEntry } from "../reducer";
 
 export class SetAllProducts implements Action {
   readonly type = "PRODUCTS_SET_ALL";
@@ -30,6 +30,15 @@ export class AddProductsToWomen implements Action {
   readonly type = "PRODUCTS_ADD_TO_WOMEN";
   constructor(public payload: Product[]) {}
 }
+
+export class AddShoppingCartEntry implements Action {
+  readonly type = "CART_ADD_ENTRY";
+  constructor(public payload: ShoppingCartEntry) {}
+}
+
+export type ShoppincCartAction = {
+  AddShoppingCartEntry;
+};
 
 export type ProductAction =
   | SetAllProducts

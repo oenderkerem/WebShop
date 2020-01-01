@@ -5,8 +5,7 @@
   align-items: center;
   min-height: 50vh;
   width: 100vw;
-  background-color: black;
-  color: white;
+  color: var(--textColorBright);
 }
 
 .productBox img {
@@ -17,12 +16,20 @@
 
 .productBox {
   padding: 20px;
-  margin: 50px;
+  margin: 15px;
+  border-radius: 20px;
   background-color: var(--textColorBright);
   text-align: center;
-  color: black;
+  color: var(--textColorDark);
 }
 
-.productBox div {
-  padding: 20px;
+.description {
+  padding: 10px;
+}
+
+.addToCartButton {
+  padding: 15px;
+  margin: 5px;
+  border-radius: 10px;
+  border: 1px solid var(--textColorDark);
 }

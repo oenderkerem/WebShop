@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { State } from "src/app/app.component";
+import { Observable } from "rxjs";
+import { Product } from "src/app/reducer";
+import { Store } from "@ngrx/store";
 
 @Component({
-  selector: 'app-women',
-  templateUrl: './women.component.html',
-  styleUrls: ['./women.component.css']
+  selector: "app-women",
+  templateUrl: "./women.component.html",
+  styleUrls: ["./women.component.css"]
 })
 export class WomenComponent implements OnInit {
+  products: Observable<Product[]>;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private store: Store<State>) {
+    this.products = this.store.select(state => state.productsReducer.Women);
+    this.products.subscribe(data => console.log(data));
   }
 
+  ngOnInit() {}
 }

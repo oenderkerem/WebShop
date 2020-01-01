@@ -1,0 +1,9 @@
+.container {
+  margin-top: var(--navigationHeight);
+  background-color: var(--textColorDark);
+}
+
+h1 {
+  text-align: center;
+  color: var(--textColorBright);
+}

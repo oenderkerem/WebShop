@@ -2,5 +2,8 @@
   <div (click)="onContainerClicked()"></div>
   <div id="content">
     <h1 class="darkText">Warenkorb</h1>
+    <div *ngFor="let entry of productEntries | async">
+      {{ entry.product.title }}
+    </div>
   </div>
 </div>

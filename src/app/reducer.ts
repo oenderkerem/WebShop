@@ -1,15 +1,22 @@
 import { Action } from "@ngrx/store";
 import { ProductAction } from "./actions/productActions";
+import { ShoppingCartAction } from "./actions/productActions";
 
 export type Product = {
   price: number;
   title: string;
   image: any;
-  sex: "male" | "female";
+  sex: "male" | "female" | "unisex";
+};
+
+export type ShoppingCartEntry = {
+  product: Product;
+  amount: number;
 };
 
 export type ShoppinCartState = {
   CartIsOpen: boolean;
+  Entries: ShoppingCartEntry[];
 };
 
 export type HamburgerState = {
@@ -49,8 +56,8 @@ export function hamburgerReducer(
 }
 
 export function shoppingCartReducer(
-  state: ShoppinCartState = { CartIsOpen: false },
-  action: Action
+  state: ShoppinCartState = { CartIsOpen: false, Entries: [] },
+  action: ShoppingCartAction
 ) {
   switch (action.type) {
     case "CART_TOGGLE":
@@ -62,6 +69,11 @@ export function shoppingCartReducer(
       return {
         ...state,
         CartIsOpen: false
+      };
+    case "CART_ADD_ENTRY":
+      return {
+        ...state,
+        Entries: [...state.Entries.concat(action.payload)]
       };
     default:
       return state;
