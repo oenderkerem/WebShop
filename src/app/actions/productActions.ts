@@ -36,10 +36,20 @@ export class AddShoppingCartEntry implements Action {
   constructor(public payload: ShoppingCartEntry) {}
 }
 
-export type ShoppincCartAction = {
-  AddShoppingCartEntry;
-};
+export class CloseShoppingCart implements Action {
+  readonly type = "CART_CLOSE";
+  constructor() {}
+}
 
+export class ToggleShoppingCart implements Action {
+  readonly type = "CART_TOGGLE";
+  constructor() {}
+}
+
+export type ShoppingCartAction =
+  | AddShoppingCartEntry
+  | CloseShoppingCart
+  | ToggleShoppingCart;
 export type ProductAction =
   | SetAllProducts
   | SetProductsMen
