@@ -1,43 +1,161 @@
 [
   {
+    "id": "0",
     "title": "One",
-    "price": 12,
+    "variations": [
+      {
+        "option": "100ml",
+        "price": "12"
+      },
+      {
+        "option": "200ml",
+        "price": "20"
+      }
+    ],
     "image": "",
     "sex": "male"
   },
   {
-    "title": "Two",
-    "price": 9.99,
-    "image": "",
-    "sex": "unisex"
-  },
-  {
-    "title": "Hugo",
-    "price": 10,
-    "image": "",
-    "sex": "female"
-  },
-  {
-    "title": "Boss",
-    "price": 15,
+    "id": "1",
+    "title": "One",
+    "variations": [
+      {
+        "option": "100ml",
+        "price": "12"
+      },
+      {
+        "option": "200ml",
+        "price": "20"
+      }
+    ],
     "image": "",
     "sex": "male"
   },
   {
-    "title": "Bruno",
-    "price": 1,
+    "id": "2",
+    "title": "One",
+    "variations": [
+      {
+        "option": "100ml",
+        "price": "12"
+      },
+      {
+        "option": "200ml",
+        "price": "20"
+      }
+    ],
     "image": "",
-    "sex": "unisex"
+    "sex": "male"
   },
   {
-    "title": "Banani",
-    "price": 4,
+    "id": "3",
+    "title": "One",
+    "variations": [
+      {
+        "option": "100ml",
+        "price": "12"
+      },
+      {
+        "option": "200ml",
+        "price": "20"
+      }
+    ],
     "image": "",
-    "sex": "female"
+    "sex": "male"
   },
   {
-    "title": "Misk",
-    "price": 24,
+    "id": "4",
+    "title": "One",
+    "variations": [
+      {
+        "option": "100ml",
+        "price": "12"
+      },
+      {
+        "option": "200ml",
+        "price": "20"
+      }
+    ],
+    "image": "",
+    "sex": "male"
+  },
+  {
+    "id": "5",
+    "title": "One",
+    "variations": [
+      {
+        "option": "100ml",
+        "price": "12"
+      },
+      {
+        "option": "200ml",
+        "price": "20"
+      }
+    ],
+    "image": "",
+    "sex": "male"
+  },
+  {
+    "id": "6",
+    "title": "One",
+    "variations": [
+      {
+        "option": "100ml",
+        "price": "12"
+      },
+      {
+        "option": "200ml",
+        "price": "20"
+      }
+    ],
+    "image": "",
+    "sex": "male"
+  },
+  {
+    "id": "7",
+    "title": "One",
+    "variations": [
+      {
+        "option": "100ml",
+        "price": "12"
+      },
+      {
+        "option": "200ml",
+        "price": "20"
+      }
+    ],
+    "image": "",
+    "sex": "male"
+  },
+  {
+    "id": "8",
+    "title": "Brown Sugar",
+    "variations": [
+      {
+        "option": "100ml",
+        "price": "18"
+      },
+      {
+        "option": "200ml",
+        "price": "30"
+      }
+    ],
+    "image": "",
+    "sex": "male"
+  },
+  {
+    "id": "9",
+    "title": "Gold Honey",
+    "variations": [
+      {
+        "option": "100ml",
+        "price": "22"
+      },
+      {
+        "option": "200ml",
+        "price": "40"
+      }
+    ],
     "image": "",
     "sex": "male"
   }

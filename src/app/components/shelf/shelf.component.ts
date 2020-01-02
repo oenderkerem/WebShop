@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Product } from "src/app/reducer";
 import { Observable } from "rxjs";
 import { State } from "src/app/app.component";
 import { Store } from "@ngrx/store";
-import { AddShoppingCartEntry } from "src/app/actions/productActions";
+import { AddShoppingCartEntry } from "src/app/actions/actions";
+import { Product } from "src/app/models/models";
 
 @Component({
   selector: "app-shelf",

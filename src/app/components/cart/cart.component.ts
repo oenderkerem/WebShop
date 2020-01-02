@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { State } from "src/app/app.component";
 import { Observable } from "rxjs";
-import { ShoppingCartEntry } from "src/app/reducer";
+import { ShoppingCartEntry } from "src/app/models/models";
 
 @Component({
   selector: "app-cart",

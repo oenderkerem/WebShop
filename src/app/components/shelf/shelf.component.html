@@ -3,6 +3,10 @@
     <img *ngIf="!p.image" src="../../../assets/img/esansBottles Kopie.png" />
     <div class="description">
       <h3>{{ p.title }}</h3>
+      <div *ngFor="let v of p.variations">
+        {{ v.option }}
+        {{ v.price }}
+      </div>
       <div>{{ p.price }} €</div>
       <div>{{ p.sex }}</div>
     </div>

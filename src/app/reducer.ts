@@ -1,18 +1,7 @@
 import { Action } from "@ngrx/store";
-import { ProductAction } from "./actions/productActions";
-import { ShoppingCartAction } from "./actions/productActions";
-
-export type Product = {
-  price: number;
-  title: string;
-  image: any;
-  sex: "male" | "female" | "unisex";
-};
-
-export type ShoppingCartEntry = {
-  product: Product;
-  amount: number;
-};
+import { ProductAction } from "./actions/actions";
+import { ShoppingCartAction } from "./actions/actions";
+import { Product, ShoppingCartEntry } from "./models/models";
 
 export type ShoppinCartState = {
   CartIsOpen: boolean;

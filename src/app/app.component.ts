@@ -1,10 +1,5 @@
 import { Component } from "@angular/core";
-import {
-  HamburgerState,
-  ShoppinCartState,
-  ProductsState,
-  Product
-} from "./reducer";
+import { HamburgerState, ShoppinCartState, ProductsState } from "./reducer";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
@@ -15,7 +10,8 @@ import {
   SetProductsUnisex,
   AddProductsToMen,
   AddProductsToWomen
-} from "./actions/productActions";
+} from "./actions/actions";
+import { Product } from "./models/models";
 
 export interface State {
   shoppingCartReducer: ShoppinCartState;

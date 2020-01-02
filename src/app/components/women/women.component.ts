@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { State } from "src/app/app.component";
 import { Observable } from "rxjs";
-import { Product } from "src/app/reducer";
 import { Store } from "@ngrx/store";
+import { Product } from "src/app/models/models";
 
 @Component({
   selector: "app-women",
