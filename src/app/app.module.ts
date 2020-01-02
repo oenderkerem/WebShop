@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
+import { AppComponent, State } from "./app.component";
 import { NavigationbarComponent } from "./components/navigationbar/navigationbar.component";
 import { HamburgerIconComponent } from "./components/hamburger-icon/hamburger-icon.component";
 
@@ -23,9 +23,11 @@ import { CartComponent } from "./components/cart/cart.component";
 import {
   hamburgerReducer,
   shoppingCartReducer,
-  productsReducer
+  productsReducer,
+  generalStateReducer
 } from "./reducer";
 import { ShelfComponent } from "./components/shelf/shelf.component";
+import { LoadingSignComponent } from "./components/loading-sign/loading-sign.component";
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { ShelfComponent } from "./components/shelf/shelf.component";
     SocialMediaIconLinkComponent,
     CustomerCommentsComponent,
     CartComponent,
-    ShelfComponent
+    ShelfComponent,
+    LoadingSignComponent
   ],
   imports: [
     BrowserModule,
@@ -59,4 +62,6 @@ import { ShelfComponent } from "./components/shelf/shelf.component";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {}
+}

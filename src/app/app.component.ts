@@ -1,5 +1,10 @@
 import { Component } from "@angular/core";
-import { HamburgerState, ShoppinCartState, ProductsState } from "./reducer";
+import {
+  HamburgerState,
+  ShoppinCartState,
+  ProductsState,
+  GeneralState
+} from "./reducer";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";

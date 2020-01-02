@@ -20,6 +20,7 @@ export class ShelfComponent implements OnInit {
   }
 
   addToCart(product: Product) {
+    this.store.dispatch({ type: "SET_LOADING" });
     this.store.dispatch(
       new AddShoppingCartEntry({ product: product, amount: 1 })
     );

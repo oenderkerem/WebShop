@@ -3,10 +3,6 @@ import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { State } from "src/app/app.component";
 
-interface AppState {
-  hamburgerClicked: boolean;
-}
-
 @Component({
   selector: "app-hamburger-icon",
   templateUrl: "./hamburger-icon.component.html",
