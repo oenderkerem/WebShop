@@ -3,7 +3,7 @@ import {
   HamburgerState,
   ShoppinCartState,
   ProductsState,
-  GeneralState
+  BasicState
 } from "./reducer";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
@@ -22,6 +22,7 @@ export interface State {
   shoppingCartReducer: ShoppinCartState;
   hamburgerReducer: HamburgerState;
   productsReducer: ProductsState;
+  basicReducer: BasicState;
 }
 
 @Component({

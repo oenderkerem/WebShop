@@ -10,6 +10,8 @@
       <div>{{ p.price }} €</div>
       <div>{{ p.sex }}</div>
     </div>
-    <div (click)="addToCart(p)" class="addToCartButton">In den Warenkorb</div>
+    <div (click)="onAddToCartButtonClicked(p)" class="addToCartButton">
+      In den Warenkorb
+    </div>
   </div>
 </div>

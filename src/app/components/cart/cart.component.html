@@ -4,6 +4,7 @@
     <h1 class="darkText">Warenkorb</h1>
     <div *ngFor="let entry of productEntries | async">
       {{ entry.product.title }}
+      {{ entry.amount }}
     </div>
   </div>
 </div>

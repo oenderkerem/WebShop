@@ -13,5 +13,6 @@ export type ProductVariant = {
 
 export type ShoppingCartEntry = {
   product: Product;
+  variation: ProductVariant;
   amount: number;
 };

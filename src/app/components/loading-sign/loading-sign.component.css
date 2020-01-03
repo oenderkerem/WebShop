@@ -1,28 +1,32 @@
 #container {
   position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(17, 17, 17, 0.836);
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  width: 100px;
+  transform: translate(-50%, -50%);
+  background-color: var(--textColorDark);
   z-index: 100;
+  border-radius: 20px;
 }
 
 .loader {
   display: grid;
+  height: 100%;
+  width: 100%;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
 }
 
 .circle {
   transform: translate(-50%, -50%);
-  height: 200px;
-  width: 200px;
+  height: 60px;
+  width: 60px;
   background-color: transparent;
-  border-top: 10px solid var(--textColorBright);
-  border-left: 10px solid var(--textColorBright);
+  border-top: 5px solid var(--textColorBright);
+  border-left: 5px solid var(--textColorBright);
+  border-right: 5px solid var(--textColorBright);
+  border-bottom: 5px solid transparent;
   border-radius: 50%;
   animation: rotating 1s linear infinite;
 }

@@ -1,6 +1,5 @@
 import { Action } from "@ngrx/store";
-import { ProductAction } from "./actions/actions";
-import { ShoppingCartAction } from "./actions/actions";
+import { ProductAction, ShoppingCartAction } from "./actions/actions";
 import { Product, ShoppingCartEntry } from "./models/models";
 
 export type ShoppinCartState = {
@@ -17,6 +16,10 @@ export type ProductsState = {
   Women: Product[];
   Unisex: Product[];
   All: Product[];
+};
+
+export type BasicState = {
+  IsLoading: boolean;
 };
 
 export function hamburgerReducer(
@@ -38,6 +41,28 @@ export function hamburgerReducer(
       return {
         ...state,
         MenuIsOpen: true
+      };
+    default:
+      return state;
+  }
+}
+
+export function basicReducer(
+  state: BasicState = {
+    IsLoading: false
+  },
+  action: Action
+) {
+  switch (action.type) {
+    case "SET_LOADING":
+      return {
+        ...state,
+        IsLoading: true
+      };
+    case "UNSET_LOADING":
+      return {
+        ...state,
+        IsLoading: false
       };
     default:
       return state;

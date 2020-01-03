@@ -24,7 +24,7 @@ import {
   hamburgerReducer,
   shoppingCartReducer,
   productsReducer,
-  generalStateReducer
+  basicReducer
 } from "./reducer";
 import { ShelfComponent } from "./components/shelf/shelf.component";
 import { LoadingSignComponent } from "./components/loading-sign/loading-sign.component";
@@ -56,7 +56,8 @@ import { LoadingSignComponent } from "./components/loading-sign/loading-sign.com
     StoreModule.forRoot({
       hamburgerReducer: hamburgerReducer,
       shoppingCartReducer: shoppingCartReducer,
-      productsReducer: productsReducer
+      productsReducer: productsReducer,
+      basicReducer: basicReducer
     })
   ],
   providers: [],
