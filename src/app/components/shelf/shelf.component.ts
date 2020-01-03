@@ -25,10 +25,10 @@ export class ShelfComponent implements OnInit {
     this.store.dispatch({ type: "SET_LOADING" });
     this.addProductToCart(product, variant)
       .then(() => {
-        alert("Der Artikel wurde in den Warenkorb gelegt");
+        console.log("Der Artikel wurde in den Warenkorb gelegt");
       })
       .catch(error => {
-        alert(error);
+        console.log(error);
       })
       .then(() => this.store.dispatch({ type: "UNSET_LOADING" }));
   }

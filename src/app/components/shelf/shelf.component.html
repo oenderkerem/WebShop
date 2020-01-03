@@ -3,12 +3,12 @@
     <img *ngIf="!p.image" src="../../../assets/img/esansBottles Kopie.png" />
     <div class="description">
       <h3>{{ p.title }}</h3>
-      <div *ngFor="let v of p.variations">
-        {{ v.option }}
-        {{ v.price }}
+      <div *ngIf="p.variations.length > 0">
+        <div class="variation" *ngFor="let v of p.variations">
+          <input type="radio" name="variation" value="v" />
+          <label>{{ v.option }} {{ v.price }}€</label>
+        </div>
       </div>
-      <div>{{ p.price }} €</div>
-      <div>{{ p.sex }}</div>
     </div>
     <div (click)="onAddToCartButtonClicked(p)" class="addToCartButton">
       In den Warenkorb
