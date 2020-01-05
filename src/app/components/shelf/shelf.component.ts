@@ -21,7 +21,21 @@ export class ShelfComponent implements OnInit {
 
   ngOnInit() {}
 
-  onAddToCartButtonClicked(product: Product, variant: ProductVariant) {
+  async onAddToCartButtonClicked(product: Product, variant: ProductVariant) {
+    this.store.dispatch({ type: "SET_LOADING" });
+    console.log("loading set");
+    if (this.isSeclectionValid(product, variant)) {
+      console.log("awaiting now");
+      await this.addProductToCart(product, variant);
+      console.log("await finished");
+    } else {
+      //show message
+    }
+    this.store.dispatch({ type: "UNSET_LOADING" });
+    console.log("loading unsetted");
+    //if variation was selected add product/variation to cart
+
+    /*
     this.store.dispatch({ type: "SET_LOADING" });
     this.addProductToCart(product, variant)
       .then(() => {
@@ -31,9 +45,34 @@ export class ShelfComponent implements OnInit {
         console.log(error);
       })
       .then(() => this.store.dispatch({ type: "UNSET_LOADING" }));
+      */
   }
 
-  addProductToCart(product: Product, variant: ProductVariant) {
+  isSeclectionValid(product: Product, variant: ProductVariant): boolean {
+    console.log(product);
+    console.log(variant);
+    if (!product) {
+      return false;
+    }
+    if (product.variations.length > 0 && variant === undefined) {
+      return false;
+    } else if (
+      product.variations === undefined ||
+      product.variations.length === 0
+    ) {
+      return true;
+    }
+    return true;
+  }
+
+  async addProductToCart(product: Product, variant: ProductVariant) {
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => resolve(), 2000);
+    });
+
+    await promise; // wait until the promise resolves (*)
+
+    /*
     return new Promise((resolve, reject) => {
       try {
         let entry = this.isProductInCart(product, variant);
@@ -59,6 +98,7 @@ export class ShelfComponent implements OnInit {
         reject("Der Artikel konnte nicht in den Warenkorb gelegt werden");
       }
     });
+    */
   }
 
   isProductInCart(

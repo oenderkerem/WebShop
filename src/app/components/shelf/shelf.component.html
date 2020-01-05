@@ -1,17 +1,5 @@
 <div class="container">
-  <div class="productBox" *ngFor="let p of products | async">
-    <img *ngIf="!p.image" src="../../../assets/img/esansBottles Kopie.png" />
-    <div class="description">
-      <h3>{{ p.title }}</h3>
-      <div *ngIf="p.variations.length > 0">
-        <div class="variation" *ngFor="let v of p.variations">
-          <input type="radio" name="variation" value="v" />
-          <label>{{ v.option }} {{ v.price }}€</label>
-        </div>
-      </div>
-    </div>
-    <div (click)="onAddToCartButtonClicked(p)" class="addToCartButton">
-      In den Warenkorb
-    </div>
+  <div *ngFor="let product of products | async">
+    <app-shelf-item [product]="product"></app-shelf-item>
   </div>
 </div>

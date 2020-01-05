@@ -28,6 +28,7 @@ import {
 } from "./reducer";
 import { ShelfComponent } from "./components/shelf/shelf.component";
 import { LoadingSignComponent } from "./components/loading-sign/loading-sign.component";
+import { ShelfItemComponent } from './components/shelf-item/shelf-item.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { LoadingSignComponent } from "./components/loading-sign/loading-sign.com
     CustomerCommentsComponent,
     CartComponent,
     ShelfComponent,
-    LoadingSignComponent
+    LoadingSignComponent,
+    ShelfItemComponent
   ],
   imports: [
     BrowserModule,
