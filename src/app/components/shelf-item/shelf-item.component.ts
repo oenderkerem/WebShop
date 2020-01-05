@@ -14,4 +14,10 @@ export class ShelfItemComponent implements OnInit {
     console.log("shelf-item-product: ");
     console.log(this.product);
   }
+
+  test(t: any) {
+    alert("change detected");
+    console.log("change detected");
+    console.log(t);
+  }
 }
