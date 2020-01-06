@@ -7,6 +7,7 @@ import {
 import { Store, select } from "@ngrx/store";
 import { State } from "src/app/app.component";
 import { AddShoppingCartEntry } from "src/app/actions/actions";
+import { take } from "rxjs/operators";
 
 @Component({
   selector: "app-shelf-item",
@@ -17,13 +18,8 @@ export class ShelfItemComponent implements OnInit {
   @Input() product: Product;
   selectedOption: ProductVariant;
   isInputMissing: boolean = false;
-  shoppingCartEntries: ShoppingCartEntry[];
 
-  constructor(private store: Store<State>) {
-    this.store
-      .select(state => state.shoppingCartReducer.Entries)
-      .subscribe(data => (this.shoppingCartEntries = data));
-  }
+  constructor(private store: Store<State>) {}
 
   ngOnInit() {
     if (this.product && this.product.variations) {
@@ -41,7 +37,12 @@ export class ShelfItemComponent implements OnInit {
 
   addProductToCart() {
     this.store.dispatch({ type: "SET_LOADING" });
-    this.dispatchNewCartEntry(this.shoppingCartEntries);
+    this.store
+      .pipe(
+        select(state => state.shoppingCartReducer.Entries),
+        take(1)
+      )
+      .subscribe(data => this.dispatchNewCartEntry(data));
   }
 
   dispatchNewCartEntry(entries: ShoppingCartEntry[]) {
