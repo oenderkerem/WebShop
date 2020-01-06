@@ -1,19 +1,31 @@
 <h3>{{ product.title }}</h3>
 <img *ngIf="!product.image" src="../../../assets/img/esansBottles Kopie.png" />
-<div *ngIf="product.variations.length > 0">
-  <div class="variation" *ngFor="let variation of product.variations">
-    <input
-      type="radio"
-      name="variation"
-      value="variation"
-      (change)="test(variation)"
-    />
-    <label>{{ variation.option }} {{ variation.price }} €</label>
+<div
+  [ngClass]="{ inValid: isInputMissing }"
+  *ngIf="product.variations.length > 1"
+>
+  <form>
+    <div class="variation" *ngFor="let variation of product.variations">
+      <label>
+        <input
+          type="radio"
+          name="variation"
+          value="variation"
+          (change)="onOptionSelected(variation)"
+        />
+        {{ variation.option }} {{ variation.price }} €</label
+      >
+    </div>
+  </form>
+</div>
+<div *ngIf="product.variations.length === 1">
+  <div *ngIf="selectedOption">
+    {{ selectedOption.option }} {{ selectedOption.price }}€
   </div>
 </div>
 <div>
   <p>{{ product.description }}</p>
 </div>
-<div (click)="onAddToCartButtonClicked(p)" class="addToCartButton">
+<div (click)="onAddToCartButtonClicked()" class="addToCartButton">
   In den Warenkorb
 </div>

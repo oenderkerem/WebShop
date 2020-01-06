@@ -17,3 +17,7 @@
   box-shadow: 0px 4px 0px -2px rgb(94, 125, 155);
 }
 */
+
+.inValid {
+  border: 1px solid red;
+}

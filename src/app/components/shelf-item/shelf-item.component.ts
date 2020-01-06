@@ -1,5 +1,12 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Product } from "src/app/models/models";
+import {
+  Product,
+  ProductVariant,
+  ShoppingCartEntry
+} from "src/app/models/models";
+import { Store } from "@ngrx/store";
+import { State } from "src/app/app.component";
+import { AddShoppingCartEntry } from "src/app/actions/actions";
 
 @Component({
   selector: "app-shelf-item",
@@ -8,16 +15,76 @@ import { Product } from "src/app/models/models";
 })
 export class ShelfItemComponent implements OnInit {
   @Input() product: Product;
-  constructor() {}
+  selectedOption: ProductVariant;
+  isInputMissing: boolean = false;
+
+  constructor(private store: Store<State>) {}
 
   ngOnInit() {
-    console.log("shelf-item-product: ");
-    console.log(this.product);
+    if (this.product && this.product.variations) {
+      if (this.product.variations.length === 1) {
+        this.selectedOption = this.product.variations[0];
+      }
+    }
   }
 
-  test(t: any) {
-    alert("change detected");
-    console.log("change detected");
-    console.log(t);
+  onAddToCartButtonClicked() {
+    if (this.isValid()) {
+      this.addProductToCart();
+    }
+  }
+
+  addProductToCart() {
+    this.store.dispatch({ type: "SET_LOADING" });
+    this.store
+      .select(state => state.shoppingCartReducer.Entries)
+      .subscribe(data => this.dispatchNewCartEntry(data));
+  }
+
+  dispatchNewCartEntry(entries: ShoppingCartEntry[]) {
+    this.store.dispatch(
+      new AddShoppingCartEntry(this.constructNewCartEntry(entries))
+    );
+    this.store.dispatch({ type: "UNSET_LOADING" });
+  }
+
+  constructNewCartEntry(entries: ShoppingCartEntry[]): ShoppingCartEntry {
+    let matchingEntry = entries.find(
+      entry =>
+        entry.product.id === this.product.id &&
+        entry.variation === this.selectedOption
+    );
+    let amount = matchingEntry ? matchingEntry.amount + 1 : 1;
+    return {
+      product: this.product,
+      amount: amount,
+      variation: this.selectedOption
+    };
+  }
+
+  isValid(): boolean {
+    if (this.isOptionToBeSelected()) {
+      if (this.selectedOption) {
+        this.isInputMissing = false;
+        return true;
+      } else {
+        this.isInputMissing = true;
+        return false;
+      }
+    }
+    return true;
+  }
+
+  isOptionToBeSelected(): boolean {
+    if (this.product && this.product.variations.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  onOptionSelected(option: ProductVariant) {
+    this.selectedOption = option;
+    this.isInputMissing = false;
   }
 }
