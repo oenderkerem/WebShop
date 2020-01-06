@@ -85,6 +85,7 @@ export function shoppingCartReducer(
         CartIsOpen: false
       };
     case "CART_ADD_ENTRY":
+      console.log(state.Entries);
       return {
         ...state,
         Entries: [...state.Entries.concat(action.payload)]

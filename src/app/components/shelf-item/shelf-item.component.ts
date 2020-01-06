@@ -4,7 +4,7 @@ import {
   ProductVariant,
   ShoppingCartEntry
 } from "src/app/models/models";
-import { Store } from "@ngrx/store";
+import { Store, select } from "@ngrx/store";
 import { State } from "src/app/app.component";
 import { AddShoppingCartEntry } from "src/app/actions/actions";
 
@@ -17,8 +17,13 @@ export class ShelfItemComponent implements OnInit {
   @Input() product: Product;
   selectedOption: ProductVariant;
   isInputMissing: boolean = false;
+  shoppingCartEntries: ShoppingCartEntry[];
 
-  constructor(private store: Store<State>) {}
+  constructor(private store: Store<State>) {
+    this.store
+      .select(state => state.shoppingCartReducer.Entries)
+      .subscribe(data => (this.shoppingCartEntries = data));
+  }
 
   ngOnInit() {
     if (this.product && this.product.variations) {
@@ -36,9 +41,7 @@ export class ShelfItemComponent implements OnInit {
 
   addProductToCart() {
     this.store.dispatch({ type: "SET_LOADING" });
-    this.store
-      .select(state => state.shoppingCartReducer.Entries)
-      .subscribe(data => this.dispatchNewCartEntry(data));
+    this.dispatchNewCartEntry(this.shoppingCartEntries);
   }
 
   dispatchNewCartEntry(entries: ShoppingCartEntry[]) {
