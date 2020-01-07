@@ -37,33 +37,14 @@ export class ShelfItemComponent implements OnInit {
 
   addProductToCart() {
     this.store.dispatch({ type: "SET_LOADING" });
-    this.store
-      .pipe(
-        select(state => state.shoppingCartReducer.Entries),
-        take(1)
-      )
-      .subscribe(data => this.dispatchNewCartEntry(data));
-  }
-
-  dispatchNewCartEntry(entries: ShoppingCartEntry[]) {
     this.store.dispatch(
-      new AddShoppingCartEntry(this.constructNewCartEntry(entries))
+      new AddShoppingCartEntry({
+        amount: 1,
+        product: this.product,
+        variation: this.selectedOption
+      })
     );
     this.store.dispatch({ type: "UNSET_LOADING" });
-  }
-
-  constructNewCartEntry(entries: ShoppingCartEntry[]): ShoppingCartEntry {
-    let matchingEntry = entries.find(
-      entry =>
-        entry.product.id === this.product.id &&
-        entry.variation === this.selectedOption
-    );
-    let amount = matchingEntry ? matchingEntry.amount + 1 : 1;
-    return {
-      product: this.product,
-      amount: amount,
-      variation: this.selectedOption
-    };
   }
 
   isValid(): boolean {

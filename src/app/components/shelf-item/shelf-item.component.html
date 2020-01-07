@@ -1,5 +1,6 @@
 <h3>{{ product.title }}</h3>
 <img *ngIf="!product.image" src="../../../assets/img/esansBottles Kopie.png" />
+<img *ngIf="product.image" src="../../../assets/img/{{ product.image }}" />
 <div
   [ngClass]="{ inValid: isInputMissing }"
   *ngIf="product.variations.length > 1"

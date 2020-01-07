@@ -1,6 +1,7 @@
 import { Action } from "@ngrx/store";
 import { ProductAction, ShoppingCartAction } from "./actions/actions";
 import { Product, ShoppingCartEntry } from "./models/models";
+import { summaryFileName } from "@angular/compiler/src/aot/util";
 
 export type ShoppinCartState = {
   CartIsOpen: boolean;
@@ -85,13 +86,40 @@ export function shoppingCartReducer(
         CartIsOpen: false
       };
     case "CART_ADD_ENTRY":
-      console.log(state.Entries);
       return {
         ...state,
-        Entries: [...state.Entries.concat(action.payload)]
+        Entries: addEntryToCart(state.Entries, action.payload)
       };
     default:
       return state;
+  }
+}
+
+function addEntryToCart(
+  currentEntries: ShoppingCartEntry[],
+  entry: ShoppingCartEntry
+): ShoppingCartEntry[] {
+  //if currentEntries is null return empty array
+  if (currentEntries) {
+    // if entry is null return currentEntries
+    if (entry) {
+      // check if currentEntries contains entry
+      let index = currentEntries.findIndex(
+        x => x.product === entry.product && x.variation === entry.variation
+      );
+      if (index === -1) {
+        let newEntries = currentEntries;
+        newEntries.push(entry);
+        return newEntries;
+      } else {
+        currentEntries[index].amount += entry.amount;
+        return currentEntries;
+      }
+    } else {
+      return currentEntries;
+    }
+  } else {
+    return [];
   }
 }
 

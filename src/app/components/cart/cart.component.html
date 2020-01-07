@@ -1,10 +1,31 @@
 <div id="container">
-  <div (click)="onContainerClicked()"></div>
+  <div id="left" (click)="onContainerClicked()"></div>
   <div id="content">
-    <h1 class="darkText">Warenkorb</h1>
-    <div *ngFor="let entry of productEntries | async">
-      {{ entry.product.title }}
-      {{ entry.amount }}
+    <div id="top">
+      <h1 class="darkText">Warenkorb</h1>
+      <span>Close</span>
+    </div>
+    <div id="middle">
+      <div class="entries">
+        <div *ngFor="let entry of productEntries | async">
+          <img
+            *ngIf="!entry.product.image"
+            src="../../../assets/img/esansBottles Kopie.png"
+          />
+          <img
+            *ngIf="entry.product.image"
+            src="../../../assets/img/{{ entry.product.image }}"
+          />
+          {{ entry.product.title }}
+          {{ entry.variation.option }}
+          {{ entry.variation.price }}
+          {{ entry.amount }}
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <span>Summe</span>
+      <button>Zur Kasse</button>
     </div>
   </div>
 </div>
