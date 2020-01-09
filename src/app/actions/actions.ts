@@ -46,10 +46,29 @@ export class ToggleShoppingCart implements Action {
   constructor() {}
 }
 
+export class IncrementAmount implements Action {
+  readonly type = "CART_INCREMENT_AMOUNT";
+  constructor(public payload: ShoppingCartEntry) {}
+}
+
+export class DecrementAmount implements Action {
+  readonly type = "CART_DECREMENT_AMOUNT";
+  constructor(public payload: ShoppingCartEntry) {}
+}
+
+export class RemoveShoppingCartEntry implements Action {
+  readonly type = "CART_REMOVE_ENTRY";
+  constructor(public payload: ShoppingCartEntry) {}
+}
+
 export type ShoppingCartAction =
   | AddShoppingCartEntry
   | CloseShoppingCart
-  | ToggleShoppingCart;
+  | ToggleShoppingCart
+  | IncrementAmount
+  | DecrementAmount
+  | RemoveShoppingCartEntry;
+
 export type ProductAction =
   | SetAllProducts
   | SetProductsMen

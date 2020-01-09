@@ -9,4 +9,6 @@
 {{ entry.product.title }}
 {{ entry.variation.option }}
 {{ entry.variation.price }}
-{{ entry.amount }}
+<div (click)="onDecrementClick()">-</div>
+{{ amount }}
+<div (click)="onIncrementClick()">+</div>

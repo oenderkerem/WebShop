@@ -114,7 +114,46 @@ export function shoppingCartReducer(
           ]
         };
       }
-
+    case "CART_REMOVE_ENTRY":
+      let index = state.Entries.findIndex(
+        entry =>
+          action.payload.product === entry.product &&
+          entry.variation === action.payload.variation
+      );
+      if (index > -1) {
+        return {
+          ...state,
+          Entries: [...state.Entries.slice(index, 1)]
+        };
+      } else {
+        return {
+          ...state
+        };
+      }
+    case "CART_DECREMENT_AMOUNT":
+      return {
+        ...state,
+        Entries: [
+          ...state.Entries.map(entry =>
+            entry.product === action.payload.product &&
+            entry.variation === action.payload.variation
+              ? { ...entry, amount: entry.amount - 1 }
+              : entry
+          )
+        ]
+      };
+    case "CART_INCREMENT_AMOUNT":
+      return {
+        ...state,
+        Entries: [
+          ...state.Entries.map(entry =>
+            entry.product === action.payload.product &&
+            entry.variation === action.payload.variation
+              ? { ...entry, amount: entry.amount + 1 }
+              : entry
+          )
+        ]
+      };
     default:
       return state;
   }
