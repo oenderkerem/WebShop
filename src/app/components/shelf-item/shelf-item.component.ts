@@ -7,7 +7,6 @@ import {
 import { Store, select } from "@ngrx/store";
 import { State } from "src/app/app.component";
 import { AddShoppingCartEntry } from "src/app/actions/actions";
-import { take } from "rxjs/operators";
 
 @Component({
   selector: "app-shelf-item",

@@ -3,11 +3,14 @@
   <div id="content">
     <div id="top">
       <h1 class="darkText">Warenkorb</h1>
-      <span>Close</span>
+      <div (click)="closeCart()" id="close">
+        <div class="left"></div>
+        <div class="right"></div>
+      </div>
     </div>
     <div id="middle">
       <div class="entries">
-        <div *ngFor="let entry of productEntries | async">
+        <div *ngFor="let entry of productEntries">
           <img
             *ngIf="!entry.product.image"
             src="../../../assets/img/esansBottles Kopie.png"
@@ -24,7 +27,7 @@
       </div>
     </div>
     <div id="bottom">
-      <span>Summe</span>
+      <div>Summe {{ sumOfCart }} €</div>
       <button>Zur Kasse</button>
     </div>
   </div>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { State } from "src/app/app.component";
-import { Observable } from "rxjs";
 import { ShoppingCartEntry } from "src/app/models/models";
 
 @Component({
@@ -10,17 +9,43 @@ import { ShoppingCartEntry } from "src/app/models/models";
   styleUrls: ["./cart.component.css"]
 })
 export class CartComponent implements OnInit {
-  productEntries: Observable<ShoppingCartEntry[]>;
+  productEntries: ShoppingCartEntry[];
+  sumOfCart: number;
 
   constructor(private store: Store<State>) {
-    this.productEntries = this.store.select(
-      state => state.shoppingCartReducer.Entries
-    );
+    this.store
+      .select(state => state.shoppingCartReducer.Entries)
+      .subscribe(data => this.onProductEntriesLoaded(data));
   }
 
   ngOnInit() {}
 
-  onContainerClicked() {
+  onProductEntriesLoaded(productEntries: ShoppingCartEntry[]) {
+    console.log("onProductEntreisLoaded called");
+    this.productEntries = productEntries;
+    console.log(productEntries);
+    console.log("next calculate sum");
+    this.calculateSum(productEntries);
+    console.log("after calculate sum");
+  }
+
+  calculateSum(shoppingCartEntries: ShoppingCartEntry[]) {
+    console.log("calculate sum called");
+    let sum = 0.0;
+    console.log(shoppingCartEntries);
+    if (shoppingCartEntries) {
+      shoppingCartEntries.forEach(element => {
+        sum = element.amount * element.variation.price + sum;
+      });
+    }
+    this.sumOfCart = sum;
+  }
+
+  closeCart() {
     this.store.dispatch({ type: "CART_CLOSE" });
+  }
+
+  onContainerClicked() {
+    this.closeCart();
   }
 }

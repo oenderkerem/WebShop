@@ -2,6 +2,7 @@ import { Action } from "@ngrx/store";
 import { ProductAction, ShoppingCartAction } from "./actions/actions";
 import { Product, ShoppingCartEntry } from "./models/models";
 import { summaryFileName } from "@angular/compiler/src/aot/util";
+import { ActivatedRouteSnapshot } from "@angular/router";
 
 export type ShoppinCartState = {
   CartIsOpen: boolean;
@@ -86,43 +87,38 @@ export function shoppingCartReducer(
         CartIsOpen: false
       };
     case "CART_ADD_ENTRY":
-      return {
-        ...state,
-        Entries: addEntryToCart(state.Entries, action.payload)
-      };
+      let contains = state.Entries.findIndex(
+        entry =>
+          entry.product === action.payload.product &&
+          entry.variation === action.payload.variation
+      );
+      if (contains === -1) {
+        return {
+          ...state,
+          Entries: [...state.Entries.concat(action.payload)]
+        };
+      } else {
+        return {
+          ...state,
+          Entries: [
+            ...state.Entries.map(entry =>
+              entry.product === action.payload.product &&
+              entry.variation === action.payload.variation
+                ? {
+                    product: entry.product,
+                    variation: entry.variation,
+                    amount: entry.amount + action.payload.amount
+                  }
+                : entry
+            )
+          ]
+        };
+      }
+
     default:
       return state;
   }
 }
-
-function addEntryToCart(
-  currentEntries: ShoppingCartEntry[],
-  entry: ShoppingCartEntry
-): ShoppingCartEntry[] {
-  //if currentEntries is null return empty array
-  if (currentEntries) {
-    // if entry is null return currentEntries
-    if (entry) {
-      // check if currentEntries contains entry
-      let index = currentEntries.findIndex(
-        x => x.product === entry.product && x.variation === entry.variation
-      );
-      if (index === -1) {
-        let newEntries = currentEntries;
-        newEntries.push(entry);
-        return newEntries;
-      } else {
-        currentEntries[index].amount += entry.amount;
-        return currentEntries;
-      }
-    } else {
-      return currentEntries;
-    }
-  } else {
-    return [];
-  }
-}
-
 export function productsReducer(
   state: ProductsState = { Men: [], Women: [], Unisex: [], All: [] },
   action: ProductAction
