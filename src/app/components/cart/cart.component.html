@@ -11,18 +11,7 @@
     <div id="middle">
       <div class="entries">
         <div *ngFor="let entry of productEntries">
-          <img
-            *ngIf="!entry.product.image"
-            src="../../../assets/img/esansBottles Kopie.png"
-          />
-          <img
-            *ngIf="entry.product.image"
-            src="../../../assets/img/{{ entry.product.image }}"
-          />
-          {{ entry.product.title }}
-          {{ entry.variation.option }}
-          {{ entry.variation.price }}
-          {{ entry.amount }}
+          <app-cart-item [entry]="entry"></app-cart-item>
         </div>
       </div>
     </div>

@@ -29,6 +29,7 @@ import {
 import { ShelfComponent } from "./components/shelf/shelf.component";
 import { LoadingSignComponent } from "./components/loading-sign/loading-sign.component";
 import { ShelfItemComponent } from './components/shelf-item/shelf-item.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ShelfItemComponent } from './components/shelf-item/shelf-item.component
     CartComponent,
     ShelfComponent,
     LoadingSignComponent,
-    ShelfItemComponent
+    ShelfItemComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
