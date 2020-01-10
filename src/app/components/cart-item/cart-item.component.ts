@@ -23,8 +23,9 @@ export class CartItemComponent implements OnInit {
   onDecrementClick() {
     if (this.amount === 1) {
       this.store.dispatch(new RemoveShoppingCartEntry(this.entry));
+    } else {
+      this.store.dispatch(new DecrementAmount(this.entry));
     }
-    this.store.dispatch(new DecrementAmount(this.entry));
   }
 
   onIncrementClick() {

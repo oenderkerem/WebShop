@@ -115,21 +115,18 @@ export function shoppingCartReducer(
         };
       }
     case "CART_REMOVE_ENTRY":
-      let index = state.Entries.findIndex(
-        entry =>
-          action.payload.product === entry.product &&
-          entry.variation === action.payload.variation
-      );
-      if (index > -1) {
-        return {
-          ...state,
-          Entries: [...state.Entries.slice(index, 1)]
-        };
-      } else {
-        return {
-          ...state
-        };
-      }
+      let entries = [
+        ...state.Entries.filter(
+          entry =>
+            entry.product !== action.payload.product ||
+            entry.variation !== action.payload.variation
+        )
+      ];
+      console.log(entries);
+      return {
+        ...state,
+        Entries: entries
+      };
     case "CART_DECREMENT_AMOUNT":
       return {
         ...state,
