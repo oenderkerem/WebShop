@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
+import { Product } from "src/app/models/models";
 
 @Component({
   selector: "app-product-details",
@@ -7,6 +8,8 @@ import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 })
 export class ProductDetailsComponent implements OnInit {
   @Output() closeHandler = new EventEmitter();
+  @Input() product: Product;
+
   constructor() {}
 
   onCloseClick() {

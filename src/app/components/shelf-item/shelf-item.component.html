@@ -38,6 +38,7 @@
     In den Warenkorb
   </div>
   <app-product-details
+    [product]="product"
     (click)="$event.stopPropagation()"
     (closeHandler)="closeDetailsView()"
     [ngClass]="{ open: productDetailsVisible }"

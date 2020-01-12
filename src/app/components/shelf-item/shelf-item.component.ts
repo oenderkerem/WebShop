@@ -74,7 +74,6 @@ export class ShelfItemComponent implements OnInit {
   }
 
   closeDetailsView() {
-    console.log("closing");
     this.productDetailsVisible = !this.productDetailsVisible;
   }
 }

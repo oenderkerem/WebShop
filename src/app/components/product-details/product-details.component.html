@@ -1,6 +1,6 @@
-<div id="container">
-  <div id="content">
-    <p>product-details works!</p>
+<div (click)="onCloseClick()" id="container">
+  <div (click)="$event.stopPropagation()" id="content">
+    <h2>{{ product.title }}</h2>
     <button id="closeButton" (click)="onCloseClick()">close</button>
   </div>
 </div>

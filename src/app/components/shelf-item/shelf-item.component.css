@@ -44,7 +44,7 @@ app-product-details {
 }
 
 app-product-details.open {
-  height: 100vh;
+  height: calc(100vh - var(--navigationHeight));
   width: 100vw;
   left: 0;
   top: var(--navigationHeight);
