@@ -8,7 +8,6 @@
 }
 
 app-shelf-item {
-  padding: 20px;
   margin: 15px;
   border-radius: 20px;
   background: linear-gradient(
@@ -18,4 +17,8 @@ app-shelf-item {
   text-align: center;
   display: inline-block;
   color: var(--textColorDark);
+}
+
+app-shelf-item:hover {
+  margin: 10px;
 }

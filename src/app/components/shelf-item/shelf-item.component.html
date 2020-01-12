@@ -1,32 +1,45 @@
-<h3>{{ product.title }}</h3>
-<img *ngIf="!product.image" src="../../../assets/img/esansBottles Kopie.png" />
-<img *ngIf="product.image" src="../../../assets/img/{{ product.image }}" />
-<div
-  [ngClass]="{ inValid: isInputMissing }"
-  *ngIf="product.variations.length > 1"
->
-  <form>
-    <div class="variation" *ngFor="let variation of product.variations">
-      <label>
-        <input
-          type="radio"
-          name="variation"
-          value="variation"
-          (change)="onOptionSelected(variation)"
-        />
-        {{ variation.option }} {{ variation.price }} €</label
-      >
-    </div>
-  </form>
-</div>
-<div *ngIf="product.variations.length === 1">
-  <div *ngIf="selectedOption">
-    {{ selectedOption.option }} {{ selectedOption.price }}€
+<div id="container" (click)="onItemClicked()">
+  <h3>{{ product.title }}</h3>
+  <img
+    *ngIf="!product.image"
+    src="../../../assets/img/esansBottles Kopie.png"
+  />
+  <img *ngIf="product.image" src="../../../assets/img/{{ product.image }}" />
+  <div
+    [ngClass]="{ inValid: isInputMissing }"
+    *ngIf="product.variations.length > 1"
+  >
+    <form>
+      <div class="variation" *ngFor="let variation of product.variations">
+        <label>
+          <input
+            type="radio"
+            name="variation"
+            value="variation"
+            (change)="onOptionSelected(variation)"
+          />
+          {{ variation.option }} {{ variation.price }} €</label
+        >
+      </div>
+    </form>
   </div>
-</div>
-<div>
-  <p>{{ product.description }}</p>
-</div>
-<div (click)="onAddToCartButtonClicked()" class="addToCartButton">
-  In den Warenkorb
+  <div *ngIf="product.variations.length === 1">
+    <div *ngIf="selectedOption">
+      {{ selectedOption.option }} {{ selectedOption.price }}€
+    </div>
+  </div>
+  <div>
+    <p>{{ product.description }}</p>
+  </div>
+  <div
+    (click)="onAddToCartButtonClicked($event); $event.stopPropagation()"
+    class="addToCartButton"
+  >
+    In den Warenkorb
+  </div>
+  <app-product-details
+    (click)="$event.stopPropagation()"
+    (closeHandler)="closeDetailsView()"
+    [ngClass]="{ open: productDetailsVisible }"
+  ></app-product-details>
 </div>

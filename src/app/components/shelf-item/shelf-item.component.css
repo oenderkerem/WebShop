@@ -21,3 +21,34 @@
 .inValid {
   border: 1px solid red;
 }
+
+#container {
+  padding: 20px;
+}
+
+#container:hover {
+  padding: 25px;
+}
+
+app-product-details {
+  display: block;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 0vw;
+  height: 0;
+  opacity: 0;
+  background-color: rgba(61, 59, 59, 0.527);
+  transition: all 300ms;
+  pointer-events: none;
+}
+
+app-product-details.open {
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  top: var(--navigationHeight);
+  opacity: 1;
+  display: block;
+  pointer-events: all;
+}

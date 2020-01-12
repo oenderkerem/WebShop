@@ -1,10 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
-import {
-  Product,
-  ProductVariant,
-  ShoppingCartEntry
-} from "src/app/models/models";
-import { Store, select } from "@ngrx/store";
+import { Product, ProductVariant } from "src/app/models/models";
+import { Store } from "@ngrx/store";
 import { State } from "src/app/app.component";
 import { AddShoppingCartEntry } from "src/app/actions/actions";
 
@@ -17,6 +13,7 @@ export class ShelfItemComponent implements OnInit {
   @Input() product: Product;
   selectedOption: ProductVariant;
   isInputMissing: boolean = false;
+  productDetailsVisible: boolean = false;
 
   constructor(private store: Store<State>) {}
 
@@ -70,5 +67,14 @@ export class ShelfItemComponent implements OnInit {
   onOptionSelected(option: ProductVariant) {
     this.selectedOption = option;
     this.isInputMissing = false;
+  }
+
+  onItemClicked() {
+    this.closeDetailsView();
+  }
+
+  closeDetailsView() {
+    console.log("closing");
+    this.productDetailsVisible = !this.productDetailsVisible;
   }
 }

@@ -28,8 +28,9 @@ import {
 } from "./reducer";
 import { ShelfComponent } from "./components/shelf/shelf.component";
 import { LoadingSignComponent } from "./components/loading-sign/loading-sign.component";
-import { ShelfItemComponent } from './components/shelf-item/shelf-item.component';
-import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { ShelfItemComponent } from "./components/shelf-item/shelf-item.component";
+import { CartItemComponent } from "./components/cart-item/cart-item.component";
+import { ProductDetailsComponent } from "./components/product-details/product-details.component";
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
     ShelfComponent,
     LoadingSignComponent,
     ShelfItemComponent,
-    CartItemComponent
+    CartItemComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
