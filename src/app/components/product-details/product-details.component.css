@@ -7,15 +7,92 @@
 }
 
 #content {
+  position: relative;
   background-color: white;
   overflow: scroll;
-  height: 70%;
-  width: 70%;
+  min-height: 99%;
+  width: 99%;
+  display: flex;
+  flex-direction: column;
 }
 
-@media only screen and (max-width: 700px) {
-  #content {
-    height: 98%;
-    width: 98%;
-  }
+#middle {
+  padding: 30px;
+  display: flex;
+  overflow: scroll;
+  align-items: center;
+  flex-grow: 1;
+}
+
+#bottom {
+  padding: 20px;
+}
+
+.inValid {
+  border: 1px solid red;
+}
+
+#close {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 30px;
+  width: 30px;
+  transition: all 70ms ease-in;
+}
+
+#close:hover {
+  height: 36px;
+  width: 36px;
+  top: 17px;
+  left: 17px;
+}
+
+#close:after {
+  content: "";
+  height: 3px;
+  width: 100%;
+  background-color: var(--textColorDark);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: rotate(45deg);
+}
+
+#close::before {
+  content: "";
+  display: inline-block;
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background-color: var(--textColorDark);
+  transform: rotate(-45deg);
+}
+
+img {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+span {
+  margin: 5px;
+  padding: 5px;
+}
+
+.amountButton {
+  display: inline-block;
+  margin: 5px;
+  padding: 1px 16px;
+  border: 1px solid var(--textColorDark);
+  border-radius: 5px;
+}
+
+.addToCartButton {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 16px;
+  border: 1px solid var(--textColorDark);
+  border-radius: 5px;
 }

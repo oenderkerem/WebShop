@@ -1,5 +1,5 @@
 import { Action } from "@ngrx/store";
-import { Product, ShoppingCartEntry, ProductVariant } from "../models/models";
+import { Product, ShoppingCartEntry } from "../models/models";
 
 export class SetAllProducts implements Action {
   readonly type = "PRODUCTS_SET_ALL";

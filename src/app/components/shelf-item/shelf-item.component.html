@@ -29,10 +29,10 @@
     </div>
   </div>
   <div>
-    <p>{{ product.description }}</p>
+    <p>{{ product.shortDescription }}</p>
   </div>
   <div
-    (click)="onAddToCartButtonClicked($event); $event.stopPropagation()"
+    (click)="onAddToCartButtonClicked(); $event.stopPropagation()"
     class="addToCartButton"
   >
     In den Warenkorb
@@ -40,7 +40,7 @@
   <app-product-details
     [product]="product"
     (click)="$event.stopPropagation()"
-    (closeHandler)="closeDetailsView()"
+    (closeHandler)="toggleDetailsView()"
     [ngClass]="{ open: productDetailsVisible }"
   ></app-product-details>
 </div>

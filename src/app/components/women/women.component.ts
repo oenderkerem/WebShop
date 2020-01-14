@@ -14,7 +14,6 @@ export class WomenComponent implements OnInit {
 
   constructor(private store: Store<State>) {
     this.products = this.store.select(state => state.productsReducer.Women);
-    this.products.subscribe(data => console.log(data));
   }
 
   ngOnInit() {}

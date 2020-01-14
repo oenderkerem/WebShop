@@ -3,7 +3,8 @@ export type Product = {
   title: string;
   image: string;
   variations: ProductVariant[];
-  description: string;
+  shortDescription: string;
+  longDescription: string;
   sex: "male" | "female" | "unisex";
 };
 

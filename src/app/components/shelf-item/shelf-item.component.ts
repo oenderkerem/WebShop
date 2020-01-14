@@ -1,7 +1,11 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Product, ProductVariant } from "src/app/models/models";
 import { Store } from "@ngrx/store";
-import { State } from "src/app/app.component";
+import {
+  State,
+  addProductToCart,
+  isOptionToBeSelected
+} from "src/app/app.component";
 import { AddShoppingCartEntry } from "src/app/actions/actions";
 
 @Component({
@@ -27,24 +31,12 @@ export class ShelfItemComponent implements OnInit {
 
   onAddToCartButtonClicked() {
     if (this.isValid()) {
-      this.addProductToCart();
+      addProductToCart(this.store, this.product, this.selectedOption, 1);
     }
   }
 
-  addProductToCart() {
-    this.store.dispatch({ type: "SET_LOADING" });
-    this.store.dispatch(
-      new AddShoppingCartEntry({
-        amount: 1,
-        product: this.product,
-        variation: this.selectedOption
-      })
-    );
-    this.store.dispatch({ type: "UNSET_LOADING" });
-  }
-
   isValid(): boolean {
-    if (this.isOptionToBeSelected()) {
+    if (isOptionToBeSelected(this.product)) {
       if (this.selectedOption) {
         this.isInputMissing = false;
         return true;
@@ -56,24 +48,16 @@ export class ShelfItemComponent implements OnInit {
     return true;
   }
 
-  isOptionToBeSelected(): boolean {
-    if (this.product && this.product.variations.length > 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   onOptionSelected(option: ProductVariant) {
     this.selectedOption = option;
     this.isInputMissing = false;
   }
 
   onItemClicked() {
-    this.closeDetailsView();
+    this.toggleDetailsView();
   }
 
-  closeDetailsView() {
+  toggleDetailsView() {
     this.productDetailsVisible = !this.productDetailsVisible;
   }
 }

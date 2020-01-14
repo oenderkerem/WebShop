@@ -1,6 +1,71 @@
 <div (click)="onCloseClick()" id="container">
   <div (click)="$event.stopPropagation()" id="content">
-    <h2>{{ product.title }}</h2>
-    <button id="closeButton" (click)="onCloseClick()">close</button>
+    <div id="top">
+      <h2>{{ product.title }}</h2>
+      {{ product.shortDescription }}
+      <div id="close" (click)="onCloseClick()"></div>
+    </div>
+    <div id="middle">
+      <img
+        *ngIf="!product.image"
+        src="../../../assets/img/esansBottles Kopie.png"
+      />
+      <img
+        *ngIf="product.image"
+        src="../../../assets/img/{{ product.image }}"
+      />
+      <div>
+        <p>
+          {{ product.longDescription }}
+        </p>
+      </div>
+    </div>
+    <div id="bottom">
+      <div>
+        <div id="selection">
+          <div
+            [ngClass]="{ inValid: isInputMissing }"
+            *ngIf="product.variations.length > 1"
+            (click)="$event.stopPropagation()"
+          >
+            <form>
+              <div
+                class="variation"
+                *ngFor="let variation of product.variations"
+              >
+                <label>
+                  <input
+                    type="radio"
+                    name="variation"
+                    value="variation"
+                    (change)="onOptionSelected(variation)"
+                  />
+                  {{ variation.option }} {{ variation.price }} €</label
+                >
+              </div>
+            </form>
+          </div>
+          <div *ngIf="product.variations.length === 1">
+            <div *ngIf="selectedOption">
+              {{ selectedOption.option }} {{ selectedOption.price }}€
+            </div>
+          </div>
+        </div>
+        <div id="cartOperations">
+          <div>
+            <span>Menge</span>
+            <div class="amountButton" (click)="decrementAmountOfItems()">-</div>
+            <span>{{ amountOfItems }}</span>
+            <div class="amountButton" (click)="incrementAmountOfItems()">+</div>
+          </div>
+          <div
+            (click)="onAddToCartButtonClicked(); $event.stopPropagation()"
+            class="addToCartButton"
+          >
+            In den Warenkorb
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

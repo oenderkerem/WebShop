@@ -21,18 +21,12 @@ export class CartComponent implements OnInit {
   ngOnInit() {}
 
   onProductEntriesLoaded(productEntries: ShoppingCartEntry[]) {
-    console.log("onProductEntreisLoaded called");
     this.productEntries = productEntries;
-    console.log(productEntries);
-    console.log("next calculate sum");
     this.calculateSum(productEntries);
-    console.log("after calculate sum");
   }
 
   calculateSum(shoppingCartEntries: ShoppingCartEntry[]) {
-    console.log("calculate sum called");
     let sum = 0.0;
-    console.log(shoppingCartEntries);
     if (shoppingCartEntries) {
       shoppingCartEntries.forEach(element => {
         sum = element.amount * element.variation.price + sum;

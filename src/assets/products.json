@@ -14,11 +14,12 @@
     ],
     "image": "",
     "sex": "unisex",
-    "description": "Limited Edition"
+    "shortDescription": "Limited Edition",
+    "longDescription": "Dieses Produkt ist bis Ende dieses Jahres verfügbar. Am besten jetzt gleich zuschlagen."
   },
   {
     "id": "1",
-    "title": "One",
+    "title": "Two",
     "variations": [
       {
         "option": "100ml",
@@ -30,11 +31,13 @@
       }
     ],
     "image": "",
-    "sex": "male"
+    "sex": "male",
+    "shortDescription": "",
+    "longDescription": "Dieses Produkt ist bis Ende dieses Jahres verfügbar. Am besten jetzt gleich zuschlagen."
   },
   {
     "id": "2",
-    "title": "One",
+    "title": "Three",
     "variations": [
       {
         "option": "100ml",
@@ -46,11 +49,13 @@
       }
     ],
     "image": "",
-    "sex": "unisex"
+    "sex": "unisex",
+    "shortDescription": "",
+    "longDescription": "Dieses Produkt ist bis Ende dieses Jahres verfügbar. Am besten jetzt gleich zuschlagen."
   },
   {
     "id": "3",
-    "title": "One",
+    "title": "Clean Water",
     "variations": [
       {
         "option": "100ml",
@@ -66,7 +71,7 @@
   },
   {
     "id": "4",
-    "title": "One",
+    "title": "Tea Time",
     "variations": [
       {
         "option": "100ml",
@@ -82,7 +87,7 @@
   },
   {
     "id": "5",
-    "title": "One",
+    "title": "Orient Express",
     "variations": [
       {
         "option": "100ml",
@@ -110,7 +115,7 @@
   },
   {
     "id": "6",
-    "title": "One",
+    "title": "Raspberry",
     "variations": [
       {
         "option": "100ml",
@@ -126,7 +131,7 @@
   },
   {
     "id": "7",
-    "title": "One",
+    "title": "Turkisch Apple",
     "variations": [
       {
         "option": "100ml",
@@ -138,7 +143,9 @@
       }
     ],
     "image": "",
-    "sex": "female"
+    "sex": "female",
+    "shortDescription": "Aktionspreis",
+    "longDescription": ""
   },
   {
     "id": "8",
@@ -154,7 +161,9 @@
       }
     ],
     "image": "",
-    "sex": "male"
+    "sex": "male",
+    "shortDescription": "Most popular",
+    "longDescription": "Dieser Duft hat eine Note von brennendem Kaminholz und schmelzender Schokolade. Probieren Sie es aus."
   },
   {
     "id": "9",
@@ -170,6 +179,8 @@
       }
     ],
     "image": "",
-    "sex": "male"
+    "sex": "male",
+    "shortDescription": "Limited Edition",
+    "longDescription": "Dieser Duft verbindet den Duft von glänzendem Gold und den Gold der Natur - der Honig. Süß und unermessliger Wert. "
   }
 ]

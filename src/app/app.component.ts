@@ -14,9 +14,10 @@ import {
   SetProductsWomen,
   SetProductsUnisex,
   AddProductsToMen,
-  AddProductsToWomen
+  AddProductsToWomen,
+  AddShoppingCartEntry
 } from "./actions/actions";
-import { Product } from "./models/models";
+import { Product, ProductVariant } from "./models/models";
 
 export interface State {
   shoppingCartReducer: ShoppinCartState;
@@ -64,5 +65,31 @@ export class AppComponent {
       filteredProducts = products.filter(product => product.sex === filter);
     }
     return filteredProducts;
+  }
+}
+
+export function addProductToCart(
+  store: Store<State>,
+  product: Product,
+  variant: ProductVariant,
+  amount: number
+) {
+  if (amount > 0 && store && product && variant)
+    store.dispatch({ type: "SET_LOADING" });
+  store.dispatch(
+    new AddShoppingCartEntry({
+      amount: amount,
+      product: product,
+      variation: variant
+    })
+  );
+  store.dispatch({ type: "UNSET_LOADING" });
+}
+
+export function isOptionToBeSelected(product: Product): boolean {
+  if (product && product.variations.length > 0) {
+    return true;
+  } else {
+    return false;
   }
 }

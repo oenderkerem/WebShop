@@ -122,7 +122,6 @@ export function shoppingCartReducer(
             entry.variation !== action.payload.variation
         )
       ];
-      console.log(entries);
       return {
         ...state,
         Entries: entries
@@ -155,6 +154,7 @@ export function shoppingCartReducer(
       return state;
   }
 }
+
 export function productsReducer(
   state: ProductsState = { Men: [], Women: [], Unisex: [], All: [] },
   action: ProductAction
