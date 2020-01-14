@@ -4,7 +4,7 @@
 
 section {
   min-height: 100vh;
-  padding: var(--navigationHeight);
+  padding: 50px;
 }
 
 header {
@@ -16,21 +16,52 @@ header {
   background-attachment: fixed;
 }
 
+#headerSection {
+  background: rgba(30, 31, 32, 0.5);
+}
+
+#headerText {
+  padding: 15px;
+}
+
+#headerText h1 {
+  padding: 10px;
+}
+
+#shopButton {
+  padding: 10px 12px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  background: linear-gradient(
+    45deg,
+    var(--textColorBright),
+    rgb(122, 178, 201)
+  );
+  color: var(--textColorDark);
+  border-radius: 5px;
+  transform: translateX(-50%);
+}
+
+#shopButton:hover {
+  background: linear-gradient(45deg, var(--textColorBright), rgb(90, 148, 177));
+}
+
+#shopButton:active {
+  padding: 9px 11px;
+}
+
 #basicInfo {
   position: relative;
-  background-image: url("../../../assets/img/headerBackground.jpg");
+  background-image: url("../../../assets/img/spoons.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
   justify-items: center;
   align-items: center;
-  clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0% 100%);
-  margin-top: -3vw;
-}
-
-h1 {
-  margin: 20px;
+  clip-path: polygon(0 0, 50% 7vw, 100% 0%, 100% 100%, 0% 100%);
+  margin-top: -7vw;
 }
 
 .container {
@@ -147,6 +178,14 @@ app-social-media-icon-link {
 
 app-social-media-icon-link:hover {
   background-color: var(--socialMediaStickerBackGroundColorOnHover);
+}
+
+.arrowDown {
+  margin: 15px 0 0 0;
+}
+
+#infoSection {
+  background-color: rgba(61, 60, 60, 0.555);
 }
 
 @media only screen and (max-width: 700px) {

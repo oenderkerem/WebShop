@@ -12,3 +12,7 @@ section {
   background-size: cover;
   background-attachment: fixed;
 }
+
+.container {
+  background-color: rgba(43, 39, 39, 0.404);
+}
