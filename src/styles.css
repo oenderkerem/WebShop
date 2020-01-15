@@ -10,7 +10,7 @@
 .signature {
   display: block;
   font-family: "Parisienne", cursive;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 :root {
@@ -124,7 +124,7 @@ app-cart.visible {
 }
 
 .clipPathRegion {
-  height: 14vw;
+  height: 7vw;
 }
 
 @keyframes scrollInfoJump {

@@ -24,19 +24,15 @@ header {
   padding: 15px;
 }
 
-#headerText h1 {
-  padding: 10px;
-}
-
 #shopButton {
   padding: 10px 12px;
   position: absolute;
-  top: 60%;
+  top: 65%;
   left: 50%;
   background: linear-gradient(
     45deg,
     var(--textColorBright),
-    rgb(122, 178, 201)
+    rgba(134, 141, 143, 0.842)
   );
   color: var(--textColorDark);
   border-radius: 5px;
@@ -44,7 +40,11 @@ header {
 }
 
 #shopButton:hover {
-  background: linear-gradient(45deg, var(--textColorBright), rgb(90, 148, 177));
+  background: linear-gradient(
+    45deg,
+    var(--textColorBright),
+    rgba(134, 141, 143, 0.74)
+  );
 }
 
 #shopButton:active {
@@ -60,20 +60,12 @@ header {
   background-attachment: fixed;
   justify-items: center;
   align-items: center;
-  clip-path: polygon(0 0, 50% 7vw, 100% 0%, 100% 100%, 0% 100%);
-  margin-top: -7vw;
+  clip-path: polygon(0 0, 50% 6vw, 100% 0%, 100% 100%, 0% 100%);
+  margin-top: -6vw;
 }
 
-.container {
-  margin: 20px;
+#basicInfo h1 {
   padding: 20px;
-  border-radius: 20px;
-  background: linear-gradient(
-    70deg,
-    rgba(143, 144, 145, 0.74),
-    rgba(212, 211, 211, 0.911)
-  );
-  color: var(--textColorDark);
 }
 
 .boxContainer {
@@ -81,15 +73,15 @@ header {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  padding: 20px;
+  margin: 10px 0;
 }
 
 .box {
-  color: var(--textColorDark);
   max-width: 300px;
   padding: 20px;
   margin-top: 20px;
   text-align: center;
-  font-size: 1.2rem;
 }
 
 .container img {
@@ -185,7 +177,7 @@ app-social-media-icon-link:hover {
 }
 
 #infoSection {
-  background-color: rgba(61, 60, 60, 0.555);
+  background-color: rgba(48, 46, 46, 0.719);
 }
 
 @media only screen and (max-width: 700px) {

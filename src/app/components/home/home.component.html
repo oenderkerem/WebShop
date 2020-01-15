@@ -17,19 +17,11 @@
     </a>
   </section>
 </header>
-<div id="basicInfo">
+
+<div class="brightText" id="basicInfo">
   <section id="infoSection">
     <div class="clipPathRegion"></div>
     <h1 class="brightText">E99-EsAns Duftöle</h1>
-  </section>
-</div>
-<div id="basicInfo">
-  <section id="basicInfo">
-    <h1 class="darkText">E99-EsAns Duftöle</h1>
-    <h1 class="brightText">E99-EsAns Duftöle</h1>
-  </section>
-  <div class="container">
-    <h1>E99-EsAns Duftöle</h1>
     <div class="boxContainer">
       <div class="box">
         Jeder E99-EsAns Duftöl wird in Handarbeit produziert und ist etwas
@@ -47,78 +39,81 @@
       Dafür stehe ich mit meinem Namen
       <div class="signature">Musab Karalı</div>
     </div>
-  </div>
-  <div class="container">
-    <h1>Hier findest du die passenden Duftöle</h1>
-    <ul class="productCategoryLinkList">
-      <a class="darkText" routerLink="/fragrances"
-        ><li class="productCategoryLink">
-          Alle Produkte
-        </li>
-      </a>
-      <a class="darkText" routerLink="/men"
-        ><li class="productCategoryLink ">
-          Für Männer
-        </li>
-      </a>
-      <a class="darkText" routerLink="/women"
-        ><li class="productCategoryLink ">
-          Für Frauen
-        </li>
-      </a>
-      <a class="darkText" routerLink="/unisex"
-        ><li class="productCategoryLink ">
-          Unisex
-        </li>
-      </a>
-    </ul>
-  </div>
-  <div class="container">
-    <h2>Kundenkommentare</h2>
-    <div *ngIf="recommendations">
-      <app-customer-comments
-        [recommendations]="recommendations"
-      ></app-customer-comments>
+    <div class="container">
+      <h1>Hier findest du die passenden Duftöle</h1>
+      <ul class="productCategoryLinkList">
+        <a class="darkText" routerLink="/fragrances"
+          ><li class="productCategoryLink">
+            Alle Produkte
+          </li>
+        </a>
+        <a class="darkText" routerLink="/men"
+          ><li class="productCategoryLink ">
+            Für Männer
+          </li>
+        </a>
+        <a class="darkText" routerLink="/women"
+          ><li class="productCategoryLink ">
+            Für Frauen
+          </li>
+        </a>
+        <a class="darkText" routerLink="/unisex"
+          ><li class="productCategoryLink ">
+            Unisex
+          </li>
+        </a>
+      </ul>
     </div>
-  </div>
-  <div class="container">
-    <h1>
-      Allgemeine Informationen zu Düften
-    </h1>
-    <h2>Duftintensität und Wirkung</h2>
-    <p>
-      Je nach Zusammensetzung des Duftes haben Parfüms unterschiedliche
-      Duftintensitäten und Duftwirkungen. Riechstoffauswahl und
-      Riechstoffkonzentration beeinflussen sowohl die Duftintensität als auch
-      die Duftwirkung. Dabei werden folgende Schwellenwerte beobachtet:
-      Duftwirkungs-Schwelle: ab dieser noch nicht wahrnehmbaren Intensität
-      reagiert der Körper auf den Duft. Wahrnehmungs-Schwelle: Aura, man riecht
-      etwas, kann es jedoch noch nicht zuordnen. Erkennbarkeits-Schwelle: Duft
-      ist erkennbar und benennbar; mit steigender Duft-Intensität wandelt sich
-      der Duft von ‚angenehmer Duft‘ über ‚aufdringlicher Duft‘ bis hin zur
-      Flucht-Schwelle, die unbewusst eine Fluchtreaktion auslöst.
-    </p>
-    <h2>Duftnoten</h2>
-    <p>
-      Ein Parfüm kann durch unterschiedliche Anteile der Grundbestandteile sehr
-      viele verschiedene Duftnoten annehmen. Es kann beispielsweise blumige,
-      moschusähnliche, orientalische, fruchtige, frische oder klassisch-elegante
-      Duftnuancen aufweisen. Die meisten Parfüms setzen sich aus Kopf-, Herz-
-      und Basisnote zusammen. Die Kopfnote ist unmittelbar in den ersten Minuten
-      nach dem Auftragen des Parfüms auf der Haut wahrnehmbar. Da sie für den
-      ersten Eindruck und die Kaufentscheidung wichtig ist, ist die Kopfnote
-      meist intensiver als die anderen und wird von leichtflüchtigen Duftstoffen
-      geprägt. Für gewöhnlich setzt sie sich aus leichten Duftnoten zusammen,
-      aber es können schon Teile von Herz- und Basisnote anklingen. Die Herznote
-      ist in den Stunden, nachdem sich die Kopfnote verflüchtigt hat, zu riechen
-      und bildet den eigentlichen Duftcharakter (das Herzstück). In der Herznote
-      finden sich meistens Blütennuancen, die mit anderen Aromen kombiniert
-      werden. Sie wird häufig auch als Mittelnote bezeichnet. Die Basisnote ist
-      der letzte Teil des Duftablaufes und enthält langhaftende und schwere
-      Bestandteile.
-    </p>
-  </div>
-  <div class="clipPathRegion"></div>
+    <div class="container">
+      <h2>Kundenkommentare</h2>
+      <div *ngIf="recommendations">
+        <app-customer-comments
+          [recommendations]="recommendations"
+        ></app-customer-comments>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>
+        Allgemeine Informationen zu Düften
+      </h1>
+      <h2>Duftintensität und Wirkung</h2>
+      <p>
+        Je nach Zusammensetzung des Duftes haben Parfüms unterschiedliche
+        Duftintensitäten und Duftwirkungen. Riechstoffauswahl und
+        Riechstoffkonzentration beeinflussen sowohl die Duftintensität als auch
+        die Duftwirkung. Dabei werden folgende Schwellenwerte beobachtet:
+        Duftwirkungs-Schwelle: ab dieser noch nicht wahrnehmbaren Intensität
+        reagiert der Körper auf den Duft. Wahrnehmungs-Schwelle: Aura, man
+        riecht etwas, kann es jedoch noch nicht zuordnen.
+        Erkennbarkeits-Schwelle: Duft ist erkennbar und benennbar; mit
+        steigender Duft-Intensität wandelt sich der Duft von ‚angenehmer Duft‘
+        über ‚aufdringlicher Duft‘ bis hin zur Flucht-Schwelle, die unbewusst
+        eine Fluchtreaktion auslöst.
+      </p>
+      <h2>Duftnoten</h2>
+      <p>
+        Ein Parfüm kann durch unterschiedliche Anteile der Grundbestandteile
+        sehr viele verschiedene Duftnoten annehmen. Es kann beispielsweise
+        blumige, moschusähnliche, orientalische, fruchtige, frische oder
+        klassisch-elegante Duftnuancen aufweisen. Die meisten Parfüms setzen
+        sich aus Kopf-, Herz- und Basisnote zusammen. Die Kopfnote ist
+        unmittelbar in den ersten Minuten nach dem Auftragen des Parfüms auf der
+        Haut wahrnehmbar. Da sie für den ersten Eindruck und die
+        Kaufentscheidung wichtig ist, ist die Kopfnote meist intensiver als die
+        anderen und wird von leichtflüchtigen Duftstoffen geprägt. Für
+        gewöhnlich setzt sie sich aus leichten Duftnoten zusammen, aber es
+        können schon Teile von Herz- und Basisnote anklingen. Die Herznote ist
+        in den Stunden, nachdem sich die Kopfnote verflüchtigt hat, zu riechen
+        und bildet den eigentlichen Duftcharakter (das Herzstück). In der
+        Herznote finden sich meistens Blütennuancen, die mit anderen Aromen
+        kombiniert werden. Sie wird häufig auch als Mittelnote bezeichnet. Die
+        Basisnote ist der letzte Teil des Duftablaufes und enthält langhaftende
+        und schwere Bestandteile.
+      </p>
+    </div>
+    <div class="clipPathRegion"></div>
+  </section>
 </div>
 <div id="socialMediaContent">
   <div class="clipPathRegion"></div>
