@@ -4,20 +4,27 @@
 
 section {
   min-height: 100vh;
+  margin-top: var(--navigationHeight);
   padding: 50px;
 }
 
 header {
   margin-top: var(--navigationHeight);
-  background-image: url(../../../assets/img/hue12-photography-8rTwokBwz1w-unsplash.jpg);
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-color: rgb(104, 100, 100);
+  clip-path: polygon(100% 0, 100% 60vh, 92vw 84vh, 60vw 98vh, 0 100%, 0 0);
 }
 
 #headerSection {
-  background: rgba(30, 31, 32, 0.5);
+  background: linear-gradient(120deg, rgb(32, 47, 95), rgb(79, 107, 121));
+  clip-path: polygon(
+    100% 0,
+    100% 30vh,
+    95vw 57vh,
+    86vw 80vh,
+    60vw 90vh,
+    0 90vh,
+    0 0
+  );
 }
 
 #headerText {
@@ -27,41 +34,24 @@ header {
 #shopButton {
   padding: 10px 12px;
   position: absolute;
-  top: 65%;
+  bottom: 30%;
   left: 50%;
-  background: linear-gradient(
-    45deg,
-    var(--textColorBright),
-    rgba(134, 141, 143, 0.842)
-  );
-  color: var(--textColorDark);
+  border: 1px solid var(--textColorBright);
+  color: var(--textColorBright);
+  background-color: rgba(146, 143, 143, 0.212);
   border-radius: 5px;
   transform: translateX(-50%);
 }
 
 #shopButton:hover {
-  background: linear-gradient(
-    45deg,
-    var(--textColorBright),
-    rgba(134, 141, 143, 0.74)
-  );
-}
-
-#shopButton:active {
-  padding: 9px 11px;
+  padding: 10px 14px;
 }
 
 #basicInfo {
   position: relative;
-  background-image: url("../../../assets/img/spoons.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
   justify-items: center;
   align-items: center;
-  clip-path: polygon(0 0, 50% 6vw, 100% 0%, 100% 100%, 0% 100%);
-  margin-top: -6vw;
+  background: linear-gradient(white, rgb(79, 107, 121));
 }
 
 #basicInfo h1 {
@@ -174,10 +164,6 @@ app-social-media-icon-link:hover {
 
 .arrowDown {
   margin: 15px 0 0 0;
-}
-
-#infoSection {
-  background-color: rgba(48, 46, 46, 0.719);
 }
 
 @media only screen and (max-width: 700px) {
