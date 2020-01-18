@@ -45,14 +45,7 @@ header {
   padding-top: var(--navigationHeight);
   padding-bottom: var(--navigationHeight);
   background: linear-gradient(white, rgb(125, 156, 172));
-  clip-path: polygon(
-    100% 0,
-    100% 100%,
-    100% calc(100% - 6vh),
-    50% 100%,
-    0 calc(100% - 6vh),
-    0 0
-  );
+  clip-path: polygon(100% 0, 100% 100%, 100% 100%, 0 calc(100% - 3vw), 0 0);
 }
 
 #basicInfo h1 {
@@ -107,7 +100,7 @@ header {
   background-position: center;
   display: grid;
   align-content: center;
-  margin-top: -6vh;
+  margin-top: -3vw;
 }
 
 #socialMediaIconContainer {
