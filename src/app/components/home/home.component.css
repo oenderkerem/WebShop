@@ -4,27 +4,18 @@
 
 section {
   min-height: 100vh;
-  margin-top: var(--navigationHeight);
   padding: 50px;
 }
 
 header {
   margin-top: var(--navigationHeight);
   background-color: rgb(104, 100, 100);
-  clip-path: polygon(100% 0, 100% 60vh, 92vw 84vh, 60vw 98vh, 0 100%, 0 0);
+  clip-path: polygon(100% 0, 100% 62vh, 90vw 82vh, 60vw 98vh, 0 100%, 0 0);
 }
 
 #headerSection {
   background: linear-gradient(120deg, rgb(32, 47, 95), rgb(79, 107, 121));
-  clip-path: polygon(
-    100% 0,
-    100% 30vh,
-    95vw 57vh,
-    86vw 80vh,
-    60vw 90vh,
-    0 90vh,
-    0 0
-  );
+  clip-path: polygon(100% 0, 100% 62vh, 90vw 82vh, 60vw 95vh, 0 94vh, 0 0);
 }
 
 #headerText {
@@ -51,7 +42,17 @@ header {
   position: relative;
   justify-items: center;
   align-items: center;
-  background: linear-gradient(white, rgb(79, 107, 121));
+  padding-top: var(--navigationHeight);
+  padding-bottom: var(--navigationHeight);
+  background: linear-gradient(white, rgb(125, 156, 172));
+  clip-path: polygon(
+    100% 0,
+    100% 100%,
+    100% calc(100% - 6vh),
+    50% 100%,
+    0 calc(100% - 6vh),
+    0 0
+  );
 }
 
 #basicInfo h1 {
@@ -92,12 +93,11 @@ header {
 
 #personalMessage {
   padding: 30px;
-  font-size: 1.2rem;
 }
 
 .signature {
-  padding: 25px;
-  font-size: 2rem;
+  padding: 23px;
+  font-size: 1.5rem;
 }
 
 #socialMediaContent {
@@ -107,9 +107,7 @@ header {
   background-position: center;
   display: grid;
   align-content: center;
-  margin-top: -3vw;
-  margin-bottom: -3vw;
-  clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 100%);
+  margin-top: -6vh;
 }
 
 #socialMediaIconContainer {
