@@ -13,6 +13,12 @@ header {
   clip-path: polygon(100% 0, 100% 62vh, 90vw 82vh, 60vw 98vh, 0 100%, 0 0);
 }
 
+header img {
+  height: 200px;
+  max-width: 100vw;
+  max-height: 100%;
+}
+
 #headerSection {
   background: linear-gradient(120deg, rgb(32, 47, 95), rgb(79, 107, 121));
   clip-path: polygon(100% 0, 100% 62vh, 90vw 82vh, 60vw 95vh, 0 94vh, 0 0);
@@ -24,14 +30,11 @@ header {
 
 #shopButton {
   padding: 10px 12px;
-  position: absolute;
-  bottom: 30%;
-  left: 50%;
+
   border: 1px solid var(--textColorBright);
   color: var(--textColorBright);
   background-color: rgba(146, 143, 143, 0.212);
   border-radius: 5px;
-  transform: translateX(-50%);
 }
 
 #shopButton:hover {
