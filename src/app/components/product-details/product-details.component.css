@@ -43,40 +43,37 @@ h2 {
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 #images {
   background-color: aqua;
   display: grid;
-  flex-basis: 25%;
-  padding: 10px;
+  padding: 15px;
   justify-content: center;
 }
 
 #images img {
-  height: 200px;
-  max-width: 100%;
-  padding: 20px;
+  max-width: 250px;
+  max-height: 250px;
   border-radius: 5px;
   border: 1px solid black;
 }
 
 #description {
   background-color: blueviolet;
-  padding: 5px;
-  flex-basis: 33%;
-  display: grid;
-  align-items: center;
+  padding: 15px;
+  flex-basis: 40%;
   text-align: center;
   overflow: scroll;
 }
 
 #variations {
-  flex-basis: 33%;
   background-color: yellow;
+  padding: 15px;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 #variations_top {
@@ -130,4 +127,8 @@ h2 {
   left: 0;
   background-color: var(--textColorDark);
   transform: rotate(-45deg);
+}
+
+.variation {
+  margin: 5px;
 }

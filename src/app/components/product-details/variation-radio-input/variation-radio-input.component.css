@@ -1,0 +1,35 @@
+label {
+  background-color: black;
+  color: wheat;
+  display: inline-block;
+  width: 100%;
+  border-radius: 5px;
+}
+
+input {
+  display: none;
+}
+
+#content {
+  display: flex;
+  border-radius: 5px;
+}
+
+input[type="radio"]:checked + #content {
+  background-color: gray;
+}
+
+#option {
+  padding: 10px;
+  display: grid;
+  align-items: center;
+  flex-grow: 1;
+}
+
+#price_container {
+  padding: 10px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  min-width: 70px;
+}

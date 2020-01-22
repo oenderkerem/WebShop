@@ -34,15 +34,10 @@
                   class="variation"
                   *ngFor="let variation of product.variations"
                 >
-                  <label>
-                    <input
-                      type="radio"
-                      name="variation"
-                      value="variation"
-                      (change)="onOptionSelected(variation)"
-                    />
-                    {{ variation.option }} {{ variation.price }} €</label
-                  >
+                  <app-variation-radio-input
+                    [variation]="variation"
+                    (onChangeHandler)="onOptionSelected($event)"
+                  ></app-variation-radio-input>
                 </div>
               </form>
             </div>

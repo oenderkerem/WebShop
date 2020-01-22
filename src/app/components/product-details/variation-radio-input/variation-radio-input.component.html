@@ -1,0 +1,17 @@
+<label>
+  <input
+    type="radio"
+    name="variation"
+    value="variation"
+    (change)="onChange()"
+  />
+  <div id="content">
+    <div id="option">
+      <h4>test</h4>
+      <div>{{ variation.option }}</div>
+    </div>
+    <div id="price_container">
+      <span>{{ variation.price }} €</span>
+    </div>
+  </div>
+</label>
