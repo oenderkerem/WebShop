@@ -16,7 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   @Output() closeHandler = new EventEmitter();
   @Input() product: Product;
   selectedOption: ProductVariant;
-  isInputMissing: boolean = false;
+  isInputMissing: boolean = true;
   amountOfItems: number = 1;
 
   constructor(private store: Store<State>) {}

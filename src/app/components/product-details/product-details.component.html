@@ -8,14 +8,16 @@
     <div id="informationWrapper">
       <div id="subWrapper">
         <div id="images">
-          <img
-            *ngIf="!product.image"
-            src="../../../assets/img/esansBottles Kopie.png"
-          />
-          <img
-            *ngIf="product.image"
-            src="../../../assets/img/{{ product.image }}"
-          />
+          <div id="imageBox">
+            <img
+              *ngIf="!product.image"
+              src="../../../assets/img/esansBottles Kopie.png"
+            />
+            <img
+              *ngIf="product.image"
+              src="../../../assets/img/{{ product.image }}"
+            />
+          </div>
         </div>
         <div id="description" *ngIf="product.longDescription">
           <p>
@@ -25,6 +27,7 @@
         <div id="variations">
           <div id="variations_top">
             <div
+              id="variationContainer"
               [ngClass]="{ inValid: isInputMissing }"
               *ngIf="product.variations.length > 1"
               (click)="$event.stopPropagation()"
@@ -47,65 +50,19 @@
               </div>
             </div>
           </div>
-          <div id="variations_bottom"></div>
-        </div>
-      </div>
-    </div>
-
-    <!--<div id="middle">
-     
-      <div>
-        <p>
-          {{ product.longDescription }}
-        </p>
-      </div>
-    </div>
-    <div id="bottom">
-      <div>
-        <div id="selection">
-          <div
-            [ngClass]="{ inValid: isInputMissing }"
-            *ngIf="product.variations.length > 1"
-            (click)="$event.stopPropagation()"
-          >
-            <form>
+          <div id="variations_bottom">
+            <div id="CartButton" [ngClass]="{ deactivated: isInputMissing }">
+              In den Warenkorb
               <div
-                class="variation"
-                *ngFor="let variation of product.variations"
+                [ngClass]="{ hintIsVisible: isInputMissing }"
+                id="SelectionHint"
               >
-                <label>
-                  <input
-                    type="radio"
-                    name="variation"
-                    value="variation"
-                    (change)="onOptionSelected(variation)"
-                  />
-                  {{ variation.option }} {{ variation.price }} €</label
-                >
+                Bitte Auswahl treffen
               </div>
-            </form>
-          </div>
-          <div *ngIf="product.variations.length === 1">
-            <div *ngIf="selectedOption">
-              {{ selectedOption.option }} {{ selectedOption.price }}€
             </div>
           </div>
         </div>
-        <div id="cartOperations">
-          <div>
-            <span>Menge</span>
-            <div class="amountButton" (click)="decrementAmountOfItems()">-</div>
-            <span>{{ amountOfItems }}</span>
-            <div class="amountButton" (click)="incrementAmountOfItems()">+</div>
-          </div>
-          <div
-            (click)="onAddToCartButtonClicked(); $event.stopPropagation()"
-            class="addToCartButton"
-          >
-            In den Warenkorb
-          </div>
-        </div>
       </div>
-    </div>-->
+    </div>
   </div>
 </div>
