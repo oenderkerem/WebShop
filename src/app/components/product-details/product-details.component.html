@@ -51,7 +51,20 @@
             </div>
           </div>
           <div id="variations_bottom">
-            <div id="CartButton" [ngClass]="{ deactivated: isInputMissing }">
+            <div id="counter" [ngClass]="{ deactivated: isInputMissing }">
+              <span>Menge: </span
+              ><span class="counterButton" (click)="decrementAmountOfItems()"
+                >-</span
+              ><span>{{ amountOfItems }}</span
+              ><span class="counterButton" (click)="incrementAmountOfItems()"
+                >+</span
+              >
+            </div>
+            <div
+              (click)="onAddToCartButtonClicked()"
+              id="cartButton"
+              [ngClass]="{ deactivated: isInputMissing }"
+            >
               In den Warenkorb
               <div
                 [ngClass]="{ hintIsVisible: isInputMissing }"

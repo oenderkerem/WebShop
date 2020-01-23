@@ -39,10 +39,6 @@ export class ProductDetailsComponent implements OnInit {
     this.amountOfItems = 1;
   }
 
-  onAmountChanged(val) {
-    console.log(val.value);
-  }
-
   onAddToCartButtonClicked() {
     if (this.isValid() && this.amountOfItems >= 1) {
       addProductToCart(

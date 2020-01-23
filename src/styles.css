@@ -19,8 +19,12 @@
   --socialMediaStickerBackGroundColor: rgba(255, 255, 255, 0.637);
   --socialMediaStickerBackGroundColorOnHover: rgba(255, 255, 255, 0.747);
   --textColorBright: rgb(223, 213, 213);
-  --textColorDark: rgb(21, 45, 90);
+  --textColorDark: rgb(53, 89, 117);
   --textBackGroundBright: rgba(248, 248, 248, 0.774);
+  --buttonBackGroundColor: rgb(196, 206, 209);
+  --buttonBackGroundColorHover: rgb(53, 89, 117);
+  --buttonBackGroundColorChecked: rgb(53, 89, 117);
+  --buttonBorderColor: rgb(167, 165, 165);
 }
 
 html {

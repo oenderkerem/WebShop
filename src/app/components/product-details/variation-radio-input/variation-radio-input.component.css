@@ -2,12 +2,14 @@ label {
   display: inline-block;
   width: 100%;
   border-radius: 5px;
-  background-color: rgb(180, 183, 185);
-  border: 1px solid rgb(126, 176, 216);
+  background-color: var(--buttonBackGroundColor);
+  border: 1px solid var(--buttonBorderColor);
+  transition: background-color 500ms ease;
 }
 
 label:hover {
-  background-color: rgb(126, 176, 216);
+  background-color: var(--buttonBackGroundColorHover);
+  color: white;
 }
 
 input {
@@ -21,7 +23,7 @@ input {
 }
 
 input[type="radio"]:checked + #content {
-  background-color: rgb(53, 89, 117);
+  background-color: var(--buttonBackGroundColorChecked);
   color: white;
 }
 
