@@ -28,48 +28,25 @@
           <div id="variations_top">
             <div
               id="variationContainer"
-              [ngClass]="{ inValid: isInputMissing }"
-              *ngIf="product.variations.length > 1"
+              [ngClass]="{ inValid: !selectedVariantsCounter > 0 }"
               (click)="$event.stopPropagation()"
             >
-              <form>
-                <div
-                  class="variation"
-                  *ngFor="let variation of product.variations"
-                >
-                  <app-variation-radio-input
-                    [variation]="variation"
-                    (onChangeHandler)="onOptionSelected($event)"
-                  ></app-variation-radio-input>
-                </div>
-              </form>
-            </div>
-            <div *ngIf="product.variations.length === 1">
-              <div *ngIf="selectedOption">
-                {{ selectedOption.option }} {{ selectedOption.price }}€
+              <div class="variation" *ngFor="let variation of variants">
+                <app-detailed-variation-item
+                  [selected]="variation.selected"
+                  (click)="onDetailedVariationItemClick(variation.variant)"
+                ></app-detailed-variation-item>
               </div>
             </div>
           </div>
           <div id="variations_bottom">
-            <div id="counter" [ngClass]="{ deactivated: isInputMissing }">
-              <span>Menge: </span
-              ><span class="counterButton" (click)="decrementAmountOfItems()"
-                >-</span
-              ><span>{{ amountOfItems }}</span
-              ><span class="counterButton" (click)="incrementAmountOfItems()"
-                >+</span
-              >
-            </div>
             <div
               (click)="onAddToCartButtonClicked()"
               id="cartButton"
-              [ngClass]="{ deactivated: isInputMissing }"
+              [ngClass]="{ deactivated: !selectedVariantsCounter > 0 }"
             >
               In den Warenkorb
-              <div
-                [ngClass]="{ hintIsVisible: isInputMissing }"
-                id="SelectionHint"
-              >
+              <div id="selectionHint">
                 Bitte Auswahl treffen
               </div>
             </div>

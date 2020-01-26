@@ -1,5 +1,9 @@
 import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
-import { Product, ProductVariant } from "src/app/models/models";
+import {
+  Product,
+  ProductVariant,
+  DetailedProductVariantItem
+} from "src/app/models/models";
 import {
   isOptionToBeSelected,
   addProductToCart,
@@ -15,9 +19,10 @@ import { Store } from "@ngrx/store";
 export class ProductDetailsComponent implements OnInit {
   @Output() closeHandler = new EventEmitter();
   @Input() product: Product;
-  selectedOption: ProductVariant;
+
+  variants: DetailedProductVariantItem[] = [];
+  selectedVariantsCounter: number;
   isInputMissing: boolean = true;
-  amountOfItems: number = 1;
 
   constructor(private store: Store<State>) {}
 
@@ -26,50 +31,30 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.selectedVariantsCounter = 0;
     if (this.product && this.product.variations) {
-      if (this.product.variations.length === 1) {
-        this.selectedOption = this.product.variations[0];
-      }
+      this.product.variations.forEach(variant => {
+        this.variants.push({ variant: variant, counter: 0, selected: false });
+      });
     }
   }
 
-  onOptionSelected(option: ProductVariant) {
-    this.selectedOption = option;
-    this.isInputMissing = false;
-    this.amountOfItems = 1;
-  }
-
-  onAddToCartButtonClicked() {
-    if (this.isValid() && this.amountOfItems >= 1) {
-      addProductToCart(
-        this.store,
-        this.product,
-        this.selectedOption,
-        this.amountOfItems
-      );
+  onDetailedVariationItemClick(variation: ProductVariant) {
+    if (variation) {
+      this.toggleProductVariantSelectionAndUpdateCounter(variation);
     }
   }
 
-  isValid(): boolean {
-    if (isOptionToBeSelected(this.product)) {
-      if (this.selectedOption) {
-        this.isInputMissing = false;
-        return true;
+  toggleProductVariantSelectionAndUpdateCounter(variation: ProductVariant) {
+    const index = this.variants.findIndex(v => v.variant === variation);
+    if (index >= 0) {
+      const selected = this.variants[index].selected;
+      this.variants[index].selected = !selected;
+      if (selected) {
+        this.selectedVariantsCounter--;
       } else {
-        this.isInputMissing = true;
-        return false;
+        this.selectedVariantsCounter++;
       }
     }
-    return true;
-  }
-
-  decrementAmountOfItems() {
-    if (this.amountOfItems > 1) {
-      this.amountOfItems--;
-    }
-  }
-
-  incrementAmountOfItems() {
-    this.amountOfItems++;
   }
 }

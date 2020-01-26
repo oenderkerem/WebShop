@@ -32,6 +32,7 @@ import { ShelfItemComponent } from "./components/shelf-item/shelf-item.component
 import { CartItemComponent } from "./components/cart-item/cart-item.component";
 import { ProductDetailsComponent } from "./components/product-details/product-details.component";
 import { VariationRadioInputComponent } from './components/product-details/variation-radio-input/variation-radio-input.component';
+import { DetailedVariationItemComponent } from './components/product-details/detailed-variation-item/detailed-variation-item.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { VariationRadioInputComponent } from './components/product-details/varia
     ShelfItemComponent,
     CartItemComponent,
     ProductDetailsComponent,
-    VariationRadioInputComponent
+    VariationRadioInputComponent,
+    DetailedVariationItemComponent
   ],
   imports: [
     BrowserModule,

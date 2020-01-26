@@ -18,3 +18,9 @@ export type ShoppingCartEntry = {
   variation: ProductVariant;
   amount: number;
 };
+
+export type DetailedProductVariantItem = {
+  variant: ProductVariant;
+  counter: number;
+  selected: boolean;
+};
