@@ -15,7 +15,7 @@ import {
   styleUrls: ["./shelf.component.css"]
 })
 export class ShelfComponent implements OnInit {
-  @Input() products: Observable<Product[]>;
+  @Input() products: Product[];
 
   constructor(private store: Store<State>) {}
 

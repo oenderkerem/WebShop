@@ -1,15 +1,8 @@
 import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
-import {
-  Product,
-  ProductVariant,
-  DetailedProductVariantItem
-} from "src/app/models/models";
-import {
-  isOptionToBeSelected,
-  addProductToCart,
-  State
-} from "src/app/app.component";
+import { Product, ProductVariant } from "src/app/models/models";
+import { State } from "src/app/app.component";
 import { Store } from "@ngrx/store";
+import { ToggleProductVariationSelection } from "src/app/actions/actions";
 
 @Component({
   selector: "app-product-details",
@@ -20,41 +13,28 @@ export class ProductDetailsComponent implements OnInit {
   @Output() closeHandler = new EventEmitter();
   @Input() product: Product;
 
-  variants: DetailedProductVariantItem[] = [];
-  selectedVariantsCounter: number;
   isInputMissing: boolean = true;
 
   constructor(private store: Store<State>) {}
+
+  ngOnInit() {}
 
   onCloseClick() {
     this.closeHandler.emit();
   }
 
-  ngOnInit() {
-    this.selectedVariantsCounter = 0;
-    if (this.product && this.product.variations) {
-      this.product.variations.forEach(variant => {
-        this.variants.push({ variant: variant, counter: 0, selected: false });
-      });
-    }
-  }
-
   onDetailedVariationItemClick(variation: ProductVariant) {
+    console.log("onDetailedVariationItemClick called");
     if (variation) {
-      this.toggleProductVariantSelectionAndUpdateCounter(variation);
+      console.log(variation);
+      this.store.dispatch(
+        new ToggleProductVariationSelection({
+          productId: this.product.id,
+          variant: variation
+        })
+      );
     }
   }
 
-  toggleProductVariantSelectionAndUpdateCounter(variation: ProductVariant) {
-    const index = this.variants.findIndex(v => v.variant === variation);
-    if (index >= 0) {
-      const selected = this.variants[index].selected;
-      this.variants[index].selected = !selected;
-      if (selected) {
-        this.selectedVariantsCounter--;
-      } else {
-        this.selectedVariantsCounter++;
-      }
-    }
-  }
+  onAddToCartButtonClicked() {}
 }

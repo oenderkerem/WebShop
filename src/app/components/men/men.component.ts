@@ -10,10 +10,17 @@ import { Product } from "src/app/models/models";
   styleUrls: ["./men.component.css"]
 })
 export class MenComponent implements OnInit {
-  products: Observable<Product[]>;
+  products: Product[];
 
   constructor(private store: Store<State>) {
-    this.products = this.store.select(state => state.productsReducer.Men);
+    this.store
+      .select(state => state.productsReducer.Products)
+      .subscribe(
+        data =>
+          (this.products = data.filter(
+            value => value.sex === "male" || value.sex === "unisex"
+          ))
+      );
   }
 
   ngOnInit() {}

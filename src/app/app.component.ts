@@ -8,15 +8,7 @@ import {
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-import {
-  SetAllProducts,
-  SetProductsMen,
-  SetProductsWomen,
-  SetProductsUnisex,
-  AddProductsToMen,
-  AddProductsToWomen,
-  AddShoppingCartEntry
-} from "./actions/actions";
+import { SetAllProducts, AddShoppingCartEntry } from "./actions/actions";
 import { Product, ProductVariant } from "./models/models";
 
 export interface State {
@@ -44,19 +36,14 @@ export class AppComponent {
   }
 
   onProductsLoaded(data: Object) {
-    this.store.dispatch(new SetAllProducts(data as Product[]));
-    this.store.dispatch(
-      new SetProductsMen(this.filterProductsBySex(data as Product[], "male"))
-    );
-    this.store.dispatch(
-      new SetProductsWomen(
-        this.filterProductsBySex(data as Product[], "female")
-      )
-    );
-    let products = this.filterProductsBySex(data as Product[], "unisex");
-    this.store.dispatch(new SetProductsUnisex(products));
-    this.store.dispatch(new AddProductsToMen(products));
-    this.store.dispatch(new AddProductsToWomen(products));
+    let products = data as Product[];
+    products.forEach(product => {
+      product.variations.forEach(variant => {
+        variant.selected = false;
+        variant.quantity = 0;
+      });
+    });
+    this.store.dispatch(new SetAllProducts(products));
   }
 
   filterProductsBySex(products: Product[], filter: string): Product[] {

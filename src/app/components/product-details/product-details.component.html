@@ -26,15 +26,15 @@
         </div>
         <div id="variations">
           <div id="variations_top">
-            <div
-              id="variationContainer"
-              [ngClass]="{ inValid: !selectedVariantsCounter > 0 }"
-              (click)="$event.stopPropagation()"
-            >
-              <div class="variation" *ngFor="let variation of variants">
+            <div id="variationContainer" (click)="$event.stopPropagation()">
+              <div
+                class="variation"
+                *ngFor="let variation of product.variations"
+              >
                 <app-detailed-variation-item
-                  [selected]="variation.selected"
-                  (click)="onDetailedVariationItemClick(variation.variant)"
+                  [variationItem]="variation"
+                  [productId]="product.id"
+                  (click)="onDetailedVariationItemClick(variation)"
                 ></app-detailed-variation-item>
               </div>
             </div>
@@ -46,9 +46,6 @@
               [ngClass]="{ deactivated: !selectedVariantsCounter > 0 }"
             >
               In den Warenkorb
-              <div id="selectionHint">
-                Bitte Auswahl treffen
-              </div>
             </div>
           </div>
         </div>

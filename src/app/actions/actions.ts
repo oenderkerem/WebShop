@@ -1,34 +1,39 @@
 import { Action } from "@ngrx/store";
-import { Product, ShoppingCartEntry } from "../models/models";
+import { Product, ShoppingCartEntry, ProductVariant } from "../models/models";
 
 export class SetAllProducts implements Action {
-  readonly type = "PRODUCTS_SET_ALL";
+  readonly type = "SET_PRODUCTS";
   constructor(public payload: Product[]) {}
 }
 
-export class SetProductsMen implements Action {
-  readonly type = "PRODUCTS_SET_MEN";
-  constructor(public payload: Product[]) {}
+export class IncrementProductVariationQuantity implements Action {
+  readonly type = "INCREMENT_VARIATION_QUANTITY";
+  constructor(
+    public payload: {
+      productId: string;
+      variant: ProductVariant;
+    }
+  ) {}
 }
 
-export class SetProductsWomen implements Action {
-  readonly type = "PRODUCTS_SET_WOMEN";
-  constructor(public payload: Product[]) {}
+export class DecrementProductVariationQuantity implements Action {
+  readonly type = "DECREMENT_VARIATION_QUANTITY";
+  constructor(
+    public payload: {
+      productId: string;
+      variant: ProductVariant;
+    }
+  ) {}
 }
 
-export class SetProductsUnisex implements Action {
-  readonly type = "PRODUCTS_SET_UNISEX";
-  constructor(public payload: Product[]) {}
-}
-
-export class AddProductsToMen implements Action {
-  readonly type = "PRODUCTS_ADD_TO_MEN";
-  constructor(public payload: Product[]) {}
-}
-
-export class AddProductsToWomen implements Action {
-  readonly type = "PRODUCTS_ADD_TO_WOMEN";
-  constructor(public payload: Product[]) {}
+export class ToggleProductVariationSelection implements Action {
+  readonly type = "TOGGLE_PRODUCT_VARIATION_SELECTION";
+  constructor(
+    public payload: {
+      productId: string;
+      variant: ProductVariant;
+    }
+  ) {}
 }
 
 export class AddShoppingCartEntry implements Action {
@@ -71,8 +76,6 @@ export type ShoppingCartAction =
 
 export type ProductAction =
   | SetAllProducts
-  | SetProductsMen
-  | SetProductsWomen
-  | SetProductsUnisex
-  | AddProductsToMen
-  | AddProductsToWomen;
+  | ToggleProductVariationSelection
+  | IncrementProductVariationQuantity
+  | DecrementProductVariationQuantity;

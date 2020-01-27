@@ -1,8 +1,7 @@
 import { Action } from "@ngrx/store";
 import { ProductAction, ShoppingCartAction } from "./actions/actions";
 import { Product, ShoppingCartEntry } from "./models/models";
-import { summaryFileName } from "@angular/compiler/src/aot/util";
-import { ActivatedRouteSnapshot } from "@angular/router";
+import { stat } from "fs";
 
 export type ShoppinCartState = {
   CartIsOpen: boolean;
@@ -14,10 +13,7 @@ export type HamburgerState = {
 };
 
 export type ProductsState = {
-  Men: Product[];
-  Women: Product[];
-  Unisex: Product[];
-  All: Product[];
+  Products: Product[];
 };
 
 export type BasicState = {
@@ -156,40 +152,32 @@ export function shoppingCartReducer(
 }
 
 export function productsReducer(
-  state: ProductsState = { Men: [], Women: [], Unisex: [], All: [] },
+  state: ProductsState = { Products: [] },
   action: ProductAction
 ) {
   switch (action.type) {
-    case "PRODUCTS_SET_ALL":
+    case "SET_PRODUCTS":
       return {
         ...state,
-        All: action.payload
+        Products: action.payload
       };
-    case "PRODUCTS_SET_MEN":
+    case "TOGGLE_PRODUCT_VARIATION_SELECTION": {
       return {
         ...state,
-        Men: action.payload
+        Products: state.Products.map(product =>
+          product.id === action.payload.productId
+            ? {
+                ...product,
+                variations: product.variations.map(variation =>
+                  variation === action.payload.variant
+                    ? { ...variation, selected: !variation.selected }
+                    : variation
+                )
+              }
+            : product
+        )
       };
-    case "PRODUCTS_SET_WOMEN":
-      return {
-        ...state,
-        Women: action.payload
-      };
-    case "PRODUCTS_SET_UNISEX":
-      return {
-        ...state,
-        Unisex: action.payload
-      };
-    case "PRODUCTS_ADD_TO_MEN":
-      return {
-        ...state,
-        Men: [...state.Men.concat(action.payload)]
-      };
-    case "PRODUCTS_ADD_TO_WOMEN":
-      return {
-        ...state,
-        Women: [...state.Women.concat(action.payload)]
-      };
+    }
     default:
       return { ...state };
   }

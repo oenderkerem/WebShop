@@ -10,10 +10,12 @@ import { Product } from "src/app/models/models";
   styleUrls: ["./fragrances.component.css"]
 })
 export class FragrancesComponent implements OnInit {
-  products: Observable<Product[]>;
+  products: Product[];
 
   constructor(private store: Store<State>) {
-    this.products = this.store.select(state => state.productsReducer.All);
+    this.store
+      .select(state => state.productsReducer.Products)
+      .subscribe(data => (this.products = data));
   }
 
   ngOnInit() {}

@@ -11,6 +11,8 @@ export type Product = {
 export type ProductVariant = {
   option: string;
   price: number;
+  selected: boolean;
+  quantity: number;
 };
 
 export type ShoppingCartEntry = {
