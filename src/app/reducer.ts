@@ -1,7 +1,6 @@
 import { Action } from "@ngrx/store";
 import { ProductAction, ShoppingCartAction } from "./actions/actions";
 import { Product, ShoppingCartEntry } from "./models/models";
-import { stat } from "fs";
 
 export type ShoppinCartState = {
   CartIsOpen: boolean;
