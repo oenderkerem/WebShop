@@ -2,6 +2,7 @@ export type Product = {
   id: string;
   title: string;
   image: string;
+  isProductDetailsOpen: boolean;
   variations: ProductVariant[];
   shortDescription: string;
   longDescription: string;

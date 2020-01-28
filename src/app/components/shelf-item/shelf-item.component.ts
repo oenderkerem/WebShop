@@ -6,7 +6,10 @@ import {
   addProductToCart,
   isOptionToBeSelected
 } from "src/app/app.component";
-import { AddShoppingCartEntry } from "src/app/actions/actions";
+import {
+  AddShoppingCartEntry,
+  ToggleProductDetailsComponent
+} from "src/app/actions/actions";
 
 @Component({
   selector: "app-shelf-item",
@@ -17,7 +20,7 @@ export class ShelfItemComponent implements OnInit {
   @Input() product: Product;
   selectedOption: ProductVariant;
   isInputMissing: boolean = false;
-  productDetailsVisible: boolean = false;
+  productDetailsVisible: boolean;
 
   constructor(private store: Store<State>) {}
 
@@ -27,6 +30,18 @@ export class ShelfItemComponent implements OnInit {
         this.selectedOption = this.product.variations[0];
       }
     }
+    this.store
+      .select(state => state.productsReducer.Products)
+      .subscribe(data => {
+        const index = data.findIndex(product => product === this.product);
+        if (index >= 0) {
+          if (data[index].isProductDetailsOpen === undefined) {
+            this.productDetailsVisible = false;
+          } else {
+            this.productDetailsVisible = data[index].isProductDetailsOpen;
+          }
+        }
+      });
   }
 
   onAddToCartButtonClicked() {
@@ -58,6 +73,8 @@ export class ShelfItemComponent implements OnInit {
   }
 
   toggleDetailsView() {
-    this.productDetailsVisible = !this.productDetailsVisible;
+    this.store.dispatch(
+      new ToggleProductDetailsComponent({ productId: this.product.id })
+    );
   }
 }

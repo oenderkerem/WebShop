@@ -36,6 +36,15 @@ export class ToggleProductVariationSelection implements Action {
   ) {}
 }
 
+export class ToggleProductDetailsComponent implements Action {
+  readonly type = "TOGGLE_PRODUCT_DETAILS_COMPONENT";
+  constructor(
+    public payload: {
+      productId: string;
+    }
+  ) {}
+}
+
 export class AddShoppingCartEntry implements Action {
   readonly type = "CART_ADD_ENTRY";
   constructor(public payload: ShoppingCartEntry) {}
@@ -78,4 +87,5 @@ export type ProductAction =
   | SetAllProducts
   | ToggleProductVariationSelection
   | IncrementProductVariationQuantity
-  | DecrementProductVariationQuantity;
+  | DecrementProductVariationQuantity
+  | ToggleProductDetailsComponent;

@@ -177,6 +177,22 @@ export function productsReducer(
         )
       };
     }
+    case "TOGGLE_PRODUCT_DETAILS_COMPONENT": {
+      return {
+        ...state,
+        Products: state.Products.map(product =>
+          product.id === action.payload.productId
+            ? {
+                ...product,
+                isProductDetailsOpen:
+                  product.isProductDetailsOpen === undefined
+                    ? true
+                    : !product.isProductDetailsOpen
+              }
+            : product
+        )
+      };
+    }
     default:
       return { ...state };
   }
