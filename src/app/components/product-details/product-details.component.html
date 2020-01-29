@@ -43,7 +43,7 @@
             <div
               (click)="onAddToCartButtonClicked()"
               id="cartButton"
-              [ngClass]="{ deactivated: !selectedVariantsCounter > 0 }"
+              [ngClass]="{ deactivated: !selectedVariants.length > 0 }"
             >
               In den Warenkorb
             </div>

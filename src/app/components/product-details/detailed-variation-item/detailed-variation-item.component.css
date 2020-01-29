@@ -6,6 +6,7 @@
 }
 
 #counter.visible {
+  pointer-events: all;
   opacity: 1;
   transform: scaleY(1);
   height: 30px;

@@ -45,9 +45,9 @@ export class ToggleProductDetailsComponent implements Action {
   ) {}
 }
 
-export class AddShoppingCartEntry implements Action {
-  readonly type = "CART_ADD_ENTRY";
-  constructor(public payload: ShoppingCartEntry) {}
+export class AddShoppingCartEntries implements Action {
+  readonly type = "CART_ADD_ENTRIES";
+  constructor(public payload: ShoppingCartEntry[]) {}
 }
 
 export class CloseShoppingCart implements Action {
@@ -76,7 +76,7 @@ export class RemoveShoppingCartEntry implements Action {
 }
 
 export type ShoppingCartAction =
-  | AddShoppingCartEntry
+  | AddShoppingCartEntries
   | CloseShoppingCart
   | ToggleShoppingCart
   | IncrementAmount

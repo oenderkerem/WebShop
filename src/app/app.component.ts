@@ -8,7 +8,7 @@ import {
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-import { SetAllProducts, AddShoppingCartEntry } from "./actions/actions";
+import { SetAllProducts, AddShoppingCartEntries } from "./actions/actions";
 import { Product, ProductVariant } from "./models/models";
 
 export interface State {
@@ -36,14 +36,19 @@ export class AppComponent {
   }
 
   onProductsLoaded(data: Object) {
-    let products = data as Product[];
+    let products = this.transformProducts(data as Product[]);
+    this.store.dispatch(new SetAllProducts(products));
+  }
+
+  transformProducts(data: Product[]): Product[] {
+    let products = data;
     products.forEach(product => {
       product.variations.forEach(variant => {
         variant.selected = false;
-        variant.quantity = 0;
+        variant.quantity = 1;
       });
     });
-    this.store.dispatch(new SetAllProducts(products));
+    return products;
   }
 
   filterProductsBySex(products: Product[], filter: string): Product[] {
@@ -53,24 +58,6 @@ export class AppComponent {
     }
     return filteredProducts;
   }
-}
-
-export function addProductToCart(
-  store: Store<State>,
-  product: Product,
-  variant: ProductVariant,
-  amount: number
-) {
-  if (amount > 0 && store && product && variant)
-    store.dispatch({ type: "SET_LOADING" });
-  store.dispatch(
-    new AddShoppingCartEntry({
-      amount: amount,
-      product: product,
-      variation: variant
-    })
-  );
-  store.dispatch({ type: "UNSET_LOADING" });
 }
 
 export function isOptionToBeSelected(product: Product): boolean {

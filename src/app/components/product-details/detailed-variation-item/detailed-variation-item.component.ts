@@ -2,6 +2,10 @@ import { Component, OnInit, Input } from "@angular/core";
 import { ProductVariant, Product } from "src/app/models/models";
 import { Store } from "@ngrx/store";
 import { State } from "src/app/app.component";
+import {
+  DecrementProductVariationQuantity,
+  IncrementProductVariationQuantity
+} from "src/app/actions/actions";
 
 @Component({
   selector: "app-detailed-variation-item",
@@ -16,16 +20,28 @@ export class DetailedVariationItemComponent implements OnInit {
 
   constructor(private store: Store<State>) {}
 
-  onIncrementClick() {}
+  onIncrementClick() {
+    this.store.dispatch(
+      new IncrementProductVariationQuantity({
+        productId: this.productId,
+        variant: this.variationItem
+      })
+    );
+  }
 
   onDecrementClick() {
     if (this.quantity > 0) {
+      this.store.dispatch(
+        new DecrementProductVariationQuantity({
+          productId: this.productId,
+          variant: this.variationItem
+        })
+      );
     }
   }
 
   ngOnInit() {
     this.quantity = this.variationItem.quantity;
     this.selected = this.variationItem.selected;
-    console.log(this.selected);
   }
 }

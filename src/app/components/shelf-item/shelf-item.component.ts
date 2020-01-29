@@ -1,15 +1,8 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Product, ProductVariant } from "src/app/models/models";
 import { Store } from "@ngrx/store";
-import {
-  State,
-  addProductToCart,
-  isOptionToBeSelected
-} from "src/app/app.component";
-import {
-  AddShoppingCartEntry,
-  ToggleProductDetailsComponent
-} from "src/app/actions/actions";
+import { State, isOptionToBeSelected } from "src/app/app.component";
+import { ToggleProductDetailsComponent } from "src/app/actions/actions";
 
 @Component({
   selector: "app-shelf-item",
@@ -46,7 +39,6 @@ export class ShelfItemComponent implements OnInit {
 
   onAddToCartButtonClicked() {
     if (this.isValid()) {
-      addProductToCart(this.store, this.product, this.selectedOption, 1);
     }
   }
 

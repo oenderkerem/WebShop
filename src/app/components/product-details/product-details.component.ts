@@ -2,7 +2,10 @@ import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
 import { Product, ProductVariant } from "src/app/models/models";
 import { State } from "src/app/app.component";
 import { Store } from "@ngrx/store";
-import { ToggleProductVariationSelection } from "src/app/actions/actions";
+import {
+  ToggleProductVariationSelection,
+  AddShoppingCartEntries
+} from "src/app/actions/actions";
 
 @Component({
   selector: "app-product-details",
@@ -13,20 +16,30 @@ export class ProductDetailsComponent implements OnInit {
   @Output() closeHandler = new EventEmitter();
   @Input() product: Product;
 
-  isInputMissing: boolean = true;
+  selectedVariants: ProductVariant[] = [];
 
   constructor(private store: Store<State>) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.setSelectedVariants();
+  }
+
+  setSelectedVariants() {
+    if (this.product) {
+      if (this.product.variations) {
+        this.selectedVariants = this.product.variations.filter(
+          variant => variant.selected
+        );
+      }
+    }
+  }
 
   onCloseClick() {
     this.closeHandler.emit();
   }
 
   onDetailedVariationItemClick(variation: ProductVariant) {
-    console.log("onDetailedVariationItemClick called");
     if (variation) {
-      console.log(variation);
       this.store.dispatch(
         new ToggleProductVariationSelection({
           productId: this.product.id,
@@ -36,5 +49,20 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
-  onAddToCartButtonClicked() {}
+  onAddToCartButtonClicked() {
+    if (this.product) {
+      if (this.selectedVariants) {
+        let entriesToAdd = [];
+        this.selectedVariants.forEach(variant =>
+          entriesToAdd.push({
+            product: this.product,
+            variation: variant,
+            amount: variant.quantity
+          })
+        );
+        console.log(entriesToAdd);
+        this.store.dispatch(new AddShoppingCartEntries(entriesToAdd));
+      }
+    }
+  }
 }

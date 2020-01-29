@@ -44,11 +44,12 @@ app-product-details {
 }
 
 app-product-details.open {
-  height: calc(100vh - var(--navigationHeight));
+  height: 100vh;
   width: 100vw;
   left: 0;
-  top: var(--navigationHeight);
+  top: 0;
   opacity: 1;
   display: block;
   pointer-events: all;
+  z-index: 2;
 }

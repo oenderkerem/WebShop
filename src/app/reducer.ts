@@ -81,34 +81,51 @@ export function shoppingCartReducer(
         ...state,
         CartIsOpen: false
       };
-    case "CART_ADD_ENTRY":
-      let contains = state.Entries.findIndex(
+    case "CART_ADD_ENTRIES":
+      let newVariants = action.payload.filter(
         entry =>
-          entry.product === action.payload.product &&
-          entry.variation === action.payload.variation
+          state.Entries.find(
+            value =>
+              value.product.id === entry.product.id &&
+              value.variation.option === entry.variation.option &&
+              entry.variation.price === value.variation.price
+          ) === undefined
       );
-      if (contains === -1) {
-        return {
-          ...state,
-          Entries: [...state.Entries.concat(action.payload)]
-        };
-      } else {
-        return {
-          ...state,
-          Entries: [
-            ...state.Entries.map(entry =>
-              entry.product === action.payload.product &&
-              entry.variation === action.payload.variation
-                ? {
-                    product: entry.product,
-                    variation: entry.variation,
-                    amount: entry.amount + action.payload.amount
-                  }
-                : entry
-            )
-          ]
-        };
-      }
+
+      let existing = action.payload.filter(entry =>
+        state.Entries.find(
+          value =>
+            value.product.id === entry.product.id &&
+            value.variation.option === entry.variation.option &&
+            entry.variation.price === value.variation.price
+        )
+      );
+      let addQuantities = (shoppingCartEntry: ShoppingCartEntry) => {
+        let index = existing.findIndex(
+          value =>
+            value.product.id === shoppingCartEntry.product.id &&
+            value.variation.option === shoppingCartEntry.variation.option &&
+            value.variation.price === shoppingCartEntry.variation.price
+        );
+        if (index >= 0) {
+          return {
+            ...shoppingCartEntry,
+            amount: existing[index].amount + shoppingCartEntry.amount
+          };
+        } else {
+          return {
+            ...shoppingCartEntry
+          };
+        }
+      };
+
+      return {
+        ...state,
+        Entries: state.Entries.map(entry => addQuantities(entry)).concat(
+          newVariants
+        )
+      };
+
     case "CART_REMOVE_ENTRY":
       let entries = [
         ...state.Entries.filter(
@@ -188,6 +205,40 @@ export function productsReducer(
                   product.isProductDetailsOpen === undefined
                     ? true
                     : !product.isProductDetailsOpen
+              }
+            : product
+        )
+      };
+    }
+    case "INCREMENT_VARIATION_QUANTITY": {
+      return {
+        ...state,
+        Products: state.Products.map(product =>
+          product.id === action.payload.productId
+            ? {
+                ...product,
+                variations: product.variations.map(variation =>
+                  variation === action.payload.variant
+                    ? { ...variation, quantity: variation.quantity + 1 }
+                    : variation
+                )
+              }
+            : product
+        )
+      };
+    }
+    case "DECREMENT_VARIATION_QUANTITY": {
+      return {
+        ...state,
+        Products: state.Products.map(product =>
+          product.id === action.payload.productId
+            ? {
+                ...product,
+                variations: product.variations.map(variation =>
+                  variation === action.payload.variant
+                    ? { ...variation, quantity: variation.quantity - 1 }
+                    : variation
+                )
               }
             : product
         )
