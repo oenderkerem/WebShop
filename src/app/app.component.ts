@@ -42,12 +42,18 @@ export class AppComponent {
 
   transformProducts(data: Product[]): Product[] {
     let products = data;
-    products.forEach(product => {
-      product.variations.forEach(variant => {
-        variant.selected = false;
-        variant.quantity = 1;
-      });
-    });
+    for (let i = 0; i < products.length; i++) {
+      if (products[i].variations) {
+        for (let variant = 0; products[i].variations.length; variant++) {
+          products[i].variations[variant] = {
+            ...products[i].variations[variant],
+            id: variant.toString(),
+            selected: false,
+            quantity: 1
+          };
+        }
+      }
+    }
     return products;
   }
 
@@ -57,13 +63,5 @@ export class AppComponent {
       filteredProducts = products.filter(product => product.sex === filter);
     }
     return filteredProducts;
-  }
-}
-
-export function isOptionToBeSelected(product: Product): boolean {
-  if (product && product.variations.length > 0) {
-    return true;
-  } else {
-    return false;
   }
 }
