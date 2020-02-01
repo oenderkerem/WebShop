@@ -1,5 +1,6 @@
 import { Action } from "@ngrx/store";
 import { Product, ShoppingCartEntry, ProductVariant } from "../models/models";
+import { importExpr } from "@angular/compiler/src/output/output_ast";
 
 export class SetAllProducts implements Action {
   readonly type = "SET_PRODUCTS";
@@ -32,6 +33,16 @@ export class ToggleProductVariationSelection implements Action {
     public payload: {
       productId: string;
       variant: ProductVariant;
+    }
+  ) {}
+}
+
+export class SetProductVariationSelected implements Action {
+  readonly type = "SET_PRODUCT_VARIATION_SELECTED";
+  constructor(
+    public payload: {
+      productId: string;
+      id: string;
     }
   ) {}
 }
@@ -86,6 +97,7 @@ export type ShoppingCartAction =
 export type ProductAction =
   | SetAllProducts
   | ToggleProductVariationSelection
+  | SetProductVariationSelected
   | IncrementProductVariationQuantity
   | DecrementProductVariationQuantity
   | ToggleProductDetailsComponent;

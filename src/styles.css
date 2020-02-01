@@ -21,10 +21,11 @@
   --textColorBright: rgb(223, 213, 213);
   --textColorDark: rgb(53, 89, 117);
   --textBackGroundBright: rgba(248, 248, 248, 0.774);
-  --buttonBackGroundColor: rgb(196, 206, 209);
-  --buttonBackGroundColorHover: rgb(53, 89, 117);
+  --buttonBackGroundColor: rgba(189, 193, 194, 0.836);
+  --buttonBackGroundColorHover: rgba(216, 217, 218, 0.918);
   --buttonBackGroundColorChecked: rgb(53, 89, 117);
-  --buttonBorderColor: rgb(167, 165, 165);
+  --buttonBorderColor: rgba(174, 178, 179, 0.774);
+  --buttonBoxShadowColor: rgba(122, 118, 118, 0.781);
 }
 
 html {

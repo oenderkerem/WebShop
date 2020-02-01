@@ -12,11 +12,13 @@ import { Product } from "src/app/models/models";
 export class FragrancesComponent implements OnInit {
   products: Product[];
 
-  constructor(private store: Store<State>) {
+  constructor(private store: Store<State>) {}
+
+  ngOnInit() {
     this.store
       .select(state => state.productsReducer.Products)
-      .subscribe(data => (this.products = data));
+      .subscribe(data => {
+        this.products = data;
+      });
   }
-
-  ngOnInit() {}
 }

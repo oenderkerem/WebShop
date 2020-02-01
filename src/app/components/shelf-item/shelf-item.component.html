@@ -1,4 +1,4 @@
-<div id="container" (click)="onItemClicked()">
+<div *ngIf="product" id="container" (click)="onItemClicked()">
   <h3>{{ product.title }}</h3>
   <img
     *ngIf="!product.image"
@@ -8,9 +8,18 @@
   <div>
     <p>{{ product.shortDescription }}</p>
   </div>
+  <div class="variationContainer">
+    <div *ngFor="let variation of product.variations">
+      <div class="variation" (click)="onOptionSelected(variation)">
+        <span class="variationOption">{{ variation.option }}</span>
+        <span>{{ variation.price }}€</span>
+      </div>
+    </div>
+  </div>
   <div
     (click)="onAddToCartButtonClicked(); $event.stopPropagation()"
     class="addToCartButton"
+    [ngClass]="{ active: selectedVariants.length > 0 }"
   >
     In den Warenkorb
   </div>

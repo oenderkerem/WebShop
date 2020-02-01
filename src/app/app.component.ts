@@ -37,31 +37,38 @@ export class AppComponent {
 
   onProductsLoaded(data: Object) {
     let products = this.transformProducts(data as Product[]);
+    console.log(products);
     this.store.dispatch(new SetAllProducts(products));
   }
 
-  transformProducts(data: Product[]): Product[] {
-    let products = data;
-    for (let i = 0; i < products.length; i++) {
-      if (products[i].variations) {
-        for (let variant = 0; products[i].variations.length; variant++) {
-          products[i].variations[variant] = {
-            ...products[i].variations[variant],
+  transformProducts(products: Product[]): Product[] {
+    let setVariations = (variations: ProductVariant[]) => {
+      if (variations) {
+        for (let variant = 0; variant < variations.length; variant++) {
+          variations[variant] = {
+            ...variations[variant],
             id: variant.toString(),
-            selected: false,
+            selected:
+              variations[variant].selected === undefined
+                ? false
+                : variations[variant].selected,
             quantity: 1
           };
         }
+        return variations;
+      } else {
+        return [];
+      }
+    };
+    for (let i = 0; i < products.length; i++) {
+      if (products[i]) {
+        products[i] = {
+          ...products[i],
+          isProductDetailsOpen: false,
+          variations: setVariations(products[i].variations)
+        };
       }
     }
     return products;
-  }
-
-  filterProductsBySex(products: Product[], filter: string): Product[] {
-    let filteredProducts: Product[];
-    if (products) {
-      filteredProducts = products.filter(product => product.sex === filter);
-    }
-    return filteredProducts;
   }
 }

@@ -176,11 +176,10 @@ img {
   border: 1px solid var(--buttonBorderColor);
   background-color: var(--buttonBackGroundColor);
   transition: all 500ms ease;
-  box-shadow: 1px 2px rgba(58, 67, 83, 0.801);
+  box-shadow: 0 2px rgba(58, 67, 83, 0.801);
 }
 
 #cartButton:hover {
-  color: white;
   box-shadow: 1px 2px rgba(140, 141, 143, 0.801);
   background-color: var(--buttonBackGroundColorHover);
 }

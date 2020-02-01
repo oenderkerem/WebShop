@@ -1,25 +1,45 @@
-/*
 .addToCartButton {
-  padding: 15px;
-  margin: 5px;
-  border-radius: 10px;
-  background-color: var(--textColorDark);
-  color: var(--textColorBright);
-  box-shadow: 0px 6px 0px -2px rgb(115, 145, 175);
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid var(--buttonBorderColor);
+  background-color: var(--buttonBackGroundColor);
+  opacity: 0.5;
+  pointer-events: none;
+  position: relative;
 }
-.addToCartButton:hover {
+
+.addToCartButton::after {
+  content: "Bitte Auswahl treffen";
+  display: grid;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-color: var(--buttonBackGroundColor);
+}
+
+.addToCartButton.active {
+  opacity: 1;
+  pointer-events: all;
+  box-shadow: 0 2px var(--buttonBoxShadowColor);
+}
+
+.addToCartButton.active::after {
+  content: "";
+  display: none;
+}
+
+.addToCartButton.active:active {
+  box-shadow: 0 1px var(--buttonBoxShadowColor);
+  transform: translateY(2px);
+}
+
+.addToCartButton.active:hover {
   cursor: pointer;
-  color: white;
-}
-
-.addToCartButton:active {
-  transform: translateY(4px);
-  box-shadow: 0px 4px 0px -2px rgb(94, 125, 155);
-}
-*/
-
-.inValid {
-  border: 1px solid red;
+  background-color: var(--buttonBackGroundColorHover);
 }
 
 #container {
@@ -28,6 +48,25 @@
 
 #container:hover {
   padding: 25px;
+}
+
+.variation {
+  padding: 10px;
+  border: 1px solid var(--buttonBorderColor);
+  border-radius: 5px;
+  margin: 2px 0;
+}
+
+.variationContainer {
+  margin: 5px 0;
+}
+
+.variationOption {
+  padding: 10px;
+}
+
+.variation span {
+  margin: 5px;
 }
 
 app-product-details {

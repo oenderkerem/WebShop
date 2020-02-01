@@ -177,6 +177,24 @@ export function productsReducer(
         ...state,
         Products: action.payload
       };
+
+    case "SET_PRODUCT_VARIATION_SELECTED": {
+      return {
+        ...state,
+        Products: state.Products.map(product =>
+          product.id === action.payload.productId
+            ? {
+                ...product,
+                variations: product.variations.map(variation =>
+                  variation.id === action.payload.id
+                    ? { ...variation, selected: true }
+                    : variation
+                )
+              }
+            : product
+        )
+      };
+    }
     case "TOGGLE_PRODUCT_VARIATION_SELECTION": {
       return {
         ...state,
@@ -185,7 +203,7 @@ export function productsReducer(
             ? {
                 ...product,
                 variations: product.variations.map(variation =>
-                  variation === action.payload.variant
+                  variation.id === action.payload.variant.id
                     ? { ...variation, selected: !variation.selected }
                     : variation
                 )

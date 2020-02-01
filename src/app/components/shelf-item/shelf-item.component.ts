@@ -1,8 +1,13 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Product, ProductVariant } from "src/app/models/models";
 import { Store } from "@ngrx/store";
-import { State, isOptionToBeSelected } from "src/app/app.component";
-import { ToggleProductDetailsComponent } from "src/app/actions/actions";
+import { State } from "src/app/app.component";
+import {
+  ToggleProductDetailsComponent,
+  ToggleProductVariationSelection,
+  AddShoppingCartEntries,
+  SetProductVariationSelected
+} from "src/app/actions/actions";
 
 @Component({
   selector: "app-shelf-item",
@@ -10,54 +15,96 @@ import { ToggleProductDetailsComponent } from "src/app/actions/actions";
   styleUrls: ["./shelf-item.component.css"]
 })
 export class ShelfItemComponent implements OnInit {
-  @Input() product: Product;
-  selectedOption: ProductVariant;
-  isInputMissing: boolean = false;
+  @Input() productId: string;
+
+  product: Product;
   productDetailsVisible: boolean;
+  selectedVariants: ProductVariant[];
+  isProductVariationSelectionTogglable: boolean = false;
 
   constructor(private store: Store<State>) {}
 
   ngOnInit() {
-    if (this.product && this.product.variations) {
-      if (this.product.variations.length === 1) {
-        this.selectedOption = this.product.variations[0];
-      }
-    }
+    this.initData();
+  }
+
+  initData() {
     this.store
       .select(state => state.productsReducer.Products)
       .subscribe(data => {
-        const index = data.findIndex(product => product === this.product);
-        if (index >= 0) {
-          if (data[index].isProductDetailsOpen === undefined) {
-            this.productDetailsVisible = false;
-          } else {
-            this.productDetailsVisible = data[index].isProductDetailsOpen;
-          }
+        const index = data.findIndex(product => product.id === this.productId);
+        if (index > -1) {
+          this.product = data[index];
+          this.setProductDetailsVisibility();
+          this.checkVariationTogglabilityAndSetDefault();
+          this.setSelectedVariants();
+        } else {
+          console.log("-1");
         }
       });
   }
 
-  onAddToCartButtonClicked() {
-    if (this.isValid()) {
+  setProductDetailsVisibility() {
+    if (this.product) {
+      this.productDetailsVisible = this.product.isProductDetailsOpen;
     }
   }
 
-  isValid(): boolean {
-    if (isOptionToBeSelected(this.product)) {
-      if (this.selectedOption) {
-        this.isInputMissing = false;
-        return true;
-      } else {
-        this.isInputMissing = true;
-        return false;
+  checkVariationTogglabilityAndSetDefault() {
+    if (this.product) {
+      if (this.product.variations) {
+        if (this.product.variations.length === 1) {
+          this.isProductVariationSelectionTogglable = false;
+          if (this.product.variations[0].selected === false) {
+            this.store.dispatch(
+              new SetProductVariationSelected({
+                productId: this.product.id,
+                id: this.product.variations[0].id
+              })
+            );
+          }
+        } else {
+          this.isProductVariationSelectionTogglable = true;
+        }
       }
     }
-    return true;
+  }
+
+  setSelectedVariants() {
+    if (this.product) {
+      if (this.product.variations) {
+        this.selectedVariants = this.product.variations.filter(
+          variation => variation.selected
+        );
+        console.log("selectedVariants");
+        console.log(this.selectedVariants);
+      }
+    }
+  }
+
+  onAddToCartButtonClicked() {
+    if (this.selectedVariants.length > 0) {
+      let entriesToAdd = [];
+      this.selectedVariants.forEach(variant =>
+        entriesToAdd.push({
+          product: this.product,
+          variation: variant,
+          amount: variant.quantity
+        })
+      );
+      this.store.dispatch(new AddShoppingCartEntries(entriesToAdd));
+    }
   }
 
   onOptionSelected(option: ProductVariant) {
-    this.selectedOption = option;
-    this.isInputMissing = false;
+    if (this.isProductVariationSelectionTogglable) {
+      this.store.dispatch(
+        new ToggleProductVariationSelection({
+          productId: this.product.id,
+          variant: option
+        })
+      );
+    }
   }
 
   onItemClicked() {

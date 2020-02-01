@@ -16,6 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   @Output() closeHandler = new EventEmitter();
   @Input() product: Product;
 
+  isProductVariationSelectionTogglable: boolean = false;
   selectedVariants: ProductVariant[] = [];
 
   constructor(private store: Store<State>) {}
@@ -39,13 +40,17 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   onDetailedVariationItemClick(variation: ProductVariant) {
-    if (variation) {
-      this.store.dispatch(
-        new ToggleProductVariationSelection({
-          productId: this.product.id,
-          variant: variation
-        })
-      );
+    if (this.product) {
+      if (this.isProductVariationSelectionTogglable) {
+        if (variation) {
+          this.store.dispatch(
+            new ToggleProductVariationSelection({
+              productId: this.product.id,
+              variant: variation
+            })
+          );
+        }
+      }
     }
   }
 
@@ -60,7 +65,6 @@ export class ProductDetailsComponent implements OnInit {
             amount: variant.quantity
           })
         );
-        console.log(entriesToAdd);
         this.store.dispatch(new AddShoppingCartEntries(entriesToAdd));
       }
     }
