@@ -1,0 +1,55 @@
+<div (click)="onCloseClick()" id="container">
+  <div (click)="$event.stopPropagation()" id="content">
+    <div id="header">
+      <div id="close" (click)="onCloseClick()"></div>
+      <h2>{{ product.title }}</h2>
+      <span>{{ product.shortDescription }}</span>
+    </div>
+    <div id="informationWrapper">
+      <div id="subWrapper">
+        <div id="images">
+          <div id="imageBox">
+            <img
+              *ngIf="!product.image"
+              src="../../../assets/img/esansBottles Kopie.png"
+            />
+            <img
+              *ngIf="product.image"
+              src="../../../assets/img/{{ product.image }}"
+            />
+          </div>
+        </div>
+        <div id="description" *ngIf="product.longDescription">
+          <p>
+            {{ product.longDescription }}
+          </p>
+        </div>
+        <div id="variations">
+          <div id="variations_top">
+            <div id="variationContainer" (click)="$event.stopPropagation()">
+              <div
+                class="variation"
+                *ngFor="let variation of product.variations"
+              >
+                <app-detailed-variation-item
+                  [variationItem]="variation"
+                  [productId]="product.id"
+                  (click)="onDetailedVariationItemClick(variation)"
+                ></app-detailed-variation-item>
+              </div>
+            </div>
+          </div>
+          <div id="variations_bottom">
+            <div
+              (click)="onAddToCartButtonClicked()"
+              class="addToCartButton"
+              [ngClass]="{ deactivated: !selectedVariants.length > 0 }"
+            >
+              In den Warenkorb
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+#container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  width: 100px;
+  transform: translate(-50%, -50%);
+  background-color: var(--textColorDark);
+  z-index: 100;
+  border-radius: 20px;
+}
+
+.loader {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  transform: translate(-50%, -50%);
+  height: 60px;
+  width: 60px;
+  background-color: transparent;
+  border-top: 5px solid var(--textColorBright);
+  border-left: 5px solid var(--textColorBright);
+  border-right: 5px solid var(--textColorBright);
+  border-bottom: 5px solid transparent;
+  border-radius: 50%;
+  animation: rotating 1s linear infinite;
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

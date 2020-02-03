@@ -1,10 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-
-interface AppState {
-  hamburgerClicked: boolean;
-}
+import { State } from "src/app/app.component";
 
 @Component({
   selector: "app-navigationbar",
@@ -12,23 +9,27 @@ interface AppState {
   styleUrls: ["./navigationbar.component.css"]
 })
 export class NavigationbarComponent implements OnInit {
-  hamburgerClicked$: Observable<boolean>;
+  hamburgerClicked: Observable<boolean>;
 
-  constructor(private store: Store<AppState>) {
-    this.hamburgerClicked$ = this.store.select("hamburgerClicked");
+  constructor(private store: Store<State>) {
+    this.hamburgerClicked = this.store.select(
+      state => state.hamburgerReducer.MenuIsOpen
+    );
   }
 
   ngOnInit() {}
 
   onHamburgerIconClick() {
-    this.store.dispatch({ type: "TOGGLE" });
+    this.store.dispatch({ type: "CART_CLOSE" });
+    this.store.dispatch({ type: "HAMBURGER_TOGGLE" });
   }
 
   onLinkClick() {
-    this.store.dispatch({ type: "CLOSE" });
+    this.store.dispatch({ type: "HAMBURGER_CLOSE" });
   }
 
   onShoppingCartIconClicked() {
-    console.log("shopping Cart Logo Clicked");
+    this.store.dispatch({ type: "HAMBURGER_CLOSE" });
+    this.store.dispatch({ type: "CART_TOGGLE" });
   }
 }

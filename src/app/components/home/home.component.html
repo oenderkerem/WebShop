@@ -1,65 +1,140 @@
 <header>
-  <div id="headerText">
-    <a routerLink="/fragrances">
-      <h1>
-        Hol deinen außergewöhnlichen Duft hier im Shop
+  <section id="headerSection">
+    <div id="headerText">
+      <h1 class="brightText">
+        E99-EsAns
       </h1>
+      <h2 class="brightText">Das Parfümeriehaus mit Stil und Qualität</h2>
+    </div>
+    <img src="../../../assets/img/esansBottles.png" />
+    <a id="shopButton" routerLink="/fragrances"><div>Zu den Düften</div></a>
+    <a href="#basicInfo">
+      <div id="scrollInfo">
+        <div>
+          Weitere Informationen
+        </div>
+        <div class="arrowDown"></div>
+      </div>
     </a>
-  </div>
-  <div id="scrollInfo">
-    Weitere Informationen<br />
-    <div class="arrowDown"></div>
-  </div>
+  </section>
 </header>
-<section>
-  <h1>Herstellung</h1>
-  <p>
-    Jeder Duft von E99 EsAns ist ein Kunstwerk für sich. Es sind keine
-    Fließbandprodukte aus der Fabrik. Unsere Düfte enthalten Zutaten aus
-    ausgewählten Plantagen. Mancher Rohstoff muss vor seiner Verarbeitung
-    zunächst über einen längeren Zeitraum reifen.
-  </p>
-  <p>
-    E99 EsAns Düfte sind aus diesem Grund begrenzt Verfügbar.
-  </p>
-  <p>Kunst braucht seine Zeit.</p>
-  <p>
-    Hier gibt es keine billig produzierte und überteuert verkaufte
-    Chemiemischung. Unsere Kunden erhalten ausgefallene, hochwertige Qualität,
-    die es nicht überall zu kaufen gibt. Dafür stehe ich mit meinem Namen.
-  </p>
-  <p class="signature">
-    Musab Karalı
-  </p>
-</section>
-<section>
-  <div>Some Content</div>
-  <div>Some other content</div>
-</section>
-<div id="recommendations" *ngIf="recommendations">
-  <app-customer-comments
-    [recommendations]="recommendations"
-  ></app-customer-comments>
+<div class="darkText" id="basicInfo">
+  <section>
+    <h1>E99-EsAns Duftöle</h1>
+    <div class="boxContainer">
+      <div class="box">
+        Jeder E99-EsAns Duftöl wird in Handarbeit produziert und ist etwas
+        besonderes
+      </div>
+      <div class="box">
+        Wir verwenden natürliche Inhaltsstoffe aus ausgewählten Plantagen
+      </div>
+      <div class="box">
+        Kunst braucht Zeit. Dein E99-EsAns Duft hat eine lange Reifezeit hinter
+        sich.
+      </div>
+    </div>
+    <div id="personalMessage">
+      Dafür stehe ich mit meinem Namen
+      <div class="signature">Musab Karalı</div>
+    </div>
+    <div class="container">
+      <h1>Hier findest du die passenden Duftöle</h1>
+      <ul class="productCategoryLinkList">
+        <a class="darkText" routerLink="/fragrances"
+          ><li class="productCategoryLink">
+            Alle Produkte
+          </li>
+        </a>
+        <a class="darkText" routerLink="/men"
+          ><li class="productCategoryLink ">
+            Für Männer
+          </li>
+        </a>
+        <a class="darkText" routerLink="/women"
+          ><li class="productCategoryLink ">
+            Für Frauen
+          </li>
+        </a>
+        <a class="darkText" routerLink="/unisex"
+          ><li class="productCategoryLink ">
+            Unisex
+          </li>
+        </a>
+      </ul>
+    </div>
+    <div class="container">
+      <h2>Kundenkommentare</h2>
+      <div *ngIf="recommendations">
+        <app-customer-comments
+          [recommendations]="recommendations"
+        ></app-customer-comments>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>
+        Allgemeine Informationen zu Düften
+      </h1>
+      <h2>Duftintensität und Wirkung</h2>
+      <p>
+        Je nach Zusammensetzung des Duftes haben Parfüms unterschiedliche
+        Duftintensitäten und Duftwirkungen. Riechstoffauswahl und
+        Riechstoffkonzentration beeinflussen sowohl die Duftintensität als auch
+        die Duftwirkung. Dabei werden folgende Schwellenwerte beobachtet:
+        Duftwirkungs-Schwelle: ab dieser noch nicht wahrnehmbaren Intensität
+        reagiert der Körper auf den Duft. Wahrnehmungs-Schwelle: Aura, man
+        riecht etwas, kann es jedoch noch nicht zuordnen.
+        Erkennbarkeits-Schwelle: Duft ist erkennbar und benennbar; mit
+        steigender Duft-Intensität wandelt sich der Duft von ‚angenehmer Duft‘
+        über ‚aufdringlicher Duft‘ bis hin zur Flucht-Schwelle, die unbewusst
+        eine Fluchtreaktion auslöst.
+      </p>
+      <h2>Duftnoten</h2>
+      <p>
+        Ein Parfüm kann durch unterschiedliche Anteile der Grundbestandteile
+        sehr viele verschiedene Duftnoten annehmen. Es kann beispielsweise
+        blumige, moschusähnliche, orientalische, fruchtige, frische oder
+        klassisch-elegante Duftnuancen aufweisen. Die meisten Parfüms setzen
+        sich aus Kopf-, Herz- und Basisnote zusammen. Die Kopfnote ist
+        unmittelbar in den ersten Minuten nach dem Auftragen des Parfüms auf der
+        Haut wahrnehmbar. Da sie für den ersten Eindruck und die
+        Kaufentscheidung wichtig ist, ist die Kopfnote meist intensiver als die
+        anderen und wird von leichtflüchtigen Duftstoffen geprägt. Für
+        gewöhnlich setzt sie sich aus leichten Duftnoten zusammen, aber es
+        können schon Teile von Herz- und Basisnote anklingen. Die Herznote ist
+        in den Stunden, nachdem sich die Kopfnote verflüchtigt hat, zu riechen
+        und bildet den eigentlichen Duftcharakter (das Herzstück). In der
+        Herznote finden sich meistens Blütennuancen, die mit anderen Aromen
+        kombiniert werden. Sie wird häufig auch als Mittelnote bezeichnet. Die
+        Basisnote ist der letzte Teil des Duftablaufes und enthält langhaftende
+        und schwere Bestandteile.
+      </p>
+    </div>
+  </section>
 </div>
 <div id="socialMediaContent">
-  <h1 class="brightText">Finde uns auf ...</h1>
-  <div id="socialMediaIconContainer">
-    <app-social-media-icon-link
-      link="https://www.google.com"
-      imageSource="../../../assets/img/icons/iconfinder_Colored_Facebook3_svg_5365678.svg"
-    ></app-social-media-icon-link>
-    <app-social-media-icon-link
-      link="https://www.google.com"
-      imageSource="../../../assets/img/icons/iconfinder_1_Instagram_colored_svg_1_5296765.svg"
-    ></app-social-media-icon-link>
-    <app-social-media-icon-link
-      link="//api.whatsapp.com/send?phone=4917657842972"
-      imageSource="../../../assets/img/icons/iconfinder_1_Whatsapp2_colored_svg_5296520.svg"
-    ></app-social-media-icon-link>
-    <app-social-media-icon-link
-      link="https://www.google.com"
-      imageSource="../../../assets/img/icons/iconfinder_1_Youtube_colored_svg_5296521.svg"
-    ></app-social-media-icon-link>
-  </div>
+  <div class="clipPathRegion"></div>
+  <section>
+    <h1 class="brightText">Finde uns auf ...</h1>
+    <div id="socialMediaIconContainer">
+      <app-social-media-icon-link
+        link="https://www.google.com"
+        imageSource="../../../assets/img/icons/iconfinder_Colored_Facebook3_svg_5365678.svg"
+      ></app-social-media-icon-link>
+      <app-social-media-icon-link
+        link="https://www.google.com"
+        imageSource="../../../assets/img/icons/iconfinder_1_Instagram_colored_svg_1_5296765.svg"
+      ></app-social-media-icon-link>
+      <app-social-media-icon-link
+        link="//api.whatsapp.com/send?phone=4917657842972"
+        imageSource="../../../assets/img/icons/iconfinder_1_Whatsapp2_colored_svg_5296520.svg"
+      ></app-social-media-icon-link>
+      <app-social-media-icon-link
+        link="https://www.google.com"
+        imageSource="../../../assets/img/icons/iconfinder_1_Youtube_colored_svg_5296521.svg"
+      ></app-social-media-icon-link>
+    </div>
+  </section>
+  <div class="clipPathRegion"></div>
 </div>
-<app-footer></app-footer>

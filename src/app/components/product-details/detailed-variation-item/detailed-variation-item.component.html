@@ -1,0 +1,13 @@
+<div>
+  {{ variationItem.option }}
+  {{ variationItem.price }}
+</div>
+<div
+  id="counter"
+  (click)="$event.stopPropagation()"
+  [ngClass]="{ visible: selected }"
+>
+  <span>Menge </span><span (click)="onDecrementClick()">-</span
+  ><span>{{ quantity }}</span
+  ><span (click)="onIncrementClick()">+</span>
+</div>

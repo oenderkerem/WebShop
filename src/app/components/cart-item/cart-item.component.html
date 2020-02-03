@@ -1,0 +1,14 @@
+<img
+  *ngIf="!entry.product.image"
+  src="../../../assets/img/esansBottles Kopie.png"
+/>
+<img
+  *ngIf="entry.product.image"
+  src="../../../assets/img/{{ entry.product.image }}"
+/>
+{{ entry.product.title }}
+{{ entry.variation.option }}
+{{ entry.variation.price }}
+<div (click)="onDecrementClick()">-</div>
+{{ amount }}
+<div (click)="onIncrementClick()">+</div>

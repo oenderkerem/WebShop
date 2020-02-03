@@ -3,23 +3,29 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "cardo", serif;
+  font-family: "Quicksand", serif;
+  scroll-behavior: smooth;
 }
 
 .signature {
   display: block;
   font-family: "Parisienne", cursive;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 :root {
-  --navigationBackGroundColor: rgba(236, 236, 236, 0.897);
-  --menuBackGroundColor: rgba(236, 236, 236, 0.897);
+  --navigationBackGroundColor: rgba(214, 211, 211, 0.979);
   --navigationHeight: 80px;
   --socialMediaStickerBackGroundColor: rgba(255, 255, 255, 0.637);
   --socialMediaStickerBackGroundColorOnHover: rgba(255, 255, 255, 0.747);
   --textColorBright: rgb(223, 213, 213);
-  --textColorDark: rgb(21, 45, 90);
+  --textColorDark: rgb(53, 89, 117);
+  --textBackGroundBright: rgba(248, 248, 248, 0.774);
+  --buttonBackGroundColor: rgba(189, 193, 194, 0.836);
+  --buttonBackGroundColorHover: rgba(216, 217, 218, 0.918);
+  --buttonBackGroundColorChecked: rgb(53, 89, 117);
+  --buttonBorderColor: rgba(174, 178, 179, 0.774);
+  --buttonBoxShadowColor: rgba(122, 118, 118, 0.781);
 }
 
 html {
@@ -38,6 +44,7 @@ html {
   background-color: var(--textColorBright);
   transform: rotate(-45deg);
 }
+
 .arrowDown:before {
   content: "";
   display: inline-block;
@@ -48,19 +55,31 @@ html {
 }
 
 h1 {
-  font-size: 2.5rem;
-  padding: 20px;
+  font-size: 2rem;
 }
 
 h2 {
-  padding: 20px;
   font-size: 1.5rem;
+}
+
+h3 {
+  padding: 10px;
+  font-size: 1.25rem;
+}
+
+ul {
+  list-style: none;
 }
 
 a {
   display: inline-block;
   color: var(--textColorBright);
   text-decoration: none;
+}
+
+p {
+  font-size: 1rem;
+  padding: 5px;
 }
 
 .brightText {
@@ -79,9 +98,110 @@ a {
   background-image: linear-gradient(
     45deg,
     rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.5)
+    rgba(255, 255, 255, 0.61)
   );
 }
 
-@media only screen and (max-width: 600px) {
+app-footer {
+  display: block;
+  background: linear-gradient(
+    70deg,
+    rgba(151, 150, 150, 0.856),
+    var(--navigationBackGroundColor)
+  );
+  color: var(--textColorDark);
+  min-height: 30vh;
+  padding: 50px;
+  place-content: center;
+}
+
+app-cart {
+  position: fixed;
+  top: var(--navigationHeight);
+  right: -100%;
+  width: 100vw;
+  z-index: 2;
+  transition: all 300ms ease-in-out;
+}
+
+app-cart.visible {
+  right: 0;
+}
+
+.clipPathRegion {
+  height: 7vw;
+}
+
+.addToCartButton {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  width: 250px;
+  text-align: center;
+  border: 1px solid var(--buttonBorderColor);
+  background-color: var(--buttonBackGroundColor);
+  transition: all 200ms ease;
+  box-shadow: 0 3px rgba(58, 67, 83, 0.801);
+}
+
+.addToCartButton:hover {
+  background-color: var(--buttonBackGroundColorHover);
+}
+
+.addToCartButton:active {
+  box-shadow: none;
+  transform: translate(0, 2px);
+}
+
+.addToCartButton.deactivated {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.addToCartButton.deactivated::after {
+  content: "Bitte Auswahl treffen";
+  display: grid;
+  align-items: center;
+  color: red;
+  background-color: white;
+  border-radius: 5px;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 200ms ease;
+}
+
+@keyframes scrollInfoJump {
+  0% {
+    transform: translate(-50%, 6px);
+  }
+  20% {
+    transform: translate(-50%, 3px);
+  }
+  50% {
+    transform: translate(-50%, 0px);
+  }
+
+  70% {
+    transform: translate(-50%, 2px);
+  }
+
+  90% {
+    transform: translate(-50%, 4px);
+  }
+
+  100% {
+    transform: translate(-50%, 6px);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  :root {
+    --navigationHeight: 60px;
+  }
 }

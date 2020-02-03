@@ -88,8 +88,6 @@ export class CustomerCommentsComponent implements OnInit {
     }
   };
 
-  onRecommendationClick = function(recommendation: Recommendation) {};
-
   onRecommendationArrowClick = function(direction: boolean) {
     this.stopInterval();
     let index = this.recommendationIndex;
@@ -103,7 +101,6 @@ export class CustomerCommentsComponent implements OnInit {
   };
 
   ngOnInit() {
-    console.log("list ", this.recommendations);
     this.initializeRecommendation();
     this.startRecommendationLoop(loopDirectionToLeft);
   }

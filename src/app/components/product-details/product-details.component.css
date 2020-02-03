@@ -1,0 +1,166 @@
+#container {
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+#content {
+  position: relative;
+  background-color: white;
+  overflow: scroll;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#header {
+  position: relative;
+  padding: 5px;
+}
+
+h2 {
+  padding: 5px;
+}
+
+#informationWrapper {
+  padding: 10px;
+  flex-grow: 1;
+  position: relative;
+  background-color: rgb(241, 241, 241);
+  justify-content: space-around;
+  overflow: scroll;
+}
+
+/* used to fit the height of the parent so that parent is not expanding
+  although its parent is flex and growing
+*/
+#subWrapper {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#images {
+  display: grid;
+  padding: 15px;
+  justify-content: center;
+  width: 250px;
+}
+
+#imageBox {
+  height: 150px;
+  width: 150px;
+  padding: 10px;
+  background: radial-gradient(rgb(255, 255, 255), rgb(230, 230, 230));
+  border-radius: 5px;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#description {
+  padding: 15px;
+  flex-basis: 40%;
+  text-align: center;
+  overflow: scroll;
+}
+
+#variations {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+#variations_top {
+  flex-grow: 1;
+}
+
+#variations_bottom {
+  text-align: center;
+}
+
+#variationContainer {
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+
+#variationContainer.inValid {
+  border: 1px solid rgba(255, 0, 0, 0.5);
+}
+
+#close {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  height: 30px;
+  width: 30px;
+  transform: translateY(-50%);
+  transition: all 70ms ease-in;
+}
+
+#close:hover {
+  cursor: pointer;
+  height: 34px;
+  width: 34px;
+  left: 18px;
+}
+
+#close:after {
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: var(--textColorDark);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: rotate(45deg);
+}
+
+#close::before {
+  content: "";
+  display: inline-block;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background-color: var(--textColorDark);
+  transform: rotate(-45deg);
+}
+
+.variation {
+  margin: 5px;
+}
+
+#counter {
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid rgb(167, 165, 165);
+  width: 250px;
+  padding: 10px;
+  margin: 5px;
+}
+
+#counter.deactivated {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+#counter span {
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+.counterButton:hover {
+  cursor: pointer;
+}

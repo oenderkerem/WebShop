@@ -1,0 +1,50 @@
+#container {
+  padding: 20px;
+}
+
+#container:hover {
+  padding: 25px;
+}
+
+.variation {
+  padding: 10px;
+  border: 1px solid var(--buttonBorderColor);
+  border-radius: 5px;
+  margin: 2px 0;
+}
+
+.variationContainer {
+  margin: 5px 0;
+}
+
+.variationOption {
+  padding: 10px;
+}
+
+.variation span {
+  margin: 5px;
+}
+
+app-product-details {
+  display: block;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 0vw;
+  height: 0;
+  opacity: 0;
+  background-color: rgba(61, 59, 59, 0.527);
+  transition: all 300ms;
+  pointer-events: none;
+}
+
+app-product-details.open {
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  display: block;
+  pointer-events: all;
+  z-index: 2;
+}

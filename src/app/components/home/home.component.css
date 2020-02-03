@@ -2,29 +2,77 @@
   text-align: center;
 }
 
+section {
+  min-height: 100vh;
+  padding: 50px;
+}
+
 header {
-  height: 100vh;
-  width: 100vw;
-  background-image: url(../../../assets/img/hue12-photography-8rTwokBwz1w-unsplash.jpg);
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  margin-top: var(--navigationHeight);
+  background-color: rgb(104, 100, 100);
+  clip-path: polygon(100% 0, 100% 62vh, 90vw 82vh, 60vw 98vh, 0 100%, 0 0);
+}
+
+header img {
+  height: 200px;
+  max-width: 100vw;
+  max-height: 100%;
+}
+
+#headerSection {
+  background: linear-gradient(120deg, rgb(32, 47, 95), rgb(79, 107, 121));
+  clip-path: polygon(100% 0, 100% 62vh, 90vw 82vh, 60vw 95vh, 0 94vh, 0 0);
 }
 
 #headerText {
-  position: relative;
-  top: 30vh;
-  color: var(--textColorBright);
+  padding: 15px;
 }
 
-#headerText h2 {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-  display: inline-block;
-  border-radius: 20px;
-  background-color: rgba(66, 129, 165, 0.952);
+#shopButton {
+  padding: 10px 12px;
+
+  border: 1px solid var(--textColorBright);
+  color: var(--textColorBright);
+  background-color: rgba(146, 143, 143, 0.212);
+  border-radius: 5px;
+}
+
+#shopButton:hover {
+  padding: 10px 14px;
+}
+
+#basicInfo {
+  position: relative;
+  justify-items: center;
+  align-items: center;
+  padding-top: var(--navigationHeight);
+  padding-bottom: var(--navigationHeight);
+  background: linear-gradient(white, rgb(125, 156, 172));
+  clip-path: polygon(100% 0, 100% 100%, 100% 100%, 0 calc(100% - 3vw), 0 0);
+}
+
+#basicInfo h1 {
+  padding: 20px;
+}
+
+.boxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.box {
+  max-width: 300px;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.container img {
+  max-width: 70%;
 }
 
 #scrollInfo {
@@ -39,47 +87,23 @@ header {
   animation-timing-function: ease;
 }
 
-@keyframes scrollInfoJump {
-  0% {
-    transform: translate(-50%, 6px);
-  }
-  20% {
-    transform: translate(-50%, 3px);
-  }
-  50% {
-    transform: translate(-50%, 0px);
-  }
-
-  70% {
-    transform: translate(-50%, 2px);
-  }
-
-  90% {
-    transform: translate(-50%, 4px);
-  }
-
-  100% {
-    transform: translate(-50%, 6px);
-  }
-}
-
-header img {
-  height: 50px;
-  max-width: 50px;
+#personalMessage {
+  padding: 30px;
 }
 
 .signature {
-  font-size: 2rem;
+  padding: 23px;
+  font-size: 1.5rem;
 }
 
 #socialMediaContent {
-  min-height: 100vh;
   background-image: url(../../../assets/img/socialMediaBackground.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   display: grid;
   align-content: center;
+  margin-top: -3vw;
 }
 
 #socialMediaIconContainer {
@@ -87,6 +111,38 @@ header img {
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 50px;
+}
+
+p {
+  padding: 20px;
+  font-size: 1.1rem;
+}
+
+.productCategoryLinkList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.productCategoryLink {
+  padding: 20px;
+  margin: 10px;
+  font-size: 1.25rem;
+  border: solid 1px var(--textColorDark);
+  display: inline-block;
+  border-radius: 15px;
+  background-color: rgba(177, 174, 174, 0.938);
+  transition: all 200ms ease-in-out;
+  min-width: 150px;
+}
+
+.productCategoryLink:hover {
+  background-color: rgb(153, 152, 152);
+}
+
+app-customer-comments {
+  color: var(--textColorDark);
 }
 
 app-social-media-icon-link {
@@ -100,16 +156,22 @@ app-social-media-icon-link:hover {
   background-color: var(--socialMediaStickerBackGroundColorOnHover);
 }
 
-app-footer {
-  display: block;
-  background-color: var(--navigationBackGroundColor);
-  min-height: 100px;
+.arrowDown {
+  margin: 15px 0 0 0;
 }
 
-section {
-  min-height: 100vh;
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  padding: 50px;
+@media only screen and (max-width: 700px) {
+  #basicInfo {
+    grid-template-columns: 100%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  section {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 5px;
+  }
 }

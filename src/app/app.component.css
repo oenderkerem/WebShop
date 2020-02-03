@@ -6,7 +6,7 @@ app-navigationbar {
   height: var(--navigationHeight);
   background-color: var(--navigationBackGroundColor);
   color: var(--textColorDark);
-  z-index: 10;
+  z-index: 1;
 }
 
 router-outlet {

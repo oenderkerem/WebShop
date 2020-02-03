@@ -1,0 +1,13 @@
+#counter {
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 2000ms ease;
+}
+
+#counter.visible {
+  pointer-events: all;
+  opacity: 1;
+  transform: scaleY(1);
+  height: 30px;
+}

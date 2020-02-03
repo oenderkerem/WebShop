@@ -1,0 +1,32 @@
+<div *ngIf="product" id="container" (click)="onItemClicked()">
+  <h3>{{ product.title }}</h3>
+  <img
+    *ngIf="!product.image"
+    src="../../../assets/img/esansBottles Kopie.png"
+  />
+  <img *ngIf="product.image" src="../../../assets/img/{{ product.image }}" />
+  <div>
+    <p>{{ product.shortDescription }}</p>
+  </div>
+  <div class="variationContainer">
+    <div *ngFor="let variation of product.variations">
+      <div class="variation" (click)="onOptionSelected(variation)">
+        <span class="variationOption">{{ variation.option }}</span>
+        <span>{{ variation.price }}€</span>
+      </div>
+    </div>
+  </div>
+  <div
+    (click)="onAddToCartButtonClicked(); $event.stopPropagation()"
+    class="addToCartButton"
+    [ngClass]="{ deactivated: !selectedVariants.length > 0 }"
+  >
+    In den Warenkorb
+  </div>
+  <app-product-details
+    [product]="product"
+    (click)="$event.stopPropagation()"
+    (closeHandler)="toggleDetailsView()"
+    [ngClass]="{ open: productDetailsVisible }"
+  ></app-product-details>
+</div>
