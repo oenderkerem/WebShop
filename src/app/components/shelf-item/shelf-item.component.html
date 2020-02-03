@@ -19,7 +19,7 @@
   <div
     (click)="onAddToCartButtonClicked(); $event.stopPropagation()"
     class="addToCartButton"
-    [ngClass]="{ active: selectedVariants.length > 0 }"
+    [ngClass]="{ deactivated: !selectedVariants.length > 0 }"
   >
     In den Warenkorb
   </div>

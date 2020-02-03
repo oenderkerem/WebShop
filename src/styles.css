@@ -132,6 +132,50 @@ app-cart.visible {
   height: 7vw;
 }
 
+.addToCartButton {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  width: 250px;
+  text-align: center;
+  border: 1px solid var(--buttonBorderColor);
+  background-color: var(--buttonBackGroundColor);
+  transition: all 200ms ease;
+  box-shadow: 0 3px rgba(58, 67, 83, 0.801);
+}
+
+.addToCartButton:hover {
+  background-color: var(--buttonBackGroundColorHover);
+}
+
+.addToCartButton:active {
+  box-shadow: none;
+  transform: translate(0, 2px);
+}
+
+.addToCartButton.deactivated {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.addToCartButton.deactivated::after {
+  content: "Bitte Auswahl treffen";
+  display: grid;
+  align-items: center;
+  color: red;
+  background-color: white;
+  border-radius: 5px;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 200ms ease;
+}
+
 @keyframes scrollInfoJump {
   0% {
     transform: translate(-50%, 6px);

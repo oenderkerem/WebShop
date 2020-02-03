@@ -23,6 +23,7 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.setSelectedVariants();
+    this.setVariationItemTogglabitliy();
   }
 
   setSelectedVariants() {
@@ -31,6 +32,16 @@ export class ProductDetailsComponent implements OnInit {
         this.selectedVariants = this.product.variations.filter(
           variant => variant.selected
         );
+      }
+    }
+  }
+
+  setVariationItemTogglabitliy() {
+    if (this.product) {
+      if (this.product.variations) {
+        if (this.product.variations.length > 1) {
+          this.isProductVariationSelectionTogglable = true;
+        }
       }
     }
   }
