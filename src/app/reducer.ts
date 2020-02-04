@@ -1,6 +1,12 @@
 import { Action } from "@ngrx/store";
-import { ProductAction, ShoppingCartAction } from "./actions/actions";
-import { Product, ShoppingCartEntry } from "./models/models";
+import {
+  ProductAction,
+  ShoppingCartAction,
+  NotificationAction
+} from "./actions/actions";
+import { Product, ShoppingCartEntry, Notification } from "./models/models";
+
+//STATE DECLARATIONS
 
 export type ShoppinCartState = {
   CartIsOpen: boolean;
@@ -18,6 +24,12 @@ export type ProductsState = {
 export type BasicState = {
   IsLoading: boolean;
 };
+
+export type NotificationState = {
+  Notifications: Notification[];
+};
+
+//Reducer Functions
 
 export function hamburgerReducer(
   state: HamburgerState = { MenuIsOpen: false },
@@ -264,5 +276,31 @@ export function productsReducer(
     }
     default:
       return { ...state };
+  }
+}
+
+export function notificationReducer(
+  state: NotificationState = { Notifications: [] },
+  action: NotificationAction
+) {
+  switch (action.type) {
+    case "ADD_NOTIFICATION": {
+      return {
+        ...state,
+        Notifications: state.Notifications.concat([action.payload])
+      };
+    }
+    case "REMOVE_FIRST_NOTIFICATION": {
+      return {
+        ...state,
+        Notifications:
+          state.Notifications.length > 0
+            ? state.Notifications.slice(1)
+            : state.Notifications
+      };
+    }
+    default: {
+      return state;
+    }
   }
 }

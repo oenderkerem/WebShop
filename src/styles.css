@@ -24,8 +24,7 @@
   --buttonBackGroundColor: rgba(189, 193, 194, 0.836);
   --buttonBackGroundColorHover: rgba(216, 217, 218, 0.918);
   --buttonBackGroundColorChecked: rgb(53, 89, 117);
-  --buttonBorderColor: rgba(174, 178, 179, 0.774);
-  --buttonBoxShadowColor: rgba(122, 118, 118, 0.781);
+  --buttonBoxShadowColor: rgba(107, 105, 105, 0.781);
 }
 
 html {
@@ -140,10 +139,10 @@ app-cart.visible {
   border-radius: 5px;
   width: 250px;
   text-align: center;
-  border: 1px solid var(--buttonBorderColor);
+  border: 1px solid rgb(61, 63, 68);
   background-color: var(--buttonBackGroundColor);
   transition: all 200ms ease;
-  box-shadow: 0 3px rgba(58, 67, 83, 0.801);
+  box-shadow: 0px 2px 5px 0px rgba(66, 62, 66, 1);
 }
 
 .addToCartButton:hover {
@@ -151,8 +150,8 @@ app-cart.visible {
 }
 
 .addToCartButton:active {
-  box-shadow: none;
-  transform: translate(0, 2px);
+  transform: translateY(2px);
+  box-shadow: 0px 1px 5px 0px rgba(66, 62, 66, 1);
 }
 
 .addToCartButton.deactivated {
@@ -164,7 +163,7 @@ app-cart.visible {
   content: "Bitte Auswahl treffen";
   display: grid;
   align-items: center;
-  color: red;
+  color: rgb(158, 12, 12);
   background-color: white;
   border-radius: 5px;
   pointer-events: none;

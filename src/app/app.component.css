@@ -9,6 +9,31 @@ app-navigationbar {
   z-index: 1;
 }
 
+app-notification {
+  display: inline-block;
+  position: fixed;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid black;
+  background-color: white;
+  left: 50%;
+  bottom: 50px;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: all 200ms ease;
+  z-index: 2;
+}
+
+app-notification.hidden {
+  opacity: 0;
+  transform: translateX(-50%), scale(0);
+}
+
+app-notification.visible {
+  opacity: 1;
+  transform: translateX(-50%), scale(1);
+}
+
 router-outlet {
   display: block;
 }

@@ -4,7 +4,8 @@ import { State } from "src/app/app.component";
 import { Store } from "@ngrx/store";
 import {
   ToggleProductVariationSelection,
-  AddShoppingCartEntries
+  AddShoppingCartEntries,
+  AddNotification
 } from "src/app/actions/actions";
 
 @Component({
@@ -77,6 +78,9 @@ export class ProductDetailsComponent implements OnInit {
           })
         );
         this.store.dispatch(new AddShoppingCartEntries(entriesToAdd));
+        this.store.dispatch(
+          new AddNotification({ message: "Test", displayTime: "short" })
+        );
       }
     }
   }

@@ -2,4 +2,9 @@
 <app-cart [ngClass]="{ visible: shoppingCartIsOpen | async }"></app-cart>
 <router-outlet></router-outlet>
 <app-loading-sign></app-loading-sign>
+<app-notification
+  class="{{ notificationState }}"
+  [notification]="shownNotification"
+  *ngIf="shownNotification"
+></app-notification>
 <app-footer> </app-footer>

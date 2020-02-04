@@ -28,3 +28,8 @@ export type DetailedProductVariantItem = {
   counter: number;
   selected: boolean;
 };
+
+export type Notification = {
+  message: string;
+  displayTime: "short" | "long";
+};
