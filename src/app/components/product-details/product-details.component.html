@@ -32,6 +32,7 @@
                 *ngFor="let variation of product.variations"
               >
                 <app-detailed-variation-item
+                  class="product-variation-item"
                   [variationItem]="variation"
                   [productId]="product.id"
                   (click)="onDetailedVariationItemClick(variation)"

@@ -175,6 +175,14 @@ app-cart.visible {
   transition: all 200ms ease;
 }
 
+.product-variation-item {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  display: block;
+  margin: 5px 0;
+}
+
 @keyframes scrollInfoJump {
   0% {
     transform: translate(-50%, 6px);

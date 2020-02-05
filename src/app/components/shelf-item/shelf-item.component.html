@@ -10,7 +10,7 @@
   </div>
   <div class="variationContainer">
     <div *ngFor="let variation of product.variations">
-      <div class="variation" (click)="onOptionSelected(variation)">
+      <div class="product-variation-item" (click)="onOptionSelected(variation)">
         <span class="variationOption">{{ variation.option }}</span>
         <span>{{ variation.price }}€</span>
       </div>
