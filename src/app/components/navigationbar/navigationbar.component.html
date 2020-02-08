@@ -7,7 +7,7 @@
     <li (click)="onLinkClick()"><a routerLink="/unisex">Unisex</a></li>
     <li (click)="onLinkClick()"><a routerLink="/about">About</a></li>
   </ul>
-  <div (click)="onShoppingCartIconClicked()">
-    <img src="../../../assets/img/icons/shopping_cart-24px.svg" />
-  </div>
+  <app-shopping-cart-icon
+    (click)="onShoppingCartIconClicked()"
+  ></app-shopping-cart-icon>
 </div>
