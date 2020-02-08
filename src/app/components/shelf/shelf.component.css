@@ -10,10 +10,7 @@
 app-shelf-item {
   margin: 15px;
   border-radius: 20px;
-  background: linear-gradient(
-    var(--textColorBright),
-    rgba(121, 157, 167, 0.685)
-  );
+  background: rgb(211, 211, 211);
   text-align: center;
   display: inline-block;
   color: var(--textColorDark);

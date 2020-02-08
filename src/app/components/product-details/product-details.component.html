@@ -26,19 +26,14 @@
         </div>
         <div id="variations">
           <div id="variations_top">
-            <div id="variationContainer" (click)="$event.stopPropagation()">
-              <div
-                class="variation"
-                *ngFor="let variation of product.variations"
-              >
-                <app-detailed-variation-item
-                  class="product-variation-item"
-                  [variationItem]="variation"
-                  [productId]="product.id"
-                  (click)="onDetailedVariationItemClick(variation)"
-                ></app-detailed-variation-item>
-              </div>
-            </div>
+            <app-detailed-variation-item
+              *ngFor="let variation of product.variations"
+              class="product-variation-item"
+              [ngClass]="{ selected: variation.selected }"
+              [variationItem]="variation"
+              [productId]="product.id"
+              (click)="onDetailedVariationItemClick(variation)"
+            ></app-detailed-variation-item>
           </div>
           <div id="variations_bottom">
             <div

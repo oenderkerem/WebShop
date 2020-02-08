@@ -8,7 +8,7 @@
 
 #content {
   position: relative;
-  background-color: white;
+  background-color: rgb(211, 211, 211);
   overflow: scroll;
   height: 100%;
   width: 100%;
@@ -29,7 +29,6 @@ h2 {
   padding: 10px;
   flex-grow: 1;
   position: relative;
-  background-color: rgb(241, 241, 241);
   justify-content: space-around;
   overflow: scroll;
 }
@@ -58,7 +57,6 @@ h2 {
   height: 150px;
   width: 150px;
   padding: 10px;
-  background: radial-gradient(rgb(255, 255, 255), rgb(230, 230, 230));
   border-radius: 5px;
 }
 
@@ -87,15 +85,6 @@ img {
 
 #variations_bottom {
   text-align: center;
-}
-
-#variationContainer {
-  border-radius: 5px;
-  border: 1px solid transparent;
-}
-
-#variationContainer.inValid {
-  border: 1px solid rgba(255, 0, 0, 0.5);
 }
 
 #close {
@@ -136,31 +125,4 @@ img {
   left: 0;
   background-color: var(--textColorDark);
   transform: rotate(-45deg);
-}
-
-.variation {
-  margin: 5px;
-}
-
-#counter {
-  display: inline-block;
-  border-radius: 5px;
-  border: 1px solid rgb(167, 165, 165);
-  width: 250px;
-  padding: 10px;
-  margin: 5px;
-}
-
-#counter.deactivated {
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-#counter span {
-  padding: 5px 10px;
-  margin: 5px;
-}
-
-.counterButton:hover {
-  cursor: pointer;
 }
