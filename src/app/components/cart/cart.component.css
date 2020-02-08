@@ -22,43 +22,6 @@ h1 {
   position: relative;
 }
 
-#close {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  height: 22px;
-  width: 22px;
-  transform: translateY(-50%);
-  transition: all 70ms ease-in;
-}
-
-#close:hover {
-  height: 26px;
-  width: 26px;
-  left: -2px;
-}
-
-#close .left {
-  height: 3px;
-  width: 100%;
-  background-color: var(--textColorDark);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: rotate(45deg);
-}
-
-#close .right {
-  display: inline-block;
-  height: 3px;
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  background-color: var(--textColorDark);
-  transform: rotate(-45deg);
-}
-
 .entries {
   color: white;
 }
