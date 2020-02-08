@@ -24,7 +24,8 @@ import {
   hamburgerReducer,
   shoppingCartReducer,
   productsReducer,
-  basicReducer
+  basicReducer,
+  notificationReducer
 } from "./reducer";
 import { ShelfComponent } from "./components/shelf/shelf.component";
 import { LoadingSignComponent } from "./components/loading-sign/loading-sign.component";
@@ -32,6 +33,7 @@ import { ShelfItemComponent } from "./components/shelf-item/shelf-item.component
 import { CartItemComponent } from "./components/cart-item/cart-item.component";
 import { ProductDetailsComponent } from "./components/product-details/product-details.component";
 import { DetailedVariationItemComponent } from "./components/product-details/detailed-variation-item/detailed-variation-item.component";
+import { NotificationComponent } from "./components/notification/notification.component";
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { DetailedVariationItemComponent } from "./components/product-details/det
     ShelfItemComponent,
     CartItemComponent,
     ProductDetailsComponent,
-    DetailedVariationItemComponent
+    DetailedVariationItemComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ import { DetailedVariationItemComponent } from "./components/product-details/det
       hamburgerReducer: hamburgerReducer,
       shoppingCartReducer: shoppingCartReducer,
       productsReducer: productsReducer,
-      basicReducer: basicReducer
+      basicReducer: basicReducer,
+      notificationReducer: notificationReducer
     })
   ],
   providers: [],

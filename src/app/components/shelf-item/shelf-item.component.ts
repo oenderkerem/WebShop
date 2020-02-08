@@ -38,8 +38,6 @@ export class ShelfItemComponent implements OnInit {
           this.setProductDetailsVisibility();
           this.checkVariationTogglabilityAndSetDefault();
           this.setSelectedVariants();
-        } else {
-          console.log("-1");
         }
       });
   }
@@ -76,8 +74,6 @@ export class ShelfItemComponent implements OnInit {
         this.selectedVariants = this.product.variations.filter(
           variation => variation.selected
         );
-        console.log("selectedVariants");
-        console.log(this.selectedVariants);
       }
     }
   }

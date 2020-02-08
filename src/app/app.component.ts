@@ -1,21 +1,23 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import {
   HamburgerState,
   ShoppinCartState,
   ProductsState,
-  BasicState
+  BasicState,
+  NotificationState
 } from "./reducer";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-import { SetAllProducts, AddShoppingCartEntries } from "./actions/actions";
-import { Product, ProductVariant } from "./models/models";
+import { SetAllProducts, RemoveFirstNotification } from "./actions/actions";
+import { Product, ProductVariant, Notification } from "./models/models";
 
 export interface State {
   shoppingCartReducer: ShoppinCartState;
   hamburgerReducer: HamburgerState;
   productsReducer: ProductsState;
   basicReducer: BasicState;
+  notificationReducer: NotificationState;
 }
 
 @Component({
@@ -23,13 +25,22 @@ export interface State {
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = "WebShop";
   shoppingCartIsOpen: Observable<boolean>;
-  constructor(private store: Store<State>, private http: HttpClient) {
-    this.shoppingCartIsOpen = this.store.select(
-      state => state.shoppingCartReducer.CartIsOpen
-    );
+  notifications: Notification[];
+  shownNotification: Notification;
+  notificationState: "visible" | "hidden";
+
+  ngOnInit() {
+    this.loadProducts();
+    this.setCart();
+    this.loadNotifications();
+  }
+
+  constructor(private store: Store<State>, private http: HttpClient) {}
+
+  loadProducts() {
     this.http
       .get("assets/products.json")
       .subscribe(data => this.onProductsLoaded(data));
@@ -37,7 +48,6 @@ export class AppComponent {
 
   onProductsLoaded(data: Object) {
     let products = this.transformProducts(data as Product[]);
-    console.log(products);
     this.store.dispatch(new SetAllProducts(products));
   }
 
@@ -70,5 +80,43 @@ export class AppComponent {
       }
     }
     return products;
+  }
+
+  setCart() {
+    this.shoppingCartIsOpen = this.store.select(
+      state => state.shoppingCartReducer.CartIsOpen
+    );
+  }
+
+  loadNotifications() {
+    this.store
+      .select(state => state.notificationReducer.Notifications)
+      .subscribe(data => this.onNotificationsLoaded(data));
+  }
+
+  onNotificationsLoaded(notifications: Notification[]) {
+    this.notifications = notifications;
+    this.showNotifications();
+  }
+
+  showNotifications() {
+    this.notificationState = "hidden";
+    if (this.notifications.length) {
+      this.shownNotification = this.notifications[0];
+      setTimeout(() => {
+        this.notificationState = "visible";
+        setTimeout(
+          () => {
+            this.notificationState = "hidden";
+            setTimeout(() => {
+              this.store.dispatch(new RemoveFirstNotification());
+            }, 200);
+          },
+          this.shownNotification.displayTime === "short" ? 1000 : 3000
+        );
+      }, 200);
+    } else {
+      this.shownNotification = undefined;
+    }
   }
 }

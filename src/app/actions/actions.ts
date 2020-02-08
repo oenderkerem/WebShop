@@ -1,5 +1,10 @@
 import { Action } from "@ngrx/store";
-import { Product, ShoppingCartEntry, ProductVariant } from "../models/models";
+import {
+  Product,
+  ShoppingCartEntry,
+  ProductVariant,
+  Notification
+} from "../models/models";
 import { importExpr } from "@angular/compiler/src/output/output_ast";
 
 export class SetAllProducts implements Action {
@@ -85,6 +90,18 @@ export class RemoveShoppingCartEntry implements Action {
   readonly type = "CART_REMOVE_ENTRY";
   constructor(public payload: ShoppingCartEntry) {}
 }
+
+export class AddNotification implements Action {
+  readonly type = "ADD_NOTIFICATION";
+  constructor(public payload: Notification) {}
+}
+
+export class RemoveFirstNotification implements Action {
+  readonly type = "REMOVE_FIRST_NOTIFICATION";
+  constructor() {}
+}
+
+export type NotificationAction = AddNotification | RemoveFirstNotification;
 
 export type ShoppingCartAction =
   | AddShoppingCartEntries
