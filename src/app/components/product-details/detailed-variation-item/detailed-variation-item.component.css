@@ -1,13 +1,20 @@
-#counter {
+#counterWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 0;
   pointer-events: none;
   opacity: 0;
-  transition: all 2000ms ease;
+  transition: all 200ms ease;
 }
 
-#counter.visible {
+#counterWrapper.visible {
   pointer-events: all;
+  height: 50px;
   opacity: 1;
-  transform: scaleY(1);
-  height: 30px;
+}
+
+span {
+  display: inline-block;
+  padding: 10px 15px;
 }

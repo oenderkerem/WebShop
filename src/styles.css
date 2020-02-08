@@ -21,8 +21,7 @@
   --textColorBright: rgb(223, 213, 213);
   --textColorDark: rgb(53, 89, 117);
   --textBackGroundBright: rgba(248, 248, 248, 0.774);
-  --buttonBackGroundColor: rgba(189, 193, 194, 0.836);
-  --buttonBackGroundColorHover: rgba(216, 217, 218, 0.918);
+  --buttonBackGroundColor: rgb(224, 224, 224);
   --buttonBackGroundColorChecked: rgb(53, 89, 117);
   --buttonBoxShadowColor: rgba(107, 105, 105, 0.781);
 }
@@ -138,20 +137,17 @@ app-cart.visible {
   margin: 5px 0;
   border-radius: 5px;
   width: 250px;
+  max-width: 100%;
   text-align: center;
-  border: 1px solid rgb(61, 63, 68);
+  border: 1px solid rgb(165, 165, 165);
   background-color: var(--buttonBackGroundColor);
   transition: all 200ms ease;
   box-shadow: 0px 2px 5px 0px rgba(66, 62, 66, 1);
 }
 
-.addToCartButton:hover {
-  background-color: var(--buttonBackGroundColorHover);
-}
-
 .addToCartButton:active {
   transform: translateY(2px);
-  box-shadow: 0px 2px 5px 0px rgba(66, 62, 66, 1);
+  box-shadow: 0px 1px 1px 0px rgba(66, 62, 66, 1);
 }
 
 .addToCartButton.deactivated {
@@ -160,10 +156,10 @@ app-cart.visible {
 }
 
 .addToCartButton.deactivated::after {
-  content: "Bitte Auswahl treffen";
+  content: "Auswahl treffen";
   display: grid;
   align-items: center;
-  color: rgb(141, 15, 15);
+  color: rgb(78, 5, 5);
   background-color: white;
   border-radius: 5px;
   pointer-events: none;
@@ -181,16 +177,21 @@ app-cart.visible {
   border: 1px solid rgb(165, 165, 165);
   display: block;
   margin: 5px 0;
+  opacity: 0.9;
+  width: 250px;
+  max-width: 100%;
 }
 
 .product-variation-item:hover {
-  border: 1px solid rgb(136, 136, 136);
-  background-color: rgb(202, 202, 202);
+  border: 1px solid rgb(155, 155, 155);
+  background-color: rgb(223, 223, 223);
+  opacity: 1;
 }
 
 .product-variation-item.selected {
-  border: 1px solid rgb(109, 109, 109);
-  background-color: rgb(201, 201, 201);
+  border: 1px solid rgb(150, 150, 150);
+  background-color: rgb(233, 233, 233);
+  opacity: 1;
 }
 
 @keyframes scrollInfoJump {
@@ -215,6 +216,33 @@ app-cart.visible {
   100% {
     transform: translate(-50%, 6px);
   }
+}
+
+app-notification {
+  display: inline-block;
+  position: fixed;
+  padding: 15px;
+  border-radius: 25px;
+  background-color: rgb(223, 223, 223);
+  left: 50%;
+  bottom: 50px;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: all 200ms ease;
+  z-index: 2;
+  color: var(--textColorDark);
+  font-size: 1rem;
+  box-shadow: 0px 0px 5px 1px rgba(66, 62, 66, 1);
+}
+
+app-notification.hidden {
+  opacity: 0;
+  transform: translateX(-50%), scale(0);
+}
+
+app-notification.visible {
+  opacity: 1;
+  transform: translateX(-50%), scale(1);
 }
 
 @media only screen and (max-width: 700px) {

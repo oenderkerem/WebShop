@@ -4,7 +4,8 @@ import { Store } from "@ngrx/store";
 import { State } from "src/app/app.component";
 import {
   DecrementProductVariationQuantity,
-  IncrementProductVariationQuantity
+  IncrementProductVariationQuantity,
+  ToggleProductVariationSelection
 } from "src/app/actions/actions";
 
 @Component({
@@ -30,13 +31,22 @@ export class DetailedVariationItemComponent implements OnInit {
   }
 
   onDecrementClick() {
-    if (this.quantity > 0) {
+    if (this.quantity > 1) {
       this.store.dispatch(
         new DecrementProductVariationQuantity({
           productId: this.productId,
           variant: this.variationItem
         })
       );
+    } else {
+      if (this.quantity === 1) {
+        this.store.dispatch(
+          new ToggleProductVariationSelection({
+            productId: this.productId,
+            variant: this.variationItem
+          })
+        );
+      }
     }
   }
 

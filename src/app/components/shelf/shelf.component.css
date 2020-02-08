@@ -15,7 +15,3 @@ app-shelf-item {
   display: inline-block;
   color: var(--textColorDark);
 }
-
-app-shelf-item:hover {
-  margin: 10px;
-}
