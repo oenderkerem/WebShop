@@ -35,6 +35,7 @@ import { ProductDetailsComponent } from "./components/product-details/product-de
 import { DetailedVariationItemComponent } from "./components/product-details/detailed-variation-item/detailed-variation-item.component";
 import { NotificationComponent } from "./components/notification/notification.component";
 import { ShoppingCartIconComponent } from './components/shopping-cart-icon/shopping-cart-icon.component';
+import { ProductImageBoxComponent } from './components/product-image-box/product-image-box.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ShoppingCartIconComponent } from './components/shopping-cart-icon/shopp
     ProductDetailsComponent,
     DetailedVariationItemComponent,
     NotificationComponent,
-    ShoppingCartIconComponent
+    ShoppingCartIconComponent,
+    ProductImageBoxComponent
   ],
   imports: [
     BrowserModule,
