@@ -1,3 +1,7 @@
+.expanded {
+  padding: 10px;
+}
+
 #counterWrapper {
   display: flex;
   align-items: center;
@@ -10,6 +14,9 @@
 
 #counterWrapper.visible {
   pointer-events: all;
+  border-top: 1px solid rgba(175, 175, 175, 0.801);
+  border-bottom: 1px solid rgba(175, 175, 175, 0.801);
+  margin: 5px;
   height: 50px;
   opacity: 1;
 }

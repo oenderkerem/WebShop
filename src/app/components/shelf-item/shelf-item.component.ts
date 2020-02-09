@@ -6,7 +6,8 @@ import {
   ToggleProductDetailsComponent,
   ToggleProductVariationSelection,
   AddShoppingCartEntries,
-  SetProductVariationSelected
+  SetProductVariationSelected,
+  AddNotification
 } from "src/app/actions/actions";
 
 @Component({
@@ -89,6 +90,12 @@ export class ShelfItemComponent implements OnInit {
         })
       );
       this.store.dispatch(new AddShoppingCartEntries(entriesToAdd));
+      this.store.dispatch(
+        new AddNotification({
+          message: "✓ In Warenkorb hinzugefügt",
+          displayTime: "short"
+        })
+      );
     }
   }
 

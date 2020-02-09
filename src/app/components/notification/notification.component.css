@@ -1,0 +1,14 @@
+#message {
+  position: absolute;
+  display: inline-block;
+  bottom: 20%;
+  padding: 15px;
+  border-radius: 25px;
+  background-color: rgba(223, 223, 223, 0.863);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--textColorDark);
+  box-shadow: 0px 0px 5px 1px rgba(66, 62, 66, 1);
+  min-width: 300px;
+  text-align: center;
+}

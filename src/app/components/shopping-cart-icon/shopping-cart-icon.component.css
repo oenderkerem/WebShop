@@ -1,0 +1,68 @@
+#wrapper {
+  position: relative;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+img {
+  opacity: 1;
+  transition: 300ms ease-in-out;
+}
+
+img.hidden {
+  opacity: 0;
+}
+
+#closeIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  color: white;
+  opacity: 0;
+  transition: 300ms ease-in-out;
+}
+
+#closeIcon::after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 2px;
+  width: 0;
+  background-color: var(--textColorDark);
+  top: 0;
+  left: 0;
+  transform: rotate(-45deg);
+  transition: 300ms ease-in-out;
+}
+
+#closeIcon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 0;
+  background-color: var(--textColorDark);
+  top: 0;
+  left: 0;
+  transform: rotate(45deg);
+  transition: 300ms ease-in-out;
+}
+
+#closeIcon.visible {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  left: 0;
+}
+
+#closeIcon.visible::after {
+  width: 80%;
+}
+
+#closeIcon.visible::before {
+  width: 80%;
+}
