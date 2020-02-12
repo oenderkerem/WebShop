@@ -240,6 +240,23 @@ export function productsReducer(
         )
       };
     }
+    case "SET_VARIATION_QUANTITY": {
+      return {
+        ...state,
+        Products: state.Products.map(product =>
+          product.id === action.payload.productId
+            ? {
+                ...product,
+                variations: product.variations.map(variation =>
+                  variation === action.payload.variant
+                    ? { ...variation, quantity: action.payload.quantity }
+                    : variation
+                )
+              }
+            : product
+        )
+      };
+    }
     case "INCREMENT_VARIATION_QUANTITY": {
       return {
         ...state,

@@ -6,12 +6,10 @@
   margin: 5px 0;
 }
 
-.variationOption {
+span {
+  display: inline-block;
   padding: 10px;
-}
-
-.variation span {
-  margin: 5px;
+  margin: 0 5px;
 }
 
 app-product-details {
@@ -22,7 +20,7 @@ app-product-details {
   width: 0;
   height: 0;
   opacity: 0;
-  background-color: #3d3b3b96;
+  background-color: #47464696;
   transition: all 200ms ease-in-out;
   pointer-events: none;
 }
