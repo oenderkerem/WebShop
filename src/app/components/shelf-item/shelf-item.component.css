@@ -13,24 +13,19 @@ span {
 }
 
 app-product-details {
-  display: block;
   position: fixed;
-  left: 50%;
-  top: 50%;
-  width: 0;
-  height: 0;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
   opacity: 0;
-  background-color: #47464696;
-  transition: all 200ms ease-in-out;
+  background-color: #363636;
+  transition: all 300ms ease-in-out;
   pointer-events: none;
+  z-index: 2;
 }
 
 app-product-details.open {
-  height: 100vh;
-  width: 100vw;
-  left: 0;
-  top: 0;
   opacity: 1;
   pointer-events: all;
-  z-index: 2;
 }

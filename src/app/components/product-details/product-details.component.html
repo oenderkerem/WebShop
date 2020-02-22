@@ -1,36 +1,34 @@
-<div (click)="onCloseClick()" id="container">
-  <div (click)="$event.stopPropagation()" id="container_child">
+<div (click)="onCloseClick()">
+  <div (click)="$event.stopPropagation()" id="container">
     <div id="header">
       <div id="close" (click)="onCloseClick()"></div>
       <h2>{{ product.title }}</h2>
-      <span>{{ product.shortDescription }}</span>
+      <h3>{{ product.shortDescription }}</h3>
     </div>
     <div id="body">
-      <app-product-image-box [product]="product"></app-product-image-box>
-      <div id="description" *ngIf="product.longDescription">
-        <p>
-          {{ product.longDescription }}
-        </p>
-      </div>
-      <div id="variations">
-        <div id="variations_top">
-          <app-detailed-variation-item
-            *ngFor="let variation of product.variations"
-            class="product-variation-item"
-            [ngClass]="{ selected: variation.selected }"
-            [variationItem]="variation"
-            [productId]="product.id"
-            (click)="onDetailedVariationItemClick(variation)"
-          ></app-detailed-variation-item>
+      <div id="top">
+        <app-product-image-box [product]="product"></app-product-image-box>
+        <div id="description" *ngIf="product.longDescription">
+          <p>
+            {{ product.longDescription }}
+          </p>
         </div>
-        <div id="variations_bottom">
-          <div
-            (click)="onAddToCartButtonClicked()"
-            class="addToCartButton"
-            [ngClass]="{ deactivated: !selectedVariants.length > 0 }"
-          >
-            In den Warenkorb
-          </div>
+      </div>
+      <div id="bottom">
+        <app-detailed-variation-item
+          *ngFor="let variation of product.variations"
+          class="product-variation-item"
+          [ngClass]="{ selected: variation.selected }"
+          [variationItem]="variation"
+          [productId]="product.id"
+          (click)="onDetailedVariationItemClick(variation)"
+        ></app-detailed-variation-item>
+        <div
+          (click)="onAddToCartButtonClicked()"
+          class="addToCartButton"
+          [ngClass]="{ deactivated: !selectedVariants.length > 0 }"
+        >
+          In den Warenkorb
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
-<div id="wrapper" [ngClass]="{ expanded: selected }">
-  <div id="content">
+<div class="wrapper" [ngClass]="{ expanded: selected }">
+  <div class="content">
     {{ variationItem.option }}
     {{ variationItem.price }}€
   </div>
-  <div id="counter">
+  <div class="counter">
     <span (click)="onDecrementClick(); $event.stopPropagation()">-</span
     >{{ quantity
     }}<span (click)="onIncrementClick(); $event.stopPropagation()">+</span>

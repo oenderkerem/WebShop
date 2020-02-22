@@ -10,6 +10,18 @@
       {
         "option": "200ml",
         "price": "20"
+      },
+      {
+        "option": "500ml",
+        "price": "60"
+      },
+      {
+        "option": "1000ml",
+        "price": "100"
+      },
+      {
+        "option": "2l",
+        "price": "100"
       }
     ],
     "image": "",

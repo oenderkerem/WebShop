@@ -88,7 +88,7 @@ export class ProductDetailsComponent implements OnInit {
         this.store.dispatch(new AddShoppingCartEntries(entriesToAdd));
         this.store.dispatch(
           new AddNotification({
-            message: "✓ In Warenkorb hinzugefügt",
+            message: "In Warenkorb hinzugefügt",
             displayTime: "short"
           })
         );
