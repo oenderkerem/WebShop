@@ -5,33 +5,38 @@
       <h2>{{ product.title }}</h2>
     </div>
     <div id="body">
-      <div id="images">
-        <app-product-image-box [product]="product"></app-product-image-box>
-      </div>
-      <span>{{ product.shortDescription }}</span>
-      <div *ngIf="product.longDescription">
-        <h3>Produktbeschreibung</h3>
-        <div id="description">
-          <p>
-            {{ product.longDescription }}
-          </p>
+      <div id="left">
+        <div id="images">
+          <app-product-image-box [product]="product"></app-product-image-box>
+        </div>
+        <span>{{ product.shortDescription }}</span>
+        <div *ngIf="product.longDescription">
+          <h3>Produktbeschreibung</h3>
+          <div id="description">
+            <p>
+              {{ product.longDescription }}
+            </p>
+          </div>
         </div>
       </div>
-      <h3>Varianten wählen</h3>
-      <app-detailed-variation-item
-        *ngFor="let variation of product.variations"
-        class="product-variation-item"
-        [ngClass]="{ selected: variation.selected }"
-        [variationItem]="variation"
-        [productId]="product.id"
-        (click)="onDetailedVariationItemClick(variation)"
-      ></app-detailed-variation-item>
-      <div
-        (click)="onAddToCartButtonClicked()"
-        class="addToCartButton"
-        [ngClass]="{ deactivated: !selectedVariants.length > 0 }"
-      >
-        In den Warenkorb
+      <div id="right">
+        <h3>Varianten wählen</h3>
+        <div *ngFor="let variation of product.variations">
+          <app-detailed-variation-item
+            class="product-variation-item"
+            [ngClass]="{ selected: variation.selected }"
+            [variationItem]="variation"
+            [productId]="product.id"
+            (click)="onDetailedVariationItemClick(variation)"
+          ></app-detailed-variation-item>
+        </div>
+        <div
+          (click)="onAddToCartButtonClicked()"
+          class="addToCartButton"
+          [ngClass]="{ deactivated: !selectedVariants.length > 0 }"
+        >
+          In den Warenkorb
+        </div>
       </div>
     </div>
   </div>
