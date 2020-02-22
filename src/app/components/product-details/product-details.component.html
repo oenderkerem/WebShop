@@ -1,35 +1,37 @@
-<div (click)="onCloseClick()">
-  <div (click)="$event.stopPropagation()" id="container">
+<div id="container" (click)="onCloseClick()">
+  <div id="content" (click)="$event.stopPropagation()">
     <div id="header">
       <div id="close" (click)="onCloseClick()"></div>
       <h2>{{ product.title }}</h2>
-      <h3>{{ product.shortDescription }}</h3>
     </div>
     <div id="body">
-      <div id="top">
+      <div id="images">
         <app-product-image-box [product]="product"></app-product-image-box>
-        <div id="description" *ngIf="product.longDescription">
+      </div>
+      <span>{{ product.shortDescription }}</span>
+      <div *ngIf="product.longDescription">
+        <h3>Produktbeschreibung</h3>
+        <div id="description">
           <p>
             {{ product.longDescription }}
           </p>
         </div>
       </div>
-      <div id="bottom">
-        <app-detailed-variation-item
-          *ngFor="let variation of product.variations"
-          class="product-variation-item"
-          [ngClass]="{ selected: variation.selected }"
-          [variationItem]="variation"
-          [productId]="product.id"
-          (click)="onDetailedVariationItemClick(variation)"
-        ></app-detailed-variation-item>
-        <div
-          (click)="onAddToCartButtonClicked()"
-          class="addToCartButton"
-          [ngClass]="{ deactivated: !selectedVariants.length > 0 }"
-        >
-          In den Warenkorb
-        </div>
+      <h3>Varianten wählen</h3>
+      <app-detailed-variation-item
+        *ngFor="let variation of product.variations"
+        class="product-variation-item"
+        [ngClass]="{ selected: variation.selected }"
+        [variationItem]="variation"
+        [productId]="product.id"
+        (click)="onDetailedVariationItemClick(variation)"
+      ></app-detailed-variation-item>
+      <div
+        (click)="onAddToCartButtonClicked()"
+        class="addToCartButton"
+        [ngClass]="{ deactivated: !selectedVariants.length > 0 }"
+      >
+        In den Warenkorb
       </div>
     </div>
   </div>
