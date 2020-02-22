@@ -14,7 +14,7 @@
 }
 
 :root {
-  --navigationBackGroundColor: rgba(214, 211, 211, 0.979);
+  --navigationBackGroundColor: rgba(214, 211, 211);
   --navigationHeight: 80px;
   --socialMediaStickerBackGroundColor: rgba(255, 255, 255, 0.637);
   --socialMediaStickerBackGroundColorOnHover: rgba(255, 255, 255, 0.747);
@@ -172,9 +172,8 @@ app-cart.visible {
 }
 
 .product-variation-item {
-  padding: 10px;
   border-radius: 5px;
-  border: 1px solid rgb(145, 145, 145);
+  border: 1px solid rgb(124, 123, 123);
   display: block;
   margin: 5px 0;
   opacity: 0.9;
@@ -183,14 +182,12 @@ app-cart.visible {
 }
 
 .product-variation-item:hover {
-  border: 1px solid rgb(138, 138, 138);
-  background-color: rgb(204, 203, 203);
+  border: 1px solid rgb(96, 144, 163);
   opacity: 1;
 }
 
 .product-variation-item.selected {
-  border: 1px solid rgb(150, 150, 150);
-  background-color: rgb(209, 209, 209);
+  border: 1px solid var(--textColorDark);
   opacity: 1;
 }
 

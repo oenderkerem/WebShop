@@ -1,49 +1,41 @@
-<div (click)="onCloseClick()" id="container">
-  <div (click)="$event.stopPropagation()" id="content">
+<div id="container" (click)="onCloseClick()">
+  <div id="content" (click)="$event.stopPropagation()">
     <div id="header">
       <div id="close" (click)="onCloseClick()"></div>
       <h2>{{ product.title }}</h2>
-      <span>{{ product.shortDescription }}</span>
     </div>
-    <div id="informationWrapper">
-      <div id="subWrapper">
+    <div id="body">
+      <div id="left">
         <div id="images">
-          <div id="imageBox">
-            <img
-              *ngIf="!product.image"
-              src="../../../assets/img/esansBottles Kopie.png"
-            />
-            <img
-              *ngIf="product.image"
-              src="../../../assets/img/{{ product.image }}"
-            />
+          <app-product-image-box [product]="product"></app-product-image-box>
+        </div>
+        <span>{{ product.shortDescription }}</span>
+        <div *ngIf="product.longDescription">
+          <h3>Produktbeschreibung</h3>
+          <div id="description">
+            <p>
+              {{ product.longDescription }}
+            </p>
           </div>
         </div>
-        <div id="description" *ngIf="product.longDescription">
-          <p>
-            {{ product.longDescription }}
-          </p>
+      </div>
+      <div id="right">
+        <h3>Varianten wählen</h3>
+        <div *ngFor="let variation of product.variations">
+          <app-detailed-variation-item
+            class="product-variation-item"
+            [ngClass]="{ selected: variation.selected }"
+            [variationItem]="variation"
+            [productId]="product.id"
+            (click)="onDetailedVariationItemClick(variation)"
+          ></app-detailed-variation-item>
         </div>
-        <div id="variations">
-          <div id="variations_top">
-            <app-detailed-variation-item
-              *ngFor="let variation of product.variations"
-              class="product-variation-item"
-              [ngClass]="{ selected: variation.selected }"
-              [variationItem]="variation"
-              [productId]="product.id"
-              (click)="onDetailedVariationItemClick(variation)"
-            ></app-detailed-variation-item>
-          </div>
-          <div id="variations_bottom">
-            <div
-              (click)="onAddToCartButtonClicked()"
-              class="addToCartButton"
-              [ngClass]="{ deactivated: !selectedVariants.length > 0 }"
-            >
-              In den Warenkorb
-            </div>
-          </div>
+        <div
+          (click)="onAddToCartButtonClicked()"
+          class="addToCartButton"
+          [ngClass]="{ deactivated: !selectedVariants.length > 0 }"
+        >
+          In den Warenkorb
         </div>
       </div>
     </div>

@@ -1,97 +1,53 @@
 #container {
+  padding: 20px;
   height: 100%;
   width: 100%;
-  padding: 30px;
-  display: flex;
-  justify-content: center;
+  position: relative;
 }
 
 #content {
-  position: relative;
-  background-color: rgb(179, 179, 179);
-  overflow: scroll;
+  background-color: var(--navigationBackGroundColor);
+  position: absolute;
   height: 100%;
   width: 100%;
+  left: 0;
+  top: 0;
   display: flex;
   flex-direction: column;
-  padding: 10px;
+}
+
+#body {
+  flex-grow: 1;
+  overflow: scroll;
+  padding: 20px;
 }
 
 #header {
-  position: relative;
-  padding: 5px;
-}
-
-h2 {
-  padding: 5px;
-}
-
-#informationWrapper {
   padding: 10px;
-  flex-grow: 1;
   position: relative;
-  justify-content: space-around;
-  overflow: scroll;
-}
-
-/* used to fit the height of the parent so that parent is not expanding
-  although its parent is flex and growing
-*/
-#subWrapper {
-  position: absolute;
-  height: 100%;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
 }
 
 #images {
-  display: grid;
-  padding: 15px;
-  justify-content: center;
-  width: 250px;
+  height: 250px;
+  padding: 20px;
 }
 
-#imageBox {
-  height: 150px;
-  width: 150px;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-img {
-  max-width: 100%;
-  max-height: 100%;
+app-product-image-box {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
 }
 
 #description {
-  padding: 15px;
-  flex-basis: 40%;
-  text-align: center;
+  padding: 20px;
+  max-height: 150px;
   overflow: scroll;
-}
-
-#variations {
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-}
-
-#variations_top {
-  flex-grow: 1;
-}
-
-#variations_bottom {
-  text-align: center;
 }
 
 #close {
   position: absolute;
   top: 50%;
-  left: 20px;
+  right: 20px;
   height: 30px;
   width: 30px;
   transform: translateY(-50%);
@@ -102,7 +58,7 @@ img {
   cursor: pointer;
   height: 34px;
   width: 34px;
-  left: 18px;
+  right: 18px;
 }
 
 #close:after {
@@ -128,24 +84,26 @@ img {
   transform: rotate(-45deg);
 }
 
-@media only screen and (max-width: 700px) {
-  #container {
-    padding: 0;
-  }
+app-detailed-variation-item {
+  display: inline-block;
+}
 
+@media only screen and (min-width: 700px) {
   #content {
-    display: block;
-    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
   }
 
-  #informationWrapper {
-    text-align: center;
-    display: block;
+  #body {
+    display: flex;
+    flex-direction: row;
   }
 
-  #subWrapper {
-    position: relative;
-    text-align: center;
-    display: block;
+  #right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 }

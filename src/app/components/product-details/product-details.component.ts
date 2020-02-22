@@ -5,7 +5,8 @@ import { Store } from "@ngrx/store";
 import {
   ToggleProductVariationSelection,
   AddShoppingCartEntries,
-  AddNotification
+  AddNotification,
+  SetProductVariationQuantity
 } from "src/app/actions/actions";
 
 @Component({
@@ -56,6 +57,13 @@ export class ProductDetailsComponent implements OnInit {
       if (this.isProductVariationSelectionTogglable) {
         if (variation) {
           this.store.dispatch(
+            new SetProductVariationQuantity({
+              productId: this.product.id,
+              variant: variation,
+              quantity: 1
+            })
+          );
+          this.store.dispatch(
             new ToggleProductVariationSelection({
               productId: this.product.id,
               variant: variation
@@ -80,7 +88,7 @@ export class ProductDetailsComponent implements OnInit {
         this.store.dispatch(new AddShoppingCartEntries(entriesToAdd));
         this.store.dispatch(
           new AddNotification({
-            message: "✓ In Warenkorb hinzugefügt",
+            message: "In Warenkorb hinzugefügt",
             displayTime: "short"
           })
         );

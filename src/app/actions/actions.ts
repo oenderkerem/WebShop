@@ -12,6 +12,17 @@ export class SetAllProducts implements Action {
   constructor(public payload: Product[]) {}
 }
 
+export class SetProductVariationQuantity implements Action {
+  readonly type = "SET_VARIATION_QUANTITY";
+  constructor(
+    public payload: {
+      productId: string;
+      variant: ProductVariant;
+      quantity: number;
+    }
+  ) {}
+}
+
 export class IncrementProductVariationQuantity implements Action {
   readonly type = "INCREMENT_VARIATION_QUANTITY";
   constructor(
@@ -117,4 +128,5 @@ export type ProductAction =
   | SetProductVariationSelected
   | IncrementProductVariationQuantity
   | DecrementProductVariationQuantity
+  | SetProductVariationQuantity
   | ToggleProductDetailsComponent;
