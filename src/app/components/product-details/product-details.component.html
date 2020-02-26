@@ -11,31 +11,35 @@
         </div>
         <span>{{ product.shortDescription }}</span>
         <div *ngIf="product.longDescription">
-          <h3>Produktbeschreibung</h3>
-          <div id="description">
-            <p>
-              {{ product.longDescription }}
-            </p>
-          </div>
+          <app-accordeon title="Beschreibung">
+            <div id="description">
+              <p>
+                {{ product.longDescription }}
+              </p>
+            </div>
+          </app-accordeon>
         </div>
       </div>
       <div id="right">
-        <h3>Varianten wählen</h3>
-        <div *ngFor="let variation of product.variations">
-          <app-detailed-variation-item
-            class="product-variation-item"
-            [ngClass]="{ selected: variation.selected }"
-            [variationItem]="variation"
-            [productId]="product.id"
-            (click)="onDetailedVariationItemClick(variation)"
-          ></app-detailed-variation-item>
-        </div>
-        <div
-          (click)="onAddToCartButtonClicked()"
-          class="addToCartButton"
-          [ngClass]="{ deactivated: !selectedVariants.length > 0 }"
-        >
-          In den Warenkorb
+        <div id="options">
+          <app-accordeon title="Variante wählen">
+            <div *ngFor="let variation of product.variations">
+              <app-detailed-variation-item
+                class="product-variation-item"
+                [ngClass]="{ selected: variation.selected }"
+                [variationItem]="variation"
+                [productId]="product.id"
+                (click)="onDetailedVariationItemClick(variation)"
+              ></app-detailed-variation-item>
+            </div>
+            <div
+              (click)="onAddToCartButtonClicked()"
+              class="addToCartButton"
+              [ngClass]="{ deactivated: !selectedVariants.length > 0 }"
+            >
+              In den Warenkorb
+            </div>
+          </app-accordeon>
         </div>
       </div>
     </div>

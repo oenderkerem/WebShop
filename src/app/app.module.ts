@@ -36,6 +36,7 @@ import { DetailedVariationItemComponent } from "./components/product-details/det
 import { NotificationComponent } from "./components/notification/notification.component";
 import { ShoppingCartIconComponent } from './components/shopping-cart-icon/shopping-cart-icon.component';
 import { ProductImageBoxComponent } from './components/product-image-box/product-image-box.component';
+import { AccordeonComponent } from './components/accordeon/accordeon.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { ProductImageBoxComponent } from './components/product-image-box/product
     DetailedVariationItemComponent,
     NotificationComponent,
     ShoppingCartIconComponent,
-    ProductImageBoxComponent
+    ProductImageBoxComponent,
+    AccordeonComponent
   ],
   imports: [
     BrowserModule,

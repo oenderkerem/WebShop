@@ -1,0 +1,13 @@
+<div id="header">
+  <div
+    [ngClass]="{ unfolded: unfolded }"
+    id="toggleIcon"
+    (click)="toggle()"
+  ></div>
+  <h3 (click)="toggle()">{{ title }}</h3>
+</div>
+<div class="content">
+  <div [ngClass]="{ unfolded: unfolded }">
+    <ng-content></ng-content>
+  </div>
+</div>

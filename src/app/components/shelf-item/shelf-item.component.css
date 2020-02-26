@@ -32,3 +32,10 @@ app-product-details.open {
   opacity: 1;
   pointer-events: all;
 }
+
+app-product-image-box {
+  display: inline-block;
+  margin: 10px;
+  height: 150px;
+  width: 150px;
+}
