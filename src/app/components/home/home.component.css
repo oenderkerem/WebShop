@@ -6,10 +6,6 @@ section {
   padding: 50px;
 }
 
-h1 {
-  padding: 20px;
-}
-
 header {
   margin-top: var(--navigationHeight);
   background-color: rgb(104, 100, 100);
@@ -17,24 +13,31 @@ header {
   min-height: 100vh;
 }
 
+header section {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+
 #headerImage {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.085);
-  height: 180px;
-  width: 180px;
+  height: 150px;
+  width: 150px;
   padding: 20px;
   box-shadow: 0px 0px 20px 0px rgba(235, 230, 230, 0.25);
   overflow: visible;
   position: absolute;
-  bottom: 25%;
+  bottom: 20%;
   right: 120px;
 }
 
 #headerImage img {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
-  height: 110%;
+  height: 170px;
   transform: translate(-50%, -55%);
 }
 
@@ -44,14 +47,10 @@ header section {
   min-height: 100vh;
 }
 
-#headerText {
-  padding: 20px;
-}
-
 #shopButton {
-  box-shadow: 0px 2px 0px 0px rgba(255, 255, 255, 0.411);
+  display: inline-block;
   margin: 20px;
-  padding: 12px 14px;
+  padding: 14px 16px;
   border: 1px solid var(--textColorBright);
   color: var(--textColorBright);
   border-radius: 5px;
@@ -63,37 +62,31 @@ header section {
 }
 
 #shopButton:active {
-  box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.411);
   transform: translateY(2px);
 }
 
 #basicInfo {
+  background-image: url(../../../assets/img/whiteWood.jpg);
   position: relative;
   padding-top: var(--navigationHeight);
   padding-bottom: var(--navigationHeight);
-  background: linear-gradient(white, rgb(68, 111, 133));
-  min-height: 100vh;
   color: var(--textColorDark);
+  clip-path: polygon(
+    100% 0,
+    100% calc(100% - 8vw),
+    50% 100%,
+    0 calc(100% - 8vw),
+    0 0
+  );
 }
 
-.boxContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+#basicInfo .wrapper {
+  padding: 50px 0;
+}
+
+#basicInfo .wrapper div {
   padding: 20px;
-  margin: 10px 0;
-}
-
-.box {
-  max-width: 300px;
-  padding: 20px;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.container img {
-  max-width: 70%;
+  margin: 20px;
 }
 
 #scrollInfo {
@@ -108,23 +101,19 @@ header section {
   animation-timing-function: ease;
 }
 
-#personalMessage {
-  padding: 30px;
-}
-
 .signature {
-  padding: 23px;
-  font-size: 1.5rem;
+  margin: 25px;
+  font-size: 2rem;
 }
 
 #socialMediaContent {
+  min-height: 100vh;
   background-image: url(../../../assets/img/socialMediaBackground.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   display: grid;
   align-content: center;
-  margin-top: -3vw;
 }
 
 #socialMediaIconContainer {
@@ -136,30 +125,6 @@ header section {
 
 p {
   padding: 20px;
-  font-size: 1.1rem;
-}
-
-.productCategoryLinkList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
-}
-
-.productCategoryLink {
-  padding: 20px;
-  margin: 10px;
-  font-size: 1.25rem;
-  border: solid 1px var(--textColorDark);
-  display: inline-block;
-  border-radius: 15px;
-  background-color: rgba(177, 174, 174, 0.938);
-  transition: all 200ms ease-in-out;
-  min-width: 150px;
-}
-
-.productCategoryLink:hover {
-  background-color: rgb(153, 152, 152);
 }
 
 app-customer-comments {
@@ -187,9 +152,13 @@ app-social-media-icon-link:hover {
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 700px) {
   section {
     padding: 10px;
+  }
+
+  #headerImage {
+    display: none;
   }
 
   .container {

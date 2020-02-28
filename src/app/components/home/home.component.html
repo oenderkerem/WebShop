@@ -6,12 +6,7 @@
       </h1>
       <h3 class="brightText">Das Parfümeriehaus mit Stil und Qualität</h3>
     </div>
-    <div id="headerImage">
-      <img src="../../../assets/img/esansBottle.png" />
-    </div>
-    <a id="shopButton" routerLink="/fragrances"
-      ><div>Zu deinem Traumduft</div></a
-    >
+    <a id="shopButton" routerLink="/fragrances">Finde dein Traumduft</a>
     <a href="#basicInfo">
       <div id="scrollInfo">
         <div>
@@ -23,19 +18,17 @@
   </section>
 </header>
 <section id="basicInfo">
-  <h1>E99-EsAns Duftöle</h1>
-  <div class="boxContainer">
-    <div class="box">
-      Jeder E99-EsAns Duftöl wird in Handarbeit produziert und ist etwas
-      besonderes
-    </div>
-    <div class="box">
-      Wir verwenden natürliche Inhaltsstoffe aus ausgewählten Plantagen
-    </div>
-    <div class="box">
-      Kunst braucht Zeit. Dein E99-EsAns Duft hat eine lange Reifezeit hinter
-      sich.
-    </div>
+  <h2>E99-EsAns Duftöle</h2>
+  <div class="wrapper">
+    <h3>In <span class="bold">Handarbeit</span> produziert</h3>
+    <h3>
+      Wir verwenden <span class="bold"> natürliche Inhaltsstoffe </span> aus
+      ausgewählten Plantagen
+    </h3>
+    <h3>
+      Kunst braucht Zeit. Dein E99-EsAns Duft hat eine
+      <span class="bold"> lange Reifezeit</span> hinter sich.
+    </h3>
   </div>
   <div id="personalMessage">
     Dafür stehe ich mit meinem Namen
@@ -43,8 +36,8 @@
   </div>
 </section>
 <section>
-  <div class="container">
-    <h1>Hier findest du die passenden Duftöle</h1>
+  <div>
+    <h2>Hier findest du die passenden Duftöle</h2>
     <ul class="productCategoryLinkList">
       <a class="darkText" routerLink="/fragrances"
         ><li class="productCategoryLink">
@@ -70,7 +63,7 @@
   </div>
 </section>
 <section>
-  <div class="container">
+  <div>
     <h2>Kundenkommentare</h2>
     <div *ngIf="recommendations">
       <app-customer-comments
@@ -81,9 +74,9 @@
 </section>
 <section>
   <div class="container">
-    <h1>
+    <h2>
       Allgemeine Informationen zu Düften
-    </h1>
+    </h2>
     <h2>Duftintensität und Wirkung</h2>
     <p>
       Je nach Zusammensetzung des Duftes haben Parfüms unterschiedliche
@@ -119,7 +112,6 @@
   </div>
 </section>
 <div id="socialMediaContent">
-  <div class="clipPathRegion"></div>
   <section>
     <h1 class="brightText">Finde uns auf ...</h1>
     <div id="socialMediaIconContainer">
@@ -141,5 +133,4 @@
       ></app-social-media-icon-link>
     </div>
   </section>
-  <div class="clipPathRegion"></div>
 </div>
