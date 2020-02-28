@@ -1,10 +1,6 @@
 <div *ngIf="product" id="container" (click)="onItemClicked()">
-  <h3>{{ product.title }}</h3>
-  <img
-    *ngIf="!product.image"
-    src="../../../assets/img/esansBottles Kopie.png"
-  />
-  <img *ngIf="product.image" src="../../../assets/img/{{ product.image }}" />
+  <h2>{{ product.title }}</h2>
+  <app-product-image-box [product]="product"></app-product-image-box>
   <div>
     <p>{{ product.shortDescription }}</p>
   </div>

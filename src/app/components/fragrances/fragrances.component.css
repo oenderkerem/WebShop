@@ -1,18 +1,15 @@
+section {
+  padding-top: var(--navigationHeight);
+  background: linear-gradient(120deg, rgb(32, 47, 95), rgb(79, 107, 121));
+}
+
 h1 {
   text-align: center;
   color: var(--textColorBright);
-}
-
-section {
-  margin-top: var(--navigationHeight);
-  min-height: 100vh;
-  background-image: url("../../../assets/img/wood.jpeg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  padding: 30px;
 }
 
 .container {
-  background-color: rgba(43, 39, 39, 0.404);
+  height: 100vh;
+  overflow: scroll;
 }

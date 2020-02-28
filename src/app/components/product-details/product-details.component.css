@@ -40,7 +40,6 @@ app-product-image-box {
 
 #description {
   padding: 20px;
-  max-height: 150px;
   overflow: scroll;
 }
 
@@ -97,13 +96,25 @@ app-detailed-variation-item {
   }
 
   #body {
-    display: flex;
-    flex-direction: row;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    height: 100%;
+    width: 100%;
+  }
+
+  #left {
+    text-align: center;
+    height: 100%;
+    overflow: scroll;
   }
 
   #right {
+    justify-content: flex-end;
+    align-items: flex-end;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
   }
 }
