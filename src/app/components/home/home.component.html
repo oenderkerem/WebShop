@@ -1,10 +1,10 @@
 <header>
   <section>
     <div id="headerText">
-      <h1 class="brightText">
+      <h1>
         E99-EsAns
       </h1>
-      <h3 class="brightText">Das Parfümeriehaus mit Stil und Qualität</h3>
+      <h3>Das Parfümeriehaus mit Stil und Qualität</h3>
     </div>
     <a id="shopButton" routerLink="/fragrances">Finde dein Traumduft</a>
     <a href="#basicInfo">
@@ -20,49 +20,39 @@
 <section id="basicInfo">
   <h2>E99-EsAns Duftöle</h2>
   <div class="wrapper">
-    <h3>In <span class="bold">Handarbeit</span> produziert</h3>
-    <h3>
+    <h5>In <span class="bold">Handarbeit</span> produziert</h5>
+    <h5>
       Wir verwenden <span class="bold"> natürliche Inhaltsstoffe </span> aus
       ausgewählten Plantagen
-    </h3>
-    <h3>
+    </h5>
+    <h5>
       Kunst braucht Zeit. Dein E99-EsAns Duft hat eine
       <span class="bold"> lange Reifezeit</span> hinter sich.
-    </h3>
+    </h5>
   </div>
   <div id="personalMessage">
     Dafür stehe ich mit meinem Namen
     <div class="signature">Musab Karalı</div>
   </div>
 </section>
-<section>
+<section id="productCategories">
+  <h2>Hier findest du das passende Duftöl</h2>
   <div>
-    <h2>Hier findest du die passenden Duftöle</h2>
-    <ul class="productCategoryLinkList">
-      <a class="darkText" routerLink="/fragrances"
-        ><li class="productCategoryLink">
-          Alle Produkte
-        </li>
-      </a>
-      <a class="darkText" routerLink="/men"
-        ><li class="productCategoryLink ">
-          Für Männer
-        </li>
-      </a>
-      <a class="darkText" routerLink="/women"
-        ><li class="productCategoryLink ">
-          Für Frauen
-        </li>
-      </a>
-      <a class="darkText" routerLink="/unisex"
-        ><li class="productCategoryLink ">
-          Unisex
-        </li>
-      </a>
-    </ul>
+    <a class="productCategoryLink" routerLink="/fragrances">
+      Alle Produkte
+    </a>
+    <a class="productCategoryLink" routerLink="/men">
+      Für Männer
+    </a>
+    <a class="productCategoryLink" routerLink="/women">
+      Für Frauen
+    </a>
+    <a class="productCategoryLink" routerLink="/unisex">
+      Unisex
+    </a>
   </div>
 </section>
-<section>
+<section id="recommendations">
   <div>
     <h2>Kundenkommentare</h2>
     <div *ngIf="recommendations">
