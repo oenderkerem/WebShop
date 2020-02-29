@@ -1,15 +1,12 @@
-#container {
-  padding: 20px;
+h3 {
+  padding: 0 10px;
+  color: var(--textColorDark);
 }
 
-.variationContainer {
-  margin: 5px 0;
-}
-
-span {
-  display: inline-block;
-  padding: 10px;
-  margin: 0 5px;
+p {
+  color: var(--textColorDark);
+  padding: 0;
+  font-size: 1rem;
 }
 
 app-product-details {
@@ -34,8 +31,15 @@ app-product-details.open {
 }
 
 app-product-image-box {
+  border-radius: 3px 3px 0 0;
+  padding: 10px;
   display: inline-block;
-  margin: 10px;
   height: 150px;
-  width: 150px;
+  min-width: 150px;
+  width: 100%;
+  border: 0 0 0 1px solid rgb(138, 158, 172);
+}
+
+#description {
+  padding: 10px;
 }

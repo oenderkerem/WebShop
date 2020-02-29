@@ -8,29 +8,25 @@ header {
   margin-top: var(--navigationHeight);
   clip-path: polygon(100% 0, 100% 62vh, 90vw 82vh, 60vw 98vh, 0 100%, 0 0);
   min-height: 100vh;
-  background-image: url("../../../assets/img/esansBottles.png");
-  background-size: auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+}
+
+#headerText {
+  padding: 20px;
 }
 
 header h1,
 header h2,
 header h3 {
+  padding: 0;
   color: var(--textColorDark);
 }
 
-header h3 {
-  padding: 0;
-}
-
-#headerText {
-  min-height: 50vh;
+header .imageDiv {
+  padding: 20px;
 }
 
 header section {
-  background-color: rgba(0, 0, 0, 0.151);
+  background-color: rgba(0, 0, 0, 0.082);
 }
 
 header section {
@@ -49,7 +45,7 @@ header section {
 }
 
 #shopButton:hover {
-  box-shadow: 0 2px 3px 0 rgba(0, 70, 117, 0.623);
+  box-shadow: 0 2px 3px 0 rgba(0, 62, 104, 0.623);
 }
 
 #shopButton:active {
@@ -99,7 +95,8 @@ header section {
   font-size: 1.025rem;
 }
 
-#scrollInfo div {
+#scrollInfo {
+  font-size: 0.9rem;
   color: var(--textColorDark);
 }
 

@@ -8,11 +8,14 @@
 }
 
 app-shelf-item {
-  margin: 15px;
-  border-radius: 10px;
-  border: 1px solid var(--textColorDark);
+  margin: 10px;
+  border-radius: 3px;
   text-align: center;
   display: inline-block;
-  color: var(--textColorDark);
-  background-color: rgb(235, 235, 235);
+  color: var(--textColorBright);
+  background: linear-gradient(120deg, rgb(238, 238, 240), rgb(202, 216, 223));
+}
+
+app-shelf-item:hover {
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.671);
 }
