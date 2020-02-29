@@ -3,10 +3,6 @@
   color: var(--textColorDark);
 }
 
-section {
-  padding: 50px;
-}
-
 header {
   color: white;
   margin-top: var(--navigationHeight);
@@ -14,7 +10,7 @@ header {
   min-height: 100vh;
   background-image: url("../../../assets/img/esansBottles.png");
   background-size: auto;
-  background-position: bottom;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -22,19 +18,22 @@ header {
 header h1,
 header h2,
 header h3 {
-  color: white;
+  color: var(--textColorDark);
 }
 
 header h3 {
   padding: 0;
 }
 
-header section {
-  background-color: rgba(35, 36, 36, 0.342);
+#headerText {
+  min-height: 50vh;
 }
 
 header section {
-  clip-path: polygon(100% 0, 100% 62vh, 90vw 82vh, 60vw 95vh, 0 94vh, 0 0);
+  background-color: rgba(0, 0, 0, 0.151);
+}
+
+header section {
   min-height: 100vh;
 }
 
@@ -42,19 +41,19 @@ header section {
   display: inline-block;
   margin: 20px;
   padding: 14px 16px;
-  border: 1px solid var(--textColorBright);
+  border: 1px solid var(--textColorDark);
   border-radius: 5px;
   transition: all 100ms ease;
-  color: white;
+  color: var(--textColorDark);
   font-family: "Open Serif";
 }
 
 #shopButton:hover {
-  box-shadow: 0 2px 3px 0 rgba(238, 237, 237, 0.623);
+  box-shadow: 0 2px 3px 0 rgba(0, 70, 117, 0.623);
 }
 
 #shopButton:active {
-  box-shadow: 0 1px 1px 0 rgba(238, 237, 237, 0.623);
+  box-shadow: 0 1px 1px 0 rgba(0, 70, 117, 0.623);
   transform: translateY(2px);
 }
 
@@ -101,7 +100,7 @@ header section {
 }
 
 #scrollInfo div {
-  color: rgb(255, 255, 255);
+  color: var(--textColorDark);
 }
 
 .signature {

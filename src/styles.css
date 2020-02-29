@@ -14,7 +14,7 @@
 }
 
 :root {
-  --navigationBackGroundColor: rgba(214, 211, 211);
+  --navigationBackGroundColor: rgb(214, 211, 211);
   --navigationHeight: 80px;
   --socialMediaStickerBackGroundColor: rgba(255, 255, 255, 0.637);
   --socialMediaStickerBackGroundColorOnHover: rgba(255, 255, 255, 0.747);
@@ -39,7 +39,7 @@ html {
   display: inline-block;
   width: 15px;
   height: 3px;
-  background-color: var(--textColorBright);
+  background-color: var(--textColorDark);
   transform: rotate(-45deg);
 }
 
@@ -48,7 +48,7 @@ html {
   display: inline-block;
   width: 15px;
   height: 3px;
-  background-color: var(--textColorBright);
+  background-color: var(--textColorDark);
   transform: translateX(6px) rotate(45deg);
 }
 
