@@ -10,9 +10,13 @@ section {
 header {
   color: white;
   margin-top: var(--navigationHeight);
-  background-color: rgb(104, 100, 100);
   clip-path: polygon(100% 0, 100% 62vh, 90vw 82vh, 60vw 98vh, 0 100%, 0 0);
   min-height: 100vh;
+  background-image: url("../../../assets/img/esansBottles.png");
+  background-size: auto;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 header h1,
@@ -21,15 +25,15 @@ header h3 {
   color: white;
 }
 
-header section {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  align-items: center;
+header h3 {
+  padding: 0;
 }
 
 header section {
-  background: linear-gradient(120deg, rgb(32, 47, 95), rgb(82, 109, 122));
+  background-color: rgba(35, 36, 36, 0.342);
+}
+
+header section {
   clip-path: polygon(100% 0, 100% 62vh, 90vw 82vh, 60vw 95vh, 0 94vh, 0 0);
   min-height: 100vh;
 }
@@ -46,10 +50,11 @@ header section {
 }
 
 #shopButton:hover {
-  background-color: rgba(138, 133, 133, 0.103);
+  box-shadow: 0 2px 3px 0 rgba(238, 237, 237, 0.623);
 }
 
 #shopButton:active {
+  box-shadow: 0 1px 1px 0 rgba(238, 237, 237, 0.623);
   transform: translateY(2px);
 }
 
@@ -86,14 +91,17 @@ header section {
   position: absolute;
   bottom: 0;
   left: 50%;
-  padding: 50px;
+  padding: 45px;
   animation: scrollInfoJump 1200ms;
   animation-iteration-count: infinite;
   animation-timing-function: ease;
+  border-radius: 20px;
+  font-family: "Arima Madurai";
+  font-size: 1.025rem;
 }
 
 #scrollInfo div {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .signature {
