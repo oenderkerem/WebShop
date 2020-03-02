@@ -1,5 +1,7 @@
 <div class="container">
   <div *ngFor="let product of products">
-    <app-shelf-item [productId]="product.id"></app-shelf-item>
+    <a [routerLink]="['product/' + product.id]">
+      <app-shelf-item [productId]="product.id"></app-shelf-item>
+    </a>
   </div>
 </div>
