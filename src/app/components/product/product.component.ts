@@ -4,6 +4,7 @@ import { State } from "src/app/app.component";
 import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs";
 import { Product } from "src/app/models/models";
+import { Location } from "@angular/common";
 
 @Component({
   selector: "app-product",
@@ -11,7 +12,11 @@ import { Product } from "src/app/models/models";
   styleUrls: ["./product.component.css"]
 })
 export class ProductComponent implements OnInit {
-  constructor(private store: Store<State>, private route: ActivatedRoute) {}
+  constructor(
+    private store: Store<State>,
+    private route: ActivatedRoute,
+    private _location: Location
+  ) {}
   routeParameters: any;
   productId: string;
   product: Product;
@@ -59,5 +64,9 @@ export class ProductComponent implements OnInit {
 
   ngOnDestroy() {
     this.unsubscribeRouteParameters();
+  }
+
+  onBackButtonClick() {
+    this._location.back();
   }
 }

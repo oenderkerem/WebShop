@@ -1,7 +1,9 @@
-<p>product works!</p>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<div *ngIf="product">
+<div id="wrapper" *ngIf="product">
+  <button (click)="onBackButtonClick()">Back</button>
   <h1>{{ product.title }}</h1>
-  <h1>{{ product.shortDescription }}</h1>
-  <h1>{{ product.longDescription }}</h1>
+  <app-product-image-box [product]="product"></app-product-image-box>
+  <div id="productDescription">
+    <h3>{{ product.shortDescription }}</h3>
+    <p>{{ product.longDescription }}</p>
+  </div>
 </div>

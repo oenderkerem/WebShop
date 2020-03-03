@@ -1,0 +1,6 @@
+#wrapper {
+  text-align: center;
+  position: relative;
+  margin-top: var(--navigationHeight);
+  min-height: calc(100vh - var(--navigationHeight));
+}
