@@ -1,14 +1,7 @@
-<div *ngIf="product" (click)="onItemClicked()">
+<div *ngIf="product">
   <app-product-image-box [product]="product"></app-product-image-box>
   <h3>{{ product.title }}</h3>
   <div id="description">
     <p>{{ product.shortDescription }}</p>
   </div>
-
-  <app-product-details
-    [product]="product"
-    (click)="$event.stopPropagation()"
-    (closeHandler)="toggleDetailsView()"
-    [ngClass]="{ open: productDetailsVisible }"
-  ></app-product-details>
 </div>

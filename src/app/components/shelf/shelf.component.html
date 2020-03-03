@@ -1,6 +1,6 @@
 <div class="container">
   <div *ngFor="let product of products">
-    <a [routerLink]="['product/' + product.id]">
+    <a [routerLink]="['/product', product.id]">
       <app-shelf-item [productId]="product.id"></app-shelf-item>
     </a>
   </div>

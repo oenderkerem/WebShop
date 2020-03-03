@@ -34,10 +34,10 @@ import { CartItemComponent } from "./components/cart-item/cart-item.component";
 import { ProductDetailsComponent } from "./components/product-details/product-details.component";
 import { DetailedVariationItemComponent } from "./components/product-details/detailed-variation-item/detailed-variation-item.component";
 import { NotificationComponent } from "./components/notification/notification.component";
-import { ShoppingCartIconComponent } from './components/shopping-cart-icon/shopping-cart-icon.component';
-import { ProductImageBoxComponent } from './components/product-image-box/product-image-box.component';
-import { AccordeonComponent } from './components/accordeon/accordeon.component';
-import { ProductComponent } from './components/product/product.component';
+import { ShoppingCartIconComponent } from "./components/shopping-cart-icon/shopping-cart-icon.component";
+import { ProductImageBoxComponent } from "./components/product-image-box/product-image-box.component";
+import { AccordeonComponent } from "./components/accordeon/accordeon.component";
+import { ProductComponent } from "./components/product/product.component";
 
 @NgModule({
   declarations: [
@@ -70,7 +70,6 @@ import { ProductComponent } from './components/product/product.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({
       hamburgerReducer: hamburgerReducer,
@@ -78,7 +77,8 @@ import { ProductComponent } from './components/product/product.component';
       productsReducer: productsReducer,
       basicReducer: basicReducer,
       notificationReducer: notificationReducer
-    })
+    }),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

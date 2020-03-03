@@ -10,13 +10,13 @@ import { ProductComponent } from "./components/product/product.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "home", component: HomeComponent },
   { path: "products", component: FragrancesComponent },
   { path: "men", component: MenComponent },
   { path: "women", component: WomenComponent },
   { path: "unisex", component: UnisexComponent },
   { path: "about", component: AboutComponent },
-  { path: "product/:id", component: ProductComponent }
+  { path: "product/:id", component: ProductComponent },
+  { path: "**", component: HomeComponent }
 ];
 
 @NgModule({
