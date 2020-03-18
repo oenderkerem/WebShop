@@ -8,9 +8,9 @@
 }
 
 app-shelf-item {
+  padding: 5px;
   margin: 10px;
-  border-radius: 3px;
-  text-align: center;
+  border-radius: 5px;
   display: inline-block;
   color: var(--textColorBright);
   background: linear-gradient(120deg, rgb(238, 238, 240), rgb(202, 216, 223));

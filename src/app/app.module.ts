@@ -38,6 +38,8 @@ import { ShoppingCartIconComponent } from "./components/shopping-cart-icon/shopp
 import { ProductImageBoxComponent } from "./components/product-image-box/product-image-box.component";
 import { AccordeonComponent } from "./components/accordeon/accordeon.component";
 import { ProductComponent } from "./components/product/product.component";
+import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { ProductComponent } from "./components/product/product.component";
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    CommonModule,
+    FormsModule,
     StoreModule.forRoot({
       hamburgerReducer: hamburgerReducer,
       shoppingCartReducer: shoppingCartReducer,

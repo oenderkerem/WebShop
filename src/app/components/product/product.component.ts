@@ -17,6 +17,7 @@ export class ProductComponent implements OnInit {
     private route: ActivatedRoute,
     private _location: Location
   ) {}
+
   routeParameters: any;
   productId: string;
   product: Product;

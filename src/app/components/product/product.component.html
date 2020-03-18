@@ -1,5 +1,7 @@
 <div id="wrapper" *ngIf="product">
-  <button (click)="onBackButtonClick()">Back</button>
+  <div id="backButton" (click)="onBackButtonClick()">
+    <img src="../../../assets/img/icons/arrow_back-24px.svg" />
+  </div>
   <h1>{{ product.title }}</h1>
   <app-product-image-box [product]="product"></app-product-image-box>
   <div id="productDescription">
