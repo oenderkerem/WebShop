@@ -10,10 +10,114 @@
   height: 35px;
   position: fixed;
   top: calc(var(--navigationHeight) + 15px);
+  padding: 3px;
+  border-radius: 50%;
   left: 15px;
+  transition: all 200ms ease;
+}
+
+#backButton:hover {
+  background-color: var(--navigationBackGroundColor);
+  cursor: pointer;
 }
 
 #backButton img {
   width: 100%;
   height: 100%;
+}
+
+#options {
+  margin: 25px;
+}
+
+.images {
+  text-align: center;
+}
+
+#informationWrapper {
+  padding: 25px;
+}
+
+p {
+  padding: 15px;
+}
+
+#cartButton {
+  position: relative;
+  padding: 20px;
+  background-color: rgb(57, 102, 129);
+  border-radius: 5px;
+  margin: 5px;
+  text-align: center;
+  color: var(--textColorBright);
+  transition: all 200ms ease;
+}
+
+#cartButton.inActive {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+#cartButton:hover {
+  background-color: rgb(88, 129, 156);
+}
+
+#cartButton.inActive::before {
+  content: "Option wählen";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  align-content: center;
+  color: white;
+  background-color: rgb(71, 101, 121);
+  user-select: none;
+  pointer-events: none;
+  border-radius: 5px;
+}
+
+#cartButton:active {
+  transform: translateY(2px);
+}
+
+.optionButton {
+  margin: 5px;
+  padding: 20px;
+  align-content: center;
+  border-radius: 5px;
+  border: 1px solid gray;
+  display: flex;
+  justify-content: space-around;
+}
+
+.optionButton.selected {
+  border: 2px solid rgb(75, 119, 148);
+  padding: 19px;
+}
+
+@media only screen and (min-width: 700px) {
+  #wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #contentWrapper {
+    text-align: left;
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .images {
+    display: inline-block;
+    width: 350px;
+    padding: 25px;
+  }
+
+  #informationWrapper {
+    display: inline-block;
+    width: calc(100% - 300px);
+  }
 }

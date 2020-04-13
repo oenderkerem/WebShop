@@ -4,7 +4,7 @@ import {
   ShoppinCartState,
   ProductsState,
   BasicState,
-  NotificationState
+  NotificationState,
 } from "./reducer";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
@@ -23,7 +23,7 @@ export interface State {
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnInit {
   title = "WebShop";
@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
   loadProducts() {
     this.http
       .get("assets/products.json")
-      .subscribe(data => this.onProductsLoaded(data));
+      .subscribe((data) => this.onProductsLoaded(data));
   }
 
   onProductsLoaded(data: Object) {
@@ -58,11 +58,7 @@ export class AppComponent implements OnInit {
           variations[variant] = {
             ...variations[variant],
             id: variant.toString(),
-            selected:
-              variations[variant].selected === undefined
-                ? false
-                : variations[variant].selected,
-            quantity: 1
+            quantity: 1,
           };
         }
         return variations;
@@ -75,7 +71,7 @@ export class AppComponent implements OnInit {
         products[i] = {
           ...products[i],
           isProductDetailsOpen: false,
-          variations: setVariations(products[i].variations)
+          variations: setVariations(products[i].variations),
         };
       }
     }
@@ -84,14 +80,14 @@ export class AppComponent implements OnInit {
 
   setCart() {
     this.shoppingCartIsOpen = this.store.select(
-      state => state.shoppingCartReducer.CartIsOpen
+      (state) => state.shoppingCartReducer.CartIsOpen
     );
   }
 
   loadNotifications() {
     this.store
-      .select(state => state.notificationReducer.Notifications)
-      .subscribe(data => this.onNotificationsLoaded(data));
+      .select((state) => state.notificationReducer.Notifications)
+      .subscribe((data) => this.onNotificationsLoaded(data));
   }
 
   onNotificationsLoaded(notifications: Notification[]) {

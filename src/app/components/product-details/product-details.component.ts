@@ -6,13 +6,13 @@ import {
   ToggleProductVariationSelection,
   AddShoppingCartEntries,
   AddNotification,
-  SetProductVariationQuantity
+  SetProductVariationQuantity,
 } from "src/app/actions/actions";
 
 @Component({
   selector: "app-product-details",
   templateUrl: "./product-details.component.html",
-  styleUrls: ["./product-details.component.css"]
+  styleUrls: ["./product-details.component.css"],
 })
 export class ProductDetailsComponent implements OnInit {
   @Output() closeHandler = new EventEmitter();
@@ -24,18 +24,7 @@ export class ProductDetailsComponent implements OnInit {
   constructor(private store: Store<State>) {}
 
   ngOnInit() {
-    this.setSelectedVariants();
     this.setVariationItemTogglabitliy();
-  }
-
-  setSelectedVariants() {
-    if (this.product) {
-      if (this.product.variations) {
-        this.selectedVariants = this.product.variations.filter(
-          variant => variant.selected
-        );
-      }
-    }
   }
 
   setVariationItemTogglabitliy() {
@@ -60,13 +49,13 @@ export class ProductDetailsComponent implements OnInit {
             new SetProductVariationQuantity({
               productId: this.product.id,
               variant: variation,
-              quantity: 1
+              quantity: 1,
             })
           );
           this.store.dispatch(
             new ToggleProductVariationSelection({
               productId: this.product.id,
-              variant: variation
+              variant: variation,
             })
           );
         }
@@ -78,18 +67,18 @@ export class ProductDetailsComponent implements OnInit {
     if (this.product) {
       if (this.selectedVariants) {
         let entriesToAdd = [];
-        this.selectedVariants.forEach(variant =>
+        this.selectedVariants.forEach((variant) =>
           entriesToAdd.push({
             product: this.product,
             variation: variant,
-            amount: variant.quantity
+            amount: variant.quantity,
           })
         );
         this.store.dispatch(new AddShoppingCartEntries(entriesToAdd));
         this.store.dispatch(
           new AddNotification({
             message: "In Warenkorb hinzugefügt",
-            displayTime: "short"
+            displayTime: "short",
           })
         );
       }

@@ -13,7 +13,6 @@ export type ProductVariant = {
   id: string;
   option: string;
   price: number;
-  selected: boolean;
   quantity: number;
 };
 

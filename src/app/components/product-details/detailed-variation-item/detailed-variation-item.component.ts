@@ -5,13 +5,13 @@ import { State } from "src/app/app.component";
 import {
   DecrementProductVariationQuantity,
   IncrementProductVariationQuantity,
-  ToggleProductVariationSelection
+  ToggleProductVariationSelection,
 } from "src/app/actions/actions";
 
 @Component({
   selector: "app-detailed-variation-item",
   templateUrl: "./detailed-variation-item.component.html",
-  styleUrls: ["./detailed-variation-item.component.css"]
+  styleUrls: ["./detailed-variation-item.component.css"],
 })
 export class DetailedVariationItemComponent implements OnInit {
   @Input() variationItem: ProductVariant;
@@ -25,7 +25,7 @@ export class DetailedVariationItemComponent implements OnInit {
     this.store.dispatch(
       new IncrementProductVariationQuantity({
         productId: this.productId,
-        variant: this.variationItem
+        variant: this.variationItem,
       })
     );
   }
@@ -35,7 +35,7 @@ export class DetailedVariationItemComponent implements OnInit {
       this.store.dispatch(
         new DecrementProductVariationQuantity({
           productId: this.productId,
-          variant: this.variationItem
+          variant: this.variationItem,
         })
       );
     } else {
@@ -43,7 +43,7 @@ export class DetailedVariationItemComponent implements OnInit {
         this.store.dispatch(
           new ToggleProductVariationSelection({
             productId: this.productId,
-            variant: this.variationItem
+            variant: this.variationItem,
           })
         );
       }
@@ -52,6 +52,5 @@ export class DetailedVariationItemComponent implements OnInit {
 
   ngOnInit() {
     this.quantity = this.variationItem.quantity;
-    this.selected = this.variationItem.selected;
   }
 }

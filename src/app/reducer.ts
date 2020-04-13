@@ -2,7 +2,7 @@ import { Action } from "@ngrx/store";
 import {
   ProductAction,
   ShoppingCartAction,
-  NotificationAction
+  NotificationAction,
 } from "./actions/actions";
 import { Product, ShoppingCartEntry, Notification } from "./models/models";
 
@@ -39,17 +39,17 @@ export function hamburgerReducer(
     case "HAMBURGER_TOGGLE":
       return {
         ...state,
-        MenuIsOpen: !state.MenuIsOpen
+        MenuIsOpen: !state.MenuIsOpen,
       };
     case "HAMBURGER_CLOSE":
       return {
         ...state,
-        MenuIsOpen: false
+        MenuIsOpen: false,
       };
     case "HAMBURGER_OPEN":
       return {
         ...state,
-        MenuIsOpen: true
+        MenuIsOpen: true,
       };
     default:
       return state;
@@ -58,7 +58,7 @@ export function hamburgerReducer(
 
 export function basicReducer(
   state: BasicState = {
-    IsLoading: false
+    IsLoading: false,
   },
   action: Action
 ) {
@@ -66,12 +66,12 @@ export function basicReducer(
     case "SET_LOADING":
       return {
         ...state,
-        IsLoading: true
+        IsLoading: true,
       };
     case "UNSET_LOADING":
       return {
         ...state,
-        IsLoading: false
+        IsLoading: false,
       };
     default:
       return state;
@@ -86,27 +86,27 @@ export function shoppingCartReducer(
     case "CART_TOGGLE":
       return {
         ...state,
-        CartIsOpen: !state.CartIsOpen
+        CartIsOpen: !state.CartIsOpen,
       };
     case "CART_CLOSE":
       return {
         ...state,
-        CartIsOpen: false
+        CartIsOpen: false,
       };
     case "CART_ADD_ENTRIES":
       let newVariants = action.payload.filter(
-        entry =>
+        (entry) =>
           state.Entries.find(
-            value =>
+            (value) =>
               value.product.id === entry.product.id &&
               value.variation.option === entry.variation.option &&
               entry.variation.price === value.variation.price
           ) === undefined
       );
 
-      let existing = action.payload.filter(entry =>
+      let existing = action.payload.filter((entry) =>
         state.Entries.find(
-          value =>
+          (value) =>
             value.product.id === entry.product.id &&
             value.variation.option === entry.variation.option &&
             entry.variation.price === value.variation.price
@@ -114,7 +114,7 @@ export function shoppingCartReducer(
       );
       let addQuantities = (shoppingCartEntry: ShoppingCartEntry) => {
         let index = existing.findIndex(
-          value =>
+          (value) =>
             value.product.id === shoppingCartEntry.product.id &&
             value.variation.option === shoppingCartEntry.variation.option &&
             value.variation.price === shoppingCartEntry.variation.price
@@ -122,57 +122,57 @@ export function shoppingCartReducer(
         if (index >= 0) {
           return {
             ...shoppingCartEntry,
-            amount: existing[index].amount + shoppingCartEntry.amount
+            amount: existing[index].amount + shoppingCartEntry.amount,
           };
         } else {
           return {
-            ...shoppingCartEntry
+            ...shoppingCartEntry,
           };
         }
       };
 
       return {
         ...state,
-        Entries: state.Entries.map(entry => addQuantities(entry)).concat(
+        Entries: state.Entries.map((entry) => addQuantities(entry)).concat(
           newVariants
-        )
+        ),
       };
 
     case "CART_REMOVE_ENTRY":
       let entries = [
         ...state.Entries.filter(
-          entry =>
+          (entry) =>
             entry.product !== action.payload.product ||
             entry.variation !== action.payload.variation
-        )
+        ),
       ];
       return {
         ...state,
-        Entries: entries
+        Entries: entries,
       };
     case "CART_DECREMENT_AMOUNT":
       return {
         ...state,
         Entries: [
-          ...state.Entries.map(entry =>
+          ...state.Entries.map((entry) =>
             entry.product === action.payload.product &&
             entry.variation === action.payload.variation
               ? { ...entry, amount: entry.amount - 1 }
               : entry
-          )
-        ]
+          ),
+        ],
       };
     case "CART_INCREMENT_AMOUNT":
       return {
         ...state,
         Entries: [
-          ...state.Entries.map(entry =>
+          ...state.Entries.map((entry) =>
             entry.product === action.payload.product &&
             entry.variation === action.payload.variation
               ? { ...entry, amount: entry.amount + 1 }
               : entry
-          )
-        ]
+          ),
+        ],
       };
     default:
       return state;
@@ -187,108 +187,91 @@ export function productsReducer(
     case "SET_PRODUCTS":
       return {
         ...state,
-        Products: action.payload
+        Products: action.payload,
       };
 
     case "SET_PRODUCT_VARIATION_SELECTED": {
       return {
         ...state,
-        Products: state.Products.map(product =>
+        Products: state.Products.map((product) =>
           product.id === action.payload.productId
             ? {
                 ...product,
-                variations: product.variations.map(variation =>
+                variations: product.variations.map((variation) =>
                   variation.id === action.payload.id
                     ? { ...variation, selected: true }
                     : variation
-                )
+                ),
               }
             : product
-        )
-      };
-    }
-    case "TOGGLE_PRODUCT_VARIATION_SELECTION": {
-      return {
-        ...state,
-        Products: state.Products.map(product =>
-          product.id === action.payload.productId
-            ? {
-                ...product,
-                variations: product.variations.map(variation =>
-                  variation.id === action.payload.variant.id
-                    ? { ...variation, selected: !variation.selected }
-                    : variation
-                )
-              }
-            : product
-        )
+        ),
       };
     }
     case "TOGGLE_PRODUCT_DETAILS_COMPONENT": {
       return {
         ...state,
-        Products: state.Products.map(product =>
+        Products: state.Products.map((product) =>
           product.id === action.payload.productId
             ? {
                 ...product,
                 isProductDetailsOpen:
                   product.isProductDetailsOpen === undefined
                     ? true
-                    : !product.isProductDetailsOpen
+                    : !product.isProductDetailsOpen,
               }
             : product
-        )
+        ),
       };
     }
     case "SET_VARIATION_QUANTITY": {
       return {
         ...state,
-        Products: state.Products.map(product =>
+        Products: state.Products.map((product) =>
           product.id === action.payload.productId
             ? {
                 ...product,
-                variations: product.variations.map(variation =>
+                variations: product.variations.map((variation) =>
                   variation === action.payload.variant
                     ? { ...variation, quantity: action.payload.quantity }
                     : variation
-                )
+                ),
               }
             : product
-        )
+        ),
       };
     }
     case "INCREMENT_VARIATION_QUANTITY": {
       return {
         ...state,
-        Products: state.Products.map(product =>
+        Products: state.Products.map((product) =>
           product.id === action.payload.productId
             ? {
                 ...product,
-                variations: product.variations.map(variation =>
+                variations: product.variations.map((variation) =>
                   variation === action.payload.variant
                     ? { ...variation, quantity: variation.quantity + 1 }
                     : variation
-                )
+                ),
               }
             : product
-        )
+        ),
       };
     }
     case "DECREMENT_VARIATION_QUANTITY": {
       return {
         ...state,
-        Products: state.Products.map(product =>
+        Products: state.Products.map((product) =>
           product.id === action.payload.productId
             ? {
                 ...product,
-                variations: product.variations.map(variation =>
+                variations: product.variations.map((variation) =>
                   variation === action.payload.variant
                     ? { ...variation, quantity: variation.quantity - 1 }
                     : variation
-                )
+                ),
               }
             : product
-        )
+        ),
       };
     }
     default:
@@ -304,7 +287,7 @@ export function notificationReducer(
     case "ADD_NOTIFICATION": {
       return {
         ...state,
-        Notifications: state.Notifications.concat([action.payload])
+        Notifications: state.Notifications.concat([action.payload]),
       };
     }
     case "REMOVE_FIRST_NOTIFICATION": {
@@ -313,7 +296,7 @@ export function notificationReducer(
         Notifications:
           state.Notifications.length > 0
             ? state.Notifications.slice(1)
-            : state.Notifications
+            : state.Notifications,
       };
     }
     default: {
