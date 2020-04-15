@@ -26,16 +26,13 @@
   height: 100%;
 }
 
-#options {
-  margin: 25px;
-}
-
 .images {
   text-align: center;
+  padding: 0 25px;
 }
 
 #informationWrapper {
-  padding: 25px;
+  padding: 0 25px;
 }
 
 p {
@@ -44,18 +41,21 @@ p {
 
 #cartButton {
   position: relative;
-  padding: 20px;
+  padding: 15px;
   background-color: rgb(57, 102, 129);
   border-radius: 5px;
   margin: 5px;
   text-align: center;
   color: var(--textColorBright);
   transition: all 200ms ease;
+  user-select: none;
+  cursor: pointer;
 }
 
 #cartButton.inActive {
-  opacity: 0.5;
+  cursor: default;
   pointer-events: none;
+  transition: all 200ms ease;
 }
 
 #cartButton:hover {
@@ -67,12 +67,13 @@ p {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
+  height: calc(100% - 1px);
+  width: calc(100% - 1px);
   display: grid;
   align-content: center;
   color: white;
-  background-color: rgb(71, 101, 121);
+  border: 1px solid rgb(76, 129, 161);
+  background-color: rgb(123, 152, 170);
   user-select: none;
   pointer-events: none;
   border-radius: 5px;
@@ -84,20 +85,42 @@ p {
 
 .optionButton {
   margin: 5px;
-  padding: 20px;
+  padding: 15px;
   align-content: center;
   border-radius: 5px;
   border: 1px solid gray;
   display: flex;
   justify-content: space-around;
+  user-select: none;
+  transition: all 200ms ease;
+}
+
+.optionButton:hover {
+  border-color: rgb(75, 119, 148);
+  background-color: rgb(240, 240, 240);
+  cursor: pointer;
 }
 
 .optionButton.selected {
   border: 2px solid rgb(75, 119, 148);
-  padding: 19px;
+  background-color: rgb(240, 240, 240);
+  padding: 14px;
 }
 
-@media only screen and (min-width: 700px) {
+app-product-image-box {
+  display: inline-block;
+  padding: 30px;
+  background-color: rgb(235, 235, 235);
+  border-radius: 5px;
+  height: 300px;
+  width: 300px;
+}
+
+h3 {
+  padding: 5px;
+}
+
+@media only screen and (min-width: 750px) {
   #wrapper {
     display: flex;
     flex-direction: column;
@@ -112,12 +135,17 @@ p {
 
   .images {
     display: inline-block;
-    width: 350px;
-    padding: 25px;
+    width: 400px;
+    text-align: center;
+  }
+
+  app-product-image-box {
+    padding: 30px;
+    max-width: 350px;
   }
 
   #informationWrapper {
     display: inline-block;
-    width: calc(100% - 300px);
+    width: calc(100% - 350px);
   }
 }

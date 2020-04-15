@@ -8,8 +8,12 @@
       <app-product-image-box [product]="product"></app-product-image-box>
     </div>
     <div id="informationWrapper">
-      <h3>{{ product.shortDescription }}</h3>
-      <p>{{ product.longDescription }}</p>
+      <div *ngIf="product.shortDescription">
+        <h3>{{ product.shortDescription }}</h3>
+      </div>
+      <div *ngIf="product.longDescription">
+        <p>{{ product.longDescription }}</p>
+      </div>
       <div id="options">
         <div *ngIf="product.variations">
           <div *ngFor="let variation of product.variations">

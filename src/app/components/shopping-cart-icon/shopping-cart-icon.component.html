@@ -1,5 +1,7 @@
 <div id="wrapper">
-  <div [ngClass]="{ visible: isCartOpen }" id="closeIcon"></div>
+  <div [ngClass]="{ visible: isCartOpen }" id="subWrapper">
+    <div [ngClass]="{ visible: isCartOpen }" id="closeIcon"></div>
+  </div>
   <img
     [ngClass]="{ hidden: isCartOpen }"
     src="../../../assets/img/icons/shopping_cart-24px.svg"
