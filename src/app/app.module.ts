@@ -25,7 +25,7 @@ import {
   shoppingCartReducer,
   productsReducer,
   basicReducer,
-  notificationReducer
+  notificationReducer,
 } from "./reducer";
 import { ShelfComponent } from "./components/shelf/shelf.component";
 import { LoadingSignComponent } from "./components/loading-sign/loading-sign.component";
@@ -37,9 +37,10 @@ import { NotificationComponent } from "./components/notification/notification.co
 import { ShoppingCartIconComponent } from "./components/shopping-cart-icon/shopping-cart-icon.component";
 import { ProductImageBoxComponent } from "./components/product-image-box/product-image-box.component";
 import { AccordeonComponent } from "./components/accordeon/accordeon.component";
-import { ProductComponent } from "./components/product/product.component";
+import { ProductComponent } from "./product/product/product.component";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { ProductOptionsComponent } from "./product/product-options/product-options.component";
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { CommonModule } from "@angular/common";
     ShoppingCartIconComponent,
     ProductImageBoxComponent,
     AccordeonComponent,
-    ProductComponent
+    ProductComponent,
+    ProductOptionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,12 +82,12 @@ import { CommonModule } from "@angular/common";
       shoppingCartReducer: shoppingCartReducer,
       productsReducer: productsReducer,
       basicReducer: basicReducer,
-      notificationReducer: notificationReducer
+      notificationReducer: notificationReducer,
     }),
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor() {}

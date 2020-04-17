@@ -6,7 +6,7 @@ import { WomenComponent } from "./components/women/women.component";
 import { AboutComponent } from "./components/about/about.component";
 import { UnisexComponent } from "./components/unisex/unisex.component";
 import { FragrancesComponent } from "./components/fragrances/fragrances.component";
-import { ProductComponent } from "./components/product/product.component";
+import { ProductComponent } from "./product/product/product.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -16,11 +16,11 @@ const routes: Routes = [
   { path: "unisex", component: UnisexComponent },
   { path: "about", component: AboutComponent },
   { path: "product/:id", component: ProductComponent },
-  { path: "**", component: HomeComponent }
+  { path: "**", component: HomeComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

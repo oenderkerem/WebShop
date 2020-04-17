@@ -1,0 +1,76 @@
+#cartButton {
+  position: relative;
+  padding: 10px 15px;
+  background-color: rgb(57, 102, 129);
+  border-radius: 5px;
+  margin: 5px 0;
+  text-align: center;
+  color: var(--textColorBright);
+  transition: all 200ms ease;
+  user-select: none;
+  cursor: pointer;
+  width: 250px;
+  max-width: 100%;
+  display: inline-block;
+}
+
+#cartButton.inActive {
+  cursor: default;
+  pointer-events: none;
+  transition: all 200ms ease;
+}
+
+#cartButton:hover {
+  box-shadow: 0px 0px 2px 1px rgb(35, 38, 41);
+}
+
+#cartButton.inActive::before {
+  content: "Option wählen";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(100% - 2px);
+  width: calc(100% - 2px);
+  display: grid;
+  align-content: center;
+  color: white;
+  border: 1px solid rgb(76, 129, 161);
+  background-color: rgb(123, 152, 170);
+  user-select: none;
+  pointer-events: none;
+  border-radius: 5px;
+}
+
+#cartButton:active {
+  box-shadow: none;
+  transform: scale(0.985);
+}
+
+#options {
+  padding: 10px;
+}
+
+.optionButton {
+  margin: 5px 0;
+  padding: 10px 15px;
+  align-content: center;
+  border-radius: 5px;
+  border: 1px solid gray;
+  display: inline-block;
+  justify-content: space-around;
+  user-select: none;
+  width: 250px;
+  max-width: 100%;
+}
+
+.optionButton:hover {
+  border-color: rgb(75, 119, 148);
+  background-color: rgb(240, 240, 240);
+  cursor: pointer;
+}
+
+.optionButton.selected {
+  border: 2px solid rgb(75, 119, 148);
+  background-color: rgb(240, 240, 240);
+  padding: 9px 14px;
+}

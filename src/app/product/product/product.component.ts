@@ -85,7 +85,6 @@ export class ProductComponent implements OnInit {
           },
         ])
       );
-      this.selectedVariant = undefined;
       alert("In Warenkorb hinzugefügt");
     }
   }

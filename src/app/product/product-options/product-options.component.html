@@ -1,0 +1,23 @@
+<div *ngIf="product">
+  <div id="optionsContainer" *ngIf="product.variations">
+    <div *ngFor="let variation of product.variations">
+      <div
+        class="optionButton"
+        [ngClass]="{ selected: selectedVariant === variation }"
+        (click)="onVariationClicked(variation.id)"
+      >
+        <span>{{ variation.option }}</span>
+        <span>{{ variation.price }} € </span>
+      </div>
+    </div>
+    <!-- Cart Button -->
+    <div
+      id="cartButton"
+      [ngClass]="{ inActive: !selectedVariant }"
+      (click)="onCartButtonClicked()"
+    >
+      In den Warenkorb
+    </div>
+  </div>
+</div>
+<p>product-options works!</p>

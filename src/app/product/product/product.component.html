@@ -1,0 +1,57 @@
+<div id="main">
+  <div id="header">
+    <!-- Back Arrow -->
+    <div id="backButton" (click)="onBackButtonClick()">
+      <img src="../../../assets/img/icons/arrow_back-24px.svg" />
+    </div>
+    <!-- Title -->
+    <h1 *ngIf="product">{{ product.title }}</h1>
+  </div>
+  <div id="body" *ngIf="product">
+    <div id="left">
+      <!-- Image -->
+      <div class="images">
+        <app-product-image-box [product]="product"></app-product-image-box>
+      </div>
+      <!-- If the product has no longDescription following Items shall 
+            be displayed in the right Block
+      -->
+      <div *ngIf="product.longDescription">
+        <!-- Shortdescription -->
+        <div *ngIf="product.shortDescription">
+          <h3>{{ product.shortDescription }}</h3>
+        </div>
+        <!-- Options -->
+        <app-product-options
+          (onVariationClick)="onVariationClick($event)"
+          (onCartButtonClick)="onCartButtonClick($event)"
+          [product]="product"
+          [selectedVariant]="selectedVariant"
+        ></app-product-options>
+      </div>
+    </div>
+    <div id="right">
+      <!-- Following Items shall be displayed only
+            if the product has no longDescription
+          -->
+      <div *ngIf="!product.longDescription">
+        <!-- Options -->
+        <span>right</span>
+        <!-- Shortdescription -->
+        <div *ngIf="product.shortDescription">
+          <h3>{{ product.shortDescription }}</h3>
+        </div>
+        <app-product-options
+          (onVariationClick)="onVariationClick($event)"
+          (onCartButtonClick)="onCartButtonClick($event)"
+          [product]="product"
+          [selectedVariant]="selectedVariant"
+        ></app-product-options>
+      </div>
+      <!-- LongDescription -->
+      <div *ngIf="product.longDescription">
+        <p>{{ product.longDescription }}</p>
+      </div>
+    </div>
+  </div>
+</div>
