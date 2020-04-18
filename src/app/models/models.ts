@@ -14,6 +14,7 @@ export type ProductVariant = {
   option: string;
   price: number;
   quantity: number;
+  shippingCost: number;
 };
 
 export type ShoppingCartEntry = {

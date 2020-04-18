@@ -58,10 +58,10 @@
       (leftHandler)="onMessageBoxLeftClicked($event)"
       (rightHandler)="onMessageBoxRightClicked($event)"
       (closeHandler)="onMessageBoxCloseClicked($event)"
-      message="messageBoxText"
+      message="Der Artikel wurde erfolgreich in den Warenkorb gelegt"
       leftButtonText="Zum Warenkorb"
       rightButtonText="Weiter Einkaufen"
-      title="selectedVariant.option"
+      [title]="selectedVariant.option"
     ></app-message-box>
   </div>
 </div>

@@ -26,7 +26,11 @@ export class MessageBoxComponent implements OnInit {
     this.rightHandler.emit();
   }
 
-  onCloseButtonClicked() {
+  closeBox() {
     this.closeHandler.emit();
+  }
+
+  onCloseButtonClicked() {
+    this.closeBox();
   }
 }

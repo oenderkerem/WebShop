@@ -24,7 +24,6 @@ export class ProductComponent implements OnInit {
   product: Product;
 
   selectedVariant: ProductVariant;
-  messageBoxText = "";
   messageBoxVisible = false;
 
   ngOnInit() {
@@ -87,9 +86,6 @@ export class ProductComponent implements OnInit {
           },
         ])
       );
-      this.messageBoxText =
-        this.selectedVariant.option +
-        " wurde erfolgreich in den Warenkorb gelegt.";
       this.messageBoxVisible = true;
     }
   }
@@ -114,13 +110,8 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  /*
-  MessageBoxHandler
-*/
-
   closeMessageBox() {
     this.messageBoxVisible = false;
-    this.messageBoxText = "";
   }
 
   onMessageBoxCloseClicked() {
