@@ -64,7 +64,6 @@ import { MessageBoxComponent } from "./message-box/message-box.component";
     CartItemComponent,
     ProductDetailsComponent,
     DetailedVariationItemComponent,
-    NotificationComponent,
     ShoppingCartIconComponent,
     ProductImageBoxComponent,
     AccordeonComponent,
