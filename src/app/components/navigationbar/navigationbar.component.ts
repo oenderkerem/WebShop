@@ -6,14 +6,14 @@ import { State } from "src/app/app.component";
 @Component({
   selector: "app-navigationbar",
   templateUrl: "./navigationbar.component.html",
-  styleUrls: ["./navigationbar.component.css"]
+  styleUrls: ["./navigationbar.component.css"],
 })
 export class NavigationbarComponent implements OnInit {
   hamburgerClicked: Observable<boolean>;
 
   constructor(private store: Store<State>) {
     this.hamburgerClicked = this.store.select(
-      state => state.hamburgerReducer.MenuIsOpen
+      (state) => state.hamburgerReducer.MenuIsOpen
     );
   }
 
@@ -26,6 +26,7 @@ export class NavigationbarComponent implements OnInit {
 
   onLinkClick() {
     this.store.dispatch({ type: "HAMBURGER_CLOSE" });
+    this.store.dispatch({ type: "CART_CLOSE" });
   }
 
   onShoppingCartIconClicked() {

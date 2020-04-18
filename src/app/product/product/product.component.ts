@@ -119,8 +119,8 @@ export class ProductComponent implements OnInit {
   }
 
   onMessageBoxLeftClicked() {
-    this.closeMessageBox();
     this.store.dispatch({ type: "CART_OPEN" });
+    this.closeMessageBox();
   }
 
   onMessageBoxRightClicked() {
