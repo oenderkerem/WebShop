@@ -33,7 +33,6 @@ import { ShelfItemComponent } from "./components/shelf-item/shelf-item.component
 import { CartItemComponent } from "./components/cart-item/cart-item.component";
 import { ProductDetailsComponent } from "./components/product-details/product-details.component";
 import { DetailedVariationItemComponent } from "./components/product-details/detailed-variation-item/detailed-variation-item.component";
-import { NotificationComponent } from "./components/notification/notification.component";
 import { ShoppingCartIconComponent } from "./components/shopping-cart-icon/shopping-cart-icon.component";
 import { ProductImageBoxComponent } from "./components/product-image-box/product-image-box.component";
 import { AccordeonComponent } from "./components/accordeon/accordeon.component";
@@ -41,7 +40,7 @@ import { ProductComponent } from "./product/product/product.component";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { ProductOptionsComponent } from "./product/product-options/product-options.component";
-import { MessageBoxComponent } from './message-box/message-box.component';
+import { MessageBoxComponent } from "./message-box/message-box.component";
 
 @NgModule({
   declarations: [
