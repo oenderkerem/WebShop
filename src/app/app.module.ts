@@ -41,6 +41,7 @@ import { ProductComponent } from "./product/product/product.component";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { ProductOptionsComponent } from "./product/product-options/product-options.component";
+import { MessageBoxComponent } from './message-box/message-box.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { ProductOptionsComponent } from "./product/product-options/product-optio
     AccordeonComponent,
     ProductComponent,
     ProductOptionsComponent,
+    MessageBoxComponent,
   ],
   imports: [
     BrowserModule,

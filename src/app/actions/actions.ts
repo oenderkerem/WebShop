@@ -3,7 +3,7 @@ import {
   Product,
   ShoppingCartEntry,
   ProductVariant,
-  Notification
+  Notification,
 } from "../models/models";
 import { importExpr } from "@angular/compiler/src/output/output_ast";
 
@@ -87,6 +87,11 @@ export class ToggleShoppingCart implements Action {
   constructor() {}
 }
 
+export class OpenCart implements Action {
+  readonly type = "CART_OPEN";
+  constructor() {}
+}
+
 export class IncrementAmount implements Action {
   readonly type = "CART_INCREMENT_AMOUNT";
   constructor(public payload: ShoppingCartEntry) {}
@@ -118,6 +123,7 @@ export type ShoppingCartAction =
   | AddShoppingCartEntries
   | CloseShoppingCart
   | ToggleShoppingCart
+  | OpenCart
   | IncrementAmount
   | DecrementAmount
   | RemoveShoppingCartEntry;

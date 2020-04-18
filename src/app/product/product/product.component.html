@@ -36,7 +36,6 @@
           -->
       <div *ngIf="!product.longDescription">
         <!-- Options -->
-        <span>right</span>
         <!-- Shortdescription -->
         <div *ngIf="product.shortDescription">
           <h3>{{ product.shortDescription }}</h3>
@@ -53,5 +52,16 @@
         <p>{{ product.longDescription }}</p>
       </div>
     </div>
+    <app-message-box
+      *ngIf="selectedVariant"
+      [ngClass]="{ visible: messageBoxVisible }"
+      (leftHandler)="onMessageBoxLeftClicked($event)"
+      (rightHandler)="onMessageBoxRightClicked($event)"
+      (closeHandler)="onMessageBoxCloseClicked($event)"
+      message="messageBoxText"
+      leftButtonText="Zum Warenkorb"
+      rightButtonText="Weiter Einkaufen"
+      title="selectedVariant.option"
+    ></app-message-box>
   </div>
 </div>

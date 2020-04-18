@@ -24,6 +24,8 @@ export class ProductComponent implements OnInit {
   product: Product;
 
   selectedVariant: ProductVariant;
+  messageBoxText = "";
+  messageBoxVisible = false;
 
   ngOnInit() {
     this.setProduct();
@@ -85,7 +87,10 @@ export class ProductComponent implements OnInit {
           },
         ])
       );
-      alert("In Warenkorb hinzugefügt");
+      this.messageBoxText =
+        this.selectedVariant.option +
+        " wurde erfolgreich in den Warenkorb gelegt.";
+      this.messageBoxVisible = true;
     }
   }
 
@@ -107,5 +112,27 @@ export class ProductComponent implements OnInit {
         }
       }
     }
+  }
+
+  /*
+  MessageBoxHandler
+*/
+
+  closeMessageBox() {
+    this.messageBoxVisible = false;
+    this.messageBoxText = "";
+  }
+
+  onMessageBoxCloseClicked() {
+    this.closeMessageBox();
+  }
+
+  onMessageBoxLeftClicked() {
+    this.closeMessageBox();
+    this.store.dispatch({ type: "CART_OPEN" });
+  }
+
+  onMessageBoxRightClicked() {
+    this.closeMessageBox();
   }
 }

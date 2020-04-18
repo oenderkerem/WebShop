@@ -46,8 +46,8 @@
   transform: scale(0.985);
 }
 
-#options {
-  padding: 10px;
+#optionsContainer {
+  text-align: center;
 }
 
 .optionButton {
