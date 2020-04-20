@@ -4,22 +4,27 @@
     "title": "One",
     "variations": [
       {
+        "id": "0",
         "option": "100ml",
         "price": "12"
       },
       {
+        "id": "1",
         "option": "200ml",
         "price": "20"
       },
       {
+        "id": "2",
         "option": "500ml",
         "price": "60"
       },
       {
+        "id": "3",
         "option": "1000ml",
         "price": "100"
       },
       {
+        "id": "4",
         "option": "2l",
         "price": "100"
       }
@@ -34,10 +39,12 @@
     "title": "Two",
     "variations": [
       {
+        "id": "0",
         "option": "100ml",
         "price": "12"
       },
       {
+        "id": "1",
         "option": "200ml",
         "price": "20"
       }
@@ -52,10 +59,12 @@
     "title": "3",
     "variations": [
       {
+        "id": "0",
         "option": "100ml",
         "price": "12"
       },
       {
+        "id": "1",
         "option": "200ml",
         "price": "20"
       }
@@ -70,10 +79,12 @@
     "title": "Clean Water",
     "variations": [
       {
+        "id": "0",
         "option": "100ml",
         "price": "12"
       },
       {
+        "id": "1",
         "option": "200ml",
         "price": "20"
       }
@@ -86,10 +97,12 @@
     "title": "Tea Time",
     "variations": [
       {
+        "id": "0",
         "option": "100ml",
         "price": "12"
       },
       {
+        "id": "1",
         "option": "200ml",
         "price": "20"
       }
@@ -102,10 +115,12 @@
     "title": "Orient Express",
     "variations": [
       {
+        "id": "0",
         "option": "100ml",
         "price": "12"
       },
       {
+        "id": "1",
         "option": "200ml",
         "price": "20"
       }
@@ -118,6 +133,7 @@
     "title": "Moschus",
     "variations": [
       {
+        "id": "0",
         "option": "100ml",
         "price": "12"
       }
@@ -130,10 +146,12 @@
     "title": "Raspberry",
     "variations": [
       {
+        "id": "0",
         "option": "100ml",
         "price": "12"
       },
       {
+        "id": "1",
         "option": "200ml",
         "price": "20"
       }
@@ -146,10 +164,12 @@
     "title": "Turkisch Apple",
     "variations": [
       {
+        "id": "0",
         "option": "100ml",
         "price": "12"
       },
       {
+        "id": "1",
         "option": "200ml",
         "price": "20"
       }
@@ -164,10 +184,12 @@
     "title": "Brown Sugar",
     "variations": [
       {
+        "id": "0",
         "option": "100ml",
         "price": "18"
       },
       {
+        "id": "1",
         "option": "200ml",
         "price": "30"
       }
@@ -182,10 +204,12 @@
     "title": "Gold Honey",
     "variations": [
       {
+        "id": "0",
         "option": "100ml",
         "price": "22"
       },
       {
+        "id": "1",
         "option": "200ml",
         "price": "40"
       }
@@ -200,6 +224,7 @@
     "title": "Single One",
     "variations": [
       {
+        "id": "0",
         "option": "100ml",
         "price": "500"
       }

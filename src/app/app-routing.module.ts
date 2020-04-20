@@ -5,18 +5,44 @@ import { MenComponent } from "./components/men/men.component";
 import { WomenComponent } from "./components/women/women.component";
 import { AboutComponent } from "./components/about/about.component";
 import { UnisexComponent } from "./components/unisex/unisex.component";
-import { FragrancesComponent } from "./components/fragrances/fragrances.component";
 import { ProductComponent } from "./components/product/product/product.component";
+import { ProductCategoryComponent } from "./product-category/product-category.component";
+import { BasicShopComponent } from "./basic-shop/basic-shop.component";
+import { ProductCategoryOverviewComponent } from "./product-category-overview/product-category-overview.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "products", component: FragrancesComponent },
-  { path: "men", component: MenComponent },
-  { path: "women", component: WomenComponent },
-  { path: "unisex", component: UnisexComponent },
-  { path: "about", component: AboutComponent },
+  { path: "shop", component: BasicShopComponent },
   { path: "product/:id", component: ProductComponent },
-  { path: "**", component: HomeComponent },
+  {
+    path: "men",
+    component: MenComponent,
+    children: [
+      { path: "", component: ProductCategoryOverviewComponent },
+      { path: "oil", component: ProductCategoryComponent },
+      { path: "cologne", component: ProductCategoryComponent },
+    ],
+  },
+  {
+    path: "unisex",
+    component: UnisexComponent,
+    children: [
+      { path: "", component: ProductCategoryOverviewComponent },
+      { path: "oil", component: ProductCategoryComponent },
+      { path: "cologne", component: ProductCategoryComponent },
+    ],
+  },
+  {
+    path: "women",
+    component: WomenComponent,
+    children: [
+      { path: "", component: ProductCategoryOverviewComponent },
+      { path: "oil", component: ProductCategoryComponent },
+      { path: "cologne", component: ProductCategoryComponent },
+    ],
+  },
+  { path: "about", component: AboutComponent },
+  { path: "**", redirectTo: "" },
 ];
 
 @NgModule({

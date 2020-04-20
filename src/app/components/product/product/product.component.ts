@@ -17,8 +17,7 @@ export class ProductComponent implements OnInit {
   constructor(
     private store: Store<State>,
     private route: ActivatedRoute,
-    private _location: Location,
-    private productService: ProductService
+    private _location: Location
   ) {}
 
   routeParameters: any;
@@ -93,6 +92,7 @@ export class ProductComponent implements OnInit {
   }
 
   onVariationClick(id: string) {
+    console.log(`onVariationClick ${id}`);
     if (id != undefined) {
       if (this.product) {
         if (this.product.variations) {

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Product, ProductVariant } from "src/app/models/models";
+import { productsReducer } from "src/app/reducer";
 
 @Component({
   selector: "app-product-options",
@@ -15,6 +16,7 @@ export class ProductOptionsComponent implements OnInit {
   constructor() {}
 
   onVariationClicked(id: string) {
+    console.log(`child onVariationClicked ${id}`);
     this.onVariationClick.emit(id);
   }
 
@@ -22,5 +24,10 @@ export class ProductOptionsComponent implements OnInit {
     this.onCartButtonClick.emit();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("his.product");
+    console.log(this.product);
+    console.log("this.selectedVariant");
+    console.log(this.selectedVariant);
+  }
 }

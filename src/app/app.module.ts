@@ -40,6 +40,9 @@ import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { ProductOptionsComponent } from "./components/product/product-options/product-options.component";
 import { MessageBoxComponent } from "./components/message-box/message-box.component";
+import { ProductCategoryComponent } from './product-category/product-category.component';
+import { BasicShopComponent } from './basic-shop/basic-shop.component';
+import { ProductCategoryOverviewComponent } from './product-category-overview/product-category-overview.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +72,9 @@ import { MessageBoxComponent } from "./components/message-box/message-box.compon
     ProductComponent,
     ProductOptionsComponent,
     MessageBoxComponent,
+    ProductCategoryComponent,
+    BasicShopComponent,
+    ProductCategoryOverviewComponent,
   ],
   imports: [
     BrowserModule,
