@@ -5,7 +5,6 @@ import { Store } from "@ngrx/store";
 import {
   ToggleProductVariationSelection,
   AddShoppingCartEntries,
-  AddNotification,
   SetProductVariationQuantity,
 } from "src/app/actions/actions";
 
@@ -75,12 +74,6 @@ export class ProductDetailsComponent implements OnInit {
           })
         );
         this.store.dispatch(new AddShoppingCartEntries(entriesToAdd));
-        this.store.dispatch(
-          new AddNotification({
-            message: "In Warenkorb hinzugefügt",
-            displayTime: "short",
-          })
-        );
       }
     }
   }

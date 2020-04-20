@@ -9,8 +9,6 @@ import {
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-import { SetAllProducts, RemoveFirstNotification } from "./actions/actions";
-import { Product, ProductVariant, Notification } from "./models/models";
 
 export interface State {
   shoppingCartReducer: ShoppinCartState;
@@ -26,31 +24,31 @@ export interface State {
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnInit {
-  title = "WebShop";
+  title = "E99-EsAns Shop";
+
   shoppingCartIsOpen: Observable<boolean>;
-  notifications: Notification[];
-  shownNotification: Notification;
-  notificationState: "visible" | "hidden";
 
   ngOnInit() {
-    this.loadProducts();
+    // this.loadProducts();
     this.setCart();
-    this.loadNotifications();
   }
 
   constructor(private store: Store<State>, private http: HttpClient) {}
-
+  /*
   loadProducts() {
     this.http
       .get("assets/products.json")
       .subscribe((data) => this.onProductsLoaded(data));
   }
-
+*/
+  /*
   onProductsLoaded(data: Object) {
     let products = this.transformProducts(data as Product[]);
     this.store.dispatch(new SetAllProducts(products));
   }
+*/
 
+  /*
   transformProducts(products: Product[]): Product[] {
     let setVariations = (variations: ProductVariant[]) => {
       if (variations) {
@@ -77,42 +75,10 @@ export class AppComponent implements OnInit {
     }
     return products;
   }
-
+*/
   setCart() {
     this.shoppingCartIsOpen = this.store.select(
       (state) => state.shoppingCartReducer.CartIsOpen
     );
-  }
-
-  loadNotifications() {
-    this.store
-      .select((state) => state.notificationReducer.Notifications)
-      .subscribe((data) => this.onNotificationsLoaded(data));
-  }
-
-  onNotificationsLoaded(notifications: Notification[]) {
-    this.notifications = notifications;
-    this.showNotifications();
-  }
-
-  showNotifications() {
-    this.notificationState = "hidden";
-    if (this.notifications.length) {
-      this.shownNotification = this.notifications[0];
-      setTimeout(() => {
-        this.notificationState = "visible";
-        setTimeout(
-          () => {
-            this.notificationState = "hidden";
-            setTimeout(() => {
-              this.store.dispatch(new RemoveFirstNotification());
-            }, 200);
-          },
-          this.shownNotification.displayTime === "short" ? 1000 : 3000
-        );
-      }, 200);
-    } else {
-      this.shownNotification = undefined;
-    }
   }
 }

@@ -6,7 +6,7 @@ import { WomenComponent } from "./components/women/women.component";
 import { AboutComponent } from "./components/about/about.component";
 import { UnisexComponent } from "./components/unisex/unisex.component";
 import { FragrancesComponent } from "./components/fragrances/fragrances.component";
-import { ProductComponent } from "./product/product/product.component";
+import { ProductComponent } from "./components/product/product/product.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },

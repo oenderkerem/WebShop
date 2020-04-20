@@ -2,6 +2,10 @@
   margin-top: var(--navigationHeight);
 }
 
+h1 {
+  text-align: center;
+}
+
 a {
   display: grid;
   height: 100%;
@@ -10,15 +14,9 @@ a {
   justify-content: center;
 }
 
-#container {
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-
 .box {
-  height: calc(100vh - var(--navigationHeight));
+  height: 40vh;
   background-color: rgb(9, 58, 104);
-
   background: linear-gradient(45deg, rgb(9, 58, 104), rgb(166, 192, 197));
   display: block;
   color: white;
@@ -30,12 +28,5 @@ a {
   background: linear-gradient(to top left, rgb(7, 114, 91), rgb(166, 192, 197));
 }
 
-@media only screen and (max-width: 700px) {
-  #container {
-    grid-template-columns: 100%;
-  }
-
-  .box {
-    height: calc((100vh - var(--navigationHeight)) / 2);
-  }
+@media only screen and (min-width: 700px) {
 }

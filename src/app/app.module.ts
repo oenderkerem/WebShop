@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent, State } from "./app.component";
+import { AppComponent } from "./app.component";
 import { NavigationbarComponent } from "./components/navigationbar/navigationbar.component";
 import { HamburgerIconComponent } from "./components/hamburger-icon/hamburger-icon.component";
 
@@ -25,22 +25,21 @@ import {
   shoppingCartReducer,
   productsReducer,
   basicReducer,
-  notificationReducer,
 } from "./reducer";
 import { ShelfComponent } from "./components/shelf/shelf.component";
 import { LoadingSignComponent } from "./components/loading-sign/loading-sign.component";
 import { ShelfItemComponent } from "./components/shelf-item/shelf-item.component";
-import { CartItemComponent } from "./components/cart-item/cart-item.component";
+import { CartItemComponent } from "./components/cart/cart-item/cart-item.component";
 import { ProductDetailsComponent } from "./components/product-details/product-details.component";
 import { DetailedVariationItemComponent } from "./components/product-details/detailed-variation-item/detailed-variation-item.component";
 import { ShoppingCartIconComponent } from "./components/shopping-cart-icon/shopping-cart-icon.component";
 import { ProductImageBoxComponent } from "./components/product-image-box/product-image-box.component";
 import { AccordeonComponent } from "./components/accordeon/accordeon.component";
-import { ProductComponent } from "./product/product/product.component";
+import { ProductComponent } from "./components/product/product/product.component";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
-import { ProductOptionsComponent } from "./product/product-options/product-options.component";
-import { MessageBoxComponent } from "./message-box/message-box.component";
+import { ProductOptionsComponent } from "./components/product/product-options/product-options.component";
+import { MessageBoxComponent } from "./components/message-box/message-box.component";
 
 @NgModule({
   declarations: [
@@ -82,7 +81,6 @@ import { MessageBoxComponent } from "./message-box/message-box.component";
       shoppingCartReducer: shoppingCartReducer,
       productsReducer: productsReducer,
       basicReducer: basicReducer,
-      notificationReducer: notificationReducer,
     }),
     AppRoutingModule,
   ],
