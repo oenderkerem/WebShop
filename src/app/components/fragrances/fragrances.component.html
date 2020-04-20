@@ -1,6 +1,6 @@
 <section>
   <h1>Alle Produkte</h1>
   <div class="container">
-    <app-shelf [products]="products"></app-shelf>
+    <app-shelf *ngIf="products" [products]="products"></app-shelf>
   </div>
 </section>

@@ -9,66 +9,22 @@ import { State } from "src/app/app.component";
   styleUrls: ["./shelf-item.component.css"],
 })
 export class ShelfItemComponent implements OnInit {
-  @Input() productId: string;
-
-  product: Product;
-  lowestPrice: number;
-  productDetailsVisible: boolean;
-  selectedVariants: ProductVariant[];
-  isProductVariationSelectionTogglable: boolean = false;
-
+  @Input() product: Product;
+  minPrice: number = -1;
   constructor(private store: Store<State>) {}
 
   ngOnInit() {
-    this.setProduct();
+    this.setMinPrice();
   }
 
-  setProduct() {
-    this.store
-      .select((state) => state.productsReducer.Products)
-      .subscribe((data) => {
-        const index = data.findIndex(
-          (product) => product.id === this.productId
-        );
-        if (index > -1) {
-          this.product = data[index];
-          this.setLowestPrice();
-        }
-      });
-  }
-
-  setLowestPrice() {
+  setMinPrice() {
     if (this.product) {
-      if (this.product.variations) {
-        this.lowestPrice = this.getLowestPriceFromProductVariations(
-          this.product.variations
-        );
-      }
-    }
-  }
-
-  getLowestPriceFromProductVariations(
-    variations: ProductVariant[]
-  ): number | undefined {
-    if (variations) {
-      let minimum = variations[0] ? variations[0].price : undefined;
-      if (variations.length == 1) {
-        console.log(this.product.title);
-      }
-      for (let i = 1; i < variations.length; i++) {
-        if (variations[i]) {
-          if (minimum) {
-            if (minimum > variations[i].price) {
-              minimum = variations[i].price;
-            }
-          } else {
-            minimum = variations[i].price;
-          }
-        }
-      }
-      return minimum;
-    } else {
-      return undefined;
+      let min = -1;
+      this.product.variations.forEach((variation) => {
+        let price = variation.price;
+        min = min == -1 ? price : Number(min) < Number(price) ? min : price;
+      });
+      this.minPrice = min;
     }
   }
 }

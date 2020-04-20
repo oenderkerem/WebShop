@@ -1,13 +1,18 @@
 import { Action } from "@ngrx/store";
-import {
-  Product,
-  ShoppingCartEntry,
-  ProductVariant,
-  Notification,
-} from "../models/models";
+import { Product, ShoppingCartEntry, ProductVariant } from "../models/models";
 
 export class SetAllProducts implements Action {
   readonly type = "SET_PRODUCTS";
+  constructor(public payload: Product[]) {}
+}
+
+export class AddProduct implements Action {
+  readonly type = "ADD_PRODUCT";
+  constructor(public payload: Product) {}
+}
+
+export class AddProducts implements Action {
+  readonly type = "ADD_PRODUCTS";
   constructor(public payload: Product[]) {}
 }
 
@@ -58,15 +63,6 @@ export class SetProductVariationSelected implements Action {
     public payload: {
       productId: string;
       id: string;
-    }
-  ) {}
-}
-
-export class ToggleProductDetailsComponent implements Action {
-  readonly type = "TOGGLE_PRODUCT_DETAILS_COMPONENT";
-  constructor(
-    public payload: {
-      productId: string;
     }
   ) {}
 }
@@ -122,4 +118,5 @@ export type ProductAction =
   | IncrementProductVariationQuantity
   | DecrementProductVariationQuantity
   | SetProductVariationQuantity
-  | ToggleProductDetailsComponent;
+  | AddProduct
+  | AddProducts;

@@ -6,6 +6,7 @@ import { Observable } from "rxjs";
 import { Product, ProductVariant } from "src/app/models/models";
 import { Location } from "@angular/common";
 import { AddShoppingCartEntries } from "src/app/actions/actions";
+import { ProductService } from "src/app/product.service";
 
 @Component({
   selector: "app-product",
@@ -16,7 +17,8 @@ export class ProductComponent implements OnInit {
   constructor(
     private store: Store<State>,
     private route: ActivatedRoute,
-    private _location: Location
+    private _location: Location,
+    private productService: ProductService
   ) {}
 
   routeParameters: any;

@@ -190,6 +190,42 @@ export function productsReducer(
         ...state,
         Products: action.payload,
       };
+    case "ADD_PRODUCT":
+      return state.Products.find((product) => product.id === action.payload.id)
+        ? {
+            ...state,
+            Products: state.Products.map((product) =>
+              product.id === action.payload.id ? action.payload : product
+            ),
+          }
+        : {
+            ...state,
+            Products: [...state.Products, action.payload.id],
+          };
+    case "ADD_PRODUCTS":
+      let notExistingProducts = [];
+      //first identify products that are not already in state
+      action.payload.forEach((product) => {
+        if (!state.Products.find((p) => product.id == p.id)) {
+          notExistingProducts = [...notExistingProducts, product];
+        }
+      });
+      //then update the values of existent products in state inside map function and...
+      // ... add those that are new
+      return {
+        ...state,
+        Products: [
+          ...state.Products.map((product) => {
+            let index = action.payload.findIndex((p) => p.id == product.id);
+            if (index > -1) {
+              return action.payload[index];
+            } else {
+              return product;
+            }
+          }),
+          ...notExistingProducts,
+        ],
+      };
 
     case "SET_PRODUCT_VARIATION_SELECTED": {
       return {
@@ -203,22 +239,6 @@ export function productsReducer(
                     ? { ...variation, selected: true }
                     : variation
                 ),
-              }
-            : product
-        ),
-      };
-    }
-    case "TOGGLE_PRODUCT_DETAILS_COMPONENT": {
-      return {
-        ...state,
-        Products: state.Products.map((product) =>
-          product.id === action.payload.productId
-            ? {
-                ...product,
-                isProductDetailsOpen:
-                  product.isProductDetailsOpen === undefined
-                    ? true
-                    : !product.isProductDetailsOpen,
               }
             : product
         ),

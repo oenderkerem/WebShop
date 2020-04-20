@@ -2,7 +2,7 @@
   <app-product-image-box [product]="product"></app-product-image-box>
   <div id="description">
     <p class="bold">{{ product.title }}</p>
-    <div id="lowestPrice" *ngIf="lowestPrice">{{ lowestPrice }} €</div>
     <p>{{ product.shortDescription }}</p>
+    <span>ab {{ minPrice }}€</span>
   </div>
 </div>
