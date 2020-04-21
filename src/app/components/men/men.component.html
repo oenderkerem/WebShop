@@ -1,16 +1,18 @@
 <div id="main">
   <div id="container">
     <h1>Herrendüfte</h1>
-    <router-outlet></router-outlet>>
-    <div class="box">
-      <a routerLink="oil/">
-        E99-Esans Parfümöle
-      </a>
+    <div *ngIf="isOverviewVisible; else categorySelected">
+      <app-product-category-overview
+        (onCategoryClick)="onCategoryClicked($event)"
+        [categories]="categories"
+      ></app-product-category-overview>
     </div>
-    <div class="box">
-      <a routerLink="cologne">
-        E99-Esans Cologne
-      </a>
-    </div>
+    <ng-template #categorySelected>
+      <app-product-category></app-product-category>
+      <div (click)="onBackClicked()">Zuruck</div>
+      <div *ngFor="let product of productList">
+        <span>{{ product.title }}</span>
+      </div>
+    </ng-template>
   </div>
 </div>

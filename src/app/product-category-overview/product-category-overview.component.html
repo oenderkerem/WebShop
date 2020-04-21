@@ -1,1 +1,12 @@
 <p>product-category-overview works!</p>
+<div *ngIf="categories">
+  <div *ngFor="let category of categories; let i = index">
+    <div
+      *ngIf="category.description.length"
+      (click)="onCategoryClicked(i)"
+      class="box"
+    >
+      {{ category.description }}
+    </div>
+  </div>
+</div>
