@@ -2,9 +2,9 @@
   <app-hamburger-icon (click)="onHamburgerIconClick()"></app-hamburger-icon>
   <div id="Logo"><a (click)="onLinkClick()" routerLink="/">E99-EsAns</a></div>
   <ul [ngClass]="{ visible: hamburgerClicked | async }">
-    <li (click)="onLinkClick()"><a routerLink="/men">Herrendüfte</a></li>
-    <li (click)="onLinkClick()"><a routerLink="/women">Damendüfte</a></li>
-    <li (click)="onLinkClick()"><a routerLink="/unisex">Unisex</a></li>
+    <li (click)="onLinkClick()"><a routerLink="shop/men">Herrendüfte</a></li>
+    <li (click)="onLinkClick()"><a routerLink="shop/women">Damendüfte</a></li>
+    <li (click)="onLinkClick()"><a routerLink="shop/unisex">Unisex</a></li>
     <li (click)="onLinkClick()"><a routerLink="/about">About</a></li>
   </ul>
   <app-shopping-cart-icon

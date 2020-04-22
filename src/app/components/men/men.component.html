@@ -1,15 +1,12 @@
 <div id="main">
   <div id="container">
     <h1>Herrendüfte</h1>
-    <div *ngIf="isOverviewVisible; else categorySelected">
-      <app-product-category-overview
-        (onCategoryClick)="onCategoryClicked($event)"
-        [categories]="categories"
-      ></app-product-category-overview>
-    </div>
-    <ng-template #categorySelected>
-      <div (click)="onBackClicked()">Zuruck</div>
-      <app-product-category [productList]="productList"></app-product-category>
-    </ng-template>
+    <div></div>
+    <ng-template #categorySelected> </ng-template>
+    <!-- router outlet generieren und beim offnen der route auf categorie achten und entsprechend den content laden
+      die route allgemein definieren
+    -->
+    <div (click)="onBackClick()">Back</div>
+    <router-outlet></router-outlet>
   </div>
 </div>

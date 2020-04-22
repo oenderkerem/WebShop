@@ -3,6 +3,8 @@ import { Observable } from "rxjs";
 import { empty } from "rxjs";
 import { Product } from "src/app/models/models";
 import { ProductService } from "src/app/product.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Location } from "@angular/common";
 
 @Component({
   selector: "app-men",
@@ -16,21 +18,17 @@ export class MenComponent implements OnInit {
     { id: "oil", description: "E99-EsAns Parfümöle" },
     { id: "cologne", description: "E99-EsAns Cologne" },
   ];
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private _location: Location
+  ) {}
 
   ngOnInit() {}
 
-  onCologneClicked() {
-    this.productService
-      .getProductByGender("cologne", "men")
-      .subscribe((data) => {
-        this.productList = data.filter((product) => product.sex == "male");
-        this.isOverviewVisible = false;
-      });
-  }
-
-  onBackClicked() {
-    this.isOverviewVisible = true;
+  onBackClick() {
+    this._location.back();
   }
 
   onCategoryClicked(index: number) {
@@ -40,6 +38,7 @@ export class MenComponent implements OnInit {
         if (category) {
           this.setProductListByCategory(category);
           this.isOverviewVisible = false;
+          this.router.navigate([category], { relativeTo: this.route });
         }
       }
     }

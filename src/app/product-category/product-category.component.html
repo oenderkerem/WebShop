@@ -1,4 +1,5 @@
 <p>product-category works!</p>
+<div (click)="onBackClick()">Back</div>
 <div *ngIf="productList">
   <div *ngFor="let product of productList">
     <span>{{ product.title }}</span>

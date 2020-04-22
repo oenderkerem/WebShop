@@ -7,16 +7,18 @@ import { EventEmitter } from "@angular/core";
   styleUrls: ["./product-category-overview.component.css"],
 })
 export class ProductCategoryOverviewComponent implements OnInit {
-  @Input() categories: { id: string; description: string }[];
-  @Output() onCategoryClick = new EventEmitter<number>();
+  categories = [
+    { id: "oil", description: "E99-EsAns Duftoele" },
+    { id: "cologne", description: "E99-EsAns Cologne" },
+  ];
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    alert("categroy overview componetn");
+  }
 
   onCategoryClicked(index: number) {
-    if (index != undefined) {
-      this.onCategoryClick.emit(index);
-    }
+    alert(index);
   }
 }

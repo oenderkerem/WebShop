@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Product } from "../models/models";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Location } from "@angular/common";
 
 @Component({
   selector: "app-product-category",
@@ -7,9 +9,19 @@ import { Product } from "../models/models";
   styleUrls: ["./product-category.component.css"],
 })
 export class ProductCategoryComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private _location: Location
+  ) {}
 
-  @Input() productList: Product[];
+  productList: Product[] = [];
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.params.subscribe((params) => console.log(params));
+  }
+
+  onBackClick() {
+    this._location.back();
+  }
 }
