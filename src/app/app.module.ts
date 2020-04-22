@@ -28,7 +28,7 @@ import {
 } from "./reducer";
 import { ShelfComponent } from "./components/shelf/shelf.component";
 import { LoadingSignComponent } from "./components/loading-sign/loading-sign.component";
-import { ShelfItemComponent } from "./components/shelf-item/shelf-item.component";
+import { ShelfItemComponent } from "./components/shelf/shelf-item/shelf-item.component";
 import { CartItemComponent } from "./components/cart/cart-item/cart-item.component";
 import { ProductDetailsComponent } from "./components/product-details/product-details.component";
 import { DetailedVariationItemComponent } from "./components/product-details/detailed-variation-item/detailed-variation-item.component";
@@ -40,9 +40,9 @@ import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { ProductOptionsComponent } from "./components/product/product-options/product-options.component";
 import { MessageBoxComponent } from "./components/message-box/message-box.component";
-import { ProductCategoryComponent } from './product-category/product-category.component';
-import { BasicShopComponent } from './basic-shop/basic-shop.component';
-import { ProductCategoryOverviewComponent } from './product-category-overview/product-category-overview.component';
+import { ProductCategoryComponent } from "./product-category/product-category.component";
+import { BasicShopComponent } from "./basic-shop/basic-shop.component";
+import { ProductCategoryOverviewComponent } from "./product-category-overview/product-category-overview.component";
 
 @NgModule({
   declarations: [

@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
+import { Product } from "../models/models";
 
 @Component({
-  selector: 'app-product-category',
-  templateUrl: './product-category.component.html',
-  styleUrls: ['./product-category.component.css']
+  selector: "app-product-category",
+  templateUrl: "./product-category.component.html",
+  styleUrls: ["./product-category.component.css"],
 })
 export class ProductCategoryComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  @Input() productList: Product[];
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

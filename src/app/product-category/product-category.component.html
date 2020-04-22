@@ -1,1 +1,7 @@
 <p>product-category works!</p>
+<div *ngIf="productList">
+  <div *ngFor="let product of productList">
+    <span>{{ product.title }}</span>
+  </div>
+  <app-shelf [products]="productList"></app-shelf>
+</div>
