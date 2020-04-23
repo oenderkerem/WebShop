@@ -16,7 +16,10 @@ export class ProductService {
     return this.http.get<Product[]>("assets/products.json");
   }
 
-  getProductByGender(category: string, gender: string): Observable<Product[]> {
+  getProductsByCategoryAndGender(
+    category: string,
+    gender: string
+  ): Observable<Product[]> {
     let observables = this.getAllProducts();
     this.addProductsToStore(observables);
     return observables;

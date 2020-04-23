@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Product } from "../models/models";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
+import { ProductService } from "../product.service";
 
 @Component({
   selector: "app-product-category",
@@ -11,14 +12,26 @@ import { Location } from "@angular/common";
 export class ProductCategoryComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
-    private _location: Location
+    private _location: Location,
+    private productService: ProductService
   ) {}
 
   productList: Product[] = [];
 
   ngOnInit() {
-    this.route.params.subscribe((params) => console.log(params));
+    let category = this.route.snapshot.paramMap.get("category");
+    let gender = this.route.snapshot.paramMap.get("gender");
+    if (category.length && gender.length) {
+      this.loadData(gender, category);
+    }
+  }
+
+  loadData(gender: string, category: string) {
+    let products = this.productService.getProductsByCategoryAndGender(
+      gender,
+      category
+    );
+    products.subscribe((data) => (this.productList = data));
   }
 
   onBackClick() {

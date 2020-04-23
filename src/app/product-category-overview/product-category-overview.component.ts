@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output } from "@angular/core";
-import { EventEmitter } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-product-category-overview",
@@ -12,13 +12,15 @@ export class ProductCategoryOverviewComponent implements OnInit {
     { id: "cologne", description: "E99-EsAns Cologne" },
   ];
 
-  constructor() {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit() {
-    alert("categroy overview componetn");
-  }
+  ngOnInit() {}
 
   onCategoryClicked(index: number) {
-    alert(index);
+    if (index >= 0 && index < this.categories.length) {
+      this.router.navigate([this.categories[index].id], {
+        relativeTo: this.route,
+      });
+    }
   }
 }

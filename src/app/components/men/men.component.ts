@@ -55,7 +55,10 @@ export class MenComponent implements OnInit {
 
   getProductList(category: string): Observable<Product[]> {
     if (category) {
-      return this.productService.getProductByGender(category, "men");
+      return this.productService.getProductsByCategoryAndGender(
+        category,
+        "men"
+      );
     } else {
       return empty();
     }

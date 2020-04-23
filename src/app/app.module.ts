@@ -32,7 +32,7 @@ import { ShelfItemComponent } from "./components/shelf/shelf-item/shelf-item.com
 import { CartItemComponent } from "./components/cart/cart-item/cart-item.component";
 import { ProductDetailsComponent } from "./components/product-details/product-details.component";
 import { DetailedVariationItemComponent } from "./components/product-details/detailed-variation-item/detailed-variation-item.component";
-import { ShoppingCartIconComponent } from "./components/shopping-cart-icon/shopping-cart-icon.component";
+import { ShoppingCartIconComponent } from "./components/cart/shopping-cart-icon/shopping-cart-icon.component";
 import { ProductImageBoxComponent } from "./components/product/product-image-box/product-image-box.component";
 import { AccordeonComponent } from "./components/accordeon/accordeon.component";
 import { ProductComponent } from "./components/product/product/product.component";

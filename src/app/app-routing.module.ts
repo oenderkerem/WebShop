@@ -18,9 +18,8 @@ const routes: Routes = [
   {
     path: "shop/:gender",
     component: ProductCategoryOverviewComponent,
-    children: [{ path: "category", component: ProductCategoryComponent }],
   },
-
+  { path: "shop/:gender/:category", component: ProductCategoryComponent },
   { path: "product/:id", component: ProductComponent },
   { path: "about", component: AboutComponent },
   { path: "**", redirectTo: "" },

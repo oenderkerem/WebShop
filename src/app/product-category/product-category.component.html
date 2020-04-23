@@ -1,8 +1,6 @@
+<div style="margin-top: 100px;"></div>
 <p>product-category works!</p>
 <div (click)="onBackClick()">Back</div>
 <div *ngIf="productList">
-  <div *ngFor="let product of productList">
-    <span>{{ product.title }}</span>
-  </div>
   <app-shelf [products]="productList"></app-shelf>
 </div>
