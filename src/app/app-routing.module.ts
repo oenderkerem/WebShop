@@ -11,6 +11,7 @@ import { BasicShopComponent } from "./components/basic-shop/basic-shop.component
 import { ProductCategoryOverviewComponent } from "./product-category-overview/product-category-overview.component";
 import { CartComponent } from "./components/cart/cart.component";
 import { ShelfComponent } from "./components/shelf/shelf.component";
+import { CheckoutComponent } from "./components/checkout/checkout.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: "shop/:gender/:category", component: ProductCategoryComponent },
   { path: "product/:id", component: ProductComponent },
   { path: "about", component: AboutComponent },
+  { path: "checkout", component: CheckoutComponent },
   { path: "**", redirectTo: "" },
 ];
 

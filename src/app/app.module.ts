@@ -43,6 +43,7 @@ import { MessageBoxComponent } from "./components/message-box/message-box.compon
 import { ProductCategoryComponent } from "./product-category/product-category.component";
 import { BasicShopComponent } from "./components/basic-shop/basic-shop.component";
 import { ProductCategoryOverviewComponent } from "./product-category-overview/product-category-overview.component";
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { ProductCategoryOverviewComponent } from "./product-category-overview/pr
     ProductCategoryComponent,
     BasicShopComponent,
     ProductCategoryOverviewComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
