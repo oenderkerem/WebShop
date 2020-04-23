@@ -92,7 +92,6 @@ export class ProductComponent implements OnInit {
   }
 
   onVariationClick(id: string) {
-    console.log(`onVariationClick ${id}`);
     if (id != undefined) {
       if (this.product) {
         if (this.product.variations) {

@@ -16,7 +16,6 @@ export class ProductOptionsComponent implements OnInit {
   constructor() {}
 
   onVariationClicked(id: string) {
-    console.log(`child onVariationClicked ${id}`);
     this.onVariationClick.emit(id);
   }
 
@@ -24,10 +23,5 @@ export class ProductOptionsComponent implements OnInit {
     this.onCartButtonClick.emit();
   }
 
-  ngOnInit() {
-    console.log("his.product");
-    console.log(this.product);
-    console.log("this.selectedVariant");
-    console.log(this.selectedVariant);
-  }
+  ngOnInit() {}
 }
