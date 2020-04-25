@@ -1,19 +1,25 @@
-<div id="container">
-  <div id="left" (click)="onContainerClicked()"></div>
-  <div id="content">
-    <div id="top">
-      <h1 class="darkText">Warenkorb</h1>
-    </div>
-    <div id="middle">
-      <div class="entries">
-        <div *ngFor="let entry of productEntries">
-          <app-cart-item [entry]="entry"></app-cart-item>
-        </div>
+<div id="content">
+  <div id="top">
+    <h2 class="darkText">Warenkorb</h2>
+  </div>
+  <div *ngIf="productEntries.length" id="middle">
+    <div class="entries">
+      <div *ngFor="let entry of productEntries">
+        <app-cart-item [entry]="entry"></app-cart-item>
       </div>
     </div>
-    <div id="bottom">
-      <div>Summe {{ sumOfCart }} €</div>
-      <div (click)="onCheckoutButtonClick()">Zur Kasse</div>
+  </div>
+  <div id="bottom">
+    <div *ngIf="productEntries.length; else emptyCartBlock">
+      <div>Kostenloser Versand</div>
+      <div id="sum">Endbetrag {{ sumOfCart }} €</div>
+      <div class="btn" (click)="onCheckoutButtonClick()">Zur Kasse</div>
     </div>
+    <ng-template #emptyCartBlock>
+      <div>
+        <div>🙃</div>
+        Dein Warenkorb ist leer
+      </div>
+    </ng-template>
   </div>
 </div>

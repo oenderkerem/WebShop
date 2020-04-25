@@ -1,1 +1,9 @@
-<p>checkout works!</p>
+<div style="margin-top: 100px;">
+  <div *ngFor="let entry of shoppingCartEntries">
+    <div>
+      {{ entry.product.title }}
+      {{ entry.variation.price }}€
+      {{ entry.amount }}
+    </div>
+  </div>
+</div>

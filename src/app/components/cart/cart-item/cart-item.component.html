@@ -1,11 +1,20 @@
-<img *ngIf="!entry.product.image" src="../../../assets/img/esansBottle.png" />
-<img
-  *ngIf="entry.product.image"
-  src="../../../assets/img/{{ entry.product.image }}"
-/>
-{{ entry.product.title }}
-{{ entry.variation.option }}
-{{ entry.variation.price }}
-<div (click)="onDecrementClick()">-</div>
-{{ amount }}
-<div (click)="onIncrementClick()">+</div>
+<div id="container">
+  <div id="image">
+    <img
+      *ngIf="!entry.product.image"
+      src="../../../assets/img/esansBottle.png"
+    />
+    <img
+      *ngIf="entry.product.image"
+      src="../../../assets/img/{{ entry.product.image }}"
+    />
+  </div>
+  <div>
+    {{ entry.product.title }}
+  </div>
+  {{ entry.variation.option }}
+  {{ entry.variation.price }}
+  <div (click)="onDecrementClick()">-</div>
+  {{ amount }}
+  <div (click)="onIncrementClick()">+</div>
+</div>
