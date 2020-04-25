@@ -1,6 +1,6 @@
 * {
   text-align: center;
-  color: var(--textColorDark);
+  color: var(--primaryColor);
 }
 
 header {
@@ -18,7 +18,7 @@ header h1,
 header h2,
 header h3 {
   padding: 0;
-  color: var(--textColorDark);
+  color: var(--primaryColor);
 }
 
 header .imageDiv {
@@ -37,10 +37,10 @@ header section {
   display: inline-block;
   margin: 20px;
   padding: 14px 16px;
-  border: 1px solid var(--textColorDark);
+  border: 1px solid var(--primaryColor);
   border-radius: 5px;
   transition: all 100ms ease;
-  color: var(--textColorDark);
+  color: var(--primaryColor);
   font-family: "Open Serif";
 }
 
@@ -57,7 +57,7 @@ header section {
   position: relative;
   padding-top: var(--navigationHeight);
   padding-bottom: var(--navigationHeight);
-  color: var(--textColorDark);
+  color: var(--primaryColor);
   clip-path: polygon(
     100% 0,
     100% calc(100% - 8vw),
@@ -97,7 +97,7 @@ header section {
 
 #scrollInfo {
   font-size: 0.9rem;
-  color: var(--textColorDark);
+  color: var(--primaryColor);
 }
 
 .signature {
@@ -142,12 +142,12 @@ p {
 }
 
 .productCategoryLink {
-  color: var(--textColorDark);
+  color: var(--primaryColor);
   margin: 15px;
   min-width: 150px;
   padding: 18px;
   border-radius: 5px;
-  border: 1px solid var(--textColorDark);
+  border: 1px solid var(--primaryColor);
 }
 
 #recommendations {
@@ -155,7 +155,7 @@ p {
 }
 
 app-customer-comments {
-  color: var(--textColorDark);
+  color: var(--primaryColor);
 }
 
 app-social-media-icon-link {

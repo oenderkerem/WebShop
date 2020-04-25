@@ -15,12 +15,13 @@
 }
 
 :root {
+  --primaryColor: rgb(53, 89, 117);
+  --secondaryColor: rgb(163, 213, 241);
   --navigationBackGroundColor: rgb(214, 211, 211);
   --navigationHeight: 80px;
   --socialMediaStickerBackGroundColor: rgba(255, 255, 255, 0.637);
   --socialMediaStickerBackGroundColorOnHover: rgba(255, 255, 255, 0.747);
   --textColorBright: rgb(223, 213, 213);
-  --textColorDark: rgb(53, 89, 117);
   --textBackGroundBright: rgba(248, 248, 248, 0.774);
   --buttonBackGroundColor: rgb(224, 224, 224);
   --buttonBackGroundColorChecked: rgb(53, 89, 117);
@@ -40,7 +41,7 @@ html {
   display: inline-block;
   width: 15px;
   height: 3px;
-  background-color: var(--textColorDark);
+  background-color: var(--primaryColor);
   transform: rotate(-45deg);
 }
 
@@ -49,7 +50,7 @@ html {
   display: inline-block;
   width: 15px;
   height: 3px;
-  background-color: var(--textColorDark);
+  background-color: var(--primaryColor);
   transform: translateX(6px) rotate(45deg);
 }
 
@@ -106,7 +107,7 @@ p {
 }
 
 .darkText {
-  color: var(--textColorDark);
+  color: var(--primaryColor);
 }
 
 .gradient-dark {
@@ -128,7 +129,7 @@ app-footer {
     rgba(151, 150, 150, 0.856),
     var(--navigationBackGroundColor)
   );
-  color: var(--textColorDark);
+  color: var(--primaryColor);
   min-height: 30vh;
   padding: 50px;
   place-content: center;

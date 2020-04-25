@@ -64,7 +64,7 @@ app-product-image-box {
   content: "";
   height: 2px;
   width: 100%;
-  background-color: var(--textColorDark);
+  background-color: var(--primaryColor);
   position: absolute;
   top: 50%;
   left: 0;
@@ -79,7 +79,7 @@ app-product-image-box {
   position: absolute;
   top: 50%;
   left: 0;
-  background-color: var(--textColorDark);
+  background-color: var(--primaryColor);
   transform: rotate(-45deg);
 }
 

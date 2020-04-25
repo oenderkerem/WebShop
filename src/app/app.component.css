@@ -5,7 +5,7 @@ app-navigationbar {
   width: 100vw;
   height: var(--navigationHeight);
   background-color: var(--navigationBackGroundColor);
-  color: var(--textColorDark);
+  color: var(--primaryColor);
   z-index: 5;
 }
 

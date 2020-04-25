@@ -11,7 +11,11 @@
   </div>
   <div id="bottom">
     <div *ngIf="productEntries.length; else emptyCartBlock">
-      <div>Kostenloser Versand</div>
+      <h2>Gesamtsumme</h2>
+      <div>
+        <span>Zwischensumme</span><span>{{ sumOfCart }}</span>
+      </div>
+      <div><span>Versand</span><span>kostenlos</span></div>
       <div id="sum">Endbetrag {{ sumOfCart }} €</div>
       <div class="btn" (click)="onCheckoutButtonClick()">Zur Kasse</div>
     </div>
