@@ -1,5 +1,7 @@
-<p>basic-shop works!</p>
-
 <a style="display: block; margin-top: 100px;" routerLink="men">Men</a>
 <a routerLink="women">Damen</a>
 <a routerLink="unisex">Unisex</a>
+<h2>Alle Produkte</h2>
+<div *ngFor="let product of allProducts">
+  <h2>{{ product.title }}</h2>
+</div>

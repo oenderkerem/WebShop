@@ -11,20 +11,21 @@ type Recommendation = {
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.css"]
+  styleUrls: ["./home.component.css"],
 })
 export class HomeComponent implements OnInit {
   recommendations: Recommendation[];
+  testImages: Blob[];
 
   constructor(private http: HttpClient) {
     this.http
       .get("assets/userComments.json")
-      .subscribe(data => this.onRecommendationsLoaded(data));
+      .subscribe((data) => this.onRecommendationsLoaded(data));
   }
 
   ngOnInit() {}
 
-  onRecommendationsLoaded = function(data: Object) {
+  onRecommendationsLoaded = function (data: Object) {
     this.recommendations = data as Recommendation[];
   };
 }
