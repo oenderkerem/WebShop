@@ -6,7 +6,7 @@ import { State } from "./app.component";
 import { Store } from "@ngrx/store";
 import { AddProducts } from "./actions/actions";
 
-const apiUrl: string = "http://api.e99esans.de";
+const apiUrl: string = "https://api.e99esans.de";
 
 @Injectable({
   providedIn: "root",
