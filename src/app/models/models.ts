@@ -2,7 +2,6 @@ export type Product = {
   id: string;
   title: string;
   image: string;
-  variations: ProductVariant[];
   shortDescription: string;
   longDescription: string;
   sex: "male" | "female" | "unisex";
@@ -28,7 +27,8 @@ export type DetailedProductVariantItem = {
   selected: boolean;
 };
 
-export type Notification = {
-  message: string;
-  displayTime: "short" | "long";
+export type ProductCategory = {
+  id: number;
+  textInUrl: string;
+  displayText: string;
 };

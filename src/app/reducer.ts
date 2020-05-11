@@ -1,6 +1,6 @@
 import { Action } from "@ngrx/store";
 import { ProductAction, ShoppingCartAction } from "./actions/actions";
-import { Product, ShoppingCartEntry, Notification } from "./models/models";
+import { Product, ShoppingCartEntry } from "./models/models";
 
 //STATE DECLARATIONS
 
@@ -234,11 +234,6 @@ export function productsReducer(
           product.id === action.payload.productId
             ? {
                 ...product,
-                variations: product.variations.map((variation) =>
-                  variation.id === action.payload.id
-                    ? { ...variation, selected: true }
-                    : variation
-                ),
               }
             : product
         ),
@@ -251,11 +246,6 @@ export function productsReducer(
           product.id === action.payload.productId
             ? {
                 ...product,
-                variations: product.variations.map((variation) =>
-                  variation === action.payload.variant
-                    ? { ...variation, quantity: action.payload.quantity }
-                    : variation
-                ),
               }
             : product
         ),
@@ -268,11 +258,6 @@ export function productsReducer(
           product.id === action.payload.productId
             ? {
                 ...product,
-                variations: product.variations.map((variation) =>
-                  variation === action.payload.variant
-                    ? { ...variation, quantity: variation.quantity + 1 }
-                    : variation
-                ),
               }
             : product
         ),
@@ -285,11 +270,6 @@ export function productsReducer(
           product.id === action.payload.productId
             ? {
                 ...product,
-                variations: product.variations.map((variation) =>
-                  variation === action.payload.variant
-                    ? { ...variation, quantity: variation.quantity - 1 }
-                    : variation
-                ),
               }
             : product
         ),

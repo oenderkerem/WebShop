@@ -1,11 +1,11 @@
-<div style="margin-top: 100px;" *ngIf="categories">
+<div *ngIf="categories" style="margin-top: 100px;">
   <div *ngFor="let category of categories; let i = index">
     <div
-      *ngIf="category.description.length"
-      (click)="onCategoryClicked(i)"
+      *ngIf="category.displayText.length && category.textInUrl.length"
+      (click)="onCategoryClicked(category.id)"
       class="box"
     >
-      {{ category.description }}
+      {{ category.displayText }}
     </div>
   </div>
 </div>

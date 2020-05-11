@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Product } from "./models/models";
+import { Product, ProductCategory } from "./models/models";
 import { Observable } from "rxjs";
 import { State } from "./app.component";
 import { Store } from "@ngrx/store";
 import { AddProducts } from "./actions/actions";
 
-const apiUrl: string = "https://api.e99esans.de";
+const apiUrl: string = "http://api.e99esans.de";
 
 @Injectable({
   providedIn: "root",
@@ -14,6 +14,7 @@ const apiUrl: string = "https://api.e99esans.de";
 export class ProductService {
   constructor(private http: HttpClient, private store: Store<State>) {}
 
+  //@RequestMapping("/products")
   getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(apiUrl + "/products");
   }
@@ -27,11 +28,25 @@ export class ProductService {
     return observables;
   }
 
-  //@RequestMapping("/products")
   //@RequestMapping("/categories")
+  getProductCategories(): Observable<ProductCategory[]> {
+    return this.http.get<ProductCategory[]>(apiUrl + "/categories");
+  }
+
   // @GetMapping("/product/{productId}")
-  //@GetMapping("/product/{productId}/variations")
+  getProductById(id: string): Observable<Product> {
+    return this.http.get<Product>(apiUrl + "/product/" + id);
+  }
+
   //@GetMapping("/images/{productId}")
+  getProductImages(productId: string) {
+    return this.http.get(apiUrl + "/images/" + productId);
+  }
+
+  //@GetMapping("/product/{productId}/variations")
+  getProductVariations(productId) {
+    return this.http.get(apiUrl + "/product/" + productId + "/variations");
+  }
 
   //"/products/{category}/gender/{gender}"
   getProductsByCategoryAndGender(

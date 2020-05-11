@@ -20,10 +20,6 @@ export class ShelfItemComponent implements OnInit {
   setMinPrice() {
     if (this.product) {
       let min = -1;
-      this.product.variations.forEach((variation) => {
-        let price = variation.price;
-        min = min == -1 ? price : Number(min) < Number(price) ? min : price;
-      });
       this.minPrice = min;
     }
   }

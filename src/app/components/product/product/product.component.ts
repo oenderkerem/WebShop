@@ -93,21 +93,6 @@ export class ProductComponent implements OnInit {
 
   onVariationClick(id: string) {
     if (id != undefined) {
-      if (this.product) {
-        if (this.product.variations) {
-          let index = this.product.variations.findIndex(
-            (variation) => variation.id === id
-          );
-          if (index > -1) {
-            let productVariant = this.product.variations[index];
-            if (this.selectedVariant === productVariant) {
-              this.selectedVariant = undefined;
-            } else {
-              this.selectedVariant = productVariant;
-            }
-          }
-        }
-      }
     }
   }
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
+import { ProductService } from "../product.service";
+import { ProductCategory } from "../models/models";
 
 @Component({
   selector: "app-product-category-overview",
@@ -7,20 +9,28 @@ import { Router, ActivatedRoute } from "@angular/router";
   styleUrls: ["./product-category-overview.component.css"],
 })
 export class ProductCategoryOverviewComponent implements OnInit {
-  categories = [
-    { id: "oil", description: "E99-EsAns Duftoele" },
-    { id: "cologne", description: "E99-EsAns Cologne" },
-  ];
+  categories: ProductCategory[] = [];
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private productService: ProductService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.productService
+      .getProductCategories()
+      .subscribe((data) => (this.categories = data));
+  }
 
-  onCategoryClicked(index: number) {
-    if (index >= 0 && index < this.categories.length) {
-      this.router.navigate([this.categories[index].id], {
-        relativeTo: this.route,
-      });
+  onCategoryClicked(id: number) {
+    if (this.categories) {
+      let index = this.categories.findIndex((category) => category.id === id);
+      if (index >= 0) {
+        this.router.navigate([this.categories[index].textInUrl], {
+          relativeTo: this.route,
+        });
+      }
     }
   }
 }

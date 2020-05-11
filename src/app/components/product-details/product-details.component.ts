@@ -28,11 +28,6 @@ export class ProductDetailsComponent implements OnInit {
 
   setVariationItemTogglabitliy() {
     if (this.product) {
-      if (this.product.variations) {
-        if (this.product.variations.length > 1) {
-          this.isProductVariationSelectionTogglable = true;
-        }
-      }
     }
   }
 
