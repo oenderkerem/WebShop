@@ -15,7 +15,7 @@ import { UnisexComponent } from "./components/unisex/unisex.component";
 import { AboutComponent } from "./components/about/about.component";
 import { FragrancesComponent } from "./components/fragrances/fragrances.component";
 import { FooterComponent } from "./components/footer/footer.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { CustomerCommentComponent } from "./components/customer-comment/customer-comment.component";
 import { SocialMediaIconLinkComponent } from "./components/social-media-icon-link/social-media-icon-link.component";
 import { CustomerCommentsComponent } from "./components/customer-comments/customer-comments.component";
@@ -43,7 +43,16 @@ import { MessageBoxComponent } from "./components/message-box/message-box.compon
 import { ProductCategoryComponent } from "./product-category/product-category.component";
 import { BasicShopComponent } from "./components/basic-shop/basic-shop.component";
 import { ProductCategoryOverviewComponent } from "./product-category-overview/product-category-overview.component";
-import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CheckoutComponent } from "./components/checkout/checkout.component";
+import { APP_INITIALIZER } from "@angular/core";
+import { JsonAppConfigService } from "./json-app-config.service";
+import { AppConfig } from "src/config/app-config";
+
+function initializer(jsonAppConfigService: JsonAppConfigService) {
+  return () => {
+    return jsonAppConfigService.load();
+  };
+}
 
 @NgModule({
   declarations: [
@@ -92,7 +101,19 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     }),
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AppConfig,
+      deps: [HttpClient],
+      useExisting: JsonAppConfigService,
+    },
+    {
+      provide: APP_INITIALIZER,
+      deps: [JsonAppConfigService],
+      useFactory: initializer,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
