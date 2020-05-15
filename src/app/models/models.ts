@@ -1,15 +1,14 @@
 export type Product = {
-  id: string;
+  id: number;
   title: string;
-  image: string;
-  shortDescription: string;
-  longDescription: string;
-  sex: "male" | "female" | "unisex";
+  specialText: string;
+  descripion: string;
+  gender: "men" | "women" | "unisex";
 };
 
 export type ProductVariant = {
-  id: string;
-  option: string;
+  id: number;
+  text: string;
   price: number;
   quantity: number;
   shippingCost: number;

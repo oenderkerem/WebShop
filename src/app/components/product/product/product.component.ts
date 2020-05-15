@@ -8,6 +8,11 @@ import { Location } from "@angular/common";
 import { AddShoppingCartEntries } from "src/app/actions/actions";
 import { ProductService } from "src/app/product.service";
 
+export type ProductParameter = {
+  product: Product;
+  category: string;
+};
+
 @Component({
   selector: "app-product",
   templateUrl: "./product.component.html",
@@ -17,59 +22,49 @@ export class ProductComponent implements OnInit {
   constructor(
     private store: Store<State>,
     private route: ActivatedRoute,
-    private _location: Location
+    private _location: Location,
+    private productService: ProductService
   ) {}
 
-  routeParameters: any;
-  productId: string;
   product: Product;
-
+  variants: ProductVariant[] = [];
   selectedVariant: ProductVariant;
   messageBoxVisible = false;
+  productParameter: ProductParameter;
 
   ngOnInit() {
+    this.setParameter();
     this.setProduct();
+    this.setProductVariants();
+  }
+
+  setParameter() {
+    this.productParameter = history.state.data as ProductParameter;
+    console.log("setParameter:");
+    console.log(this.productParameter);
   }
 
   setProduct() {
-    this.setRouteParameters();
-    this.subscribeToParametersAndLoadProduct();
+    if (this.productParameter) {
+      if (this.productParameter.product) {
+        this.product = this.productParameter.product;
+      }
+    }
   }
 
-  subscribeToParametersAndLoadProduct() {
-    this.routeParameters.subscribe((params) => {
-      this.productId = params["id"];
-      this.loadProductFromId();
-    });
-  }
-
-  setRouteParameters() {
-    this.routeParameters = this.route.params;
-  }
-
-  loadProductFromId() {
-    this.store
-      .select((state) => state.productsReducer.Products)
-      .subscribe(
-        (products) =>
-          (this.product = products.find(
-            (product) => product.id === this.productId
-          ))
-      );
-  }
-
-  unsubscribeRouteParameters() {
-    this.routeParameters.unsubscribe();
-  }
-
-  getProductIdFromRoute() {
-    this.route.params.subscribe((params) => {
-      this.productId = params["id"];
-    });
-  }
-
-  ngOnDestroy() {
-    this.unsubscribeRouteParameters();
+  setProductVariants() {
+    if (this.product) {
+      if (this.productParameter) {
+        if (this.productParameter.category) {
+          this.productService
+            .getProductVariantsByCategory(
+              this.product.id,
+              this.productParameter.category
+            )
+            .subscribe((variants) => (this.variants = variants));
+        }
+      }
+    }
   }
 
   onBackButtonClick() {

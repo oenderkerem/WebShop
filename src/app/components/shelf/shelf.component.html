@@ -1,9 +1,10 @@
 <div class="container">
   <div *ngIf="products">
     <div *ngFor="let product of products">
-      <a [routerLink]="['/product', product.id]">
-        <app-shelf-item [product]="product"></app-shelf-item>
-      </a>
+      <app-shelf-item
+        (click)="onShelfItemClicked(product)"
+        [product]="product"
+      ></app-shelf-item>
     </div>
   </div>
 </div>

@@ -30,7 +30,6 @@ export class AppComponent implements OnInit {
   constructor(private store: Store<State>) {}
 
   ngOnInit() {
-    // this.loadProducts();
     this.setCart();
   }
 
