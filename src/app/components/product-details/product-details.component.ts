@@ -39,19 +39,6 @@ export class ProductDetailsComponent implements OnInit {
     if (this.product) {
       if (this.isProductVariationSelectionTogglable) {
         if (variation) {
-          this.store.dispatch(
-            new SetProductVariationQuantity({
-              productId: this.product.id,
-              variant: variation,
-              quantity: 1,
-            })
-          );
-          this.store.dispatch(
-            new ToggleProductVariationSelection({
-              productId: this.product.id,
-              variant: variation,
-            })
-          );
         }
       }
     }

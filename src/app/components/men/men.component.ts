@@ -46,10 +46,6 @@ export class MenComponent implements OnInit {
 
   setProductListByCategory(category: string) {
     if (category) {
-      this.getProductList(category).subscribe(
-        (data) =>
-          (this.productList = data.filter((product) => product.sex == "male"))
-      );
     }
   }
 

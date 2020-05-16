@@ -20,7 +20,7 @@ export class SetProductVariationQuantity implements Action {
   readonly type = "SET_VARIATION_QUANTITY";
   constructor(
     public payload: {
-      productId: string;
+      productId: number;
       variant: ProductVariant;
       quantity: number;
     }
@@ -31,7 +31,7 @@ export class IncrementProductVariationQuantity implements Action {
   readonly type = "INCREMENT_VARIATION_QUANTITY";
   constructor(
     public payload: {
-      productId: string;
+      productId: number;
       variant: ProductVariant;
     }
   ) {}
@@ -41,7 +41,7 @@ export class DecrementProductVariationQuantity implements Action {
   readonly type = "DECREMENT_VARIATION_QUANTITY";
   constructor(
     public payload: {
-      productId: string;
+      productId: number;
       variant: ProductVariant;
     }
   ) {}
@@ -51,7 +51,7 @@ export class ToggleProductVariationSelection implements Action {
   readonly type = "TOGGLE_PRODUCT_VARIATION_SELECTION";
   constructor(
     public payload: {
-      productId: string;
+      productId: number;
       variant: ProductVariant;
     }
   ) {}
@@ -61,7 +61,7 @@ export class SetProductVariationSelected implements Action {
   readonly type = "SET_PRODUCT_VARIATION_SELECTED";
   constructor(
     public payload: {
-      productId: string;
+      productId: number;
       id: string;
     }
   ) {}

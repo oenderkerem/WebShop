@@ -15,7 +15,7 @@ import {
 })
 export class DetailedVariationItemComponent implements OnInit {
   @Input() variationItem: ProductVariant;
-  @Input() productId: string;
+  @Input() productId: number;
   selected: boolean;
   quantity: number;
 

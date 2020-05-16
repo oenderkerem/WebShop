@@ -100,7 +100,7 @@ export function shoppingCartReducer(
           state.Entries.find(
             (value) =>
               value.product.id === entry.product.id &&
-              value.variation.option === entry.variation.option &&
+              value.variation.text === entry.variation.text &&
               entry.variation.price === value.variation.price
           ) === undefined
       );
@@ -109,7 +109,7 @@ export function shoppingCartReducer(
         state.Entries.find(
           (value) =>
             value.product.id === entry.product.id &&
-            value.variation.option === entry.variation.option &&
+            value.variation.text === entry.variation.text &&
             entry.variation.price === value.variation.price
         )
       );
@@ -117,7 +117,7 @@ export function shoppingCartReducer(
         let index = existing.findIndex(
           (value) =>
             value.product.id === shoppingCartEntry.product.id &&
-            value.variation.option === shoppingCartEntry.variation.option &&
+            value.variation.text === shoppingCartEntry.variation.text &&
             value.variation.price === shoppingCartEntry.variation.price
         );
         if (index >= 0) {
